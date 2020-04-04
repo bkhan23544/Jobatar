@@ -1,0 +1,15 @@
+export const favoriteConstants = {
+    FAVORITE_JOBS: 'favorite:jobs',
+    FAVORITE_JOB_ADD: 'favorite:job:add',
+    FAVORITE_JOB_REMOVE: 'favorite:job:remove',
+    FAVORITE_FREELANCERS: 'favorite:freelancer',
+    FAVORITE_FREELANCER_ADD: 'favorite:freelancer:add',
+    FAVORITE_FREELANCER_REMOVE: 'favorite:freelancer:remove',
+    FAVORITE_SERVICES: 'favorite:service',
+    FAVORITE_SERVICE_ADD: 'favorite:service:add',
+    FAVORITE_SERVICE_REMOVE: 'favorite:service:remove',
+    FAVORITE_CONNECTIONS: 'favorite:connections',
+    FAVORITE_CONNECTION_ADD: 'favorite:connections:add',
+    FAVORITE_CONNECTION_REMOVE: 'favorite:connections:remove',
+    FAVORITE_CLEAR: 'favorite:clear',
+};

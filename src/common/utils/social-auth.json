@@ -1,0 +1,15 @@
+{
+    "facebook": {
+        "clientID": "437675126924438",
+        "callbackURL": "https://staging.jobarter.com/api/auth/facebook/callback",
+        "profileURL": "https://graph.facebook.com/v2.5/me?fields=first_name,last_name,email"
+    },
+    "linkedin": {
+        "clientID": "78qc26nqs2n2bf",
+        "callbackURL": "http://localhost:4000/auth/google/callback"
+    },
+    "google": {
+        "clientID": "571301759754-bki9sc71hhi4427v5dur8gn94qnjf55l.apps.googleusercontent.com",
+        "callbackURL": "http://localhost:4000/auth/google/callback"
+    }
+}

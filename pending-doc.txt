@@ -1,0 +1,54 @@
+pending work:
+Dynamic Route
+Redux Study
+Apis Implementations
+
+
+sudo certbot --nginx -d admin.jobarter.com
+sudo certbot --nginx -d staging.jobarter.com
+sudo certbot --nginx -d api.jobarter.com
+
+sudo certbot --nginx -d api.chatdit.com
+sudo certbot --nginx -d admin.chatdit.com
+sudo certbot --nginx -d uploads.chatdit.com
+sudo certbot --nginx -d staging.chatdit.com
+
+
+2/8 comments
+
+    Job details – payment details - does not show
+
+    Job – send proposal – place a bid –
+    how would you like to pay for this job – change to – How would you like to get paid for this job?
+    How much would you like to pay for this job? – change to - How much would you like to get paid for this job?
+
+    We need to go over the workflow for my bids – we are supposed to put this under offers – jobs
+    Received job proposal – submit offer button – change to – Submit Counteroffer
+    Job proposal – message button- it opens to another
+
+    Job proposal – freelancer view – after the job provider submits a counter – the freelancer should just either accept or decline – please remove the submit counter offer button
+    Contracts – job – would you like to mark this timesheet as complete – change the label of the button from “submission” to “yes”
+    Contracts – job – duration – we need to put hours as measurement of duration
+    Contracts – job – timesheet details – duration and deadline does not appear
+    Contracts – job – when a job is moved here we should change the label from “Job proposal” to “Active Job”
+    Contracts – job – when a job is moved here we should change the label from “bidder info” to “Freelancer info”
+    Contracts – job – when a timesheet is submitted to the job provider – there is no button to approve it
+    Contracts – job – there is no button to mark the job contract as complete
+    Browse freelancers – freelancer profile – we need to add a button so that any member can invite a freelancer to bid on their posted jobs
+    Top header search bar – freelancers and cofounders not working when I perform a search
+    Top header search bar – please have the search label appear when selected – see screenshot – also make the font smaller
+    search bar.PNG
+    Messaging – after one day – instead of time stamp – we need to put the date
+    Drop down menu categories when you click on the image on upper right corner – Change the font from bold to regular and make the font a bit smaller
+
+    Homepage header- “HOW IT WORKS” – change from bold to regular
+
+    Browse for jobs- too much space for each posting – payment type – please move it on the first row after categories
+
+    Browse for jobs – job results – please make all the font smaller - specially the job title
+
+
+
+--------------
+8. Messaging – attachment still does not work
+==> Ganesh Sir

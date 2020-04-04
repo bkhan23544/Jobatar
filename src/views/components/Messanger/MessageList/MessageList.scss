@@ -1,0 +1,13 @@
+@import "../../../../sass/variables";
+.message-list-container {
+  padding: 10px 0px 10px 10px;
+  padding-bottom: 10px;
+  height: 478px;
+  .css-1qyrjaz {display: none;}
+  > div {scrollbar-color: $dark $gray-300; scrollbar-width: thin;
+    &::-webkit-scrollbar {width: 8px; background-color: $gray-300;} 
+    &::-webkit-scrollbar-thumb {background-color: $dark; border-radius:10px;}
+    &::-webkit-scrollbar-thumb:hover {background-color: $dark; border:1px solid $dark;}
+    &::-webkit-scrollbar-thumb:active {background-color: $dark; border:1px solid $dark;} 
+  }
+}

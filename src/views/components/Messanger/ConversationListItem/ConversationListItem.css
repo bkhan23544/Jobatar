@@ -1,0 +1,43 @@
+.conversation-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.conversation-list-item:hover {
+  background: #eeeef1;
+  cursor: pointer;
+}
+
+.conversation-list-item.active {
+  background: #eeeef1;
+}
+
+.conversation-list-item.unread .conversation-title {font-weight: 600}
+
+.conversation-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.conversation-info {
+  width: calc(100% - 40px);
+}
+
+.conversation-title {
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.conversation-snippet {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  width: 100%;
+  float: left;
+  line-height: 18px;
+}

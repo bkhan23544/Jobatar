@@ -1,0 +1,84 @@
+
+// Theme Color  
+$primary:       #454be9 !default; 
+$secondary:     #191B20 !default;
+$success:       #03c68e !default;
+$info:          #ff5851 !default;
+$warning:       #FBBB00 !default;
+$danger:        #c31818 !default;
+$dark:          #4A4A4A !default;
+$white:         #fff !default;
+$accept:        #f95530 !default;
+
+$custom-100:    #020202 !default;
+$custom-200:    #637282 !default;
+$body-bg:       #F1F2F8 !default;
+$gray-100:      #637282 !default;
+$gray-200:      #e9ecef !default;
+$gray-300:      #dee2e6 !default;
+$gray-400:      #ced4da !default;
+$gray-500:      #adb5bd !default;
+$gray-600:      #6c757d !default;
+$gray-700:      #495057 !default;
+$gray-800:      #343a40 !default;
+$gray-900:      #212529 !default;
+
+
+$black:         #000 !default;
+
+$blue:          #2129B7 !default;
+$purpul:        #834cb1 !default;
+//
+$turquoise-blue:#71ebb2 !default;
+$pink:          #f63869 !default;
+$instagram:     #d93175 !default;
+$google:     	#dc473a !default;
+$facebook:      #3b5998 !default;
+$youtube:       #fe0000 !default;
+$twitter:       #55acee !default;
+$pinterest-p:   #cb2027 !default;
+$behance:       #4176fa !default;
+$dribbble:      #f26798 !default;
+$linkedin:      #007ab9 !default;
+$dark-success:  #0dada1 !default;
+
+
+$theme-colors: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $gray-200,
+    "dark":       $dark,
+    "white":      $white,
+    "black":      $black,
+    "accept":     $accept,
+);
+
+
+///
+$input-border-color: #cdcdcd; // Form Control border color 
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-shadows:                              false !default;
+$enable-gradients:                            false !default;
+$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+$enable-responsive-font-sizes:                true !default;
+
+
+
+/// Custom color examples
+/*
+#242424   => rgba($black, 0.7)
+
+
+
+*/
+// Custom Variables
+$footer-bg:                 #323232 

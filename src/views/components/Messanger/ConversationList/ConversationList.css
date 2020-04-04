@@ -1,0 +1,26 @@
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 92px);
+}
+.search-toolbar {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  top: 0px;
+  padding-top: 10px;
+  
+}
+.search-toolbar .toolbar-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  padding-left: 13px;
+}
+
+.search-toolbar .right-items {
+  float: left;
+}
+.select-type {width: 120px;}
+.select-type .MuiSelect-selectMenu {font-size: 12px;}
+

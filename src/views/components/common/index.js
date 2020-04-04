@@ -1,0 +1,11 @@
+export { default as About } from './About';
+export { default as Media } from './Media';
+export { default as PressRelease } from './PressRelease';
+export { default as PressReleaseView } from './PressReleaseView';
+export { default as PrivacyPolicy } from './PrivacyPolicy';
+export { default as Testimonials } from './Testimonials';
+export { default as HowItWorks } from './HowItWorks';
+export { default as HelpAndFAQ } from './HelpAndFAQ';
+export { default as ContactUs } from './ContactUs';
+export { default as TermsOfService } from './TermsOfService';
+export { default as ComingSoon } from './ComingSoon';

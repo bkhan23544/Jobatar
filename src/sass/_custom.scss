@@ -1,0 +1,861 @@
+
+@include fontface(HKGrotesk, HKGrotesk-Light, 300, normal);
+@include fontface(HKGrotesk, HKGrotesk-LightItalic, 300, italic);  // Light
+
+@include fontface(HKGrotesk, HKGrotesk-Regular, normal, normal);
+@include fontface(HKGrotesk, HKGrotesk-Italic, normal, italic);  // Regular
+
+@include fontface(HKGrotesk, HKGrotesk-Medium, 500, normal);
+@include fontface(HKGrotesk, HKGrotesk-MediumItalic, 500, italic);  // Medium
+
+@include fontface(HKGrotesk, HKGrotesk-SemiBold, 600, normal);
+@include fontface(HKGrotesk, HKGrotesk-SemiBoldItalic, 600, italic);  // Semi Bold
+
+@include fontface(HKGrotesk, HKGrotesk-Bold, 700, normal);
+@include fontface(HKGrotesk, HKGrotesk-BoldItalic, 700, italic);  // Bold
+
+@include fontface(Bebas, BebasNeueRegular, 700, normal); // Hero Font
+
+.row.padding-5 {margin-left: -5px; margin-right: -5px;
+	[class*="col"] {padding-left: 5px; padding-right: 5px;}
+}
+
+button:focus {outline: none;}
+.btn {font-size: 12px;}
+h1, .h1 {font-size: 1.7rem;}
+.loader {position: absolute; left: 0px; border-radius: 0%; width: 100%; height: 100%; display: flex; top: 0px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.7);
+    span { position: absolute; display: inline-block; width: 50px; height: 50px; border-radius: 100%; background:rgba(135, 211, 124,1); -webkit-animation: loader3 1.5s linear infinite; animation: loader3 1.5s linear infinite;
+        &:last-child { animation-delay:-0.9s; -webkit-animation-delay:-0.9s;}
+    }
+ }
+ @keyframes loader3 {
+    0% {transform: scale(0, 0);opacity:0.8;}
+    100% {transform: scale(1, 1);opacity:0;}
+ }
+ @-webkit-keyframes loader3 {
+    0% {-webkit-transform: scale(0, 0);opacity:0.8;}
+    100% {-webkit-transform: scale(1, 1);opacity:0;}
+ }
+
+// Material Form Validation
+.MuiFormControl-root {
+	&.danger {
+		.MuiOutlinedInput-notchedOutline {border-color: $danger;}
+		.MuiFormLabel-root {color: $danger;}
+	}
+	&.success {
+		.MuiOutlinedInput-notchedOutline {border-color: $success;}
+		.MuiFormLabel-root {color: $success;}
+	}
+} // Material Form validation css end
+
+.select-outlined {border: 1px solid #ced4da !important; padding: 10px 26px 10px 12px !important; margin: 0px !important; border-radius: 4px !important;
+
+} // Select outline css end
+.MuiSwitch-colorPrimary.Mui-checked {color: $info !important;}
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {background-color: $info !important;}
+
+.lazy-load-image-background.blur {
+	filter: blur(15px);
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+	filter: blur(0);
+	transition: filter .3s;
+}
+
+.lazy-load-image-background.blur > img {
+	opacity: 0;
+}
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+	opacity: 1;
+	transition: opacity .3s;
+} // Lazy image load css end
+
+
+@media (min-width: 992px) {
+	.demo-model .modal-lg, .demo-model .modal-xl { max-width: 1240px; }
+}
+
+.e-input-group.multi-droupdown, .e-input-group.e-control-wrapper.multi-droupdown {border: 1px solid $gray-300 !important; background-color: $white; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; padding: 11px 15px; height: 50px; border-radius: 4px;
+	&.e-icon-anim {box-shadow: 0 0 0 0.2rem rgba(69, 75, 233, 0.25);}
+	.e-multi-select-wrapper {font-size: 14px; font-weight: 600; color: $gray-500;}
+	.e-multi-select-wrapper input[type='text']::placeholder {font-size: 14px; font-weight: 600; color: $gray-600;}
+}
+
+.form-calender {
+	.MuiInputBase-root {width: 100%; height: 54px; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #cdcdcd; border-radius: 0.25rem; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		&:focus, &.Mui-focused {color: #495057; background-color: #fff; border-color: #b7b9f6; outline: 0; box-shadow: 0 0 0 0.2rem rgba(69, 75, 233, 0.25);}
+		&:before {content: none;}
+		&:after {content: none;}
+	}
+}
+
+.radio-switch {position: relative; background-color: lighten($info, 2%); border-radius: 50px; padding: 2px;
+	.quality {position: relative; display: inline-block; width: 50%; height: 100%; line-height: 40px;
+		//&:first-child label {border-radius: 50px; }
+  		//&:last-child label {border-radius: 50px;}
+		label {position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; text-align: center; transition: transform 0.4s, color 0.4s, background-color 0.4s; font-weight: 500 !important; margin: 0px; font-size: 15px; color: lighten($white, 12%); border-radius: 50px;}
+		//input[type="radio"] {appearance: none; width: 0; height: 0; opacity: 0;
+		input[type="radio"] {width: 98%; height: 20px; opacity: 1; position: relative; z-index: 99; pointer-events: none; cursor: pointer; opacity: 0;
+			&:focus {outline: 0; outline-offset: 0;}
+			&:checked ~ label {background-color: $white; color: $gray-700;}
+			&:active ~ label {transform: scale(1);}
+		}
+
+	}
+    @media(max-width: 767px) {
+      .quality label {font-size: 13px;}
+      .quality {line-height: 32px;}
+    }
+} // Custom radio switch css end
+
+.custom-ui {background-color: $primary; color: $white; padding: 25px;
+	&.coFounder {position: relative; color: $dark; max-width: 460px; text-align: center; padding-top: 45px;
+		&:before {content: ""; width: calc(100% + 2px); height: 30px; position: absolute; left: -1px; top: -1px; background-color: $info;}
+		h5 {font-size: 16px; line-height: 27px; padding-bottom: 10px;}
+	}
+	.btn {padding: 8px 20px; font-weight: 600;}
+} // Custom Ui Dialog css end
+
+.peple-dialog {
+	&.question-dialog .MuiDialog-paperWidthSm {max-width: 600px; min-width: 443px;}
+	.MuiFormControlLabel-labelPlacementStart {margin-left: 0px;}
+	.MuiTypography-body1 {width: 255px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+	.MuiListItem-gutters {padding-left: 0px; padding-right: 0px;}
+	.MuiDialogTitle-root {border-bottom: 1px solid $gray-300;}
+	.MuiDialogContent-root {margin-top: -1px; position: relative; min-height: 300px; min-width: 390px; overflow: hidden;}
+	.peple-search {position: relative; max-width: 600px; z-index: 99; background-color: $white; margin-top: -17px; margin-bottom: 0px; margin-left: -24px; margin-right: -25px;
+		.input-group {border: 1px solid $gray-300; border-right: none;}
+		.MuiFormControl-root {margin: 0px; width: 320px;}
+		.PrivateNotchedOutline-root-202 {border: none;}
+		.MuiInputBase-input {padding: 15.5px 3px; height: 0.5em;}
+		.MuiOutlinedInput-notchedOutline {border: none; width: 265px;}
+	}
+	.question-list {list-style: none; margin-bottom: 0px; padding: 0px; line-height: 28px;
+
+	}
+} // Peple dialog css end
+
+.connection-dialog {
+	.MuiDialogContent-dividers {overflow-x: hidden; min-height: 300px;}
+	button {padding-top: 9px;}
+	.peple-search {position: relative; max-width: 600px; z-index: 99; background-color: $white; margin-top: -17px; margin-bottom: 0px; margin-left: -24px; margin-right: -24px;
+		.input-group {border: 1px solid $gray-300; border-right: none;}
+		.MuiFormControl-root {margin: 0px; width: 320px;}
+		.PrivateNotchedOutline-root-202 {border: none;}
+		.MuiInputBase-input {padding: 15.5px 3px; height: 0.5em;}
+		.MuiOutlinedInput-notchedOutline {border: none; width: 265px;}
+	}
+} // connection-dialog
+
+.multiple-select {
+	.multi__control {min-height: 50px; border-color: $gray-300;}
+	.multi__control--menu-is-open {min-height: 50px; border-color: #a7aaef; outline: 0; box-shadow: 0 0 0 0.2rem rgba(59, 66, 219, 0.25);}
+	&.is-invalid {
+		.multi__control {border-color: $danger;}
+		.invalid-feedback {display: block;}
+	}
+	&.country-code {
+		.css-1okebmr-indicatorSeparator {display: none;}
+		.multi__control {border-top-right-radius: 0px; border-bottom-right-radius: 0px; min-height: 54px; width: 130px;}
+		.css-tlfecz-indicatorContainer {padding: 0px;}
+		.multi__control--is-focused .multi__indicator {padding: 0px;}
+		.css-26l3qy-menu {width: 130px;}
+	}
+} // Multiple select css end
+
+.form-control.is-invalid, .was-validated .form-control:invalid {background-position: 98% calc(.375em + 0.8rem);}
+
+#alert-design {position: fixed; z-index: 9; right: 20px; bottom: 0px; display: none}
+
+.upload-all {height: 120px; border-radius: 4px;	border: 1px dashed $primary; position: relative; margin-bottom: 30px; z-index: 0;
+	.bg {width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; font-size: 2rem; color: $info; z-index: -1;
+		.fa-cloud-upload-alt {margin-top: -30px;}
+	}
+	.select-file {width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; font-size: 1.1rem; color: rgba($black, 0.7); z-index: 1;
+		.inner {padding-top: 60px;}
+		label {text-decoration: underline; font-size: 80%; cursor: pointer; }
+		[type="file"] {position: absolute; opacity: 0; pointer-events: none; width: 10px;}
+	}
+} // Common upload desig
+
+.app-loading {background-color: $info;}
+.app-loading {position: fixed; left: 0px; top: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; float: left; z-index: 99;}
+.loading {position: relative; z-index: 2; background: url('/images/loader.svg'); width: 100px; height: 100px;}
+
+.bg-body {background-color: #F1F2F8;}
+.badge:empty {display: none !important;}
+
+.form-control {height: 54px; font-size: 14px;}
+.text-light {color: $custom-200 !important;}
+.dropdown-menu {padding: 0px; border-radius: 0px;
+	> li > a {padding: 0.4rem 1rem;}
+	.dropdown-item:hover, .dropdown-item:focus {background-color: rgba($black, 0.1);}
+	.dropdown-item:active {color: darken($gray-900, 5%);}
+} // Dropdown menu css end
+
+.custom-control {padding-left: 1.8rem;}
+.custom-control-label:after {left: -1.7rem; width: 1.4rem; height: 1.4rem;}
+.custom-control-label:before {left: -1.7rem; width: 1.4rem; height: 1.4rem;}
+//.create-service label {font-weight: 400 !important;}
+
+.custom-card {border-radius: 0px; border: 1px solid rgba($black, 0.085); margin-bottom: 30px;
+	.card-body {padding: 25px}
+    @media(max-width: 767px) {margin-bottom: 10px;
+      .card-body {padding: 10px}
+    }
+} // Custom card css end
+
+.MuiInputLabel-formControl {background-color: $white; padding-left: 4px !important; padding-right: 4px !important;}
+
+h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 45px;
+	span {position: relative; padding-bottom: 15px;
+		&:before {content: ""; height: 2px; width: 60%; background-color: $info; position: absolute; bottom: 0px; left: 20%;}
+	}
+} // Common Heading
+
+.react-confirm-alert-body {text-align: center !important;
+	.react-confirm-alert-button-group {justify-content: center !important;
+		button {
+			&:first-child {background-color: $danger !important;}
+			&:last-child {background-color: $primary !important;}
+		}
+	}
+}
+
+#header {width: 100%; position: fixed; top: 0px; left: 0px; z-index: 99; font-size: 13px; background-color: $white;
+	.navbar {background-color: $white !important; box-shadow: 0px 4px 4px rgba($black, 0.1);}
+	.navbar-main {
+		.nav-link {color: #343434; padding-left: 12px; padding-right: 12px; font-weight: bold; text-transform: uppercase;
+			&:hover {color: $primary;}
+			&.active {color: $primary; font-weight: 600;}
+		}
+		.create {font-weight: 600; color: $primary;}
+	}
+	.dropdown-item {font-size: 14px; line-height: 20px;}
+	.navbar-profile {flex-direction: row;
+		.nav-link {position: relative; padding-left: 8px; padding-right: 8px;
+			> img {margin-top: 8px;}
+		}
+		.badge {position: absolute; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 10px; right: 0px;}
+		.btn {color: $white; text-transform: uppercase; font-size: 13px; font-weight: 600;}
+		.dropdown-item .badge {right: 3px; font-size: 12px; width: 25px; height: 25px; top: 3px; background-color: transparent; color: $warning; font-weight: 800;}
+	}
+	.form-inline {
+		.input-group {border: 1px solid $gray-400;
+			.form-control {height: 40px; border-radius: 0px; border-color: #E5E5E5; padding-left: 10px; padding-right: 35px; font-size: 14px; width: 320px; border-top: none; border-bottom: none;}
+			.input-group-text {background-color: transparent; border-color: transparent; position: relative; z-index: 9; top: 1px; left: 0px; padding: 2px 5px; border-right: 1px solid $gray-300;
+				.MuiInput-underline:before, .MuiInput-underline:after {border-bottom: none;}
+				.MuiSelect-selectMenu {font-size: 12px; font-weight: 500;}
+				.Mui-focused .MuiSelect-selectMenu {background-color: transparent;}
+				//.MuiSelect-select {padding-right: 0px; text-indent: 999px; width: 12px; text-overflow: clip;}
+				.MuiSelect-icon {right: -3px;}
+				.MuiSelect-selectMenu.MuiSelect-selectMenu span {}
+			}
+			.button {
+				button {min-width: 30px; position: absolute; right: 0px; top: 0px; z-index: 9; padding: 8px 8px;}
+			}
+		}
+	}
+	.dropdown-item.active, .dropdown-item:active {background-color: $primary; color: $white;}
+	.profile-dropdown {
+		.dropdown-toggle {padding-right: 0px;
+			&:after {content: none;}
+		}
+		.dropdown-item {font-weight: bold; cursor: pointer; border-bottom: 1px solid #ddd; padding: 7px 15px; position: relative;
+			.fas {margin-top: 5px; color: darken($gray-300, 10%);}
+		}
+		.dropdown-menu {left: auto; right: 0px; position: absolute;}
+		.dropdown {
+			&:hover .dropdown-menu {visibility: visible;}
+			.dropdown-menu {position: absolute; margin-right: 0px; right: 100%; top: 0px; display: block; visibility: hidden;
+				.dropdown-item {padding: 6px 12px; font-size: 13px; line-height: 20px; position: relative; border-bottom: none;
+					&:first-child {
+						&:before {content: ""; width: 10px; height: 10px; background-color: $white; position: absolute; right: -5px; transform: rotate(45deg); top: 12px; border-right: 1px solid #ddd; border-top: 1px solid #ddd; z-index: -1;}
+					}
+					&:hover {background-color: $primary; color: $white;
+						&:before {background-color: $primary; z-index: -1; border-right-color: $primary; border-top-color: $primary;}
+					}
+					&.active {
+						&:before {background-color: $primary; z-index: -1; border-right-color: $primary; border-top-color: $primary;}
+					}
+				}
+			}
+		}
+	}
+	.dropdown-toggle {cursor: pointer;
+		&:after {content: none;}
+	}
+	@media(max-width: 1199px) {
+		.navbar-main {flex-direction: column-reverse;}
+	}
+	@media(max-width: 991px) {
+		.form-inline {width: 300px;}
+		navbar-toggler {order: 3}
+	}
+	@media(max-width: 767px) {
+		.form-inline {display: none; }
+		.navbar-toggler {order: 3; padding: 1px 6px;}
+		.navbar-brand {margin-right: 4px;}
+		.navbar-profile {
+			.nav-link {padding-left: 4px; padding-right: 4px;
+				> img {width: 28px;}
+			}
+			.profile-dropdown {
+				.rounded-circle {width: 36px;}
+				.dropdown-menu {position: absolute;}
+			}
+
+		}
+	}
+	@media(max-width: 546px) {
+      .profile-dropdown .dropdown:hover .dropdown-menu {visibility: hidden;}
+      .profile-dropdown .dropdown .dropdown-menu .dropdown-item.active:before {background-color: transparent; border-color: transparent}
+      .navbar-profile .profile-dropdown .dropdown-menu {
+        .dropdown-menu.show {position: static; visibility: visible;}
+      }
+    }
+	@media(max-width: 360px) {
+		.navbar-brand img {width: 120px;}
+	}
+} // Header css end
+
+.dropdown-notification {
+    .scrolldiv .request {max-height: 220px; overflow-x: hidden; overflow-y: auto;}
+    .dropdown-toggle:after {content: none;}
+    .dropdown-menu {min-width: 330px; margin-top: 8px; border-radius: 2px; border: none; box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); left: auto !important; right: 0px; position: absolute;
+        .dropdown-arrow {position: absolute; bottom:100%; left: auto; right: -8px; overflow: hidden; height:22px; width:50px;
+            &:after {content:''; transform: rotate(45deg); background: $white; position: absolute; top: 16px; right: 15px; width: 25px;height: 25px; border-radius: .25rem; box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);}
+        }
+        .dropdown-header {border-bottom: 1px solid rgba(0,0,0,.1); padding: 8px 0px 6px; line-height: 22px;
+            .font-18 {font-size: 16px;}
+        }
+    }
+    .timeline {position: relative; padding: 0; list-style: none; padding-left: 0px;
+        .list-group {
+			.list-group-item {padding: 5px; cursor: pointer; line-height: 18px;
+				&:first-child {border-top: none;}
+				&:hover {background-color: lighten($gray-300, 7%) !important;}
+				.image {margin-right: 6px; width: 40px; float: left;}
+				.caption {width: calc(100% - 0px); font-size: 12px}
+				.text {font-size: 11px; font-weight: 500;}
+			}
+		}
+	}
+	.scroller {max-height: 200px; min-height: 200px;}
+    .scroll {height: 100%; max-height: 200px; overflow: auto;}
+    @media(max-width: 600px) {
+      .dropdown-menu {min-width: 310px; right: -133px;
+        .dropdown-arrow {right: 128px;}
+      }
+    }
+    /*@media(max-width: 419px) {
+        .dropdown-menu {min-width: 320px; right: -60px;
+            .dropdown-arrow {right: 49px;}
+        }
+        app-notification {
+            .dropdown-menu {right: -112px;
+                .dropdown-arrow {right: 95px;}
+            }
+        }
+    }*/
+} // Notification dropdown css end
+
+#footer {width: 100%; float: left; background-color: lighten($footer-bg, 0%); color: $white;
+	h4 {font-size: 16px;}
+	.menus {padding: 40px 0px 10px 0px; border-bottom: 1px solid #707070;
+		ul {line-height: 30px; font-size: 14px;
+			a {color: rgba($white, 0.9);}
+			a:hover, a:focus {text-decoration: none; color: $info;}
+		}
+	}
+	.input-group {
+		.form-control {background-color: transparent; border-radius: 0px !important; color: darken($white, 20); border-color: rgba($white, 0.45);
+			&::placeholder {color: darken($white, 30);}
+			//&:focus {box-shadow: 0 0 0 0.2rem rgba($white, 0.25); border-color: rgba($white, 0.25);}
+		}
+		.btn {border-radius: 0px !important;  font-weight: 600; color: darken($white, 20);
+			&:hover {color: $primary;}
+		}
+	}
+	.copy-right {padding: 30px 0px 25px 0px;
+		ul {
+			li {padding: 0px 5px;}
+			a {color: rgba($white, 1);}
+			a:hover, a:focus {text-decoration: none; color: $info;}
+		}
+		.text {font-size: 13px;
+			a {color: rgba($white, 0.8); text-decoration: none;}
+		}
+	}
+} // Footer css end
+
+.wizard {margin-bottom: 30px; position: relative;
+	.nav-tabs {margin: 0px; border-bottom: none;
+		li {position: relative; padding-top: 40px;
+			&:before {content: ""; position: absolute; border: 1px solid #979797; width: 100%; top: 20px; right: 50%; z-index: 0;}
+			&:first-child {
+				&:before {content: none;}
+			}
+			&.active {
+				&:before {border: 1px solid $primary;}
+				.round-tab {background-color: $primary; border-color: $primary; color: $white;}
+				.nav-link {color: $primary;}
+			}
+			.nav-link {border: none; color: #191B20; text-align: center; cursor: pointer;
+				&:hover, &:focus, &.active {outline: none; color: $primary; background-color: transparent;
+					.round-tab {background-color: $primary; border-color: $primary; color: $white;}
+				}
+			}
+			.round-tab {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); margin-right: -50%; width: 40px; height: 40px; border-radius: 100%; background-color: $white; color: #191B20; display: flex; align-items: center; justify-content: center; border: 1px solid #979797; z-index: 2;}
+		}
+
+	}
+	@media(max-width: 767px) {margin-bottom: 15px;
+		.nav-tabs {margin-top: 40px;
+			li {padding-top: 10px;
+				&:before {top: -10px;}
+				.text {display: none;}
+			}
+		}
+	}
+} // Wizard css end
+
+.upload-box {margin-bottom: 30px; border-radius: 4px; position: relative;
+	&:before {content: ""; position: absolute; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.5)}
+	.radio-tranparen {position: absolute; top: 4px; right: 20px; }
+	.custom-radio .custom-control-label:before {border-radius: 4px;}
+	.custom-control-label:before {background-color: rgba($white, 0.5); border: $white solid 1px;}
+	.custom-radio .custom-control-input:checked ~ .custom-control-label:after {background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");}
+	.btn-danger {position: absolute; top: 10px; left: 20px;}
+} // Upload image box css end
+
+.card-instruction {box-shadow: 0px 0px 5px rgba($black, 0.2); border-radius: 4px !important; border: 1px solid rgba($black, 0.085) !important;
+	.card-body {padding-top: 10px;}
+	.card-text {font-size: 14px; font-weight: 400;}
+	.card-title {border-left: none !important; border-bottom: 1px solid $gray-300; text-align: left; padding-bottom: 10px !important; font-size: 16px; margin-bottom: 12px !important; text-align: center}
+	.sub-title {font-size: 14px;}
+	&.services {box-shadow: none; border-radius: 0px !important;}
+} // Card Instruction css end
+
+.card-flip {
+	> div {backface-visibility: hidden; transition: transform 300ms; transition-timing-function: linear; width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center;}
+	.card-front {transform: rotateY(0deg);
+		h4 {font-size: 18px;}
+	}
+	.card-back {transform: rotateY(180deg); position: absolute; top: 0; box-shadow: 5.88px 8.09px 20px lighten($black, 25%); text-align: center;
+		h4 {font-size: 18px;}
+		a:hover, a:focus {text-decoration: none; outline: none;}
+		.card-text {font-size: 16px;}
+		.btn-link {color: $info;}
+	}
+	/*&:hover {
+		.card-front {transform: rotateY(-180deg);}
+		.card-back {transform: rotateY(0deg);}
+	}*/
+} // Card Flip css end
+
+.plan-box {margin-bottom: 30px; border-radius: 0px;
+	.icon {margin-bottom: 20px;
+		.round {width: 100px; height: 100px; border-radius: 100%; background-color: #F3F3F3; border: 1px solid #E1E1E1; color: $info; font-size: 40px;}
+	}
+	.caption {text-align: center;
+		.card-title {font-size: 24px; font-weight: bold; padding-bottom: 6px;}
+		.price {font-size: 24px; font-weight: bold; padding: 15px; background-color: #F3F3F3;
+			small {font-size: 16px;}
+		}
+	}
+	.button {
+		.btn {font-size: 14px; font-weight: 600; text-transform: uppercase; padding: 14px 10px;
+		}
+	}
+} // Membership plan box css end
+
+.top-heading {position: relative;
+	.caption {position: absolute; top: 0px; left: 0px;
+		&.shadows {background-color: rgba($black, 0.3);}
+	}
+}  // Commen pages Banner css
+
+.blog-box {background-color: $white; transition: all 0.3s ease-in-out;
+	.image {position: relative;}
+	.caption {padding: 20px;
+		h4 {font-size: 18px; font-weight: bold; padding-bottom: 4px;
+			a {color: lighten($black, 30%); padding-bottom: 6px;}
+			a:hover {color: $primary; text-decoration: none;}
+		}
+	}
+	.date {padding-left: 15px; font-size: 13px; color: $dark;}
+	&:hover {box-shadow: 0 0.5rem 1rem rgba($black, 0.15);}
+} // Blog Box css end
+
+.team-box {margin-bottom: 30px; border-top-left-radius: 4px; border-top-right-radius: 4px;
+	.image {
+		img {border-radius: 4px;}
+	}
+	.caption {padding: 12px 10px;
+		h5 {font-weight: 600; font-size: calc(14px + 0.2vw); margin-bottom: 3px;}
+		a {color: $dark;}
+		a:hover {text-decoration: none; color: $primary;}
+		.position {text-transform: uppercase; font-size: 14px; color: #847577;}
+	}
+} // Team box css end
+
+
+.svcsLBox {background-color: $white; margin-bottom: 30px; border-radius: 4px; float: left;
+	.favorite {position: absolute; top: 15px; right: 15px; color: $white; padding: 8; font-size: 18px;
+		&:focus {outline: none;}
+	}
+	.image {position: relative; text-align: center; float: left; width: 100%;
+		&.max-height img {max-height: 190px;}
+		.bg-image {width: 100%; float: left; height: 240px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: relative; overflow: hidden;
+			> span {position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;
+				> img {position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;}
+			}
+		}
+	}
+	> .caption {padding: 10px 15px; float: left; width: 100%;}
+	h3 {font-size: 15px; font-weight: 500; line-height: 20px; margin-bottom: 3px;
+		a {color: $dark;}
+		a:hover {text-decoration: none; color: $primary;}
+	}
+	.service {color: lighten($dark, 10%); font-size: 14px; margin-bottom: 6px;}
+	.ratings {margin-bottom: 0px;
+		small {color: lighten($dark, 10%); float: left; margin-top: -6px;}
+	}
+	.profile {
+		h6 {font-size: 14px; font-weight: 500; }
+		a {color: $dark;
+			&:hover {text-decoration: none; color: $primary;}
+		}
+		.caption {line-height: 18px;}
+	}
+    @media(max-width: 767px) {margin-bottom: 10px;
+      > .caption {padding: 10px;}
+      h3 {font-size: 14px;}
+      .profile h6 {font-size: 13px;}
+    }
+} // Freelancer box css end
+
+.service-box {border-radius: 0px; border: none; background-color: $white; margin-bottom: 30px;
+	.card-title {font-weight: 500; color: lighten($dark, 0%); font-size: 18px;
+		a {color: inherit; text-decoration: none;}
+		a:hover {color: $primary;}
+	}
+	.category {margin-right: 30px; font-weight: 500; color: lighten($dark, 7%); max-width: 300px;}
+	.sold {margin-right: 30px; font-weight: 500; color: lighten($dark, 7%);}
+	.price {color: $primary; font-size: 18px; font-weight: 500; padding-right: 20px;}
+	.ratings {
+		fieldset {margin: 0px;
+			svg {width: 20px; height: 25px;}
+		}
+		small {color: lighten($dark, 10%); float: left; margin-top: -6px;}
+	}
+	.badge-secondary {background-color: #e0e0e0 !important; color: $dark; padding: 7px 25px; margin-bottom: 1px; margin-top: 1px; margin-right: 4px;}
+	.auction {
+		.offer {padding-right: 0px;
+			.btn {text-transform: uppercase; font-weight: 500; padding: 6px 15px; font-size: 14px; border-color: transparent;
+				&:hover {background-color: transparent; border-color: transparent; color: darken($info, 8%);}
+				&:focus { box-shadow: none;}
+			}
+		}
+		.button {
+			.dropdown-toggle::after {content: none;}
+			.dropdown-menu {transform: none !important; left: auto !important; right: 0px; top: 100% !important;}
+			.btn {padding: 3px 8px;
+				+ .btn {margin-left: 8px;}
+				i {transform: scale(1.2);}
+			}
+		}
+	}
+	.badge {background-color: transparent; border: 1px solid transparent; font-weight: 500;}
+	.badge-primary {color: $primary; border-color: $primary;}
+	.badge-info {color: $info; border-color: $info;}
+	.badge-success {color: $success; border-color: $success;}
+	.badge-danger {color: $danger; border-color: $danger;}
+	.badge-warning {color: $warning; border-color: $warning;}
+	@media(max-width: 767px) {
+		.category {margin-right: 10px;}
+		.sold {margin-right: 10px;}
+		.price {margin-right: 10px;}
+		.auction {width: 100%; justify-content: center; flex-wrap: wrap;}
+	}
+	@media(max-width: 767px) {margin-bottom: 10px;
+      .card-body {padding: 10px;}
+      .card-title {font-size: 16px; margin-bottom: 4px;}
+      .col.pl-0.d-flex.align-items-center {font-size: 12px;}
+      .price {font-size: 14px;}
+      .ratings {line-height: 10px;}
+      .ratings small {margin-top: 1px;}
+      .auction {justify-content: flex-end;}
+      .auction .offer .btn {font-size: 12px;}
+      .d-flex.align-items-center {flex-wrap: wrap;
+        .date.pr-3.w-25 {white-space: nowrap;}
+        [class*="w-"] {width: auto !important;}
+      }
+    }
+	@media(max-width: 574px) {
+		.col.pl-0.d-flex.align-items-center {flex-wrap: wrap;}
+		.category {margin-right: 0px; width: 100%;}
+	}
+} // Service list css end
+
+.freLncrBox {border-color: $white; border-bottom-width: 3px; border-radius: 0px; transition: all 0.3s ease-in-out;
+	&:hover {border-bottom-color: $primary; box-shadow: 0px 3px 4px rgba($black, 0.06);}
+	&.no-hover {border-bottom: none;}
+	.card-body {padding: 15px;}
+	.profile {width: 120px; padding-right: 20px;}
+	.caption {width: calc(100% - 120px); position: relative;}
+	.favorite {position: absolute; top: -15px; right: -15px; padding: 8px; font-size: 18px;
+		&:focus {outline: none;}
+	}
+	h3 {font-size: calc(0.7rem + 0.3vw); font-weight: 600; padding-right: 20px; margin-bottom: 4px;
+		a {color: $dark;}
+		a:hover {text-decoration: none; color: $info;}
+	}
+	.position {margin-bottom: 0px; font-weight: 500;
+		span + span:before {content: ' , '}
+	}
+	.address {margin-bottom: 0px; font-size: 14px;
+		i {color: $primary; margin-right: 4px;}
+	}
+	.text {font-size: 14px; color: lighten($dark, 10%); line-height: 24px;}
+	@media(max-width: 767px) {margin-bottom: 10px !important;
+		.card-body {padding: 6px;}
+		.profile {width: 120px; padding-right: 10px;}
+		.caption {width: calc(100% - 120px);}
+	}
+} // Freelancer box css end
+
+.freAcpBox {border-color: $white; border-radius: 0px; transition: all 0.3s ease-in-out;
+	.card-body {padding: 15px;}
+	h3 {font-size: calc(0.7rem + 0.4vw); font-weight: 600; margin-bottom: 4px;
+		a {color: $dark;}
+		a:hover {text-decoration: none; color: $info;}
+	}
+	.profile {width: 60px;}
+	.btn {text-transform: uppercase; font-weight: 600; padding: 10px 30px;}
+} // Freelancer Accept box css end
+
+.jobBox {border-color: $white; border-bottom-width: 3px; border-radius: 0px; transition: all 0.3s ease-in-out;
+	.card-body {padding: 15px;
+		> .caption {position: relative; margin-bottom: 15px;
+			h3 {padding-right: 20px; font-size: calc(0.7rem + 0.3vw); font-weight: 600; color: $dark;
+				a {color: $primary;}
+				a:hover {text-decoration: underline; color: $info;}
+			}
+			.btn {font-weight: 600; font-size: 13px;}
+			.btn-secondary {background-color: lighten($primary, 37%); border-color: lighten($primary, 37%); color: $primary;
+				&:hover {background-color: lighten($primary, 30%); border-color: lighten($primary, 30%); color: $primary;}
+			}
+			.btn-primary {background-color: lighten($success, 52%); border-color: lighten($success, 52%); color: $success;
+				&:hover {background-color: lighten($success, 47%); border-color: lighten($success, 47%); color: $success;}
+			}
+		}
+	}
+	.favorite {position: absolute; top: -15px; right: -15px; padding: 8px; font-size: 18px;
+		&:focus {outline: none;}
+	}
+	.prices {margin-bottom: 15px;
+		.price {color: $dark; font-weight: bold; margin-right: 15px; font-size: 18px;}
+		.fixed {background-color: lighten($primary, 37%) !important; color: $primary; padding: 8px 18px; margin-right: 15px; font-size: 12px;}
+		.cash {background-color: $primary !important; color: $white; padding: 8px 18px; font-size: 12px;}
+	}
+	.priview {margin-bottom: 15px; border-bottom: 1px solid $gray-300; padding-bottom: 15px;
+		.image {width: 80px; margin-right: 15px; float: left;}
+		> .caption {width: calc(100% - 100px); float: left;}
+		h4 {font-size: 14px; font-weight: 600; margin-bottom: 6px;
+			a {text-decoration: underline; color: $black;}
+			a:hover {color: $primary; text-decoration: underline;}
+		}
+		.ratings {margin-bottom: 1px; line-height: 15px;}
+		.price {font-size: 16px; font-weight: bold; color: $dark;
+			.line-through {color: $dark; text-decoration: line-through; padding-right: 15px;}
+		}
+	}
+	.proposals {margin-bottom: 15px; margin-left: -15px; margin-right: -15px; align-items: flex-start !important;
+		.deadline {padding-left: 15px; padding-right: 15px; font-size: 14px;
+			h6 {font-weight: 600; margin-bottom: 2px;}
+		}
+	}
+	.text {margin-bottom: 20px; color: darken($white, 50%);}
+	.display-text-group {margin-bottom: 10px; color: darken($white, 70%);
+		.read-more-button {font-size: 14px; color: $primary; cursor: pointer;}
+	}
+	.chips {
+		.badge-secondary {background-color: darken($white, 8%) !important; color: $dark; padding: 8px 18px; margin-bottom: 8px; margin-right: 8px; font-size: 12px;}
+	}
+    @media(max-width: 767px) {margin-bottom: 10px !important; border-bottom: none;
+      .card-body {padding: 10px;}
+      .card-body > .caption {margin-bottom: 6px;}
+      .card-body > .caption .btn {font-size: 10px; padding: 4px 6px;}
+      .prices {margin-bottom: 6px;}
+      .prices .fixed, .prices .cash {padding: 7px 14px; font-size: 11px;}
+      .prices .price {font-size: 14px;}
+      .display-text-group {margin-bottom: 6px; font-size: 12px; line-height: 22px;}
+      .chips .badge-secondary {padding: 6px 10px; margin-bottom: 0px; margin-right: 8px; font-size: 11px;}
+      .priview {margin-bottom: 6px;}
+    }
+} // Job Search Box css end
+
+.public-navbar {border: 1px solid darken($white, 5%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white;
+	.card-body {padding: 0px} 
+	.nav {
+		.nav-link {font-size: 15px; font-weight: 600; padding: 10px 10px; border-bottom: 2px solid transparent; margin: 0px 15px -1px 15px; transition: all 0.3s ease-in-out; color: lighten($dark, 10%); transition: all 0.3s ease-in-out;
+			&:hover, &.active {border-bottom-color: $info; color: darken($dark, 10%);}
+			&.not-active {border-bottom-color: transparent;}
+		}
+	}
+    @media(max-width: 767px) {margin-bottom: 10px !important;
+      .nav .nav-link {font-size: 12px; padding: 6px 0px; margin: 0px 6px -1px 6px; flex-basis: 0; flex-grow: 1; max-width: 100%;}
+    }
+    @media(max-width: 400px) {
+      .nav .nav-link {flex-basis: inherit;}
+    }
+}// Public Profile Navbar css end
+
+.card-profile {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white;
+	.card-body {padding: 20px 15px;}
+	hr {border-color: rgba($black, 0.07); margin-bottom: 15px;}
+	.verified {margin-bottom: 4px; font-size: 12px;
+		i {transform: scale(1.3); margin-right: 5px;}
+	}
+	figure {margin-bottom: 20px;
+		.pic {position: relative; }
+		.btn-upload {position: absolute; cursor: pointer; margin: 0px; left: 50%; bottom: -10px; font-size: 20px; padding: 0px 8px; margin-left: -20px; z-index: 9;
+			input {width: 1px; height: 1px; visibility: hidden;}
+		}
+	}
+	h3 {font-size: calc(0.6rem + 0.4vw); font-weight: bold; padding-bottom: 6px; text-align: center;}
+	.designation {text-align: center; margin-bottom: 15px;}
+	.address {text-align: center; margin-bottom: 15px;}
+	.sharing {text-align: center;
+		h5 {font-size: 16px; font-weight: bold;}
+		ul {list-style: none; padding-left: 0px; margin-bottom: 2px;
+			li {padding: 3px 8px;}
+			a {font-size: 18px; color: $primary; pointer-events: none;
+				i {transform: scale(1.3);}
+			}
+			a:hover {color: $info;}
+			.share-button {font-size: 22px; cursor: pointer; color: $primary;
+
+			}
+		}
+		&.languages {
+			span:after {content: ", "}
+			span:last-child:after {content: none;}
+		}
+	}
+	.since {font-size: 12px; margin-bottom: 10px;
+		big {font-size: 16px;}
+	}
+} // Public Profile card css end
+
+.offer-dialog {
+	button {outline: none;}
+	//.MuiDialog-paperWidthSm {min-width: 600px;}
+	.MuiDialog-paperScrollPaper {overflow: visible;}
+	.MuiFab-root {position: absolute; right: -10px; top: -20px; height: 45px; width: 45px;}
+	.custom-control {padding-left: 0px;
+		.custom-control-label {width: 220px;
+			&:before, &:after {right: 0px; left: auto;}
+		}
+	}
+	label {font-weight: 600;}
+	.input-group {
+		.form-control {border-top-right-radius: 4px; border-bottom-right-radius: 4px;}
+		.input-group-text {position: absolute; right: 0px; top: 9px; border: none; background-color: $white; z-index: 99;}
+	}
+	.MuiButton-root {padding: 10px 30px;}
+} // Offer Dialog css end
+
+.my-offers {margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid $gray-300; padding-top: 15px;
+	&:last-child {border-bottom: none; margin-bottom: 0px !important; padding-bottom: 0px;}
+	button {outline: none;}
+	.pic {margin-right: 10px; max-width: 70px;}
+	.caption {font-weight: 500;
+		h4 {margin-bottom: 2px; font-size: 16px; font-weight: 700;
+			a {color: inherit;}
+			a:hover {color: $primary; text-decoration: none;}
+		}
+		p {margin-bottom: 0px;}
+	}
+	.action {
+		.btn {text-transform: uppercase; font-weight: 600; padding: 8px 20px;}
+		.btn-accept {pointer-events: none;}
+	}
+	.location {font-weight: 500;}
+	.offers {font-weight: 600;}
+	.price {font-weight: 700;}
+	@media(max-width: 991px) {
+		> .row {margin-left: -5px; margin-right: -5px;}
+		[class="col"] {padding-left: 5px; padding-right: 5px;}
+		.action .btn {font-size: 12px; padding-left: 8px; padding-right: 8px; white-space: nowrap;}
+	}
+	@media(max-width: 440px) {
+		.action {flex: 0 0 100%; max-width: 100%; text-align: left !important; padding-top: 4px; padding-bottom: 4px;
+			.btn {font-size: 14px; padding-left: 15px; padding-right: 15px;}
+		}
+	}
+} // My Offers css end
+
+.custom-ui {background-color: $primary;}
+
+.css-scroll {scrollbar-color: $dark $gray-300; scrollbar-width: thin;
+	&::-webkit-scrollbar {width: 8px; background-color: $gray-300;} 
+	&::-webkit-scrollbar-thumb {background-color: $dark; border-radius:10px;}
+	&::-webkit-scrollbar-thumb:hover {background-color: $dark; border:1px solid $dark;}
+	&::-webkit-scrollbar-thumb:active {background-color: $dark; border:1px solid $dark;} 
+}
+
+.custom-description {
+	p, span {font-family: 'HKGrotesk', sans-serif !important; font-size: 16px !important;}
+}
+
+.srcEtrStyle {position: relative;
+	.rdw-editor-toolbar {position: absolute; left: 0px; top: -40px; z-index: 9; width: 100%; border: 1px solid #cdcdcd;}
+	.rdw-editor-main {border: 1px solid #cdcdcd; border-radius: 0.25rem; min-height: 110px; padding: 0.375rem 0.75rem; max-height: 180px;}
+	&.is-invalid .rdw-editor-main {border-color: $danger;}
+}
+.react-confirm-alert-button-group > button {min-width: 55px; height: 38px;}
+.react-confirm-alert-body .react-confirm-alert-button-group button:first-child {background: $info !important;}
+.react-confirm-alert-body .react-confirm-alert-button-group button:last-child {background: $primary !important;}
+
+.blog-sharing-icon {
+	.share-button {
+		> div, svg {width: 30px !important; height: 30px !important; cursor: pointer;}
+	}
+}
+
+.milestones-box {margin-bottom: 15px; background-color: lighten($primary, 38%);
+	.card-text {font-size: 14px; margin-bottom: 15px;}
+	.visible-action {
+		h5 {font-size: 16px;}
+		.btn + .btn {margin-left: 8px;}
+	}
+}
+
+#menu-messageType {
+  .MuiMenuItem-root {font-size: 14px;}
+}
+
+.e-checkbox-wrapper .e-frame.e-check, .e-css.e-checkbox-wrapper .e-frame.e-check {background-color: $info;}
+
+.e-dropdownbase .e-list-parent {
+	.e-list-group-item {padding: 0px 6px;}
+	.e-list-item {padding: 0px 12px;
+
+	}
+	.e-active.e-item-focus {}
+}
+
+#menu-category .MuiMenuItem-root {font-size: 14px; line-height: 1.2;}
+
+.MuiPickersModal-dialogRoot {
+	.MuiPickersToolbar-toolbar {background-color: $info !important;}
+	.MuiPickersDay-daySelected {background-color: $info !important;}
+	.MuiButton-textPrimary {color: $info !important;}
+}
+.custom-control-input:checked ~ .custom-control-label::before {border-color: $info; background-color: $info;}
