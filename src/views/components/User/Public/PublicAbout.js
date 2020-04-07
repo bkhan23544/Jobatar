@@ -49,30 +49,49 @@ class PublicAbout extends Component {
         const educationsItems = educations.data ? educations.data.items : [];
 
         return (<PublicLayout>
-            <DocumentTitle title="About"/>
-            <div className="card public-about mb-3">
-                <div className="card-body px-0 pb-0">
-                    <h1 className="mb-3 pb-0 px-3">About</h1>
-                    <div className="about-text px-3">
-                        {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : 'No data yet'}
-                    </div>
-                    <hr />
-                    <h3 className="mb-3 px-3">Skills</h3>
-                    <div className="skill mb-lg-4 mb-3 px-3">
-                        <span>{about.skills && about.skills.map((skill) => skill.title).join(', ')}
-                        {about.skills && about.skills.length === 0 && 'No data yet'}
-                        </span>
-                    </div>
-                    <hr />
-                    <h3 className="mb-3 px-3">Experience</h3>
+     
+                    <div class="card-box-profile-details">
+
+<div className="description-profile">
+
+ <ul className="tr-list resume-info">			
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-info-circle" aria-hidden="true"></i> About</p>
+   </div>  
+   <div className="media-body">
+   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : 'No data yet'}
+   </div>
+   <hr/>
+  </li>		
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-cogs" aria-hidden="true"></i> Skills</p>
+   </div>  
+   <div className="media-body">
+{about.skills && about.skills.map((skill)=>{
+    return(
+        <span className="label label-success">{skill.title}{about.skills && about.skills.length === 0 && 'No data yet'}</span>
+    )
+})}
+   </div>
+   <hr/>
+  </li>
+
+  <li>
+  <div className="icon">
+    <p className="tr-title"><i className="fa fa-briefcase" aria-hidden="true"></i> Experience</p>
+   </div>  
                     {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} px={3} /> :
                         <Fragment>
                             <div className="education mb-lg-4 mb-3 px-3">
                                 {(experienceItems && experienceItems.length > 0) &&
                                 <div className="d-flex mb-3 row">
-                                    <div className="col-6"><b>Company</b></div>
-                                    <div className="degree col"><b>Title</b></div>
-                                    <div className="right col" style={{paddingLeft: '20px'}}><b>Year</b></div>
+                                    <div className="col-6"><b className="table-head">Company</b></div>
+                                    <div className="degree col"><b className="table-head">Title</b></div>
+                                    <div className="right col" style={{paddingLeft: '20px'}}><b className="table-head">Year</b></div>
                                     </div>}
                                 {experienceItems && experienceItems.map((education) =>
                                     <div className="d-flex mb-3 row" key={education.id}>
@@ -85,14 +104,19 @@ class PublicAbout extends Component {
                             </div>
                         </Fragment>
                     }
-                    <hr />
-                    <h3 className="mb-3 px-3">Education</h3>
+                     <hr/>
+  </li>
+
+  <li>
+  <div className="icon">
+    <p className="tr-title"><i className="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
+   </div>  
                     <div className="education mb-lg-4 mb-3 px-3">
                         {(educationsItems && educationsItems.length > 0) ?
                         <div className="d-flex mb-3 row">
-                            <div className="col-6"><b>School</b></div>
-                            <div className="degree col"><b>Degree</b></div>
-                            <div className="right col" style={{paddingLeft: '20px'}}><b>Year</b></div>
+                            <div className="col-6"><b className="table-head">School</b></div>
+                            <div className="degree col"><b className="table-head">Degree</b></div>
+                            <div className="right col" style={{paddingLeft: '20px'}}><b className="table-head">Year</b></div>
                         </div>:'No data yet' }
                         {educationsItems && educationsItems.map((experience) =>
                             <div className="d-flex mb-3 row" key={experience.id}>
@@ -101,15 +125,19 @@ class PublicAbout extends Component {
                                 <div className="right col" style={{paddingLeft: '20px'}}><span>{moment(experience.from).format('MM/YYYY')} - {experience.is_present === 1 ? 'Present' : moment(experience.to).format('MM/YYYY')}</span></div>
                             </div>
                         )}
-                        {/* <div className="d-flex mb-3">
-                            <div className="w-70">BDSK Center Point High School & Junior College</div>
-                            <div className="degree w-20"><b>HSSC</b></div>
-                            <div className="right w-10"><small>2009 - 2012</small></div>
-                        </div> */}
                     </div>
+  </li>
+  
+ </ul>			
+  
+</div>	
+     
+</div>	
 
-                </div>
-            </div>
+
+
+
+           
         </PublicLayout>);
     }
 }

@@ -56,11 +56,11 @@ class NewsletterForm extends Component {
                     <div className="input-group mb-3">
                         {submitted && isValid.email.isInvalid &&
                             <div className="invalid-feedback"> {isValid.email.message} </div>}
-                            <input type="email" name="email" placeholder="Your email here" onChange={this.handleChange}
+                            <input type="email" name="email" placeholder="Your email here.." id="newsletter-input" onChange={this.handleChange}
                                 value={formField.email} className={'form-control ' + (submitted && isValid.email.isInvalid ? 'is-invalid' : '')} />
 
                         <div className="input-group-append">
-                            <button className="btn btn-info text-white" type="submit" id="button-addon2">Subscribe</button>
+                            <button className="btn btn-info text-black" type="submit" id="button-addon2">Subscribe</button>
                         </div>
                     </div>
                 </form>
