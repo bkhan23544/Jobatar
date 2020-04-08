@@ -39,21 +39,21 @@ const Sidebar = (props) => {
                     </div>
                 </figure>
                 <div className="px-3">
-                    <h3>{item && item.name}</h3>
+                    <h3 className="profile-heading">{item && item.name}</h3>
                     <div className="designation">{item && item.title} {/* UI/UX Designer, Social MediaDesigner */}</div>
-                    <div className="address"><i className="fas fa-map-marker-alt text-primary"></i> {item && item.countryCode && item.countryCode.name}
+                    <div className="address"><i className="fas fa-map-marker-alt icon-color"></i> {item && item.countryCode && item.countryCode.name}
                     </div>
                 </div>
                 <hr />
                 <div className="sharing px-3">
-                    <h5>Share my profile</h5>
-                    <ul className="social-login nav nav-pills justify-content-center px-3">    
+                    <h5 className="profile-heading">Share my profile</h5>
+                    <ul className="social-login nav nav-pills justify-content-center px-3">
                         <li>
                             <FacebookShareButton
                                 url={`${gs.rootUrl}/user/public/co-founder/${item && item.user_id}`}
                                 quote={item && item.name}
                                 className="share-button">
-                                <i className="fab fab fa-facebook-f"></i>
+                                <i className="fab fab fa-facebook-f icon-color"></i>
                             </FacebookShareButton>
                         </li>
                         <li>
@@ -61,7 +61,7 @@ const Sidebar = (props) => {
                                 url={`${gs.rootUrl}/user/public/co-founder/${item && item.user_id}`}
                                 title={item && item.name}
                                 className="share-button">
-                                <i className="fab fa-twitter"></i>
+                                <i className="fab fa-twitter icon-color"></i>
                             </TwitterShareButton>
                         </li>
                         <li>
@@ -70,7 +70,7 @@ const Sidebar = (props) => {
                                 windowWidth={750}
                                 windowHeight={600}
                                 className="share-button">
-                                <i className="fab fab fa-linkedin-in"></i>
+                                <i className="fab fab fa-linkedin-in icon-color"></i>
                             </LinkedinShareButton>
                         </li>
                     </ul>
@@ -78,8 +78,9 @@ const Sidebar = (props) => {
                 <div className="since text-center px-3">Member since <big>{user && user.user.since}</big></div>
                 <hr className="mb-3" />
                 <div className="languages sharing px-3">
-                    <h5>Languages</h5>
-                    {languages && languages.map((lang) => (<span className="mr-2" key={lang}>{lang}</span>))}
+                    <h5 className="profile-heading">Languages</h5>
+                    {/*languages && languages.map((lang) => (<span className="mr-2" key={lang}>{lang}</span>)) */}
+                    <span>{languages && languages.join(', ')}</span>
                 </div>
             </div>
         </div>

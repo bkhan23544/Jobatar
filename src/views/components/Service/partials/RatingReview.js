@@ -80,14 +80,15 @@ class RatingReview extends Component {
         return (<Element className="public-rating card" name="rating_review">
             {reviews ? <div className="card-body px-0">
                 <div className="d-flex align-items-center w-100 mb-4 px-3">
-                    <h2 className="col pl-0 mb-0">Rating & Review</h2>
+                        
+                    <p className="col pl-0 mb-0 rating-heading"><i className="fa fa-star rating-icon" aria-hidden="true"></i>  Rating & Review</p>
                     {isShowDropdown && <select className="custom-select" name="settlement" onChange={this.handleChange} style={{ width: '230px' }}>
                         <option value="">All Reviews</option>
                         <option value="cash">Cash Reviews</option>
                         <option value="exchange">Exchange Reviews</option>
                     </select>}
                 </div>
-
+                
                 <hr />
                 {profile && (isShowAvgRating === true) && <div className="w-100 px-3">
                     <div className="row rating-all align-items-center">

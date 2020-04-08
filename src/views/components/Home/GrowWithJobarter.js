@@ -1,37 +1,26 @@
 import React, { Component } from 'react';
+import "../../../custom.css"
+import { NavLink } from "react-router-dom";
+import { globalService as gs } from '../../../common/services';
 
 class GrowWithJobarter extends Component {
     render() {
         return (
-            <div className="hGrow">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2 className="text-center">Grow with JoBarter</h2>
-                        </div>
-                    </div>
-                    <div className="row justify-content-center">
-                        <div className="col-lg-2 col">
-                            <div className="couter">
-                                <big>12 Million</big>
-                                <small>Services Completed</small>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col">
-                            <div className="couter">
-                                <big>10000+</big>
-                                <small>Freelancers</small>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col">
-                            <div className="couter">
-                                <big>25000+</big>
-                                <small>Jobs</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div className="hJoin">
+          <img src="assets/img/video.png" alt="" className="img-fluid"/>
+          <div className="caption align-items-center mt-5 w-100">
+              <div className="container">
+                  <div className="row">
+                      <div className="col-12 text-center">
+                          <h2>GROW WITH JOBARTER</h2>
+                          <h5>TRANSFORM YOUR BUSINESS WITH US.</h5>
+                          {gs.identity && <NavLink to="/register" className="btn join-btn">JOIN NOW</NavLink>}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
         );
     }
 }

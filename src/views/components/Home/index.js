@@ -4,10 +4,13 @@ import Banner from "./Banner";
 import ExploreCategories from './ExploreCategories';
 import JoinOurCommunity from './JoinOurCommunity';
 import LimitlessExperience from './LimitlessExperience';
+import GrowWithJobarter from './GrowWithJobarter';
+import Testimonials from './Testimonials'
 import { DocumentTitle } from '../../../helpers/DocumentTitle';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
 import { alertSelectors } from '../../../common/redux/selectors';
+
 
 
 class Home extends Component {
@@ -28,10 +31,11 @@ class Home extends Component {
         return (<Main>
             <DocumentTitle title={`Home`} />
             <Banner loggedIn={this.loggedIn}/>
-            {/* <GrowWithJobarter /> */}
             <ExploreCategories />
             <JoinOurCommunity />
             <LimitlessExperience />
+            <Testimonials/>
+            <GrowWithJobarter />
         </Main>);
     }
 }

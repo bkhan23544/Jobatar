@@ -100,31 +100,35 @@ class PublicCoFounder extends Component {
         let about = user ? user.user : {};
         const {userCoFounderIdeal, userCoFounderExperience} = about;
 
+console.log(userCoFounderExperience)
         return (<PublicLayout>
-            <DocumentTitle title="Co-founder"/>
-            <div className="card public-cofounder">
-                <div className="card-body px-0">
-                    <div className="d-flex align-items-center mb-3 px-3">
-                        <h1 className="mb-0 col pl-0">Co-founder Experience</h1>
-                        <div className="connection d-flex flex-nowrap align-items-center">
-                            {((about && about.is_connection === false) || (about && about.is_connection === 2)) && <button onClick={() => this.addConnection(about)} className="btn btn-info"><i className="fas fa-plus"></i> Connection</button> }
-                            {(about && about.is_connection === 0) && <button className="btn btn-primary" style={{pointerEvents: 'none'}}>Request Pending</button> }
+         
 
-                            {(about && about.is_connection === 1) && <button className="btn btn-success" onClick={() => this.connected(about)}><i className="fas fa-check"></i> Connected</button> }
+                    <div class="card-box-profile-details">
 
-                            <span className="count pl-3">{about && about.num_of_connections} Connections</span>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="about-text px-3">
-                        {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
-                            {(about && about.userCoFounderExperience === null) ? '' : userCoFounderExperience && userCoFounderExperience.description}
-                        </div>}
-                    </div>
-                    <hr />
-                    <h3 className="mb-3 px-3">Additional Information</h3>
-                    <hr />
-                    {userCoFounderExperience && <div className="px-3 mb-3">
+<div className="description-profile">
+
+ <ul className="tr-list resume-info">			
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-briefcase" aria-hidden="true"></i> Cofounder Experience</p>
+   </div>  
+   <div className="media-body">
+   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
+    {(about && about.userCoFounderExperience === null) ? 'No data yet' : userCoFounderExperience && userCoFounderExperience.description}
+    </div>}
+   </div>
+   <hr/>
+  </li>	
+
+    <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-info" aria-hidden="true"></i>Additional Information</p>
+   </div>  
+   <div className="media-body">
+   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} />:<div>    
+   {userCoFounderExperience ? <div className="px-3 mb-3">
                         <div className="d-flex mb-2">
                             <div className="w-50"><b>Year of Experience</b></div>
                             <div className="w-50">{userCoFounderExperience.years_experience} years</div>
@@ -141,43 +145,49 @@ class PublicCoFounder extends Component {
                             <div className="w-50"><b>Previous Startup Experience</b></div>
                             <div className="w-50">{(userCoFounderExperience.startup_experience === 1) ? 'Yes' : 'No'}</div>
                         </div>
+                    </div> : <div className="px-3">No data yet</div>}
                     </div>}
+   </div>
+   <hr/>
+  </li>	
 
-                    <hr />
-                    <h3 className="mb-3 px-3">Business Stage</h3>
-                    <hr />
-                    {process.loading ? <div className="px-3"><ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /></div> : <div>
+    <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-bars" aria-hidden="true"></i> Business Stage</p>
+   </div>  
+   <div className="media-body">
+   {process.loading ? <div className="px-3"><ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /></div> : <div>
                         <Tab.Container id="left-tabs-example" defaultActiveKey={`business_${(userCoFounderExperience && userCoFounderExperience.status !== null) ? userCoFounderExperience.status : 0}`}>
                             <div className="wizard px-3 mb-3">
                                 <div className="wizard-inner">
                                     <Nav as="ul" variant="tab" className="nav-tabs d-flex justify-content-around">
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_1`}>
-                                                <span className="round-tab">1</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status ==1 ? "#345581": "none"}}>1</span>
                                                 <span className="text">Concept</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_2`}>
-                                                <span className="round-tab">2</span>
-                                                <span className="text">Design</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==2 ? "#345581": "none"}}>2</span>
+                                                <span className="text" style={{color:"black"}}>Design</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_3`}>
-                                                <span className="round-tab">3</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==3 ? "#345581": "none"}}>3</span>
                                                 <span className="text">Development</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_4`}>
-                                                <span className="round-tab">4</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==4 ? "#345581": "none"}}>4</span>
                                                 <span className="text">Launch</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_5`}>
-                                                <span className="round-tab">5</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==5 ? "#345581": "none"}}>5</span>
                                                 <span className="text">Growth</span>
                                             </Nav.Link>
                                         </Nav.Item>
@@ -186,26 +196,46 @@ class PublicCoFounder extends Component {
                             </div>
                         </Tab.Container>
                     </div>}
-                    <hr />
-                    <div className="w-100">
-                        <h3 className="mb-4 px-3">My Ideal Co-founder</h3>
-                        <div className="px-3">
-                            {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
-                                <h5>{userCoFounderIdeal && userCoFounderIdeal.title}</h5>
+   </div>
+   <hr/>
+  </li>	
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-lightbulb-o" aria-hidden="true"></i> My Ideal Cofounder</p>
+   </div>  
+   <div className="media-body">
+   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
+                                <h5><b className="icon-color">{userCoFounderIdeal && userCoFounderIdeal.title}</b></h5>
                                 <div className="about-text">
                                     {userCoFounderIdeal && userCoFounderIdeal.description}
                                 </div>
                             </div>}
-                        </div>
-                        <h5 className="px-3">Skills</h5>
-                        <hr />
-                        <div className="about-text skill px-3">
-                            {about.userProfile && about.userProfile.skills.map((skill) => <span key={skill.id}>{skill.title }</span>)}
-                        </div>
-                        <hr />
-                        <h5 className="px-3">My Wishlist</h5>
-                        <hr />
-                        { userCoFounderIdeal && <div className="about-text px-3 mb-0">
+   </div>
+   <hr/>
+  </li>	
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-cogs" aria-hidden="true"></i> Skills</p>
+   </div>  
+   <div className="media-body">
+{about.userProfile && about.userProfile.skills.map((skill)=>{
+    return(
+        <span className="label label-success">{skill.title}{about.skills && about.userProfile.skills.length === 0 && 'No data yet'}</span>
+    )
+})}
+
+   </div>
+   <hr/>
+  </li>
+
+  <li>
+   <div className="icon">
+    <p className="tr-title"><i className="fa fa-heart" aria-hidden="true"></i> My Wishlist</p>
+   </div>  
+   <div className="media-body">
+   { userCoFounderIdeal ? <div className="about-text px-3 mb-0">
                             <div className="d-flex mb-2">
                                 <div className="w-50"><b>Year of Experience</b></div>
                                 <div className="w-50">{userCoFounderIdeal.years_experience} years</div>
@@ -226,13 +256,19 @@ class PublicCoFounder extends Component {
                                 <div className="w-50"><b>Preferred Location</b></div>
                                 <div className="w-50">{userCoFounderIdeal && userCoFounderIdeal.countries.map(count => count.name).join(', ')}</div>
                             </div>
-                        </div> }
+                        </div> : <div className="px-3">No data yet</div> }
+   </div>
+   <hr/>
+  </li>	
 
 
-                    </div>
+  
 
-                </div>
-            </div>
+  
+  </ul>
+  </div>
+  </div>
+
         </PublicLayout>);
     }
 }

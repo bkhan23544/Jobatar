@@ -146,7 +146,7 @@ class JobListing extends Component {
                             <div class="col-lg-12">
                                 <div className="topLabel">
                                     {/* {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>} */}
-                                    <div className="label label-primary">{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement}</div>
+                                    <div className="cashAndExchange">{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement}</div>
                                     {/* {item.settlement && item.settlement === 'cash' && <div className="label label-primary">{item.type}</div>} */}
                                 </div>
                                 <div class="col-lg-12 col-xs-12">
