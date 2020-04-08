@@ -460,7 +460,6 @@ class ContractView extends Component {
             this.showTip(proposal, isJobProposal);
             const offerTitle = (proposal.settlement === "cash") ? `Submit ${isBid === true ? '' : 'Counter'} Offer` : "Request a different Service to exchange";
 
-
             return (<Main>
                 <DocumentTitle title={`${proposalTitle}`} />
                 {proposal && proposalItem && <div className="service-proposal bg-body">
@@ -476,8 +475,6 @@ class ContractView extends Component {
                    {setDeclined && <ContractDeclined open={setDeclined} item={proposal} declinedClose={this.declinedClose} moduleTitle={moduleTitle} />}
 
                    {setMilestone && <MilestoneForm open={setMilestone} proposal_id={proposal.id} budget={proposal.budget} milestoneClose={this.milestoneClose} message={this.message} type={proposalTypeTitle} />}
-
-
 
                     <div className="container">
                         <div className="row">
@@ -573,7 +570,7 @@ class ContractView extends Component {
 
                                                         {(isStripeConnect === false) && <button className="btn btn-outline-primary" onClick={this.stripeConnect}><i className="fas fa-check"></i> Add Payment Method </button>}
 
-                                                        {(isStripeConnect === true) && isJobProposal && gs.isOwner(proposalItem.user_id) && <button className="btn btn-outline-primary" onClick={this.proposalAcceptAndClosed}><i className="fas fa-check"></i> Accept and Close job for bid </button>}
+                                                        {isJobProposal && gs.isOwner(proposalItem.user_id) && <button className="btn btn-outline-primary" onClick={this.proposalAcceptAndClosed}><i className="fas fa-check"></i> Accept and Close job for bid </button>}
 
                                                         <button className="btn btn-outline-info" onClick={this.proposalDeclined}><i className="fas fa-times"></i> Decline</button>
 
@@ -584,7 +581,7 @@ class ContractView extends Component {
 
                                                     {isVisibleDelete && <button className="btn btn-outline-danger" onClick={this.proposalRemoved}><i className="fas fa-remove"></i> Delete</button>}
 
-                                                    {!isDispute && isVisiblePayment && <div className="btn btn-info"><StripeCheckout token={this.onPayment} stripeKey={this.state.stripeKey} amount={proposalAmount} image={`${gs.rootUrl}/images/stripe_logo.png`} ComponentClass="div" label="Pay Now" panelLabel="Pay Now" allowRememberMe={false}>
+                                                    {!isDispute && isVisiblePayment && <div className="btn btn-info"><StripeCheckout token={this.onPayment} stripeKey={this.state.stripeKey} amount={proposalAmount} image={`${gs.rootUrl}/images/stripe_logo.png`} ComponentClass="div" label="Pay Now" panelLabel="Pay Now">
                                                         Payment
                                                     </StripeCheckout></div>}
 

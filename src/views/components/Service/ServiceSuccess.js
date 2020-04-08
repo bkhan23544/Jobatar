@@ -15,7 +15,7 @@ class ServiceSuccess  extends Component {
                                     <div className="image mb-3">
                                         <img src="/images/success1.PNG" alt="" className="img-fluid" />
                                     </div>
-                                    <h2>Your service post has been submitted successfully</h2>
+                                    <h2>Your information has been submited successfully</h2>
                                     {/* <p>This information first goes to verify and approval. we ‘ll send you notification before publishing. <br /> Generally it will take 24-48 hours to review your</p> */}
                                     <p className="mb-0"><NavLink to={'/services'} className="btn btn-primary text-uppercase px-3 active font-weight-bold">Return to services</NavLink></p>
                                 </div>

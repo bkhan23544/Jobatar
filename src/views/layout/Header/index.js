@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import Search from "./Search";
-import {createSelector} from "reselect";
-import {connect} from "react-redux";
+import { createSelector } from "reselect";
+import { connect } from "react-redux";
 import LoggedUser from "./LoggedUser";
 import { globalService as gs } from '../../../common/services';
 
@@ -26,12 +26,38 @@ class Header extends Component {
         });*/
         window.addEventListener('scroll', (e) => {
             let activeClass = 'fixed';
-            if(window.scrollY === 0){
+            if (window.scrollY === 0) {
                 activeClass = 'no-fixed';
             }
             this.setState({ activeClass });
         }, 9000);
     };
+
+    changeClasseToOpen = (id) => {
+        document.getElementById(id).classList += " navDropDownOpen"
+    }
+
+    changeClasseToClose = (id) => {
+        document.getElementById(id).classList.remove("navDropDownOpen")
+    }
+
+    changeClasseToOpen2 = (id) => {
+        document.getElementById(id).classList += " navDropDownOpen2"
+    }
+
+    changeClasseToClose2 = (id) => {
+        document.getElementById(id).classList.remove("navDropDownOpen2")
+    }
+
+    toggle = (id) => {
+        document.getElementById(id).classList.toggle("navDropDownOpen2")
+        document.getElementById("browse").classList.remove("navDropDownOpen")
+    }
+
+    toggle2 = (id) => {
+        document.getElementById(id).classList.toggle("navDropDownOpen")
+        document.getElementById("browse2").classList.remove("navDropDownOpen2")
+    }
 
 
     render() {
@@ -42,15 +68,45 @@ class Header extends Component {
                 {/* <div className="text-center font-weight-bold">Please be aware this site is under development and we are in the process of deploying many new features. Please let us know if you have any question or suggestions.</div> */}
                 <Navbar bg="light" expand="xl" variant="light" className="">
                     <Container>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <NavLink className="navbar-brand" to="/">
                             <img src="/images/logo.svg" alt="" className="img-fluid" width="140" />
                         </NavLink>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Search history={history} />
+                        {/* <Search history={history} /> */}
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
                             <Nav className="navbar-nav ml-auto navbar-main">
                                 <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>
-                                <NavDropdown title="BROWSE">
+                                <div
+                                    style={{ cursor: "pointer" }}
+                                    onMouseOver={() => this.changeClasseToOpen("browse")}
+                                    onMouseOut={() => this.changeClasseToClose("browse")}
+                                    onClick={() => this.toggle2("browse")}
+                                    activeClassName=""
+                                    className="nav-link"
+                                >
+                                    <b>BROWSE</b>
+                                    <div id="browse" className="navDropDownClose">
+                                        <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br /><small>To Apply For</small></NavLink>
+                                        <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br /> <small>To Buy or Exchange</small></NavLink>
+                                        <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br /> <small>To Hire</small></NavLink>
+                                        <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br /> <small>To Partner With</small></NavLink>
+                                    </div>
+                                </div>
+                                <div
+                                    onMouseOver={() => this.changeClasseToOpen2("browse2")}
+                                    onMouseOut={() => this.changeClasseToClose2("browse2")}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => this.toggle("browse2")}
+                                    activeClassName=""
+                                    className="nav-link"
+                                >
+                                    <b>POST</b>
+                                    <div id="browse2" className="navDropDownClose">
+                                        <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br /><small>To Receive Offers</small></NavLink>
+                                        <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br /><small>To Sell or Exchange</small></NavLink>
+                                    </div>
+                                </div>
+                                {/* <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>
                                     <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br/> <small>To Buy or Exchange</small></NavLink>
                                     <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br/> <small>To Hire</small></NavLink>
@@ -59,7 +115,7 @@ class Header extends Component {
                                 <NavDropdown title="POST">
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
-                                </NavDropdown>
+                                </NavDropdown> */}
                             </Nav>
                         </Navbar.Collapse>
 

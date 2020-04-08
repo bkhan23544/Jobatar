@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import HomeSearch from './partials/HomeSearch';
 import { NavLink } from "react-router-dom";
 
+
 class Banner extends Component {
 
     constructor(props) {
@@ -24,7 +25,7 @@ class Banner extends Component {
         return (
             <div className="hBanner">
                 <img src="images/home.jpg" alt="" className="img-fluid w-100" />
-                <div className="caption d-flex align-items-center">
+                <div className="caption d-flex align-items-center" style={{background: 'rgba(0,0,0,0)'}}>
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 col-md-9 col-12 mr-auto banner-text">

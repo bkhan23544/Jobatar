@@ -17,7 +17,7 @@ const notifyUrl = (item) => {
             url = '/setting/stripe-connect';
             break;
         case 'create-job':
-            url = '/job/invited';
+            url = '/jobs';
             break;
         case 'stripe-connect':
             url = '/setting/stripe-connect';

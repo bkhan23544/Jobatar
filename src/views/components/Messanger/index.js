@@ -16,7 +16,7 @@ class Messenger extends Component {
 		super(props);
 		this.state = {
 			messages: [],
-			loading: true,
+			loading: false,
 			activeKey: null,
 			user_id: parseInt(gs.identity.user.id),
 			recipient: null,
@@ -35,15 +35,11 @@ class Messenger extends Component {
 	}
 
 	componentWillMount = () => {
-		const userKey = parseInt(this.state.user_id);
-		gs.db.ref(`UserMessageRecipient`)
-			.orderByChild('recipients/' + userKey + '/id')
-			.equalTo(userKey)
-			.on("value", (snap) => this.process(snap));
+		this._isMounted = true;
 	}
 
 	componentDidMount = () => {
-		this._isMounted = true;
+		this.recipients();
 	}
 
 	componentWillUnmount() {
@@ -58,7 +54,13 @@ class Messenger extends Component {
 		return (paramKey === undefined || paramKey === null) ? null : paramKey;
 	}
 
-
+	recipients = () => {
+		const userKey = parseInt(gs.identity.user.id);
+		this._isMounted && gs.db.ref(`UserMessageRecipient`)
+			.orderByChild('recipients/' + userKey + '/id')
+			.equalTo(userKey)
+			.on("value", (snap) => this.process(snap));
+	};
 
 	process = (snap) => {
 		const i = gs.ObjectToArray(snap.val());
@@ -83,9 +85,6 @@ class Messenger extends Component {
 		if (this.messages.length > 0) {
 			this.currentMessage();
 		}
-		this.setState({ loading: false, });
-
-
 	};
 
 	currentMessage = () => {
@@ -110,7 +109,7 @@ class Messenger extends Component {
 			const { current } = this.state;
 			if (current && (recent.message.created_at > current.message.created_at)) {
 				current.message = recent.message;
-				this.setState({ module: moduleType, messages: this.messages, current });
+				this.setState({ module: moduleType, messages: this.messages, current, });
 			}
 		}
 	};
@@ -150,7 +149,8 @@ class Messenger extends Component {
 
 	loadMessage = () => {
 		const { activeKey, recipient, current } = this.state;
-		return (recipient && current && <MessageList searchParam={this.props} current={current} recipient={recipient} activeKey={activeKey} />);
+		//console.log(current, current.created_at);
+		return (recipient && current && <MessageList searchParam={this.props} current={current} recipient={recipient} activeKey={activeKey} autoTime={current.created_at} />);
 	};
 
 	renderEmpty = () => {
@@ -161,22 +161,7 @@ class Messenger extends Component {
 						<figure>
 							<img src="/images/not-found/message-empty.png" alt="message empty" width="100" />
 						</figure>
-						<h5>Your inbox message is empty.</h5>
-					</div>
-				</div>
-			</div>
-		);
-	};
-
-	renderLoadingEmpty = () => {
-		return (
-			<div className="blank_page d-flex align-items-center justify-content-center w-100 h-100">
-				<div className="common-not-found d-flex align-items-center justify-content-center">
-					<div className="inner text-center">
-						<figure>
-							<img src="/images/not-found/message-empty.png" alt="message empty" width="100" />
-						</figure>
-						<h5>Loading ...</h5>
+						<h5>Your inbox message is empty</h5>
 					</div>
 				</div>
 			</div>
@@ -184,19 +169,19 @@ class Messenger extends Component {
 	};
 
 	render() {
-		const { mountCurrent, messages, current, loading } = this.state;
-		return (
+		const { mountCurrent, current } = this.state;
+		return (this._isMounted &&
 			<Main>
 				<DocumentTitle title={`Messages`} />
 				<div className="w-100 pull-left bg-body">
-					{(messages && messages.length > 0) ? (<div className="messenger container my-4">
+					{current ? <div className="messenger container my-4">
 						<div className="sidebar">
 							{this.loadConversation()}
 						</div>
 						<div className="content">
-							{current && mountCurrent && this.loadMessage()}
+							{mountCurrent && this.loadMessage()}
 						</div>
-					</div>) : loading === true ? this.renderLoadingEmpty() : this.renderEmpty() }
+					</div> : this.renderEmpty()}
 				</div>
 			</Main>
 		);

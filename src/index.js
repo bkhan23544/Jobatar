@@ -8,7 +8,13 @@ import {store} from './config/store';
 import { SnackbarProvider } from 'notistack';
 import "./bootstrap.scss";
 import "./style.scss";
+import "./ali.scss";
+// import 'animate.min.css'
 import { history } from './helpers/history';
+import './assets/css/bootstrap.min.css'
+import './assets/css/font-awesome.min.css';
+import './assets/css/base.css';
+
 configureUrlQuery({ history, addChangeHandlers: false });
 const App = lazy(() => import('./App')) ;
 
@@ -19,7 +25,7 @@ ReactDOM.render(
                     <App siteName="JoArter"/>
             </Suspense>
         </SnackbarProvider>
-        </Provider>,
+    </Provider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

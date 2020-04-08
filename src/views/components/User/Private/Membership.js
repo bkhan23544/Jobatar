@@ -15,9 +15,9 @@ class Membership extends Component {
                         <div className="col-lg-4 col-sm-6 col-12">
                             <div className="card plan-box">
                                 <div className="card-body px-0">
-                                    { /* <div className="icon d-flex justify-content-center">
+                                    {/* <div className="icon d-flex justify-content-center">
                                         <div className="round d-flex justify-content-center align-items-center"><i className="far fa-dot-circle"></i></div>
-                                    </div> */ }
+                                    </div> */}
                                     <div className="caption">
                                         <h3 className="card-title">Basic <br /><small>1 Month Plan</small></h3>
                                         <h3 className="price">$19.99 / <small>Month</small></h3>
@@ -73,7 +73,7 @@ class Membership extends Component {
                             </div>
                         </div>
                         <div className="col-12">
-                            <p className="text-center">In the midst of the coronavirus pandemic, we are waiving our membership plan for all of our new members to use our unlimited access to exchange services and to connect with co-founders for the next 6 months. As a socially committed company, we are committed to do our part and do everything in our power to help our community of freelancers work remotely. Thank you for being a valuable member of our trusted community.</p>
+                            <p className="text-center">We are waiving our membership plan for our first 1,000 users for the first 6 months as a token of our appreciation. Enjoy your unlimited access to all of our features. Thank you for being a valuable member of our trusted community.</p>
                         </div>
                     </div>
                 </div>

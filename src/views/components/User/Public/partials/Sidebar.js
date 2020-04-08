@@ -47,7 +47,7 @@ const Sidebar = (props) => {
                 <hr />
                 <div className="sharing px-3">
                     <h5>Share my profile</h5>
-                    <ul className="social-login nav nav-pills justify-content-center px-3">
+                    <ul className="social-login nav nav-pills justify-content-center px-3">    
                         <li>
                             <FacebookShareButton
                                 url={`${gs.rootUrl}/user/public/co-founder/${item && item.user_id}`}
@@ -79,8 +79,7 @@ const Sidebar = (props) => {
                 <hr className="mb-3" />
                 <div className="languages sharing px-3">
                     <h5>Languages</h5>
-                    {/*languages && languages.map((lang) => (<span className="mr-2" key={lang}>{lang}</span>)) */}
-                    <span>{languages && languages.join(', ')}</span>
+                    {languages && languages.map((lang) => (<span className="mr-2" key={lang}>{lang}</span>))}
                 </div>
             </div>
         </div>

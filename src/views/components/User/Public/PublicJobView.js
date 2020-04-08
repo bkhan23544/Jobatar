@@ -51,7 +51,6 @@ class PublicJobView extends Component {
         itemService.proposal("GET", null, {item_id: id, user_id: user.id, moduleId: 'UserItem'}).then(response => {
             this.setState({proposal: response.items[0]});
         });
-
         itemService.service("GET", null, {user_id: user.id}).then(response => {
             this.setState({ servicesList: response.items });
         });

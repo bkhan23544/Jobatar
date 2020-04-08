@@ -112,18 +112,19 @@ class PublicCoFounder extends Component {
 
                             {(about && about.is_connection === 1) && <button className="btn btn-success" onClick={() => this.connected(about)}><i className="fas fa-check"></i> Connected</button> }
 
-                            <span className="count pl-3 btn btn-link">{about && about.num_of_connections} Connections</span>
+                            <span className="count pl-3">{about && about.num_of_connections} Connections</span>
                         </div>
                     </div>
                     <hr />
                     <div className="about-text px-3">
                         {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
-                            {(about && about.userCoFounderExperience === null) ? 'No data yet' : userCoFounderExperience && userCoFounderExperience.description}
+                            {(about && about.userCoFounderExperience === null) ? '' : userCoFounderExperience && userCoFounderExperience.description}
                         </div>}
                     </div>
                     <hr />
                     <h3 className="mb-3 px-3">Additional Information</h3>
-                    {userCoFounderExperience ? <div className="px-3 mb-3">
+                    <hr />
+                    {userCoFounderExperience && <div className="px-3 mb-3">
                         <div className="d-flex mb-2">
                             <div className="w-50"><b>Year of Experience</b></div>
                             <div className="w-50">{userCoFounderExperience.years_experience} years</div>
@@ -140,10 +141,11 @@ class PublicCoFounder extends Component {
                             <div className="w-50"><b>Previous Startup Experience</b></div>
                             <div className="w-50">{(userCoFounderExperience.startup_experience === 1) ? 'Yes' : 'No'}</div>
                         </div>
-                    </div> : <div className="px-3">No data yet</div>}
+                    </div>}
 
                     <hr />
                     <h3 className="mb-3 px-3">Business Stage</h3>
+                    <hr />
                     {process.loading ? <div className="px-3"><ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /></div> : <div>
                         <Tab.Container id="left-tabs-example" defaultActiveKey={`business_${(userCoFounderExperience && userCoFounderExperience.status !== null) ? userCoFounderExperience.status : 0}`}>
                             <div className="wizard px-3 mb-3">
@@ -191,19 +193,19 @@ class PublicCoFounder extends Component {
                             {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
                                 <h5>{userCoFounderIdeal && userCoFounderIdeal.title}</h5>
                                 <div className="about-text">
-                                    {(userCoFounderIdeal && userCoFounderIdeal.description) ? userCoFounderIdeal.description : 'No data yet'}
+                                    {userCoFounderIdeal && userCoFounderIdeal.description}
                                 </div>
                             </div>}
                         </div>
-                        <hr />
                         <h5 className="px-3">Skills</h5>
+                        <hr />
                         <div className="about-text skill px-3">
                             {about.userProfile && about.userProfile.skills.map((skill) => <span key={skill.id}>{skill.title }</span>)}
-                            {about.userProfile && about.userProfile.skills.length === 0 && 'No data yet'}
                         </div>
                         <hr />
                         <h5 className="px-3">My Wishlist</h5>
-                        { userCoFounderIdeal ? <div className="about-text px-3 mb-0">
+                        <hr />
+                        { userCoFounderIdeal && <div className="about-text px-3 mb-0">
                             <div className="d-flex mb-2">
                                 <div className="w-50"><b>Year of Experience</b></div>
                                 <div className="w-50">{userCoFounderIdeal.years_experience} years</div>
@@ -224,7 +226,8 @@ class PublicCoFounder extends Component {
                                 <div className="w-50"><b>Preferred Location</b></div>
                                 <div className="w-50">{userCoFounderIdeal && userCoFounderIdeal.countries.map(count => count.name).join(', ')}</div>
                             </div>
-                        </div> : <div className="px-3">No data yet</div> }
+                        </div> }
+
 
                     </div>
 

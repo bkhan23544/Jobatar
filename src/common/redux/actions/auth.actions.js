@@ -15,23 +15,23 @@ const login = (params) => {
                     dispatch(alertSelectors.success(authentication.message));
                     dispatch(processSelectors.stop());
                     gs.firebaseLogin(params.username)
-                        .then((user) => {
-                            if (user) {
-                                gs.navigation('service-search', true);
-                            }
-                        });
+                    .then((user) => {
+                        if (user)  {
+                             gs.navigation('service-search', true);
+                        }
+                    });
                 }
             })
             .catch(exception => {
                 //console.log('exception', exception);
-                // if(exception.statusText === 'Unauthorized') dispatch(alertSelectors.unVerified('Registered successfully, please check your email for verification', exception.code));
-                exception && exception.text().then(message => {
+               // if(exception.statusText === 'Unauthorized') dispatch(alertSelectors.unVerified('Registered successfully, please check your email for verification', exception.code));
+               exception && exception.text().then(message => {
                     const errorMessage = JSON.parse(message);
-                    (errorMessage !== undefined) && (errorMessage.message !== undefined) && (errorMessage.message.length > 0) && dispatch(alertSelectors.unVerified(errorMessage.message, errorMessage.code));
-                    (errorMessage !== undefined) && (errorMessage.errors !== undefined) && (errorMessage.errors.length > 0) && errorMessage.errors.map(item => dispatch(alertSelectors.error(item)));
+                   (errorMessage !== undefined) && (errorMessage.message !== undefined) && (errorMessage.message.length > 0) && dispatch(alertSelectors.unVerified(errorMessage.message, errorMessage.code));
+                   (errorMessage !== undefined) && (errorMessage.errors !== undefined) && (errorMessage.errors.length > 0) && errorMessage.errors.map(item => dispatch(alertSelectors.error(item)));
 
-                });
-                //  gs.showErrors(dispatch, exception, alertSelectors);
+               });
+              //  gs.showErrors(dispatch, exception, alertSelectors);
                 dispatch(processSelectors.stop());
             });
     };
@@ -48,11 +48,12 @@ const loginByAuth = (params, params2) => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 gs.storeItem('authentication', authentication);
                 gs.storeItem('token', authentication.token);
-                dispatch(authSelectors.success(authentication));
-                dispatch(alertSelectors.success(authentication.message));
-                dispatch(processSelectors.stop());
-                gs.navigation('welcome', true);
             }
+            dispatch(authSelectors.success(authentication));
+            dispatch(alertSelectors.success(authentication.message));
+            dispatch(processSelectors.stop());
+            gs.navigation('welcome', true);
+
         })
             .catch(exception => {
                 gs.firebaseLogout();
@@ -112,7 +113,7 @@ const forgotPassword = (data) => {
 const resetPassword = (params = null, params2 = null) => {
     return dispatch => {
         dispatch(processSelectors.start());
-        authService.resetPassword(params, params2)
+        authService.resetPassword( params, params2)
             .then(response => {
                 dispatch(alertSelectors.success(response.message));
                 dispatch(processSelectors.stop());

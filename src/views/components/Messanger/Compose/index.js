@@ -152,15 +152,15 @@ class Compose extends Component {
 				console.log('Upload is running');
 				break;
 		}
-	};
+	}
 
 	error = (error) => {
 		console.error(error);
-	};
+	}
 
 	success = () => {
 		//this.setState({ is_uploaded: true });
-	};
+	}
 
 	render() {
 		const { formField, submitted, validation } = this.state;
@@ -194,7 +194,7 @@ class Compose extends Component {
                         <Fab color="primary" type="submit" size="small" disabled={false} aria-label="add">
                             <Icon size="22">send</Icon>
                         </Fab>
-                        {/* <CircularProgress size={68} className="circular" /> */}
+                        {/*<CircularProgress size={68} className="circular" />*/}
 					</div>
 				</form>
 			</div>

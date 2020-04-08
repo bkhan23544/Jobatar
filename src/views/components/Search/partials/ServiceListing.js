@@ -63,10 +63,10 @@ class ServiceListing extends Component {
     render() {
         const { process, results } = this.props;
 
-        return (<div className="row">
+        return (<div className="row" style={{ justifyContent: "space-evenly" }}>
             {process.loading ? <Fragment>
-                {[1, 2, 3, 4].map((number) =>
-                    <div className="col-lg-3 col-sm-6 col-12 mb-3" key={Math.random() * (+1 - +1) + number}>
+                {[1, 2, 3, 4, 5, 6].map((number) =>
+                    <div className="col-md-4" key={Math.random() * (+1 - +1) + number}>
                         <div className="p-0 bg-white">
                             <ContentLoader
                                 height={550}
@@ -76,8 +76,8 @@ class ServiceListing extends Component {
                                 secondaryColor={'#ddd'}
                             >
                                 <rect x="0" y="0" rx="3" ry="3" width={500} height="280" />
-                                <rect x="25" y="300" rx="3" ry="3" width={ 450} height="20" />
-                                <rect x="25" y="350" rx="3" ry="3" width={ 450} height="20" />
+                                <rect x="25" y="300" rx="3" ry="3" width={450} height="20" />
+                                <rect x="25" y="350" rx="3" ry="3" width={450} height="20" />
                                 <rect x="25" y="400" rx="3" ry="3" width={450} height="20" />
                                 <rect x="25" y="450" rx="3" ry="3" width={450} height="20" />
                             </ContentLoader>
@@ -87,7 +87,7 @@ class ServiceListing extends Component {
             </Fragment> :
                 <Fragment>
                     {results && results.map((item) =>
-                        <div className="col-xl-3 col-lg-4 col-sm-6 col-12" key={item.id}>
+                        <div className="col-md-4" key={item.id}>
                             <div className="svcsLBox w-100 float-left">
                                 <div className="image">
                                     <Link to={`/user/public/service/view/${item.id}`} className="bg-image">
@@ -108,7 +108,7 @@ class ServiceListing extends Component {
                                         </Box>
                                         {(item && item.count_rating !== 0) && <small className="count">{item.count_rating}</small>}
                                     </div>
-                                    <div className="profile d-flex align-items-center">
+                                    {/* <div className="profile d-flex align-items-center">
                                         <div className="img pr-2">
                                             <NavLink to={`/user/public/about/${item.user.id}`}><img src={item.user.avatar} className="img-fluid rounded-circle" width="32" height="32" alt="" /></NavLink>
                                         </div>
@@ -118,6 +118,18 @@ class ServiceListing extends Component {
                                                 {item.user && item.user.countryCode && item.user.countryCode.name}
                                             </small></p>
                                         </div>
+                                    </div> */}
+
+                                    <div class="col-lg-12 abc">
+                                        <div class="pull-left">
+                                            <NavLink to="#">
+                                                {item.user.avatar ?
+                                                    <img class="img-responsive" src={item.user.avatar} alt="Image" />
+                                                    : ""}
+                                            </NavLink>
+                                        </div>
+                                        <h5> {item.user.name} </h5>
+                                        <p><i class="fa fa-map-marker"></i> {item.user.countryCode && item.user.countryCode.name}</p>
                                     </div>
                                 </div>
                             </div>

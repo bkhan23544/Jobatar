@@ -53,18 +53,20 @@ class PublicAbout extends Component {
             <div className="card public-about mb-3">
                 <div className="card-body px-0 pb-0">
                     <h1 className="mb-3 pb-0 px-3">About</h1>
+                    <hr />
                     <div className="about-text px-3">
-                        {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : 'No data yet'}
+                        {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : ''}
                     </div>
                     <hr />
                     <h3 className="mb-3 px-3">Skills</h3>
+                    <hr />
                     <div className="skill mb-lg-4 mb-3 px-3">
-                        <span>{about.skills && about.skills.map((skill) => skill.title).join(', ')}
-                        {about.skills && about.skills.length === 0 && 'No data yet'}
-                        </span>
+                        {about.skills && about.skills.map((skill) => <span key={skill.id}>{skill.title }</span>)}
+
                     </div>
                     <hr />
                     <h3 className="mb-3 px-3">Experience</h3>
+                    <hr />
                     {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} px={3} /> :
                         <Fragment>
                             <div className="education mb-lg-4 mb-3 px-3">
@@ -73,7 +75,7 @@ class PublicAbout extends Component {
                                     <div className="col-6"><b>Company</b></div>
                                     <div className="degree col"><b>Title</b></div>
                                     <div className="right col" style={{paddingLeft: '20px'}}><b>Year</b></div>
-                                    </div>}
+                                </div>}
                                 {experienceItems && experienceItems.map((education) =>
                                     <div className="d-flex mb-3 row" key={education.id}>
                                         <div className="col-6">{education.industry_name}</div>
@@ -81,19 +83,19 @@ class PublicAbout extends Component {
                                         <div className="right col" style={{paddingLeft: '20px'}}><span>{moment(education.from).format('MM/YYYY')} - {education.is_present === 1 ? 'Present' : moment(education.to).format('MM/YYYY')}</span></div>
                                     </div>
                                 )}
-                                {experienceItems && experienceItems.length === 0 && 'No data yet'}
                             </div>
                         </Fragment>
                     }
-                    <hr />
                     <h3 className="mb-3 px-3">Education</h3>
+                    <hr />
                     <div className="education mb-lg-4 mb-3 px-3">
-                        {(educationsItems && educationsItems.length > 0) ?
+                        {(educationsItems && educationsItems.length > 0) &&
                         <div className="d-flex mb-3 row">
                             <div className="col-6"><b>School</b></div>
                             <div className="degree col"><b>Degree</b></div>
                             <div className="right col" style={{paddingLeft: '20px'}}><b>Year</b></div>
-                        </div>:'No data yet' }
+                        </div>}
+
                         {educationsItems && educationsItems.map((experience) =>
                             <div className="d-flex mb-3 row" key={experience.id}>
                                 <div className="col-6">{experience.institute}</div>

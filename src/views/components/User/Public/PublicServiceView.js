@@ -65,7 +65,6 @@ class PublicServiceView extends Component {
         id && itemService.service("GET", null, { item_id: id }).then(res => {
             if (res.model) {
                 let item = res.model;
-
                 this.setState({ item: item });
                 if (this.state.user_id !== item.user_id) {
                     dispatch(serviceActions.index("GET", null, { user_id: item.user_id }));
@@ -215,11 +214,11 @@ class PublicServiceView extends Component {
                                     </ul>
                                     <hr />
                                     <div className="text px-3">
-                                        {item && item.user && item.user.title}
+                                        {item.user.title}
                                     </div>
                                     <div className="info d-flex px-3">
                                         <i className="far fa-question-circle mr-2"></i>
-                                        {item.user.about && <ReadMoreReact className="custom-description" text={item.user.about} min={120} ideal={150} max={200} readMoreText={'Read More'} />}
+                                        <ReadMoreReact className="custom-description" text={item.user.about} min={120} ideal={150} max={200} readMoreText={'Read More'} />
                                     </div>
                                 </div>
                             </div>}
@@ -247,7 +246,6 @@ class PublicServiceView extends Component {
                                         <hr />
                                         <div className="card-text px-3">
                                             <div className="custom-description" dangerouslySetInnerHTML={{ __html: item && item.description }}></div>
-                                            {item && item.description.length === 0 && 'No data yet'}
                                         </div>
                                     </div>
                                 </Element>
@@ -258,7 +256,7 @@ class PublicServiceView extends Component {
                                         <hr />
                                         <div className="card-text pt-4 px-3">
                                             <div className="row">
-                                                {(item && item.media.docs && item.media.docs) ? '' : <div className="col-12" style={{marginTop: '-20px'}}>No data yet</div>}
+                                                {(item && item.media.docs && item.media.docs) ? '' : <div className="col-12">Portfolio not found</div>}
                                                 {item && item.media.docs && item.media.docs.map((doc) =>
                                                     <div className="col-lg-2 col-md-3 col-sm-4 col-6" key={doc.id}>
                                                         <div className="docs text-center mb-4">
@@ -289,7 +287,6 @@ class PublicServiceView extends Component {
                                             {item && item.skills.map((skill) =>
                                                 <div className="badge badge-pill badge-secondary" key={skill.id}>{skill.title}</div>
                                             )}
-                                            {item && item.skills.length === 0 && 'No data yet'}
                                         </div>
                                     </div>
                                 </Element>

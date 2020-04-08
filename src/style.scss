@@ -9,18 +9,25 @@
 @import "./sass/mixins";
 @import "./sass/utilities";
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css");
+
+@import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Abhaya+Libre");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Courgette");
+
 // Bootstrap
 //@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
 
 @import "./sass/custom";
 
 
-//body {font-family: 'HKGrotesk', sans-serif; line-height: 26px; background-color: $white;}
+body {font-family: 'HKGrotesk', sans-serif; line-height: 26px; background-color: $white;}
 body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $white; font-size: 14px;}
 
-.all-content {@include full-width(); min-height: calc(73vh - 18px); padding-top: 65px;
-  @media(max-width: 767px) {min-height: calc(23vh - 18px);}
-}
+.all-content {@include full-width(); min-height: calc(73vh - 18px); padding-top: 65px;}
 /// Css apply only mizilla firefox
 @-moz-document url-prefix() {
 	.all-content {@include full-width(); min-height: calc(75vh - 15px);}
@@ -232,7 +239,7 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		.btn {padding: 5px 15px;}
 	}
 	.success-service {text-align: center; font-size: 18px;
-		h2 {font-size: 1.1rem; font-weight: bold;}
+		h2 {font-size: 2.1rem; font-weight: bold;}
 	}
 	.questions {margin-bottom: 10px;
 		.list {margin-bottom: 15px;
@@ -244,12 +251,7 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	.action {
 		.btn {height: 44px; font-size: 14px; font-weight: bold;}
 	}
-	@media(max-width: 767px) {padding: 20px 0px; min-height: auto;
-      h1 {font-size: 18px;}
-      h3 {font-size: 16px;}
-      form {margin-bottom: 10px;}
-      .btn {font-size: 13px !important; height: 36px !important;}
-      .wizard {margin-bottom: 0px;}
+	@media(max-width: 767px) {padding: 20px 0px;
 	}
 } // Create Service page css end
 
@@ -486,11 +488,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		.category {max-width: 300px;}
 		.sold {}
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-    }
 } // My Services css end
 
 .individual-service {min-height: calc(100vh - 342px); width: 100%; float: left; padding-bottom: 40px;
@@ -558,7 +555,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			li a {pointer-events: none;
 				> i {transform: scale(1.6);}
 			}
-			.nav-item {flex-basis: inherit; flex-grow: inherit; padding: 0px 10px;}
 			//.fa-facebook-square {color: $facebook;}
 			//.fa-google-plus-square {color: $google;}
 			//.fa-linkedin {color: $linkedin;}
@@ -590,16 +586,7 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			}
 		}
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-      .card {margin-bottom: 10px !important;
-        .card-body {padding: 10px;}
-        .card-title {font-size: 14px; margin-bottom: 0px; padding-bottom: 0px;}
-        hr {margin-bottom: 10px; margin-top: 10px;}
-      }
-    }
+	@media(max-width: 767px) {}
 	@media(max-width: 574px) {
 		.headings {
 			.sold {margin-right: 8px;}
@@ -609,10 +596,76 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 } // Individual Service page css end
 
 .freLncrSarch {padding: 30px 0px; min-height: calc(100vh - 342px);
-	.input-group {border: 1px solid darken($white, 9%); border-radius: 4px; position: relative;
-		.form-control {border-color: transparent; border-radius: 4px; padding: 8px 135px 8px 25px; font-size: 14px; font-weight: 600; color: hsl(0,0%,32%);
-			&::placeholder {color: hsl(0,0%,56%);}
+	.container{
+		display: flex;
+		.section1{
+			width: 300px;
+			padding-right: 20px;
+			@media(max-width: 1169px) {
+			width: 240px;
+			}
+			.clearIcon{
+				display: none;
+			}
 		}
+		.section2{
+			width: 75%;
+			@media(max-width: 991px) {
+				width: 100%;
+			}
+			p{
+				display: none;
+				@media(max-width: 991px) {
+					display: block;
+					margin: 0;
+					margin-top: 5px;
+					color: #191B20;
+					font-weight: bold;
+					&:hover{
+						color: #ff5851;
+					}
+				}
+			}
+		}
+		.section1MobClose{
+			@media(max-width: 991px) {
+				width: 0;
+				position: fixed;
+				z-index: 10;
+				transition: 0.5s;
+				left: 0%;
+				transform: translate(-0%,0);
+				overflow: hidden;
+				padding: 0;
+				.clearIcon{
+					display: block;
+				}
+			}
+		}
+		.section1MobOpen{
+			@media(max-width: 991px) {
+				position: fixed;
+				z-index: 10;
+				width: 90%;
+				transition: 0.5s;
+				left: 50%;
+				transform: translate(-50%,0);
+				overflow: visible;
+				.multi__menu{
+					z-index: 20;
+				}
+				.card-body{
+					box-shadow: 3px 3px 5px 6px #ccc;
+					border-radius: 5px;
+				}
+				.clearIcon{
+					display: block;
+				}
+			}
+		}
+	}
+	.input-group {border: 1px solid darken($white, 9%); border-radius: 4px; position: relative;
+		.form-control {border-color: transparent; border-radius: 4px; padding: 8px 135px 8px 25px; font-size: 14px; font-weight: 600;}
 		.btn {font-size: 12px; text-transform: uppercase; height: 40px; margin-top: 7px; margin-right: 15px; font-weight: 600; padding: 6px 25px; border-radius: 4px !important; position: absolute; right: 0px; z-index: 9;}
 	}
 	.sorting {
@@ -621,7 +674,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			.multi__control, .multi__control--menu-is-open {min-height: 34px;}
 		}
 	}
-	.custom-control label {color: hsl(0,0%,56%);}
 	.filters {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white;
 		.card-body {padding: 10px 15px;}
 		.btn-link {text-decoration: none;}
@@ -631,7 +683,7 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		.custom-row {margin-left: -5px; margin-right: -5px;
 
 		}
-		.multiple-select {min-width: 170px; max-width: 350px; padding-left: 5px; padding-right: 5px; margin: 8px 0px;
+		.multiple-select {width: 100%; padding-left: 5px; padding-right: 5px; margin: 8px 0px;
 			&.category {min-width: 270px;}
 			&.ratings {min-width: 200px;}
 			.multi__indicator-separator {display: none;}
@@ -639,8 +691,8 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			.multi__multi-value {max-width: 90px;}
 		}
 	}
-	@media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-		.filters {margin-bottom: 10px !important;
+	@media(max-width: 767px) {
+		.filters {margin-bottom: 15px !important;
 			> .card-body > .d-flex {flex-wrap: wrap;}
 			.multiple-select {width: 100%; max-width: 100%;}
 		}
@@ -648,20 +700,17 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			.form-control {padding: 8px 95px 8px 10px;}
 			.btn {padding: 6px 15px; margin-right: 5px;}
 		}
-        .col-12.sorting.my-2.d-flex.align-items-center h6 {font-size: 14px !important; margin-bottom: 0px !important; padding-bottom: 10px !important;}
 	}
 } // Freelancer Search Listing Page Css End
 
 .public-profile {padding: 30px 0px; min-height: calc(100vh - 342px);
 	.job-list {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white; color: lighten($dark, 10%);}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-    }
 } // User Public Profile css end
 
 .public-about {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white; color: lighten($dark, 10%);
-	h1, h3 {font-size: calc(0.7rem + 0.4vw); font-weight: 500; color: darken($dark, 10%);}
+	h1, h3 {font-size: calc(0.8rem + 0.5vw); font-weight: 500; color: darken($dark, 10%);}
 	hr {border-color: rgba($black, 0.07);}
-	.about-text {margin-bottom: 15px; }
+	.about-text {margin-bottom: 30px; }
 	.skill {
 		span + span:before {content: " , ";}
 	}
@@ -669,25 +718,17 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	.experience {border-bottom: 1px solid rgba($black, 0.07); margin-bottom: 20px; padding-bottom: 20px;
 		&:last-child {padding-bottom: 0px; margin-bottom: 0px; border-bottom: none;}
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-    }
 } // Public About css end
 
 .public-cofounder {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white; color: lighten($dark, 10%);
-	h1, h3 {font-size: calc(0.7rem + 0.4vw); font-weight: 500; color: darken($dark, 10%);}
-	h5 {font-size: calc(0.6rem + 0.4vw); font-weight: 500; color: darken($dark, 10%);}
+	h1, h3 {font-size: calc(0.8rem + 0.5vw); font-weight: 500; color: darken($dark, 10%);}
 	hr {border-color: rgba($black, 0.07);}
 	.skill {
 		span + span:before {content: " , ";}
 	}
-	.about-text {margin-bottom: 15px; }
+	.about-text {margin-bottom: 30px; }
 	.wizard-inner {margin-left: -50px; margin-right: -50px; pointer-events: none;}
-	span.count.pl-3.btn.btn-link {cursor: default; color: $gray-800;
-		&:hover {text-decoration: none;}
-	}
+
 } // Public Co-Founder css end
 
 .public-rating {border: 1px solid darken($white, 9%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white; color: lighten($dark, 10%);
@@ -733,11 +774,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	h1 {font-size: calc(0.8rem + 0.5vw); font-weight: 600; padding-bottom: 10px;
 		.btn {font-size: 13px; text-transform: uppercase; font-weight: 600; padding: 8px 20px;}
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-        h1 {padding-bottom: 0px;
-          .btn {font-size: 12px; padding: 6px 12px;}
-        }
-    }
 } // My all jobs pages css end
 
 .service-proposal {padding: 30px 0px; min-height: calc(100vh - 342px);
@@ -797,12 +833,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			}
 		}
 	}
-
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-    }
 } // Service Proposal page css end
 
 .job-individual {padding: 30px 0px; min-height: calc(100vh - 342px);
@@ -862,23 +892,10 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			.multi__control, .multi__control--menu-is-open {min-height: 34px;}
 		}
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-      .card {margin-bottom: 10px !important;
-        .card-body {padding: 10px;}
-      }
-    }
 } // Job Individual page css end
 
 .my-favorites {padding: 30px 0px; min-height: calc(100vh - 342px);
 	h1 {font-size: calc(0.8rem + 0.5vw); font-weight: 600; padding-bottom: 10px;}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-    }
 } // My Favorites list page css end
 
 
@@ -893,11 +910,6 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		> div {padding-left: 10px; padding-right: 10px; width: 180px;}
 		.MuiFormControl-root {margin: 0px; }
 	}
-    @media(max-width: 767px) {padding: 15px 0px; min-height: auto;
-      h1 {padding-bottom: 0px;
-        .btn {font-size: 12px; padding: 6px 12px;}
-      }
-    }
 } // Transaction page css end
 
 .common-not-found {min-height: 350px;
@@ -959,26 +971,5 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
       img {width: 150px}
 	}
 }
-.e-multi-select-wrapper input[type='text']::placeholder {color: hsl(0,0%,56%) !important;}
-.e-multi-select-wrapper .e-delim-values {color: hsl(0,0%,32%) !important; font-weight: 500}
 
-@media(max-width: 767px) {
-  .freelancerLoader .freLncrBox {margin-bottom: 10px !important;}
-  .messenger {display: block !important;
-    .sidebar {margin-bottom: 10px; height: 400px !important;}
-    .content {margin-left: 0px !important; height: 500px !important;}
-    .message-list-container {height: 326px;}
-  }
-	.form-group {margin-bottom: 10px;}
-}
-.e-popup-full-page {overflow: scroll !important;}
-.alice-carousel__stage-item {min-height: 300px; background-color: lighten($gray-400, 12%); max-height: 300px;
-	.item {display: flex; align-items: center; justify-content: center; width: 100%; height: 300px;
-		img {height: 100%;}
-	}
-}
 
-.e-dropdownbase .e-list-item {
-	&[data-value="44"], &[data-value="12"], &[data-value="6"], &[data-value="7"], &[data-value="15"], &[data-value="13"], &[data-value="9"], &[data-value="81"], &[data-value="8"], &[data-value="11"], &[data-value="5"], &[data-value="4"], &[data-value="129"], &[data-value="10"], &[data-value="12"], &[data-value="14"], &[data-value="16"], &[data-value="2"], &[data-value="3"]
-	{display: none !important;}
-}

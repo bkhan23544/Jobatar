@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import FormValidator from '../../../../helpers/FormValidator';
 import { proposalActions } from '../../../../common/redux/actions';
 import { globalService as gs } from '../../../../common/services';
-import { ModuleHelper as mh } from '../../../../helpers/module.helper';
+import { ModuleHelper } from '../../../../helpers/module.helper';
 import FileUploader from "../../common/FileUploader";
 import { fileManupulate } from "../../../../helpers/file.helper";
 var validSettlement = true;
@@ -49,8 +49,7 @@ class PlaceOffer extends Component {
     }
 
     _mount = () => {
-        const { open, item_id, moduleId, item, title} = this.props;
-        let servicesList = (moduleId === mh.UserService) ? this.props.servicesList : item.userServices;
+        const { open, item_id, moduleId, item, title, servicesList } = this.props;
         let { formField } = this.state;
         if (item) {
             formField['settlement'] = (formField.settlement === null) ? item.settlement : formField.settlement;
@@ -84,9 +83,9 @@ class PlaceOffer extends Component {
         let { formField } = this.state;
         let index = formField.answers && formField.answers.length > 0 && formField.answers.findIndex(item => (item.question_id === e.target.name));
         if (index !== -1 && index !== false && index !== undefined && index >= 0) {
-            formField.answers[index].answer = e.target.value;
+            formField.answers[index].answer = e.target.value
         } else {
-            formField.answers.push({ question_id: e.target.name, answer: e.target.value });
+            formField.answers.push({ question_id: e.target.name, answer: e.target.value })
         }
         this.setState({ formField });
     };
@@ -132,7 +131,7 @@ class PlaceOffer extends Component {
             params.recipients = [gs.identity.user.id, item.user_id];
             params.answers = formField.answers;
             params.any_questions = formField.any_questions;
-            params.status = mh.statuses().status_offers;
+            params.status = ModuleHelper.statuses().status_offers;
             dispatch(proposalActions.proposal("POST", { userProposal: params }));
             this.setState(this.initializeState);
             this.handleClose(null, { proposalStatus: true });
@@ -172,7 +171,7 @@ class PlaceOffer extends Component {
                 <DialogContent>
                     <form name="proposal" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate style={{ minHeight: "360px", overflow: 'hidden' }}>
                         {item && item.settlement === 'both' && <div className="form-group">
-                            <label>{(mh.UserService === moduleId) ? 'How would you like to pay for this service ? ' : 'How would you like to get paid for this job ?'}</label>
+                            <label>How would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
                             <div className="custom-control custom-radio mb-2">
                                 <input type="radio"
                                     name="settlement"
@@ -194,7 +193,7 @@ class PlaceOffer extends Component {
                         </div>}
 
                         {(formField.settlement === 'cash') && <div className="form-group">
-                            <label>How much would you like to {(mh.UserItem === moduleId) ? 'get paid' : 'pay'} for this {(mh.UserService === moduleId) ? 'service' : 'job'}? </label>
+                            <label>How much would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}? </label>
                             <div className="input-group">
                                 <input type="number" className={'form-control ' + (submitted && isValid.comment.isInvalid ? 'is-invalid' : '')} name="budget" placeholder={`${item.budget ? item.budget : 0} ${(item.type === 'fixed') ? ' /Fixed' : ' / Hourly rate'}`} onChange={this.handleChange} />
                                 <div className="input-group-append ml-0">
@@ -207,7 +206,7 @@ class PlaceOffer extends Component {
                         </div>}
 
                         {((servicesList) && (formField.settlement === 'exchange')) && <div className="form-group">
-                            <label>Select a service as a payment in exchange for this service</label>
+                            <label>Select a service as a payment in exchange for your work</label>
                             <Select
                                 className={"multiple-select mb-2 " + (submitted && isValid.services.isInvalid ? 'is-invalid' : '')}
                                 classNamePrefix="multi"
@@ -222,7 +221,7 @@ class PlaceOffer extends Component {
                         </div>}
 
                         <div className="form-group">
-                            <label>{(mh.UserService === moduleId) ? 'Message' : 'Job proposal description'} </label>
+                            <label>{(ModuleHelper.UserService === moduleId) ? 'Message' : 'Job proposal description'} </label>
                             <textarea className={'form-control ' + (submitted && isValid.comment.isInvalid ? 'is-invalid' : '')} placeholder="Message ..." onChange={this.handleChange}
                                 name="comment" rows={3} />
                             {submitted && isValid.comment.isInvalid &&
@@ -231,7 +230,7 @@ class PlaceOffer extends Component {
                         </div>
                         {isJob && <>
                             <div className="form-group">
-                                <label>What questions do you have for this {(mh.UserService === moduleId) ? 'service' : 'job'}?</label>
+                                <label>Enter any inquiries that you have regarding this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
                                 <textarea className={'form-control'} placeholder="Any questions ..." onChange={this.handleChange} name="any_questions" rows={3} />
                             </div>
 

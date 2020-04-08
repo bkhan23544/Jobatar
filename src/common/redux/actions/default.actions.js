@@ -134,10 +134,10 @@ const newsletter = (params) => {
         dispatch(processSelectors.start());
         defaultService.newsletter(params)
             .then(response => {
-                (response.success === true) ?
-                    dispatch(alertSelectors.success('Thanks for subscribing. You will receive regular updates from Jobarter.')) :
+                (response.code === true) ?
+                    dispatch(alertSelectors.success(response.message)) :
                     dispatch(alertSelectors.error(response.message));
-                    dispatch(processSelectors.stop());
+                dispatch(processSelectors.stop());
             })
             .catch(exception => {
                 console.log(exception);

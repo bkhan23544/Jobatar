@@ -6,6 +6,8 @@ import { createSelector } from 'reselect';
 import { authActions, jobActions, serviceActions, searchActions, favoriteActions, proposalActions, messageActions } from '../../../common/redux/actions';
 import Notification from "./Notification";
 import { globalService as gs, itemService } from '../../../common/services';
+import Search from "./Search";
+import SearchIcon from '@material-ui/icons/Search';
 
 class LoggedUser extends Component {
 
@@ -13,9 +15,9 @@ class LoggedUser extends Component {
         super(props);
         this.state = {
             authentication: props.authentication,
-            renderNotification:true,
+            renderNotification: true,
             item: null,
-            unread:0,
+            unread: 0,
         };
         this.unread = 0;
     }
@@ -25,7 +27,7 @@ class LoggedUser extends Component {
         this.recipientCounter()
     };
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.setState({ renderNotification: false });
     }
 
@@ -68,16 +70,35 @@ class LoggedUser extends Component {
         this.setState({ unread });
     };
 
+    toggleSearch=(id)=>{
+        document.getElementById(id).classList.toggle("searchDropDownOpen")
+    }
+
+
     render() {
         const { authentication, item, renderNotification } = this.state;
         const user = authentication && authentication.loggedIn && authentication.authentication.user;
+        const { history } = this.props;
 
         return (<Fragment>
             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
+                <div className="searchDropDownIcon">
+                    <SearchIcon
+                        style={{ color: "#ff5851" }}
+                        fontSize="large"
+                        onClick={() => this.toggleSearch("searchDropDown")}
+                    />
+                    <div
+                        id="searchDropDown"
+                        className="searchDropDownClose"
+                    >
+                        <Search history={history} />
+                    </div>
+                </div>
                 {(renderNotification === true) && <Notification />}
                 <a className="nav-link" href="/messages">
                     <img src="/images/Message.svg" alt="" className="img-fluid" width="25" />
-                    <span className="badge badge-info">{this.state.unread ? this.state.unread : '' }</span>
+                    <span className="badge badge-info">{this.state.unread ? this.state.unread : ''}</span>
                 </a>
                 <NavDropdown title={
                     <span>
@@ -91,7 +112,7 @@ class LoggedUser extends Component {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <NavLink className="dropdown-item" to={"/services"}>My Services</NavLink>
-                            <NavLink className="dropdown-item" to={"/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService &&  item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/contracts/services/cash"}>Accepted Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/completed/services/cash"}>Completed Offers</NavLink>
