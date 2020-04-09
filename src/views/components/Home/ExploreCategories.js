@@ -11,7 +11,7 @@ class ExploreCategories extends Component {
        <p className="tagline-text">Buid a trusted team for your business</p>
 	   </div>
        <div className="container category-margin">
-       <div className="inline-wrapper">
+       <div className="row">
   <div class="col-lg-3">
 		   <div class="category-box tr-category">
 			<a href="hire.html">
@@ -51,7 +51,7 @@ class ExploreCategories extends Component {
           </div>
 
 
-          <div class="inline-wrapper">
+          <div class="row">
 		 
          <div class="col-lg-3">
           <div class="category-box tr-category">

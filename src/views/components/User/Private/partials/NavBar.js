@@ -24,10 +24,21 @@ const NavBar = (prop) => {
         </ul>
         <div className="card card-instruction">
             <div className="card-body">
-                <h5 className="card-title">Instruction</h5>
-                { (prop.instruction === 'profile') && <p className="card-text">Filling out your profile information thoroughly will help us better meet your freelancing goals. Based on your specific interests, other members will be reviewing your profile before deciding whether to hire you, exchange services with you, or to consider you as a co-founder on their business ideas. It is really important to diligently highlight the breadth of your experience to make your profile standout.</p> }
-                { (prop.instruction === 'experience') && <p className="card-text">Provide comprehensive information about your professional experience and education to highlight your expertise.</p> }
-                { (prop.instruction === 'co-founder') && <p className="card-text">To more effectively match you with ideal co-founders for your business ideas, please ensure that you fill out all of your information, and also include your wish list request.</p> }
+                <h5 className="card-title section-titles">Instruction</h5>
+                <div className="description-profile">
+
+<ul className="tr-list resume-info">			
+
+ <li>
+ { (prop.instruction === 'profile') && <div className="media-body text-center">Filling out your profile information thoroughly will help us better meet your freelancing goals. Based on your specific interests, other members will be reviewing your profile before deciding whether to hire you, exchange services with you, or to consider you as a co-founder on their business ideas. It is really important to diligently highlight the breadth of your experience to make your profile standout.</div> }
+ { (prop.instruction === 'experience') && <div className="media-body text-center">Provide comprehensive information about your professional experience and education to highlight your expertise.</div> }
+ { (prop.instruction === 'co-founder') && <div className="media-body text-center">To more effectively match you with ideal co-founders for your business ideas, please ensure that you fill out all of your information, and also include your wish list request.</div> }
+ </li>	
+ </ul>
+ </div>
+
+
+                
 
             </div>
         </div>

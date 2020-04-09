@@ -171,15 +171,16 @@ class CoFounder extends Component {
                 <div className="container">
                     <form name="co-founder" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                         <Card className="mb-4 mb-lg-5">
-                            <Card.Header>My Profile</Card.Header>
+                        <p className="card-titles ml-2 mt-4"> My Profile</p>
                             <Card.Body>
                                 <Row>
                                     <Col xs="12" md="3" xl="4">
                                         <NavBar instruction="co-founder" />
                                     </Col>
+                                    
                                     <Col xs="12" md="9" xl="8">
                                         <div className="py-3 w-100 float-left">
-                                            <Card.Title>Co-founder Experience</Card.Title>
+                                        <span className="section-titles">Co-founder Experience</span>
                                             <Row>
                                                 <Col xs={12}>
                                                     <div className="form-group">
@@ -188,15 +189,17 @@ class CoFounder extends Component {
                                                                   placeholder="About here"></textarea>
                                                     </div>
                                                 </Col>
+                                                
                                                 <Col xs={12}>
-                                                    <Card.Title>Additional Information</Card.Title>
+                                                <hr/>
+                                                <span className="section-titles">Additional Information</span>
                                                 </Col>
                                             </Row>
 
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Year of Experience</label>
+                                                    <span className="form-label">Years Of Experience</span>
                                                         <select className="form-control" name="exp_years_experience"
                                                                 onChange={this.handleChange} value={formField.exp_years_experience}>
                                                             <option>Select</option>
@@ -208,7 +211,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Relevant Industry</label>
+                                                    <span className="form-label">Relevant Industry</span>
                                                         <Form.Control type="text"
                                                                       placeholder="Co-founder join my startup"
                                                                       name="exp_title"
@@ -225,7 +228,7 @@ class CoFounder extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Time Commitment</label>
+                                                    <span className="form-label">Time Commitment</span>
                                                         <select className="form-control" name="exp_working_hour"
                                                                 value={formField.exp_working_hour}
                                                                 onChange={this.handleChange}>
@@ -240,7 +243,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Previous Startup Experience</label>
+                                                    <span className="form-label">Previous Startup Experience</span>
                                                         <div className="w-100">
                                                             <Form.Check custom inline label="Yes" type="radio"
                                                                         name="exp_startup_experience"
@@ -257,7 +260,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12}>
                                                     <div className="form-group">
-                                                        <label>Business Stage</label>
+                                                    <span className="form-label">Business Stage</span>
                                                         <div className="w-100">
                                                             <Form.Check custom inline label="Concept" type="radio"
                                                                         name="exp_status"
@@ -266,6 +269,7 @@ class CoFounder extends Component {
                                                                         id="business_1"
                                                                         onChange={this.handleChange}/>
                                                             <Form.Check custom inline label="Design" type="radio"
+                                                            
                                                                         name="exp_status"
                                                                         value={2}
                                                                         defaultChecked={(formField.exp_status === 2)}
@@ -289,12 +293,12 @@ class CoFounder extends Component {
                                                     </div>
                                                 </Col>
                                             </Row>
-
+                                            <hr/>
                                             <Row>
                                                 <Col xs={12}>
-                                                    <Card.Title>My Ideal Co-founder</Card.Title>
+                                                <span className="section-titles">My Ideal Co-founder</span>
                                                     <div className="form-group">
-                                                        <label>What I am looking for</label>
+                                                    <span className="form-label">What I am looking for</span>
                                                         <textarea className="form-control" rows="4"
                                                                   value={formField.ideal_description}
                                                                   name="ideal_description"
@@ -303,12 +307,11 @@ class CoFounder extends Component {
                                                     </div>
                                                 </Col>
                                             </Row>
-
+                                            <hr/>
                                             <Row>
                                                 <Col xs={12}>
-                                                    <Card.Title>Skill</Card.Title>
+                                                <span className="section-titles">Skill</span>
                                                     <div className="form-group">
-                                                        <label>Skill</label>
                                                         <Select
                                                             className="multiple-select mb-2"
                                                             classNamePrefix="multi"
@@ -320,15 +323,16 @@ class CoFounder extends Component {
                                                     </div>
                                                 </Col>
                                             </Row>
+                                            <hr/>
                                             <Row>
                                                 <Col xs={12}>
-                                                    <Card.Title>My Wishlist</Card.Title>
+                                                <span className="section-titles">My Wishlist</span>
                                                 </Col>
                                             </Row>
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Year of Experience</label>
+                                                    <span className="form-label">Years of Experience</span>
                                                         <select className="form-control" name="ideal_years_experience"
                                                                 value={formField.ideal_years_experience}
                                                                 onChange={this.handleChange}>
@@ -343,7 +347,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Preferred Location</label>
+                                                    <span className="form-label">Preferred Location</span>
                                                         <Select
                                                             className="multiple-select mb-2"
                                                             classNamePrefix="multi"
@@ -358,7 +362,7 @@ class CoFounder extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Time Commitment</label>
+                                                    <span className="form-label">Time Commitment</span>
                                                         <select className="form-control"
                                                                 name="ideal_working_hour"
                                                                 value={formField.ideal_working_hour}
@@ -374,7 +378,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Previous Startup experience</label>
+                                                    <span className="form-label">Previous Startup experience</span>
                                                         <div className="w-100">
                                                             <Form.Check custom inline label="Yes" type="radio"
                                                                         name="ideal_startup_experience"
@@ -390,7 +394,7 @@ class CoFounder extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Relevant Industry</label>
+                                                    <span className="form-label">Relevant Industry</span>
                                                         <input type="text"
                                                                name="ideal_title"
                                                                placeholder="Enter"
@@ -413,7 +417,7 @@ class CoFounder extends Component {
                             <div className=" d-flex align-items-center">
                                 <div className="col pl-0">Update all your latest changes by clicking on “Save Changes”</div>
                                 {(parseInt(userProfile.is_co_founder) === 1) && <button type="button" className="btn btn-outline-primary mr-4" onClick={this.coFounderDeactivate}>Deactivate Co-Founder</button>}
-                                <LaddaButton className="btn btn-info" loading={this.state.loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
+                                <LaddaButton className="btn ladda-btn" loading={this.state.loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
                             </div>
                         </Card>
                     </form>

@@ -33,19 +33,19 @@ class LimitlessExperience extends Component {
 
                     <div className="row container">
                         <span className="col-md-6" onClick={this.handleShow} className="layer"><img src="assets/img/video.jpg" alt="" className="img-fluid" width={500} /></span>
-                        <div className="col-md-6 ml-5">
+                        <div className="col-md-6">
                             <div>
-                                <h2>Easily hire top freelancers</h2>
+                                <p className="exp-title">Easily hire top freelancers</p>
                                 <h6>Post jobs to hire talented freelancers per hour or fixed price</h6>
                             </div>
 
                             <div>
-                                <h2>Exchange Services</h2>
+                                <p className="exp-title">Exchange Services</p>
                                 <h6>Flexible options to exchange services. No money required</h6>
                             </div>
 
                             <div>
-                                <h2>Find Co-founders</h2>
+                                <p className="exp-title">Find Co-founders</p>
                                 <h6>Connect with ideal partners to partner with for your business ideas</h6>
                             </div>
                         </div>

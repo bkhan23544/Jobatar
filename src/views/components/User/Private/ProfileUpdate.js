@@ -228,11 +228,14 @@ class ProfileUpdate extends Component {
         //console.log(this.validator, this.validator.helpers);
         return (<Main>
             <DocumentTitle title={`Update Profile`} />
+         
             <div className="update-profile bg-body">
                 <div className="container">
                     <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                         <Card className="mb-4 mb-lg-5">
-                            <Card.Header>My Profile</Card.Header>
+
+   <p className="card-titles ml-2 mt-4"> My Profile</p>
+
                             <Card.Body>
                                 <Row>
                                     <Col xs="12" md="3" xl="4">
@@ -256,9 +259,10 @@ class ProfileUpdate extends Component {
                                     </Col>
                                     <Col xs="12" md="9" xl="8">
                                         <div className="py-3 w-100 float-left">
-                                            <Card.Title>
-                                                <span>Update Profile</span>
-                                            </Card.Title>
+                                         
+                                               <span className="section-titles">Update Profile</span>
+                                              
+                                               
                                             <Row>
                                                 <Col className="card-profile border-0 mb-3 col-md-3 col-12 order-md-2 text-center" style={{boxShadow: 'none'}}>
                                                     <label><Link to={`/user/public/about/${userProfile && userProfile.user_id}`} className="float-right">View Profile</Link></label>
@@ -322,7 +326,7 @@ class ProfileUpdate extends Component {
                                                         </PlacesAutocomplete>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label>Title</label>
+                                                    <span className="form-label">Title</span>
                                                         <input type="text" value={formField.title} name="title"
                                                             onChange={this.handleChange}
                                                             onBlur={() => this.validator.showMessageFor('title')}
@@ -330,7 +334,7 @@ class ProfileUpdate extends Component {
                                                         {this.validator.message('title', formField.title, 'required')}
                                                     </div>
                                                     <div className="form-group">
-                                                        <label>Languages</label>
+                                                    <span className="form-label">Languages</span>
                                                         <Select
                                                             className="multiple-select mb-2"
                                                             classNamePrefix="multi"
@@ -346,7 +350,7 @@ class ProfileUpdate extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>First Name</label>
+                                                    <span className="form-label">First Name</span>
                                                         <input type="text" value={formField.first_name} name="first_name"
                                                             onChange={this.handleChange}
                                                             onBlur={() => this.validator.showMessageFor('first_name')}
@@ -356,7 +360,7 @@ class ProfileUpdate extends Component {
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Last Name</label>
+                                                    <span className="form-label">Last Name</span>
                                                         <input type="text" value={formField.last_name} name="last_name"
                                                             onChange={this.handleChange}
                                                             onBlur={() => this.validator.showMessageFor('last_name')}
@@ -369,14 +373,14 @@ class ProfileUpdate extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Email Address</label>
+                                                    <span className="form-label">Email Address</span>
                                                         <input type="text" className="form-control" value={formField.email} name="email" readOnly
                                                             onChange={this.handleChange} />
                                                     </div>
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Address</label>
+                                                    <span className="form-label">Address</span>
                                                         <input type="text" value={formField.hometown} name="hometown"
                                                             onChange={this.handleChange}
                                                             onBlur={() => this.validator.showMessageFor('hometown')}
@@ -389,7 +393,7 @@ class ProfileUpdate extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Select Country</label>
+                                                      <span className="form-label">Select Country </span>
                                                         {countriesList && <Select
                                                             className={'multiple-select mb-2 ' + (this.validator.errorMessages.country_code !== null ? 'is-invalid' : '')}
                                                             classNamePrefix="multi"
@@ -430,7 +434,7 @@ class ProfileUpdate extends Component {
                                                         </div>
                                                     </div> */}
                                                     <div className="form-group">
-                                                        <label>Phone Number</label>
+                                                    <span className="form-label">Phone Number </span>
                                                         <input type="text"
                                                                className={'form-control ' + (this.validator.errorMessages.mobile !== null ? 'is-invalid' : '')}
                                                                value={formField.mobile}
@@ -445,24 +449,25 @@ class ProfileUpdate extends Component {
                                             <Row>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>About Me</label>
+                                                    <span className="form-label">About Me </span>
                                                         <textarea className="form-control" rows="3" value={formField.about} name="about"
                                                                   onChange={this.handleChange}></textarea>
                                                     </div>
                                                 </Col>
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
-                                                        <label>Website</label>
+                                                    <span className="form-label">Website </span>
                                                         <input type="text" className={'form-control ' + (this.validator.errorMessages.website !== null ? 'is-invalid' : '')} value={formField.website} name="website"
                                                                onChange={this.handleChange} />
                                                         {this.validator.message('website', formField.website, 'url')}
                                                     </div>
                                                 </Col>
                                                 <Col xs={12}>
-
-                                                    <Card.Title>Skills</Card.Title>
+                                                <hr/>
+                                                <span className="section-titles">Skills</span>
+                                               
                                                     <div className="form-group">
-                                                        <label>Skills</label>
+                                                        {/* <label>Skills</label> */}
                                                         {(formField.skills || !formField.skills) &&
                                                             <Select
                                                                 className={'multiple-select mb-2 ' + (this.validator.errorMessages.skills !== null ? 'is-invalid' : '')}
@@ -475,8 +480,9 @@ class ProfileUpdate extends Component {
                                                         {this.validator.message('skills', formField.skills, 'required')}
                                                     </div>
 
-
-                                                    <Card.Title>Social Media Accounts</Card.Title>
+                                                    <hr/>
+                                                    <span className="section-titles">Social Media Accounts</span>
+                                                  
                                                     <h6>Please provide your social media links for our internal verification.</h6>
                                                     <div className="row">
                                                         {platformsList && <Fragment>
@@ -484,7 +490,7 @@ class ProfileUpdate extends Component {
                                                                 <div className="col-md-6 col-12" key={`platform-${platform.slug}`}>
                                                                     <div className="form-group">
                                                                         <div className="border-bottom">
-                                                                            <label>{platform.title}</label>
+                                                                        <span className="form-label">{platform.title}</span>
                                                                             <input type="text"
                                                                                 className="form-control"
                                                                                 name={platform.slug}
@@ -497,11 +503,12 @@ class ProfileUpdate extends Component {
                                                                 </div>)}
                                                         </Fragment>}
                                                     </div>
-
-                                                    <Card.Title>Additional Document</Card.Title>
+                                                    <hr/>
+                                                    <span className="section-titles">Additional Document</span>
+                                                 
                                                     <div className="form-group">
                                                         <div className="form-group">
-                                                            <FileUploader upload={upload} coverImage={formField.cover_id} title={"Additional Document"} accept={'.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf, video/*'} />
+                                                            <FileUploader upload={upload} coverImage={formField.cover_id} accept={'.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf, video/*'} />
                                                         </div>
                                                     </div>
 
@@ -510,17 +517,26 @@ class ProfileUpdate extends Component {
                                         </div>
                                     </Col>
                                 </Row>
+
+                               
+
                             </Card.Body>
                         </Card>
                         <Card className="button bg-white">
                             <div className=" d-flex align-items-center">
                                 <div className="col pl-0">Update all your latest changes by clicking on “Save Changes ”</div>
-                                <LaddaButton className="btn btn-info" loading={loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
+                                <LaddaButton className="btn ladda-btn" loading={loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
                             </div>
                         </Card>
                     </form>
                 </div>
             </div>
+
+
+
+
+
+
         </Main>);
     }
 }

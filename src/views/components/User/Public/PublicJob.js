@@ -110,7 +110,7 @@ class PublicJob extends Component {
                                         {(item.is_favorite !== false) ? <i className="fas fa-heart text-info"></i> :
                                             <i className="far fa-heart"></i>}
                                     </IconButton>
-                                    <h3><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h3>
+                                    <h3><NavLink className="section-titles" to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h3>
                                 </div>
                                 <div className="prices d-flex align-items-center">
                                     {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>}

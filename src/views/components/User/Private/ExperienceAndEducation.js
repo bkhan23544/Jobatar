@@ -83,7 +83,7 @@ class ExperienceAndEducation extends Component {
             <div className="update-profile bg-body">
                 <div className="container">
                     <Card className="mb-4 mb-lg-5">
-                        <Card.Header>My Profile</Card.Header>
+                    <p className="card-titles ml-2 mt-4"> My Profile</p>
                         <Card.Body>
                             <Row>
                                 <Col xs="12" md="3" xl="4">
@@ -91,9 +91,10 @@ class ExperienceAndEducation extends Component {
                                 </Col>
                                 <Col xs="12" md="9" xl="8">
                                     <div className="py-3 w-100 float-left mb-3">
-                                        <Card.Title>Experience
-                                            <button onClick={this.addNew.bind(this, 'experience')} className="btn btn-outline-info float-right btn-sm">Add New</button>
-                                        </Card.Title>
+                                       <div className="row h-5">
+                                        <span className="col-10 section-titles">Experience</span>
+                                            <button onClick={this.addNew.bind(this, 'experience')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
+                                            </div>
                                         <Accordion.Collapse in={this.state.toggleExperience} className="w-100">
                                             <ExperienceForm formField={experienceItem} hideToggle={this.onSubmitData}/>
                                         </Accordion.Collapse>
@@ -103,9 +104,10 @@ class ExperienceAndEducation extends Component {
                                     </div>
 
                                     <div className="py-3 w-100 float-left">
-                                        <Card.Title>Education
-                                            <button onClick={this.addNew.bind(this, 'education')} className="btn btn-outline-info float-right btn-sm">Add New</button>
-                                        </Card.Title>
+                                    <div className="row h-5">
+                                        <span className="col-10 section-titles">Education</span>
+                                            <button onClick={this.addNew.bind(this, 'education')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
+                                            </div>
 
                                         <Accordion.Collapse in={this.state.toggleEducation} className="w-100">
                                             <EducationForm formField={educationItem} hideToggle={this.onSubmitData} />

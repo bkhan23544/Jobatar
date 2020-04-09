@@ -33,7 +33,7 @@ class EducationList extends Component {
                             (<li key={`education-${item.id}`} className="list-group-item d-flex align-items-center">
                                 <h6 className="mb-0 col pl-0">{item.title} <small>({`${moment(item.from).format('MM/YYYY')} to ${item.is_present === 1 ? 'Present' : moment(item.to).format('MM/YYYY')}`})</small></h6>
                                 <div className="d-flex">
-                                    <button className="btn btn-sm btn-outline-info mr-1" onClick={() => this.onDelete(item.id)}><i
+                                    <button className="btn btn-sm btn-outline-info mr-1 trash-btn" onClick={() => this.onDelete(item.id)}><i
                                         className="far fa-trash-alt"></i></button>
                                     <button className="btn btn-outline-primary float-right btn-sm" onClick={() => this.onEdit(item)}><i className="fas fa-pencil-alt"></i></button>
 

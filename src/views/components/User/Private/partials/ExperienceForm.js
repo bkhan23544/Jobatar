@@ -222,7 +222,7 @@ class ExperienceForm extends Component {
                         </div>
                         <div className="form-group button text-right px-0" style={{ boxShadow: 'none', backgroundImage: 'none' }}>
                             <button type="button" onClick={() => this.cancelForm()} className="btn btn-link btn-sm btn-cancel"> Cancel Form </button>
-                            <LaddaButton className={id ? 'btn btn-success' : 'btn btn-info'}> {id ? 'Update Experience' : 'Add Experience'} </LaddaButton>
+                            <LaddaButton className={id ? 'btn btn-success' : 'btn btn-info ladda-btn'}> {id ? 'Update Experience' : 'Add Experience'} </LaddaButton>
                         </div>
                     </Col>
                 </Row>
