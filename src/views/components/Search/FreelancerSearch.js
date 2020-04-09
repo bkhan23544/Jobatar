@@ -10,6 +10,8 @@ import Pagination from "../../../helpers/Pagination";
 import { Main } from "../../layout";
 import { FreelancerListing } from './partials';
 import CancelIcon from '@material-ui/icons/Cancel';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, FormControl, RadioGroup, FormLabel, Radio, FormControlLabel } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const ratingList = [
@@ -122,6 +124,13 @@ class FreelancerSearch extends PureComponent {
         this.setState({ formField }, () => this.search());
     };
 
+    RadioButtonChanger = (ev, item) => {
+        const formField = { ...this.state.formField };
+        formField[ev.target.name] = ev.target.value;
+        console.log(ev.target.name, ev.target.value)
+        this.setState({ formField }, () => this.search());
+    }
+
     onChangePage = (page) => {
         this.setState({ page }, () => this.search());
     };
@@ -163,8 +172,8 @@ class FreelancerSearch extends PureComponent {
         const { dispatch } = this.props;
         let params = {};
         params.category_id = (formField.categories && formField.categories.length > 0) ? formField.categories : null;
-        params.rating_id = formField.ratings && formField.ratings.map(item => item.value).join(",");
-        params.country_code = (formField.countries && formField.countries.value) ? formField.countries.value : "";
+        params.rating_id = formField.ratings;
+        params.country_code = formField.countries;
         params.sort = (formField.sort && formField.sort.value) ? formField.sort.value : "";
         params.name = formField.name;
         params.is_co_founder = (formField.is_co_founder === true) ? 1 : 0;
@@ -372,41 +381,264 @@ class FreelancerSearch extends PureComponent {
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-3">
-                            <div class="widget">
-                                <h3 class="widget_title">Category</h3>
-                                <ul class="tr-list">
-                                    <li><a href="" class="active"><i class="fa fa-code"></i> Web & Mobile Development</a></li>
-                                    <li><a href=""><i class="fa fa-eye"></i>  Design, Arts & Multimedia</a></li>
-                                    <li><a href=""><i class="fa fa-edit"></i>  Writing & Translation</a></li>
-                                    <li><a href=""><i class="fa fa-cog"></i>  Admin Support</a></li>
-                                    <li><a href=""><i class="fa fa-table"></i>  Management & Finance</a></li>
-                                    <li><a href=""><i class="fa fa-bullhorn"></i>  Sales & Marketing</a></li>
-                                </ul>
-                                <div class="margin-space"></div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h3 class="widget_title_small">Feedback Rating</h3>
-                                        <ul class="tr-list">
-                                            <li><a href="" class="active">Any</a></li>
-                                            <li><a href="">5 Stars</a></li>
-                                            <li><a href="">4.5+ Stars</a></li>
-                                            <li><a href="">4+ Stars</a></li>
-                                            <li><a href="">3+ Stars</a></li>
-                                            <li><a href="">No feedback yet</a></li>
+                            <div className="widget">
+                                <div className="text-right">
+                                    <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
+                                </div>
+                                {/* <h3 className="widget_title">Category</h3> */}
+                                {/* <ul className="tr-list">
+                                    <li><a href="" className="active"><i className="fa fa-code"></i> Web & Mobile Development</a></li>
+                                    <li><a href=""><i className="fa fa-eye"></i>  Design, Arts & Multimedia</a></li>
+                                    <li><a href=""><i className="fa fa-edit"></i>  Writing & Translation</a></li>
+                                    <li><a href=""><i className="fa fa-cog"></i>  Admin Support</a></li>
+                                    <li><a href=""><i className="fa fa-table"></i>  Management & Finance</a></li>
+                                    <li><a href=""><i className="fa fa-bullhorn"></i>  Sales & Marketing</a></li>
+                                </ul> */}
+                                {/* <div className="expensionPannel">
+                                    {catlist.length ? catlist.map((obj, i) => {
+                                        return (
+                                            catlist[i + 1] ?
+                                                obj.parent !== catlist[i + 1].parent ?
+                                                    <ExpansionPanel defaultExpanded>
+                                                        <ExpansionPanelSummary
+                                                            expandIcon={<ExpandMoreIcon />}
+                                                            aria-controls="panel1a-content"
+                                                            id="panel1a-header"
+                                                        >
+                                                            <p>{obj.parent}</p>
+                                                        </ExpansionPanelSummary>
+                                                        <ExpansionPanelDetails>
+                                                            <div className={'category'} style={{ width: '100%', paddingTop: '4px', paddingLeft: 5, paddingRight: 5 }}>
+                                                                <MultiSelectComponent
+                                                                    id="mtselement"
+                                                                    cssClassNamclassName={'multi-droupdown'}
+                                                                    popupHeight='200px'
+                                                                    fields={this.fields}
+                                                                    value={formField.categories}
+                                                                    dataSource={catlist}
+                                                                    placeholder="Select a Category"
+                                                                    mode="CheckBox"
+                                                                    enableGroupCheckBox="true"
+                                                                    allowFiltering="true"
+                                                                    // ref={(dropdownlist) => { this.listObj = dropdownlist; }}
+                                                                    // filterBarPlaceholder="Search Category"
+                                                                    // change={this.onChangeCategory}
+                                                                    // select={this.onSelectCategory}
+                                                                    // close={this.onCloseCategory}
+                                                                    // showDropDownIcon={true}
+                                                                    noRecordsTemplate={this.noRecords}>
+                                                                    <Inject services={[CheckBoxSelection]} />
+                                                                </MultiSelectComponent>
+                                                            </div>
+                                                        </ExpansionPanelDetails>
+                                                    </ExpansionPanel>
+                                                    : null
+                                                : null
+                                        )
+                                    }) : null}
+                                </div> */}
+                                <div className="categoryDiv">
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <p>Categories</p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <div className={'category'} style={{ width: '100%', paddingTop: '4px', paddingLeft: 5, paddingRight: 5 }}>
+                                                <MultiSelectComponent
+                                                    id="mtselement"
+                                                    cssClassNamclassName={'multi-droupdown'}
+                                                    popupHeight='500px'
+                                                    fields={this.fields}
+                                                    value={formField.categories}
+                                                    dataSource={catlist}
+                                                    placeholder="Select a Category"
+                                                    mode="CheckBox"
+                                                    enableGroupCheckBox="true"
+                                                    allowFiltering="true"
+                                                    ref={(dropdownlist) => { this.listObj = dropdownlist; }}
+                                                    filterBarPlaceholder="Search Category"
+                                                    change={this.onChangeCategory}
+                                                    select={this.onSelectCategory}
+                                                    close={this.onCloseCategory}
+                                                    showDropDownIcon={true}
+                                                    noRecordsTemplate={this.noRecords}>
+                                                    <Inject services={[CheckBoxSelection]} />
+                                                </MultiSelectComponent>
+                                            </div>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+                                </div>
+
+                                <div className="budgetDiv">
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                            className="top"
+                                        >
+                                            <p>Rating </p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <FormControl component="fieldset">
+                                                {/* <FormLabel component="legend">Gender</FormLabel> */}
+                                                <RadioGroup aria-label="proposal_count" value={formField.ratings}
+                                                    name="ratings"
+                                                    onChange={(ev) => this.RadioButtonChanger(ev)}
+                                                >
+                                                    {ratingList.map((a) => {
+                                                        return (
+                                                            <FormControlLabel value={a.id} control={<Radio size="small" />} label={a.value} />
+                                                        )
+                                                    })}
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+
+                                </div>
+
+                                <div className="budgetDiv">
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                            className="top"
+                                        >
+                                            <p>Hourly Rates </p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <FormControl component="fieldset">
+                                                {/* <FormLabel component="legend">Gender</FormLabel> */}
+                                                <RadioGroup aria-label="budget" value={formField.budget}
+                                                    name="budget"
+                                                    // onChange={(ev) => this.RadioButtonChanger(ev)} 
+                                                    >
+                                                    {[
+                                                        { value: "0", label: "Any hourly rate" },
+                                                        { value: "1", label: "$10 and below" },
+                                                        { value: "2", label: "$10-$30" },
+                                                        { value: "3", label: "$30-$60" },
+                                                        { value: "4", label: "$60 & above" }
+                                                    ].map((a) => {
+                                                        return (
+                                                            <FormControlLabel value={a.value} control={<Radio size="small" />} label={a.label} />
+                                                        )
+                                                    })}
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+
+                                </div>
+
+                                <div className="budgetDiv">
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                            className="top"
+                                        >
+                                            <p>Hours Billed</p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <FormControl component="fieldset">
+                                                {/* <FormLabel component="legend">Gender</FormLabel> */}
+                                                <RadioGroup aria-label="budget" value={formField.budget}
+                                                    name="budget"
+                                                    // onChange={(ev) => this.RadioButtonChanger(ev)} 
+                                                    >
+                                                    {[
+                                                        { value: "0", label: "Any hours" },
+                                                        { value: "1", label: "1+ hours billed" },
+                                                        { value: "2", label: "100+ hours billed" },
+                                                        { value: "3", label: "1,000+ hours billed" }
+                                                    ].map((a) => {
+                                                        return (
+                                                            <FormControlLabel value={a.value} control={<Radio size="small" />} label={a.label} />
+                                                        )
+                                                    })}
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+
+                                </div>
+
+                                <div className="countryDiv">
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <p>Country</p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <div className={'category'} style={{ width: '100%', paddingTop: '4px', paddingLeft: 5, paddingRight: 5 }}>
+                                                <Select
+                                                    className="multiple-select"
+                                                    classNamePrefix="multi"
+                                                    isClearable
+                                                    isSearchable
+                                                    value={formField.countries}
+                                                    name="countries"
+                                                    onChange={this.handleAll}
+                                                    placeholder="Country"
+                                                    options={countriesArr.map(item => ({ value: item.code, label: item.name }))} />
+                                            </div>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+                                </div>
+
+                                {/* <div className="margin-space"></div>
+                                <div className="row">
+                                    <div className="col-sm-6">
+                                        <h3 className="widget_title_small">Payment Type</h3>
+                                        <ul className="tr-list">
+                                            <li><a href="#">Both</a></li>
+                                            <li><a href="#">Cash</a></li>
+                                            <li><a href="#">Exchange</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <h3 class="widget_title_small">Hours Worked</h3>
-                                        <ul class="tr-list">
-                                            <li><a href="" class="active">Any</a></li>
-                                            <li><a href="">800+ Hours</a></li>
-                                            <li><a href="">500+ Hours</a></li>
-                                            <li><a href="">300+ Hours</a></li>
-                                            <li><a href="">100+ Hours</a></li>
-                                            <li><a href="">No Hours</a></li>
+                                    <div className="col-sm-6">
+                                        <h3 className="widget_title_small">Experience Level</h3>
+                                        <ul className="tr-list">
+                                            <li><a href="">Entry Level</a></li>
+                                            <li><a href="">Intermediate</a></li>
+                                            <li><a href="">Expert</a></li>
                                         </ul>
                                     </div>
                                 </div>
+                                <div className="margin-space"></div>
+                                <div className="row">
+                                    <div className="col-sm-6">
+                                        <h3 className="widget_title_small">Job Duration</h3>
+                                        <ul className="tr-list">
+                                            <li><a href="">6+ Months</a></li>
+                                            <li><a href="">3 - 6 Months</a></li>
+                                            <li><a href="">1 - 3 Months</a></li>
+                                            <li><a href="">Below 1 Month</a></li>
+                                            <li><a href="">Below 1 Week</a></li>
+                                        </ul>
+                                    </div>
+                                    <div className="col-sm-6">
+                                        <h3 className="widget_title_small">Hours Per Week</h3>
+                                        <ul className="tr-list">
+                                            <li><a href="">30 - 39</a></li>
+                                            <li><a href="">20 - 29</a></li>
+                                            <li><a href="">10 - 19</a></li>
+                                            <li><a href="">1 - 9</a></li>
+                                        </ul>
+                                    </div>
+                                </div> */}
+
                             </div>
 
                         </div>

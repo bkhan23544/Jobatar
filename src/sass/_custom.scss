@@ -184,7 +184,7 @@ h1, .h1 {font-size: 1.7rem;}
 .app-loading {position: fixed; left: 0px; top: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; float: left; z-index: 99;}
 .loading {position: relative; z-index: 2; background: url('/images/loader.svg'); width: 100px; height: 100px;}
 
-.bg-body {background-color: #F1F2F8;}
+.bg-body {background-color: #f4f4f4;}
 .badge:empty {display: none !important;}
 
 .form-control {height: 54px; font-size: 14px;}
@@ -929,11 +929,11 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		.badge-secondary {background-color: darken($white, 8%) !important; color: $dark; padding: 8px 18px; margin-bottom: 8px; margin-right: 8px; font-size: 12px;}
 	}
 } // Job Search Box css end
-.jobBox:hover{
-	-webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-	-moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
-	box-shadow:         3px 3px 5px 6px #ccc;
-}
+// .jobBox:hover{
+// 	-webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+// 	-moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+// 	box-shadow:         3px 3px 5px 6px #ccc;
+// }
 .public-navbar {border: 1px solid darken($white, 5%); box-shadow: 0px 2px 3px rgba($black, 0.03); font-weight: 500; background-color: $white;
 	.card-body {padding: 0px} 
 	.nav {

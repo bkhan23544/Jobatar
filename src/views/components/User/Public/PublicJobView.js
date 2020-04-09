@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import { Main } from '../../../layout';
 import { Box, IconButton } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
@@ -10,8 +10,8 @@ import { alertSelectors } from '../../../../common/redux/selectors';
 import { PlaceOffer } from '../../Contract/partials';
 import { ModuleHelper, commonHelper } from '../../../../helpers';
 import { DocumentTitle } from '../../../../helpers/DocumentTitle';
-import {confirmAlert} from "react-confirm-alert";
-import {FacebookShareButton, LinkedinShareButton, TwitterShareButton} from "react-share";
+import { confirmAlert } from "react-confirm-alert";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
@@ -48,15 +48,15 @@ class PublicJobView extends Component {
         this.setState({ id: id ? id : null });
         //dispatch(jobActions.index("GET", null, { item_id: id }));
         this.job(id);
-        itemService.proposal("GET", null, {item_id: id, user_id: user.id, moduleId: 'UserItem'}).then(response => {
-            this.setState({proposal: response.items[0]});
+        itemService.proposal("GET", null, { item_id: id, user_id: user.id, moduleId: 'UserItem' }).then(response => {
+            this.setState({ proposal: response.items[0] });
         });
-        itemService.service("GET", null, {user_id: user.id}).then(response => {
+        itemService.service("GET", null, { user_id: user.id }).then(response => {
             this.setState({ servicesList: response.items });
         });
     }
 
-   job = (id) => {
+    job = (id) => {
         itemService.job("GET", null, { item_id: id }).then(res => {
             this.setState({ item: res.model, proposalStatus: res.model.proposalStatus });
         });
@@ -123,8 +123,8 @@ class PublicJobView extends Component {
         console.log('proposal', proposal);
         return (<Main>
             <DocumentTitle title={item && item.title} />
-            {item && <PlaceOffer open={setOffer} item={item} item_id={item.id} servicesList={servicesList} moduleId={ModuleHelper.UserItem} offerClose={this.offerClose} title={`Place A Bid`} buttonTitle={`Submit proposal`} isJob={true}/>}
-            <div className="job-individual bg-body">
+            {item && <PlaceOffer open={setOffer} item={item} item_id={item.id} servicesList={servicesList} moduleId={ModuleHelper.UserItem} offerClose={this.offerClose} title={`Place A Bid`} buttonTitle={`Submit proposal`} isJob={true} />}
+            {/* <div className="job-individual bg-body">
                 <div className="container">
                     {(item && item.length === 0) ? <Redirect to={{ pathname: '/not-found' }} /> :
                         <div className="row">
@@ -135,9 +135,9 @@ class PublicJobView extends Component {
                                             <h1>{item && item.title}</h1>
                                             <h6 className="mb-3">{item && item.category.parent ? item.category.parent.title + ',' : null} {item && item.category.title}</h6>
                                             <div className="prices d-flex align-items-center">
-                                                {item && item.settlement === 'cash' && <div className="price">${item && item.budget}</div>}
-                                                {/*<div className="fixed badge badge-success text-capitalize">{item && item.settlement}</div>*/}
-                                                <div className="fixed badge badge-secondary text-capitalize">{(item && item.settlement === 'both') ? 'Cash & Exchange' : item && item.settlement}</div>
+                                                {item && item.settlement === 'cash' && <div className="price">${item && item.budget}</div>} */}
+            {/*<div className="fixed badge badge-success text-capitalize">{item && item.settlement}</div>*/}
+            {/* <div className="fixed badge badge-secondary text-capitalize">{(item && item.settlement === 'both') ? 'Cash & Exchange' : item && item.settlement}</div>
                                                 {item && item.settlement === 'cash' &&
                                                     <div className="cash badge badge-success text-capitalize">{item && item.type}</div>}
                                                 {item && item.is_nda === 1 && <div className="cash badge badge-primary ml-1">With NDA</div>}
@@ -159,11 +159,11 @@ class PublicJobView extends Component {
                                                     month: 'short',
                                                     day: '2-digit'
                                                 })}
-                                            </div>
-                                            {/*<div className="deadline w-20">*/}
-                                                {/*<h6>Proposals</h6> {item && item.proposal_count}*/}
-                                            {/*</div>*/}
-                                        </div>
+                                            </div> */}
+            {/*<div className="deadline w-20">*/}
+            {/*<h6>Proposals</h6> {item && item.proposal_count}*/}
+            {/*</div>*/}
+            {/* </div>
                                         <div className="text" dangerouslySetInnerHTML={{ __html: item && item.description }}></div>
 
                                         <div className="chips mb-3">
@@ -331,14 +331,14 @@ class PublicJobView extends Component {
                                                         <i className="fab fab fa-linkedin-in"></i>
                                                     </IconButton>
                                                 </LinkedinShareButton>
-                                            </li>
-                                            {/*{item && item.user.userProfilePlatforms && item.user.userProfilePlatforms.length > 0 &&
+                                            </li> */}
+            {/*{item && item.user.userProfilePlatforms && item.user.userProfilePlatforms.length > 0 &&
                                                 item.user.userProfilePlatforms.map((platform) => (<li className="nav-item" key={`platform-${platform.id}`}>
                                                     <IconButton className="favorite" title={platform.title}>
                                                         <i className={`fab ${platform.icon}`}></i>
                                                     </IconButton>
                                                 </li>))}*/}
-                                        </ul>
+            {/* </ul>
                                     </div>
                                 </div>
                                 {item && <div className="card mb-4 buyerInfo">
@@ -367,7 +367,218 @@ class PublicJobView extends Component {
                         </div>
                     }
                 </div>
-            </div>
+            </div> */}
+
+            <section class="jobpost">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="card-box-profile">
+                            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+
+                                <div class="row bottom-sec">
+                                    <div class="col-lg-12">
+                                        <h3>{item && item.title}</h3>
+                                        <h4>{item && item.category.parent && item.category.parent.title} - {item && item.category.title}</h4>
+
+                                        <div class="col-lg-12">
+                                            <hr class="small-hr" />
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            <h5> Posted </h5>
+                                            <p>{(new Date(item && item.created_at * 1000)).toLocaleDateString('en-GB', {
+                                                year: 'numeric',
+                                                month: 'short',
+                                                day: '2-digit'
+                                            })}
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5> Location </h5>
+                                            <p><i class="fa fa-map-marker"></i> {item && item.user.countryCode && item.user.countryCode.name}</p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5> Budget </h5>
+                                            <p>{item && item.budget}</p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5> Duration </h5>
+                                            <p>{item && item.deadline && deadlineList.map((el) => <Fragment key={`deadline${el.id}`}>
+                                                {(parseInt(el.id) === parseInt(item.deadline)) ? el.value : ''}
+                                            </Fragment>)}
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5> Proposals </h5>
+                                            <p>{item && item.proposal_count}</p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            {(item && !gs.isOwner(item.user_id) && (proposalStatus === false) && (item.is_closed === 0) && !(proposal && proposal.status === status_declined)) &&
+                                                <a href="#" onClick={this.offerOpen} class="kafe-btn kafe-btn-mint-small"><i class="fa fa-align-left"></i> Send Proposal</a>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-details">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                            <div class="card-box-profile-details">
+
+                                <div class="description-profile">
+
+                                    <ul class="tr-list resume-info">
+
+                                        <li>
+                                            <div class="icon">
+                                                <p class="tr-title"><i class="fa fa-black-tie" aria-hidden="true"></i> Job Description</p>
+                                            </div>
+                                            <div className="media-body" dangerouslySetInnerHTML={{ __html: item && item.description }}></div>
+                                            <div className="chips mb-3">
+                                                <h6 className="h6">Skills</h6>
+                                                {(item && item.skills.length === 0) && 'Skills not found'}
+                                                {item && item.skills.map((skill) =>
+                                                    <div className="badge badge-secondary" key={skill.id}>{skill.title}</div>
+                                                )}
+                                            </div>
+                                            {(item && item.userItemLocations.length > 0) &&
+                                                <div className="chips mb-3">
+                                                    <h6 className="h6">Freelancer Location Peferences</h6>
+                                                    {item && item.userItemLocations && item.userItemLocations.map((location) =>
+                                                        <div className="badge badge-secondary" key={`location-${location.country_id}`}>{location.name}</div>
+                                                    )}
+                                                </div>}
+                                        </li>
+
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            {item && item.userItemQuestions &&
+                                <div class="work">
+
+                                    <div class="col-lg-12">
+                                        <div class="icon">
+                                            <p class="tr-title">Questions</p>
+                                        </div>
+                                    </div>
+                                    <div className="questionDiv">
+                                        {(item && item.userItemQuestions.length === 0) && 'Questions not found'}
+                                        {item && item.userItemQuestions.map((question, index) =>
+                                            <div className="border-bottom" key={question.id}>
+                                                <h5>Question {index + 1}</h5>
+                                                <p>{question.question}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-12">
+
+                            <div class="stats">
+                                <div class="row">
+                                    <h5>Service that I can exchange </h5>
+                                    <div style={{ width: "100%" }} className="row">
+                                        {item && item.services.map((service) =>
+                                            <div className="col-lg-12" key={service.id}>
+                                                <div className="jobBox">
+                                                    <div className="priview d-flex flex-wrap pb-0 border-bottom-0">
+                                                        {(service.cover) && <div className="image">
+                                                            <LazyLoadImage alt="image" className="img-fluid" src={service.cover.thumb} effect="blur" />
+                                                        </div>}
+                                                        <div className="caption">
+                                                            <h4>
+                                                                {service.title}
+                                                            </h4>
+                                                            <div className="ratings d-flex align-items-center">
+                                                                <small>({service.avg_rating})</small>
+                                                                <Box component="fieldset" mx={1} borderColor="transparent">
+                                                                    <Rating value={Math.floor(service.avg_rating)} readOnly />
+                                                                </Box>
+                                                            </div>
+                                                            <div className="price">
+                                                                <span className="">{service.budget}</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <div class="stats">
+                                <div class="row">
+                                    <h5>Activity</h5>
+                                    <div class="col-sm-4">
+                                        <h6>3</h6>
+                                        <p class="bottom">Proposals</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <h6>0</h6>
+                                        <p class="bottom">Interviewing</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <h6>0</h6>
+                                        <p class="bottom">Hired</p>
+                                    </div>
+                                    <p class="bottom"> Last viewed by client: <b> 3 days ago </b></p>
+                                </div>
+                            </div> */}
+
+                            <div class="card-box text-center">
+                                <div class="clearfix"></div>
+                                <div class="member-card">
+                                    <h3>Client's profile</h3>
+                                    <div class="thumb-xl member-thumb m-b-10 center-block">
+                                        <LazyLoadImage alt="image" class="img-circle img-thumbnail" src={item && item.user.avatar} effect="blur" />
+                                        {/* <img src={item && item.user.avatar} class="img-circle img-thumbnail" alt="profile-image" /> */}
+                                        {/* <i class="fa fa-star member-star text-success" title="verified user"></i> */}
+                                    </div>
+                                    <h5><NavLink to={`/user/public/about/${item && item.user.id}`}>{item && item.user.name}</NavLink></h5>
+
+                                    {/* <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="top">1</h4>
+                                            <p class="bottom">Jobs Posted</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="top">$0.00</h4>
+                                            <p class="bottom">Spent</p>
+                                        </div>
+                                    </div> */}
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
         </Main>);
     }
 }

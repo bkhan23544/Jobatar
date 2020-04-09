@@ -26,8 +26,8 @@ class JobSearch extends Component {
                 settlement: '',
                 categories: [],
                 countries: null,
-                budget: 0,
-                proposal_count: 0,
+                budget: "0",
+                proposal_count: "0",
                 sort: null,
             },
             pagesize: 5,
@@ -94,8 +94,14 @@ class JobSearch extends Component {
         const formField = { ...this.state.formField };
         formField[name] = item;
         this.setState({ formField }, () => this.search());
-        console.log(item, ev.target.name)
     };
+
+    RadioButtonChanger = (ev, item) => {
+        const formField = { ...this.state.formField };
+        formField[ev.target.name] = ev.target.value;
+        console.log(ev.target.name, ev.target.value)
+        this.setState({ formField }, () => this.search());
+    }
 
     onChangePage = (page) => {
         const formField = { ...this.state.formField };
@@ -137,9 +143,9 @@ class JobSearch extends Component {
         params.name = formField.name;
         params.category_id = (formField.categories && formField.categories.length > 0) ? formField.categories : null;
         params.country_code = (formField.countries && formField.countries.value) ? formField.countries.value : "";
-        params.settlement = (formField.settlement && formField.settlement.value) ? formField.settlement.value : "";
-        params.budget = (formField.budget && formField.budget.value) ? formField.budget.value : "";
-        params.proposal_count = (formField.proposal_count && formField.proposal_count.value) ? formField.proposal_count.value : "";
+        params.settlement = formField.settlement;
+        params.budget = formField.budget;
+        params.proposal_count = formField.proposal_count;
         params.sort = (formField.sort && formField.sort.value) ? formField.sort.value : "";
         params.pagesize = 5;
         params.page = page;
@@ -343,6 +349,16 @@ class JobSearch extends Component {
 
                         <div className="col-lg-9">
                             <div className="work">
+                                <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                                    <div className="any-search mb-3 mb-lg-4">
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" onChange={this.handleChange} value={formField.name} name="name" placeholder="Search by Skill, Job title" />
+                                            <div className="input-group-prepend">
+                                                <button className="btn btn-info" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                                 <JobListing results={results} />
                                 <div className="paginationCommon blogPagination text-center">
                                     <Pagination className=""
@@ -355,6 +371,9 @@ class JobSearch extends Component {
 
                         <div className="col-sm-4 col-md-3">
                             <div className="widget">
+                                <div className="text-right">
+                                    <button style={{color: "red !important"}} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
+                                </div>
                                 {/* <h3 className="widget_title">Category</h3> */}
                                 {/* <ul className="tr-list">
                                     <li><a href="" className="active"><i className="fa fa-code"></i> Web & Mobile Development</a></li>
@@ -369,7 +388,7 @@ class JobSearch extends Component {
                                         return (
                                             catlist[i + 1] ?
                                                 obj.parent !== catlist[i + 1].parent ?
-                                                    <ExpansionPanel>
+                                                    <ExpansionPanel defaultExpanded>
                                                         <ExpansionPanelSummary
                                                             expandIcon={<ExpandMoreIcon />}
                                                             aria-controls="panel1a-content"
@@ -408,7 +427,7 @@ class JobSearch extends Component {
                                     }) : null}
                                 </div> */}
                                 <div className="categoryDiv">
-                                    <ExpansionPanel>
+                                    <ExpansionPanel defaultExpanded>
                                         <ExpansionPanelSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1a-content"
@@ -444,7 +463,7 @@ class JobSearch extends Component {
                                 </div>
 
                                 <div className="paymentDiv">
-                                    <ExpansionPanel>
+                                    <ExpansionPanel defaultExpanded>
                                         <ExpansionPanelSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1a-content"
@@ -458,10 +477,10 @@ class JobSearch extends Component {
                                                 {/* <FormLabel component="legend">Gender</FormLabel> */}
                                                 <RadioGroup aria-label="settlement" value={formField.settlement}
                                                     name="settlement"
-                                                    onChange={(ev) => this.handleAll(ev)} >
+                                                    onChange={(ev) => this.RadioButtonChanger(ev)} >
+                                                    <FormControlLabel value="" control={<Radio />} label="Both" />
                                                     <FormControlLabel value="cash" control={<Radio />} label="Cash" />
-                                                    <FormControlLabel value="Exchange" control={<Radio />} label="Exchange" />
-                                                    <FormControlLabel value="Both" control={<Radio />} label="Both" />
+                                                    <FormControlLabel value="exchange" control={<Radio />} label="Exchange" />
                                                 </RadioGroup>
                                             </FormControl>
                                         </ExpansionPanelDetails>
@@ -469,7 +488,39 @@ class JobSearch extends Component {
                                 </div>
 
                                 <div className="budgetDiv">
-                                    <ExpansionPanel>
+                                    <ExpansionPanel defaultExpanded>
+                                        <ExpansionPanelSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                            className="top"
+                                        >
+                                            <p>Job Type </p>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <FormControl component="fieldset">
+                                                {/* <FormLabel component="legend">Gender</FormLabel> */}
+                                                <RadioGroup aria-label="proposal_count" value={formField.proposal_count}
+                                                    name="proposal_count"
+                                                // onChange={(ev) => this.RadioButtonChanger(ev)} 
+                                                >
+                                                    {[
+                                                        { value: "0", label: "Any Job" },
+                                                        { value: "1", label: "Fixed" },
+                                                        { value: "2", label: "Hourly" }].map((a) => {
+                                                            return (
+                                                                <FormControlLabel value={a.value} control={<Radio size="small" />} label={a.label} />
+                                                            )
+                                                        })}
+                                                </RadioGroup>
+                                            </FormControl>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+
+                                </div>
+
+                                <div className="budgetDiv">
+                                    <ExpansionPanel defaultExpanded>
                                         <ExpansionPanelSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1a-content"
@@ -481,9 +532,9 @@ class JobSearch extends Component {
                                         <ExpansionPanelDetails>
                                             <FormControl component="fieldset">
                                                 {/* <FormLabel component="legend">Gender</FormLabel> */}
-                                                <RadioGroup aria-label="budget" value={formField.settlement}
+                                                <RadioGroup aria-label="budget" value={formField.budget}
                                                     name="budget"
-                                                    onChange={this.handleAll} >
+                                                    onChange={(ev) => this.RadioButtonChanger(ev)} >
                                                     {[
                                                         { value: "0", label: "Any budget" },
                                                         { value: "1", label: "Less than $10" },
@@ -506,7 +557,7 @@ class JobSearch extends Component {
                                 </div>
 
                                 <div className="budgetDiv">
-                                    <ExpansionPanel>
+                                    <ExpansionPanel defaultExpanded>
                                         <ExpansionPanelSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1a-content"
@@ -518,9 +569,9 @@ class JobSearch extends Component {
                                         <ExpansionPanelDetails>
                                             <FormControl component="fieldset">
                                                 {/* <FormLabel component="legend">Gender</FormLabel> */}
-                                                <RadioGroup aria-label="proposal_count" value={formField.settlement}
+                                                <RadioGroup aria-label="proposal_count" value={formField.proposal_count}
                                                     name="proposal_count"
-                                                    onChange={this.handleAll} >
+                                                    onChange={(ev) => this.RadioButtonChanger(ev)} >
                                                     {[
                                                         { value: "0", label: "Any Number of proposals" },
                                                         { value: "1", label: "Less than 10" },
@@ -539,7 +590,7 @@ class JobSearch extends Component {
 
                                 </div>
                                 <div className="countryDiv">
-                                    <ExpansionPanel>
+                                    <ExpansionPanel defaultExpanded>
                                         <ExpansionPanelSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1a-content"
@@ -564,7 +615,7 @@ class JobSearch extends Component {
                                     </ExpansionPanel>
                                 </div>
 
-                                <div className="margin-space"></div>
+                                {/* <div className="margin-space"></div>
                                 <div className="row">
                                     <div className="col-sm-6">
                                         <h3 className="widget_title_small">Payment Type</h3>
@@ -604,7 +655,7 @@ class JobSearch extends Component {
                                             <li><a href="">1 - 9</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
                         </div>
