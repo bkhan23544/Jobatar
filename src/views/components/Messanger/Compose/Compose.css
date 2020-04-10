@@ -43,8 +43,13 @@
 .compose .toolbar-button:hover {
   color: #99999c;
 }
-.MuiFab-primary {background-color: #ff5851 !important;}
+.MuiFab-primary {background-color: #345581 !important;}
 
 .MuiFab-root.Mui-disabled {color: #fff !important;}
 .fab-loading {position: relative;}
 .circular {position: absolute; color: red }
+
+.MuiIcon-colorPrimary{
+  color: gray !important;
+}
+

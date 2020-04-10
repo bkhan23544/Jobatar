@@ -12,8 +12,8 @@ class GrowWithJobarter extends Component {
               <div className="container">
                   <div className="row">
                       <div className="col-12 text-center">
-                          <h2>GROW WITH JOBARTER</h2>
-                          <h5>TRANSFORM YOUR BUSINESS WITH US.</h5>
+                          <h2 className="text join">GROW WITH JOBARTER</h2>
+                          <h5 className="text join">TRANSFORM YOUR BUSINESS WITH US.</h5>
                           {gs.identity && <NavLink to="/register" className="btn join-btn">JOIN NOW</NavLink>}
                       </div>
                   </div>

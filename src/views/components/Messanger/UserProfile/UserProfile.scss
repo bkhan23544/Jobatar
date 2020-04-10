@@ -2,3 +2,29 @@
 .top-profile {width: 100%; padding: 10px;
     .ratings {line-height: 10px; margin-top: 5px;}
 }
+
+.conv-title{
+    font-family: sans-serif;
+    font-weight:600;
+    font-size: 20px !important; 
+    color: #345581;
+    // max-height: 25px;
+    // max-width: 200px;
+    // overflow: hidden !important;
+    // text-overflow: ellipsis !important;
+}
+
+.user-name{
+    color: gray !important;
+    font-family: sans-serif;
+    font-weight: 600px;
+}
+
+.view-det-btn{
+    background-color: $primary;
+    border: none;
+}
+
+.view-det-btn:hover{
+    background-color: gray;
+}

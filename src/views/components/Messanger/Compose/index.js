@@ -185,8 +185,8 @@ class Compose extends Component {
 						onChange={this.handleUpload}
 					/>
 					<label htmlFor="icon-button-file" className="mt-2 mr-1">
-						<IconButton variant="contained" color="primary" aria-label="upload picture" component="span">
-							<Icon className="fas fa-paperclip text-info"></Icon>
+						<IconButton variant="contained" aria-label="upload picture" component="span">
+							<Icon color="primary" className="fas fa-paperclip"></Icon>
 						</IconButton>
 					</label>
 

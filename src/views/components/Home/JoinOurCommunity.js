@@ -16,8 +16,8 @@ class JoinOurCommunity extends Component {
               <div className="container">
                   <div className="row">
                       <div className="col-12 text-center">
-                          <h2>JOIN OUR COMMUNITY</h2>
-                          <h5>DREAM BIG. ACHIEVE YOUR BUSINESS GOALS. TAKE ACTION TODAY.</h5>
+                          <h2 className="text join">JOIN OUR COMMUNITY</h2>
+                          <h5 className="text join">DREAM BIG. ACHIEVE YOUR BUSINESS GOALS. TAKE ACTION TODAY.</h5>
                           {gs.identity && <NavLink to="/register" className="btn join-btn">GET STARTED</NavLink>}
                       </div>
                   </div>

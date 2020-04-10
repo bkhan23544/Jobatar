@@ -15,6 +15,7 @@ import { ExpansionPanelSummary } from '@material-ui/core';
 import { ExpansionPanel } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CancelIcon from '@material-ui/icons/Cancel';
+// import "../../../ali.scss"
 
 class JobSearch extends Component {
 

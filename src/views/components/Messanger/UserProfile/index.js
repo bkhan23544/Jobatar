@@ -31,12 +31,12 @@ class UserProfile extends Component {
           </div>
           <div className="caption col pr-0 d-flex align-items-center">
             <div className="title col pl-0">
-              <h5 className="mb-0">{current.group.title}</h5>
-              {(current.item.module === mh.UserItemProposal) && this._showName()}
+              <h5 className="mb-0 conv-title">{current.group.title}</h5>
+              <p className="user-name">{(current.item.module === mh.UserItemProposal) && this._showName()}</p>
               <p className="mb-0">{current.group.hometown}</p>
             </div>
             <div className="action">
-              {((current.item.module === mh.UserItemProposal) && (<Link to={`/contracts/view/${current.item.item_id}`} className="btn btn-info">View Details</Link>))}
+              {((current.item.module === mh.UserItemProposal) && (<Link to={`/contracts/view/${current.item.item_id}`} className="btn btn-info view-det-btn">View Details</Link>))}
             </div>
           </div>
         </div>

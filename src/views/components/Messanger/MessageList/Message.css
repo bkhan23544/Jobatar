@@ -22,6 +22,7 @@
 
 .message.mine .bubble-container {
   justify-content: flex-end;
+   /* background-color: #345581; */
 }
 
 .message.start .bubble-container .bubble {
@@ -37,11 +38,13 @@
 .message.mine.start .bubble-container .bubble {
   margin-top: 10px;
   border-top-right-radius: 20px;
+  
 }
 
 .message.mine.end .bubble-container .bubble {
   border-bottom-right-radius: 20px;
   margin-bottom: 10px;
+  
 }
 
 .message .bubble-container .bubble {
@@ -50,16 +53,23 @@
   padding: 10px 15px;
   border-radius: 20px;
   max-width: 75%;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin:10px;
+  background-color: rgb(235, 235, 235);
+  color: black;
+  
 }
 
 .message.mine .bubble-container .bubble {
   background: #fff5f3;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+  background-color:rgba(52,85,129,0.3);
+  color: black;
 }

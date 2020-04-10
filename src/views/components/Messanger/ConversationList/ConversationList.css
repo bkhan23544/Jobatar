@@ -24,3 +24,7 @@
 .select-type {width: 120px;}
 .select-type .MuiSelect-selectMenu {font-size: 12px;}
 
+.toolbar-title{
+  color: #345581;
+}
+

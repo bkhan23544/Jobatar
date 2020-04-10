@@ -10,7 +10,13 @@
 }
 
 .conversation-list-item.active {
-  background: #eeeef1;
+  background: rgba(52,85,129,1);
+  color: white;
+  .conversation-snippet{
+    color: rgb(187, 187, 187);
+  }
+
+
 }
 
 .conversation-list-item.unread .conversation-title {font-weight: 600}
@@ -40,4 +46,10 @@
   width: 100%;
   float: left;
   line-height: 18px;
+}
+
+.unreadCircle{
+  color: white;
+  background-color: gray !important;
+  border:none !important;
 }

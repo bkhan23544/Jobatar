@@ -5,7 +5,7 @@ import moment from 'moment';
 import { history } from '../../../../helpers/history';
 import { globalService as gs } from '../../../../common/services';
 import { commonHelper as common } from '../../../../helpers';
-import './ConversationListItem.css';
+import './ConversationListItem.scss';
 
 class ConversationListItem extends Component {
 

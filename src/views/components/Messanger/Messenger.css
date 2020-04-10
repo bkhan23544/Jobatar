@@ -26,6 +26,7 @@
   grid-row-end: span 3;
   margin-left: 20px;
   height: 650px;
+  min-width: 350px;
 }
 
 .footer {

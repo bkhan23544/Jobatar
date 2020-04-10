@@ -20,7 +20,7 @@ class Testimonials extends Component{
 
            <div className="col-sm">
                <div className="text-center"><img className="main-man" src="assets/img/main-man.png" width={150}/></div>
-               <h5 className="text font-italic mt-5">"As a freelancer for the past ten years. I love the concept behind jobarter. I have flexible
+               <h5 className="text quote-text mt-5">"As a freelancer for the past ten years. I love the concept behind jobarter. I have flexible
                options to earn money charging on hourly basis of fixed price. When business is slow, I use my skills to exchange services
                with other talented fleelancers from the platform."</h5>
                <h6 className="text font-bold mt-3">Jose Luis Angarita. PhD</h6>
