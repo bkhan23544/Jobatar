@@ -35,6 +35,7 @@ const jobs = (method = "GET", params = null) => {
         dispatch(processSelectors.start());
         itemService.jobs(method, params)
             .then(response => {
+                console.log(response)
                 dispatch(searchSelectors.jobs(response));
                 dispatch(processSelectors.stop());
             })

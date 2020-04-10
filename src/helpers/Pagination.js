@@ -64,19 +64,19 @@ class Pagination extends React.Component {
         var totalPages = Math.ceil(totalItems / pageSize);
 
         var startPage, endPage;
-        if (totalPages <= 10) {
+        if (totalPages <= 5) {
             startPage = 1;
             endPage = totalPages;
         } else {
-            if (currentPage <= 6) {
+            if (currentPage <= 3) {
                 startPage = 1;
-                endPage = 10;
-            } else if (currentPage + 4 >= totalPages) {
-                startPage = totalPages - 9;
+                endPage = 5;
+            } else if (currentPage + 2 >= totalPages) {
+                startPage = totalPages - 4;
                 endPage = totalPages;
             } else {
-                startPage = currentPage - 5;
-                endPage = currentPage + 4;
+                startPage = currentPage - 2;
+                endPage = currentPage + 2;
             }
         }
 
@@ -105,22 +105,22 @@ class Pagination extends React.Component {
 
             return null;
         }
-
+        console.log(pager)
         return (
             <ul className={`pagination ${this.props.className ? this.props.className : ''}`}>
                 {/* <li className={'page-item ' + (pager.currentPage === 1 ? 'disabled' : '')}>
                     <Link className="page-link" to="#" onClick={() => this.setPage(1)}>First</Link>
                 </li> */}
-                <li className={'page-item ' + (pager.currentPage === 1 ? 'disabled' : '')}>
-                    <Link className="page-link" to="#" onClick={() => this.setPage(pager.currentPage - 1)}>Previous</Link>
+                <li>
+                    <Link  to="#" onClick={() => this.setPage(pager.currentPage - 1)}><i class="fa fa-angle-left" aria-hidden="true"></i></Link>
                 </li>
                 {pager.pages.map((page, index) =>
-                    <li key={index} className={`page-item ${(pager.currentPage === page ? 'active' : '')}`}>
-                        <Link className={`page-link`} to="#" onClick={() => this.setPage(page)}>{page}</Link>
+                    <li key={index} className={`${(pager.currentPage === page ? 'active' : '')}`}>
+                        <Link  to="#" onClick={() => this.setPage(page)}>{page}</Link>
                     </li>
                 )}
-                <li className={'page-item ' + (pager.currentPage === pager.totalPages ? 'disabled' : '')}>
-                    <Link className="page-link" to="#" onClick={() => this.setPage(pager.currentPage + 1)}>Next</Link>
+                <li>
+                    <Link to="#" onClick={() => this.setPage(pager.currentPage + 1)}><i class="fa fa-angle-right" aria-hidden="true"></i></Link>
                 </li>
                 {/* <li className={'page-item ' + (pager.currentPage === pager.totalPages ? 'disabled' : '')}>
                     <Link className="page-link" to="#" onClick={() => this.setPage(pager.totalPages)}>Last</Link>

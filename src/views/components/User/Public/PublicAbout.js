@@ -100,7 +100,6 @@ class PublicAbout extends Component {
                                         <div className="right col" style={{paddingLeft: '20px'}}><span>{moment(education.from).format('MM/YYYY')} - {education.is_present === 1 ? 'Present' : moment(education.to).format('MM/YYYY')}</span></div>
                                     </div>
                                 )}
-                                {experienceItems && experienceItems.length === 0 && 'No data yet'}
                             </div>
                         </Fragment>
                     }
@@ -112,12 +111,14 @@ class PublicAbout extends Component {
     <p className="tr-title"><i className="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
    </div>  
                     <div className="education mb-lg-4 mb-3 px-3">
-                        {(educationsItems && educationsItems.length > 0) ?
+                        {(educationsItems && educationsItems.length > 0) &&
                         <div className="d-flex mb-3 row">
                             <div className="col-6"><b className="table-head">School</b></div>
                             <div className="degree col"><b className="table-head">Degree</b></div>
                             <div className="right col" style={{paddingLeft: '20px'}}><b className="table-head">Year</b></div>
-                        </div>:'No data yet' }
+                        </div>
+                        // :'No data yet' 
+                        }
                         {educationsItems && educationsItems.map((experience) =>
                             <div className="d-flex mb-3 row" key={experience.id}>
                                 <div className="col-6">{experience.institute}</div>

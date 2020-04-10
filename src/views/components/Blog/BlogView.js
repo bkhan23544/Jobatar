@@ -50,7 +50,6 @@ class BlogView extends Component {
 
                                     <div className="tags border-top d-flex flex-wrap align-items-center justify-content-center">
                                         <div className="d-flex align-items-center col pl-0">
-                                            {/*
                                             <big>Tag:</big>
                                             <ul className="chip d-flex align-items-center mb-0">
                                                 <li><Link to="#" className="active">Sales</Link></li>
@@ -59,7 +58,6 @@ class BlogView extends Component {
                                                 <li><Link to="#">Medical</Link></li>
                                                 <li><Link to="#">Transport</Link></li>
                                             </ul>
-                                            */}
                                         </div>
                                         <div className="sharing d-flex align-items-center">
                                             <big>Share this blog</big>

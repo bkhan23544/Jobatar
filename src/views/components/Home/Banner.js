@@ -6,6 +6,7 @@ import "../../../custom.css"
 import HomeSearch from './partials/HomeSearch';
 import { NavLink } from "react-router-dom";
 
+
 class Banner extends Component {
 
 

@@ -134,8 +134,7 @@ class Milestones extends Component {
     onSubmit = (item) => {
         this.setState({ item });
         const { type } = this.state;
-        //this.isConfirmDialog('status_submission', ` Once payment is made under ${type} details please add transaction #`);
-        this.isConfirmDialog('status_submission', `Are you sure you want to mark this ${type} as complete?`);
+        this.isConfirmDialog('status_submission', ` Once payment is made under ${type} details please add transaction #`);
     };
 
     onApproved = (item) => {
@@ -147,7 +146,7 @@ class Milestones extends Component {
     onDeclined = (item) => {
         this.setState({ item });
         const { type } = this.state;
-        this.isConfirmDialog('status_not_approved', `Are you sure you want to decline this ${type}?`);
+        this.isConfirmDialog('status_not_approved', `Are you sure you want to declined submittion of this ${type}?`);
     };
 
     isVisiblePayment = (item) => {
@@ -156,7 +155,7 @@ class Milestones extends Component {
         const isRequest = (!gs.isOwner(proposal.provider_id) && item.is_active === 1 && item.status === status_approved);
         return (isRequest && <div className="visible-action">
             <div className="btn btn-primary">
-                <StripeCheckout token={this.onPayment.bind(this, item)} stripeKey={this.state.stripeKey} amount={itemPayment} image={`${gs.rootUrl}/images/stripe_logo.png`} ComponentClass="div" label="Pay Now" panelLabel="Pay Now" allowRememberMe={false}>Pay Now</StripeCheckout>
+                <StripeCheckout token={this.onPayment.bind(this, item)} stripeKey={this.state.stripeKey} amount={itemPayment} image={`${gs.rootUrl}/images/stripe_logo.png`} ComponentClass="div" label="Pay Now" panelLabel="Pay Now">Pay Now</StripeCheckout>
             </div>
         </div>);
     };
@@ -181,7 +180,7 @@ class Milestones extends Component {
         const isRequest = (!gs.isOwner(proposal.provider_id) && item.is_active === 1 && item.status === status_submission);
         return (isRequest &&
             <div className="visible-action">
-            <h5 className="card-text mb-1" style={{ fontSize: '14px' }}>{`${gs.capitalize(type)}`} has been marked as complete. Would you like to submit the payment now?</h5>
+            <h5 className="card-text mb-1" style={{fontSize: '14px'}}>{`${gs.capitalize(type)}`} has been marked as complete would you like to submit the payment now?</h5>
                 <div className="mb-3">
                     <button className="btn btn-success" type="button" onClick={this.onApproved.bind(this, item)}><i className="fas fa-check"></i> Accept </button>
                     <button className="btn btn-info" type="button" onClick={this.onDeclined.bind(this, item)}><i className="fas fa-times"></i> Decline</button>
@@ -244,7 +243,7 @@ class Milestones extends Component {
         const itemType = proposalItem && proposalItem.type;
         const proposalTypeTitle = (isJobProposal === true) ? ((itemType === 'fixed') ? 'Milestone' : 'Timesheet') : '';
         let capitalizeType = gs.capitalize(type);
-        // (item.is_paid !== is_paid) &&
+
         return (<Fragment>
             {setMilestone && <MilestoneForm open={setMilestone} proposal_id={proposal.id} budget={proposal.budget} milestoneClose={this.milestoneClose} message={this.message} type={proposalTypeTitle} field={field} milestone_id={milestone_id} />}
             <div className="card mb-4 milestones">
@@ -257,10 +256,10 @@ class Milestones extends Component {
                             <div className="card-body">
                                 <h5 className="card-text mb-1 d-flex justify-content-between">
                                     <div className="">{item.title}</div>
-                                    { (item.status !== status_approved) &&
+                                    {(item.is_paid !== is_paid) &&
                                     <div className="action">
-                                        <button className="btn btn-outline-info btn-sm" onClick={() => this.milestoneOpen(item)}><i className="fas fa-edit"></i></button>
-                                        <button className="btn btn-outline-danger btn-sm ml-1" onClick={() => this.milestoneDelete(item)}><i className="fas fa-trash"></i> </button>
+                                        <button className="btn btn-info btn-sm" onClick={() => this.milestoneOpen(item)}><i className="fas fa-edit"></i></button>
+                                        <button className="btn btn-danger btn-sm ml-1" onClick={() => this.milestoneDelete(item)}><i className="fas fa-trash"></i> </button>
                                     </div>}
                                 </h5>
                                 <div className="card-text12" style={{fontWeight: 400, fontSize: '14px'}}>{item.description}</div>

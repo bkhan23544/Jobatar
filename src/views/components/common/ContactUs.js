@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
 import { Container, Row, Col } from 'react-bootstrap';
-import ReCAPTCHA from "react-google-recaptcha";
 import { Main } from '../../layout';
 import FormValidator from '../../../helpers/FormValidator';
 import { DocumentTitle } from '../../../helpers/DocumentTitle';
@@ -19,16 +18,12 @@ class ContactUs extends Component {
                 last_name: '',
                 email: '',
                 subject: '',
-                body: '',
-                captcha: ''
+                body: ''
             },
             submitted: false,
             validation: this.validator().valid(),
-            value: "",
-            expired: "false"
         };
         this.initializeState = this.state;
-        this._reCaptchaRef = React.createRef();
     }
 
     handleChange = (e) => {
@@ -47,22 +42,9 @@ class ContactUs extends Component {
             { field: 'first_name', method: 'isEmpty', validWhen: false, message: 'First Name is required.' },
             { field: 'last_name', method: 'isEmpty', validWhen: false, message: 'Last Name is required.'},
             { field: 'body', method: 'isEmpty', validWhen: false, message: 'Message is required.'},
-            { field: 'captcha', method: 'isEmpty', validWhen: false, message: 'Captcha is required.'},
         ]);
     };
 
-    onChangeCaptcha = (captcha) => {
-        let formField = { ...this.state.formField };
-        formField['captcha'] = captcha;
-        this.setState({ formField });
-        // if value is null recaptcha expired
-        if (captcha === null) this.setState({ expired: "true" });
-    }
-
-    asyncScriptOnLoad = () => {
-        this.setState({ callback: "called!" });
-        //console.log("scriptLoad - reCaptcha Ref-", this._reCaptchaRef);
-    };
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -82,7 +64,7 @@ class ContactUs extends Component {
     render() {
         const { formField, submitted, validation} = this.state;
         const isValid = submitted ? this.validator().validate(formField) : validation;
-        const { location, process } = this.props;
+        const { location } = this.props;
         let search = new URLSearchParams(location.search);
         return (<Main onlycontent={search.get("onlycontent")}>
             <DocumentTitle title={`Contact Us`} />
@@ -134,20 +116,8 @@ class ContactUs extends Component {
                                             <div className="invalid-feedback"> {isValid.body.message} </div>
                                         }
                                     </div>
-                                    <div className="form-group">
-                                        <ReCAPTCHA
-                                            sitekey="6LfG0uQUAAAAAHeJLLxZNLcC-OEs0cpsbhT43hVR"
-                                            theme="light"
-                                            ref={this._reCaptchaRef}
-                                            onChange={this.onChangeCaptcha}
-                                            asyncScriptOnLoad={this.asyncScriptOnLoad}
-                                        />
-                                        {submitted && isValid.captcha.isInvalid &&
-                                        <div className="invalid-feedback d-block"> {isValid.captcha.message} </div>
-                                        }
-                                    </div>
                                     <div className="button">
-                                        <button type="submit" className="btn btn-info btn-lg btn-block">Submit </button>
+                                        <button type="submit" className="btn btn-info btn-lg btn-block">Submit</button>
                                     </div>
                                 </div>
                             </form>

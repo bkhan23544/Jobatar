@@ -34,7 +34,7 @@ class JobListing extends Component {
 
     componentWillMount() {
         const { is_publish, is_closed, is_visibility } = this.props;
-        //console.log("is_visibility:", is_visibility)
+        console.log("is_visibility:", is_visibility)
         const formField = { ...this.state.formField };
         const user_id = gs.identity && gs.identity.user && gs.identity.user.id;
         formField["user_id"] = user_id;
@@ -86,10 +86,9 @@ class JobListing extends Component {
                 </div>
                 <div className="prices d-flex align-items-center">
                     {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>}
-                    <div className="fixed badge badge-secondary text-capitalize mr-3">{item.settlement}</div>
+                    <div className="fixed badge badge-secondary text-capitalize">{item.settlement}</div>
                     {item.settlement && item.settlement === 'cash' &&
-                        <div className="cash badge badge-success text-capitalize mr-3">{item.type}</div>}
-                    <div className="cash badge badge-success text-capitalize">{item && item.visibility}</div>
+                        <div className="cash badge badge-success text-capitalize">{item.type}</div>}
                 </div>
                 <div className="priview d-flex flex-wrap pb-0"></div>
                 <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />

@@ -6,7 +6,6 @@ import moment from 'moment';
 import UserProfile from "../UserProfile";
 import Attachment from "./Attachment";
 import { globalService as gs } from "../../../../common/services";
-import { animateScroll } from "react-scroll";
 import "./MessageList.scss";
 import "./Message.css";
 
@@ -16,9 +15,9 @@ class MessageList extends Component {
     super(props);
     this.state = {
       id: null,
+      activeKey: null,
+      current: null,
       threads: [],
-      activeKey: props.activeKey,
-      current: props.current,
       profile: props.recipient,
       user_id: gs.identity.user.id,
       previousAt: null,
@@ -37,34 +36,14 @@ class MessageList extends Component {
     this.messagingRef = React.createRef();
   }
 
-  componentWillMount = () => {
-    const { activeKey } = this.state;
-    this._isMounted = true;
-    let query = gs.db.ref(`UserMessage/${activeKey}`)
-    query.on("child_added", (snap) => {
-      this.setState((preState) => {
-        return { threads: [...preState.threads, snap.val()] }
-      });
-    });
-  };
-
-  componentDidMount() {
-    // this._mount(this.props);
-    this.scrollToBottom()
+  componentDidMount = () => {
+    this._mount(this.props);
   }
-  componentDidUpdate() {
-    this.scrollToBottom();
-  }
-  scrollToBottom = () => {
-    animateScroll.scrollToBottom({containerId: "messagingContainer"});
-    //this.messagingRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
 
   componentWillUnmount() {
     this.setState(this.initilizeState);
   }
 
-  /*
   componentWillReceiveProps = (props) => {
     let newCurrent = props && props.current;
     const { activeKey, current } = this.props;
@@ -72,11 +51,7 @@ class MessageList extends Component {
       this.scrollDown(current);
     }
   }
-  scrollDown = (current) => {
-    this.setState({ refreshing: true, isOnly: true, current, activeKey: current.key }, () => {
-      this.load(current);
-    });
-  };
+
   _mount = (props) => {
     let current = props && props.current;
     if (current && (current.key !== this.state.activeKey)) {
@@ -84,7 +59,7 @@ class MessageList extends Component {
         this.load(current, Date.now());
       });
     }
-  };
+  }
 
   load = (current) => {
     const { isOnly, lastAt, previousAt } = this.state;
@@ -122,22 +97,18 @@ class MessageList extends Component {
       }
     }
   };
-    handleRefresh = () => {
-    let ref = this.messagingRef;
-    const scrollTop = ref.current.scrollTop;
-    if (scrollTop === 0) {
-      this.setState({ refreshing: true, isOnly: false }, () => {
-        this.load(this.state.current);
-        ref.current.scrollTop = 20;
-      });
-    }
-  }
-  */
 
   getProfile = (current) => {
-    const { profile } = this.state;
+    const { profile } = this.state
     return (profile) && (<UserProfile current={current} profile={profile} />);
   };
+
+  /*renderAttachment = (activeKey, createdAt, uri) => {
+    let extension = gs.fileExtension(uri);
+    let icons = gs.classIcon(extension);
+      return (uri !== undefined || uri !== '' || uri !== null) ? ((gs.checkImage(extension) === true) ?
+        (<div className="attachments"><a href={`${uri}`} target="_blank" rel="noopener noreferrer"><img src={uri} width="200" /></a></div>) : (<div className="attachments"><a href={`${uri}`} target="_blank" rel="noopener noreferrer"><i className={`fa-6x far fa-file-${icons}`}></i></a></div>)) : (<span></span>);
+  }*/
 
   renderMessage = (idx, data, activeKey) => {
     const isMine = Number.isInteger(data.sender) ? (parseInt(gs.identity.user.id) === parseInt(data.sender)) :
@@ -163,8 +134,10 @@ class MessageList extends Component {
           <div className="message-list">
             {(current.group === undefined || current.group === null) && profile ? this.getProfile(current) : (<UserProfile current={current} profile={profile} />)}
             {<div name="messaging" className={"message-list-container css-scroll"}
+              ref={this.messagingRef}
+              onScroll={this.handleRefresh}
               id="messagingContainer">
-                {(threads && threads.length) ? threads.map((thread, idx) => this.renderMessage(idx, thread, activeKey)) : this.renderLoading()}
+              {(threads && threads.length) ? threads.map((thread, idx) => this.renderMessage(idx, thread, activeKey)) : this.renderLoading()}
             </div>}
             <Compose profile={profile} activeKey={activeKey} current={current} />
           </div>
@@ -181,12 +154,29 @@ class MessageList extends Component {
             <figure>
               <img src="/images/not-found/message-empty.png" alt="message empty" width="100" />
             </figure>
-            <h5>Loading.....</h5>
+            <h5>Loding.....</h5>
           </div>
         </div>
       </div>
     );
   };
+
+  scrollDown = (current) => {
+    this.setState({ refreshing: true, isOnly: true, current, activeKey: current.key }, () => {
+      this.load(current);
+    });
+  };
+
+  handleRefresh = () => {
+    let ref = this.messagingRef;
+    const scrollTop = ref.current.scrollTop;
+    if (scrollTop === 0) {
+      this.setState({ refreshing: true, isOnly: false }, () => {
+        this.load(this.state.current);
+        ref.current.scrollTop = 20;
+      });
+    }
+  }
 }
 
 const processSelector = createSelector(

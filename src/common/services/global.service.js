@@ -22,20 +22,14 @@ const authHeader = () => {
     return headers;
 };
 
+
+
 const logout = () => {
     // remove user from local storage to log user out
     storageHelper.removeItem('authentication');
     storageHelper.removeItem('token');
     firebaseLogout();
-    fbLogout();
 };
-const fbLogout = () =>{
-
-}
-
-const clearAll = () => {
-    logout();
-}
 
 const storeItem = (key, data) => {
     // remove user from local storage to log user out
@@ -415,6 +409,5 @@ export const globalService = {
     capitalize,
     checkImage,
     fileExtension,
-    classIcon,
-    clearAll
+    classIcon
 };

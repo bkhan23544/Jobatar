@@ -100,6 +100,7 @@ class PublicCoFounder extends Component {
         let about = user ? user.user : {};
         const {userCoFounderIdeal, userCoFounderExperience} = about;
 
+console.log(userCoFounderExperience)
         return (<PublicLayout>
          
 
@@ -162,31 +163,31 @@ class PublicCoFounder extends Component {
                                     <Nav as="ul" variant="tab" className="nav-tabs d-flex justify-content-around">
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_1`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience.status==1 ? "#345581": "none"}}>1</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status ==1 ? "#345581": "none"}}>1</span>
                                                 <span className="text">Concept</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_2`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience.status==2 ? "#345581": "none"}}>2</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==2 ? "#345581": "none"}}>2</span>
                                                 <span className="text" style={{color:"black"}}>Design</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_3`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience.status==3 ? "#345581": "none"}}>3</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==3 ? "#345581": "none"}}>3</span>
                                                 <span className="text">Development</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_4`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience.status==4 ? "#345581": "none"}}>4</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==4 ? "#345581": "none"}}>4</span>
                                                 <span className="text">Launch</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
                                             <Nav.Link eventKey={`business_5`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience.status==5 ? "#345581": "none"}}>5</span>
+                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==5 ? "#345581": "none"}}>5</span>
                                                 <span className="text">Growth</span>
                                             </Nav.Link>
                                         </Nav.Item>
@@ -207,7 +208,7 @@ class PublicCoFounder extends Component {
    {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
                                 <h5><b className="icon-color">{userCoFounderIdeal && userCoFounderIdeal.title}</b></h5>
                                 <div className="about-text">
-                                    {(userCoFounderIdeal && userCoFounderIdeal.description) ? userCoFounderIdeal.description : 'No data yet'}
+                                    {userCoFounderIdeal && userCoFounderIdeal.description}
                                 </div>
                             </div>}
    </div>

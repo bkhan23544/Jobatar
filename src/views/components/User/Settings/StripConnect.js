@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import { Main } from '../../../layout';
 import { Card, Row, Col } from 'react-bootstrap';
 import NavBar from './partials/NavBar';
@@ -11,31 +11,7 @@ import InputMask from 'react-input-mask';
 import FormValidator from '../../../../helpers/FormValidator';
 import mccList from '../../../../common/utils/mcc.json';
 import Form from "react-bootstrap/esm/Form";
-const currencies = [
-    { currency_name: 'Australian Dollar', currency_code: 'AUD' },
-    { currency_name: 'Brazilian Real', currency_code: 'BRL' },
-    { currency_name: 'British Pound', currency_code: 'GBP' },
-    { currency_name: 'Canadian Dollar,  ', currency_code: 'CAD' },
-    { currency_name: 'Czech Koruna', currency_code: 'CZK' },
-    { currency_name: 'Danish Krone', currency_code: 'DKK' },
-    { currency_name: 'Euro', currency_code: 'EUR' },
-    { currency_name: 'Hong Kong Dollar', currency_code: 'HKD' },
-    { currency_name: 'Hungarian Forint', currency_code: 'HUF' },
-    { currency_name: 'Israeli New Sheqel', currency_code: 'ILS' },
-    { currency_name: 'Japanese Yen', currency_code: 'JPY' },
-    { currency_name: 'Malaysian Ringgit', currency_code: 'MYR' },
-    { currency_name: 'Mexican Peso', currency_code: 'MXN' },
-    { currency_name: 'New Taiwan Dollar', currency_code: 'TWD' },
-    { currency_name: 'New Zealand Dollar', currency_code: 'NZD' },
-    { currency_name: 'Norwegian Krone', currency_code: 'NOK' },
-    { currency_name: 'Philippine Peso', currency_code: 'PHP' },
-    { currency_name: 'Polish Złoty', currency_code: 'PLN' },
-    { currency_name: 'Russian Ruble', currency_code: 'RUB' },
-    { currency_name: 'Singapore Dollar', currency_code: 'SGD' },
-    { currency_name: 'Swedish Krona', currency_code: 'SEK' },
-    { currency_name: 'Swiss Franc', currency_code: 'CHF' },
-    { currency_name: 'Thai Baht', currency_code: 'THB' },
-    { currency_name: 'United States Dollar', currency_code: 'USD' }];
+import DetailsPreview from "./partials/DetailsPreview";
 
 class StripConnect extends Component {
 
@@ -56,7 +32,6 @@ class StripConnect extends Component {
                 postal_code: '',
                 phone: '',
                 currency: '',
-                is_term: 0,
             },
             submitted: false,
             validation: this.validator().valid(),
@@ -69,7 +44,7 @@ class StripConnect extends Component {
         return new FormValidator([
             { field: 'mcc', method: 'isEmpty', validWhen: false, message: 'Industry is required.' },
             { field: 'routing_number', method: 'isEmpty', validWhen: false, message: 'Routing number is required.' },
-            { field: 'account_number', method: 'isEmpty', validWhen: false, message: 'Account number is required.' },
+            { field: 'account_number', method: 'isEmpty', validWhen: false, message: 'Routing Number is required.' },
             { field: 'date_of_birth', method: 'isEmpty', validWhen: false, message: 'Date of birth is required.' },
             { field: 'currency', method: 'isEmpty', validWhen: false, message: 'Currency is required.' },
             { field: 'phone', method: 'isEmpty', validWhen: false, message: 'Phone is required.' },
@@ -77,7 +52,6 @@ class StripConnect extends Component {
             { field: 'state', method: 'isEmpty', validWhen: false, message: 'State is required.' },
             { field: 'city', method: 'isEmpty', validWhen: false, message: 'City is required.' },
             { field: 'postal_code', method: 'isEmpty', validWhen: false, message: 'Postal code is required.' },
-            { field: 'is_term', method: 'isEmpty', validWhen: false, message: 'Terms must be check.' },
         ]);
     };
 
@@ -111,22 +85,16 @@ class StripConnect extends Component {
     };
 
     stripeViewDetails = () => {
-        this.setState({ viewDetails: true })
+        this.setState({viewDetails: true})
     }
 
     stripeHideDetails = () => {
-        this.setState({ viewDetails: false })
+        this.setState({viewDetails: false})
     }
 
     handleSelect = (item, { action, name }) => {
         let formField = { ...this.state.formField };
         formField[name] = item.value;
-        this.setState({ formField });
-    };
-
-    handleCheckboxChange = (e) => {
-        let formField = { ...this.state.formField };
-        formField[e.target.name] = (e.target.checked ? 1 : 0);
         this.setState({ formField });
     };
 
@@ -154,23 +122,13 @@ class StripConnect extends Component {
         let isValid = submitted ? this.validator().validate(formField) : validation;
         let countriesList = countries.data ? countries.data : [];
 
-
-
         return (<Main>
             <DocumentTitle title={`Bank Information`} />
             <div className="update-profile bg-body">
                 <div className="container">
                     <Card className="mb-4 mb-lg-5">
-                        {isStripeConnect && <Card.Header>Add Bank Information to Receive Cash Payments <br />
-                            <small style={{ fontSize: '14px', marginTop: '6px', float: 'left' }}>Please enter the bank
-                            account information where you would like to receive cash payments made to you.
-                            </small>
-                        </Card.Header>}
-                        {!isStripeConnect && <Card.Header>Bank Details <br />
-                            <small style={{ fontSize: '14px', marginTop: '6px', float: 'left' }}><b>Disclaimer:</b> The
-                                information is confidential and payment are powered by Stripe.
-                            </small>
-                        </Card.Header>}
+                        {isStripeConnect && <Card.Header>Add Bank Information to Receive Cash Payments <br /> <small style={{fontSize: '14px', marginTop: '6px', float: 'left'}}>Please enter the bank account information where you would like to receive cash payments made to you.</small></Card.Header>}
+                        {!isStripeConnect && <Card.Header>Bank Details <br /> <small style={{fontSize: '14px', marginTop: '6px', float: 'left'}}><b>Disclaimer:</b> The information is confidential and payment are powered by Stripe.</small></Card.Header>}
                         <Card.Body>
                             <Row>
                                 <Col xs="12" md="3" xl="4">
@@ -179,10 +137,7 @@ class StripConnect extends Component {
                                 <Col xs="12" md="9" xl="8" className="add-stripe-account">
                                     <div className="py-3 w-100 float-left border-bottom mb-3">
                                         <Card.Title className="mb-0">Bank Information</Card.Title>
-                                        {!isStripeConnect &&
-                                            <Card.Text className="mt-3" style={{ fontWeight: 400 }}>Bank Connect allows you to
-                                            accept credit card payments within the platform for the services that you
-                                            offer.</Card.Text>}
+                                        {!isStripeConnect && <Card.Text className="mt-3" style={{fontWeight: 400}}>Bank Connect allows you to accept credit card payments within the platform for the services that you offer.</Card.Text>}
                                     </div>
                                     <Card className="button pl-0" style={{ boxShadow: 'none', backgroundImage: 'none' }}>
                                         {/*isStripeConnect && <div className=" d-flex align-items-center">
@@ -192,8 +147,7 @@ class StripConnect extends Component {
 
                                         {isStripeConnect && <form onSubmit={this.handleConnect}>
                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Account Currency <br />(Only 3
-                                                    char code)</label>
+                                                <label className="col-sm-3 col-form-label">Account Currency <br />(Only 3 char code)</label>
                                                 <div className="col-sm-8">
                                                     <Select
                                                         classNamePrefix="multi"
@@ -201,206 +155,150 @@ class StripConnect extends Component {
                                                         defaultValue={formField.currency}
                                                         name="currency"
                                                         onChange={this.handleSelect}
-                                                        options={currencies.map(item => ({
-                                                            value: item.currency_code,
-                                                            label: `${item.currency_name} ( ${item.currency_code} )`
-                                                        }))}
-                                                        className={'multiple-select mb-2   ' + (submitted && isValid.currency.isInvalid ? 'is-invalid' : '')} />
+                                                        options={countriesList.map(item => ({ value: item.currency_code, label: `${item.currency_name} (${item.currency_code})` }))} className={'multiple-select mb-2   ' + (submitted && isValid.currency.isInvalid ? 'is-invalid' : '')} />
                                                     {submitted && isValid.currency.isInvalid &&
-                                                        <div className="invalid-feedback"> {isValid.currency.message} </div>
+                                                    <div className="invalid-feedback"> {isValid.currency.message} </div>
                                                     }
                                                 </div>
                                             </div>
                                             <div className="form-group row mb-0">
                                                 <label className="col-sm-3 col-form-label">Routing Number</label>
                                                 <div className="col-sm-8">
-                                                    <input type="text" value={formField.routing_number}
-                                                        name="routing_number"
-                                                        onChange={this.handleChange}
-                                                        className={'form-control ' + (submitted && isValid.routing_number.isInvalid ? 'is-invalid' : '')} />
+                                                    <input type="text" value={formField.routing_number} name="routing_number"
+                                                           onChange={this.handleChange}
+                                                           className={'form-control ' + (submitted && isValid.routing_number.isInvalid ? 'is-invalid' : '')} />
                                                     <small className="form-text text-muted">This is mandatory</small>
                                                     {submitted && isValid.routing_number.isInvalid &&
-                                                        <div
-                                                            className="invalid-feedback"> {isValid.routing_number.message} </div>
+                                                    <div className="invalid-feedback"> {isValid.routing_number.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className="py-3 w-100 float-left border-bottom mb-3">
+                                                <Card.Title className="mb-0">Account Holder Information</Card.Title>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Id Number (SSN)</label>
+                                                <div className="col-sm-8">
+                                                    <input type="text" className="form-control" value={formField.id_number} name="id_number" onChange={this.handleChange} />
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Routing Number</label>
+                                                <div className="col-sm-8">
+                                                    <input type="text" value={formField.account_number} name="account_number"
+                                                           onChange={this.handleChange}
+                                                           className={'form-control ' + (submitted && isValid.account_number.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.account_number.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.account_number.message} </div>
                                                     }
                                                 </div>
                                             </div>
 
-                                            <div className="form-group row mb-0">
-                                                <label className="col-sm-3 col-form-label">Account Number</label>
-                                                <div className="col-sm-8">
-                                                    <input type="text" value={formField.account_number}
-                                                        name="account_number"
-                                                        onChange={this.handleChange}
-                                                        className={'form-control ' + (submitted && isValid.account_number.isInvalid ? 'is-invalid' : '')} />
-                                                    {/*<small className="form-text text-muted">This is mandatory</small>*/}
-                                                    {submitted && isValid.account_number.isInvalid &&
-                                                        <div
-                                                            className="invalid-feedback"> {isValid.account_number.message} </div>
-                                                    }
-                                                </div>
-
-                                                <div className="py-3 w-100 border-bottom mb-3">
-                                                    <Card.Title className="mb-0">Account Holder Information</Card.Title>
-                                                </div>
-                                                <div className="py-3 w-100">
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Id Number
-                                                            (SSN)</label>
-                                                        <div className="col-sm-8">
-                                                            <input type="text" className="form-control"
-                                                                value={formField.id_number} name="id_number"
-                                                                onChange={this.handleChange} />
-                                                            <small className="form-text text-muted">This is mandatory for USA</small>
-                                                        </div>
-
-                                                    </div>
-
-                                                    {/* <div className="form-group row">
+                                            <div className="form-group row">
                                                 <label className="col-sm-3 col-form-label">Name on Account</label>
                                                 <div className="col-sm-8">
                                                     <input type="text" className="form-control" value={formField.bank_name} name="bank_name" onChange={this.handleChange} />
                                                 </div>
-                                                </div> */}
+                                            </div>
 
-                                                    {/* <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Name on
-                                                            Account</label>
-                                                        <div className="col-sm-8">
-                                                            <input type="text" className="form-control"
-                                                                   value={formField.bank_name} name="bank_name"
-                                                                   onChange={this.handleChange}/>
-                                                        </div>
-                                            </div>*/}
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Address</label>
+                                                <div className="col-sm-8">
+                                                    <input value={formField.address} name="address" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.address.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.address.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.address.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
 
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Address</label>
-                                                        <div className="col-sm-8">
-                                                            <input value={formField.address} name="address"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.address.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.address.isInvalid &&
-                                                                <div
-                                                                    className="invalid-feedback"> {isValid.address.message} </div>
-                                                            }
-                                                        </div>
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">City</label>
+                                                <div className="col-sm-8">
+                                                    <input value={formField.city} name="city" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.city.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.city.isInvalid && <div className="invalid-feedback"> {isValid.city.message} </div>}
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">State </label>  {/*(Only 2 Char Code)*/}
+                                                <div className="col-sm-8">
+                                                    <input value={formField.state} name="state" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.state.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.state.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.state.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Postal Code</label>
+                                                <div className="col-sm-8">
+                                                    <input value={formField.postal_code} name="postal_code" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.city.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.postal_code.isInvalid && <div className="invalid-feedback"> {isValid.postal_code.message} </div>}
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Phone Number</label>
+                                                <div className="col-sm-8">
+                                                    <input value={formField.phone} name="phone" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.phone.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.phone.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.phone.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Date Of Birth (MM/DD/YYYY)</label>
+                                                <div className="col-sm-8">
+                                                    <InputMask value={formField.date_of_birth} name="date_of_birth" mask="99/99/9999" onChange={this.handleChange} className={'form-control ' + (submitted && isValid.date_of_birth.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.date_of_birth.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.date_of_birth.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Industry</label>
+                                                <div className="col-sm-8">
+                                                    <Select
+                                                        classNamePrefix="multi"
+                                                        isSearchable
+                                                        defaultValue={formField.mcc}
+                                                        name="mcc"
+                                                        onChange={this.handleSelect}
+                                                        options={mccList.map(item => ({ value: item.code, label: item.name }))} className={'multiple-select mb-2   ' + (submitted && isValid.mcc.isInvalid ? 'is-invalid' : '')} />
+                                                    {submitted && isValid.mcc.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.mcc.message} </div>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div className="row">
+                                                <label className="col-sm-3 col-form-label"></label>
+                                                <div className="col-sm-8">
+                                                    <div className="form-group">
+                                                        <Form.Check
+                                                            labelStyle={{fontWeight: 400, fontSize: '12px'}}
+                                                            className="payment-label-check"
+                                                            custom
+                                                            inline
+                                                            //name="is_co_founder"
+                                                            label="I certify that I am the owner and have full authorization to this bank account"
+                                                            //checked={formField.is_co_founder}
+                                                            type={"checkbox"}
+                                                            id={`custom-inline-1`}
+                                                            //onChange={this.handleCheckboxChange}
+                                                        />
                                                     </div>
-
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">City</label>
-                                                        <div className="col-sm-8">
-                                                            <input value={formField.city} name="city"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.city.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.city.isInvalid && <div
-                                                                className="invalid-feedback"> {isValid.city.message} </div>}
-                                                        </div>
+                                                    <div className="form-group text-info">
+                                                        <h5>Please Double-check your account info!</h5>
+                                                        <p>Incorrect or mismatched account name and number can result in withdrawal delays and fees.</p>
                                                     </div>
-
-                                                    <div className="form-group row">
-                                                        <label
-                                                            className="col-sm-3 col-form-label">State </label> {/*(Only 2 Char Code)*/}
-                                                        <div className="col-sm-8">
-                                                            <input value={formField.state} name="state"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.state.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.state.isInvalid &&
-                                                                <div
-                                                                    className="invalid-feedback"> {isValid.state.message} </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Postal Code</label>
-                                                        <div className="col-sm-8">
-                                                            <input value={formField.postal_code} name="postal_code"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.city.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.postal_code.isInvalid && <div
-                                                                className="invalid-feedback"> {isValid.postal_code.message} </div>}
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Phone Number</label>
-                                                        <div className="col-sm-8">
-                                                            <input value={formField.phone} name="phone"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.phone.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.phone.isInvalid &&
-                                                                <div
-                                                                    className="invalid-feedback"> {isValid.phone.message} </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Date Of Birth
-                                                            (MM/DD/YYYY)</label>
-                                                        <div className="col-sm-8">
-                                                            <InputMask value={formField.date_of_birth}
-                                                                name="date_of_birth" mask="99/99/9999"
-                                                                onChange={this.handleChange}
-                                                                className={'form-control ' + (submitted && isValid.date_of_birth.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.date_of_birth.isInvalid &&
-                                                                <div
-                                                                    className="invalid-feedback"> {isValid.date_of_birth.message} </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="form-group row">
-                                                        <label className="col-sm-3 col-form-label">Industry</label>
-                                                        <div className="col-sm-8">
-                                                            <Select
-                                                                classNamePrefix="multi"
-                                                                isSearchable
-                                                                defaultValue={formField.mcc}
-                                                                name="mcc"
-                                                                onChange={this.handleSelect}
-                                                                options={mccList.map(item => ({
-                                                                    value: item.code,
-                                                                    label: item.name
-                                                                }))}
-                                                                className={'multiple-select mb-2   ' + (submitted && isValid.mcc.isInvalid ? 'is-invalid' : '')} />
-                                                            {submitted && isValid.mcc.isInvalid &&
-                                                                <div
-                                                                    className="invalid-feedback"> {isValid.mcc.message} </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="row">
-                                                        <label className="col-sm-3 col-form-label"></label>
-                                                        <div className="col-sm-8">
-                                                            <div className="form-group">
-                                                                <Form.Check
-                                                                    labelStyle={{ fontWeight: 400, fontSize: '12px' }}
-                                                                    custom
-                                                                    inline
-                                                                    name="is_term"
-                                                                    label="I certify that I am the owner and have full authorization to this bank account"
-                                                                    checked={true}
-                                                                    id={`custom-inline-1`}
-                                                                    onChange={this.handleCheckboxChange}
-                                                                    className={'payment-label-check ' + (submitted && isValid.is_term.isInvalid ? 'is-invalid' : '')} />
-                                                                {submitted && isValid.is_term.isInvalid &&
-                                                                    <div
-                                                                        className="invalid-feedback"> {isValid.is_term.message} </div>}
-                                                            </div>
-                                                            <div className="form-group text-info">
-                                                                <h5>Please Double-check your account info!</h5>
-                                                                <p>Incorrect or mismatched account name and number can
-                                                                    result in withdrawal delays and fees.</p>
-                                                            </div>
-                                                            <div className="form-group">
-                                                                <button className="btn btn-info mr-3" type="submit"><i
-                                                                    className="fas fa-check"></i> <span>Add Payment Method</span>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                   <div className="form-group">
+                                                       <button className="btn btn-info mr-3" type="submit"><i className="fas fa-check"></i> <span>Add Payment Method</span> </button>
+                                                   </div>
                                                 </div>
                                             </div>
 
@@ -419,19 +317,15 @@ class StripConnect extends Component {
                                         {/* onClick={this.stripeConnect} */}
 
                                         {/*{(viewDetails === true) && <div className="payment-details-view">*/}
-                                        {/*<DetailsPreview />*/}
-                                        {/*<div className="d-flex">*/}
-                                        {/*<button type="button" onClick={() => this.stripeHideDetails()} className="btn btn-dark"> Back </button>*/}
-                                        {/*</div>*/}
+                                            {/*<DetailsPreview />*/}
+                                            {/*<div className="d-flex">*/}
+                                                {/*<button type="button" onClick={() => this.stripeHideDetails()} className="btn btn-dark"> Back </button>*/}
+                                            {/*</div>*/}
                                         {/*</div>}*/}
 
                                         <div className=" d-flex align-items-center">
-                                            {!isStripeConnect &&
-                                                <button type="button" onClick={() => this.stripeDisconnect()}
-                                                    className="btn btn-info mr-3"> Disconnect Account </button>}
-                                            {!isStripeConnect &&
-                                                <button type="button" onClick={() => this.stripeRetrieve()}
-                                                    className="btn btn-primary mr-3"> Check Account Status </button>}
+                                            {!isStripeConnect && <button type="button" onClick={() => this.stripeDisconnect()} className="btn btn-info mr-3"> Disconnect Account </button>}
+                                            {!isStripeConnect && <button type="button" onClick={() => this.stripeRetrieve()} className="btn btn-primary mr-3"> Check Account Status </button>}
                                             {/*!isStripeConnect && <button type="button" onClick={() => this.stripeViewDetails()} className="btn btn-dark"> Details Preview </button>*/}
                                         </div>
 

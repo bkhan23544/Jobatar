@@ -98,8 +98,7 @@ class JobForm extends Component {
         Object.getOwnPropertyNames(skills).length === 0 && dispatch(defaultActions.skills());
         Object.getOwnPropertyNames(countries).length === 0 && dispatch(defaultActions.countries());
         Object.getOwnPropertyNames(questions).length === 0 && dispatch(defaultActions.questions());
-        //Object.getOwnPropertyNames(services).length === 0 && dispatch(serviceActions.index("GET", null, { user_id: gs.identity.user.id }));
-        dispatch(serviceActions.index("GET", null, { user_id: gs.identity.user.id }));
+        Object.getOwnPropertyNames(services).length === 0 && dispatch(serviceActions.index("GET", null, { user_id: gs.identity.user.id }));
         this.setState({ id: (id ? id : null) });
 
         if (id) {
@@ -656,7 +655,7 @@ class JobForm extends Component {
                                     </div>
                                     {formField.customquestions && <div className="questions">
                                         {formField.customquestions.map((item, idx) => (<div className="list" key={idx}>
-                                            <h6>Question {(idx + 1)}</h6>
+                                            <h6>Questions {(idx + 1)}</h6>
                                             <p>{item}</p>
                                         </div>))
                                         }

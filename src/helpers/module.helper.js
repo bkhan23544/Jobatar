@@ -66,7 +66,7 @@ const moduleTitle = (module) => {
             title = "Services";
             break;
         case UserConnection:
-            title = "Co-founder";
+            title = "Connection";
             break;
         default:
             title = 'All';
