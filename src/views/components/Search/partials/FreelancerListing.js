@@ -169,7 +169,7 @@ class FreelancerListing extends Component {
 
                                     <div class="small-line-height">
                                         <NavLink to={`/user/public/${(is_co_founder) ? 'co-founder' : 'about'}/${item.id}`}><h4><a href="company.html">{item.name}</a></h4></NavLink>
-                                        <p class="text-muted p-location"><i class="fa fa-map-marker"></i> {item && item.countryCode && item.countryCode.name}</p>
+                                        <p class="text-muted p-location"><i class="fas fa-map-marker-alt icon-color"></i> {item && item.countryCode && item.countryCode.name}</p>
                                         <p class="p-star">
                                             {item.avg_job_rating === "5.00" ?
                                                 <>
@@ -186,7 +186,7 @@ class FreelancerListing extends Component {
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
+                                                        <i class="far fa-star"></i>
                                                     </>
                                                     :
                                                     item.avg_job_rating === "3.00" ?
@@ -194,35 +194,35 @@ class FreelancerListing extends Component {
                                                             <i class="fa fa-star rating-star"></i>
                                                             <i class="fa fa-star rating-star"></i>
                                                             <i class="fa fa-star rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
                                                         </>
                                                         :
                                                         item.avg_job_rating === "2.00" ?
                                                             <>
                                                                 <i class="fa fa-star rating-star"></i>
                                                                 <i class="fa fa-star rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                                <i class="far fa-star"></i>
                                                             </>
                                                             :
                                                             item.avg_job_rating === "1.00" ?
                                                                 <>
                                                                     <i class="fa fa-star rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
+                                                                    <i class="far fa-star"></i>
+                                                                    <i class="far fa-star"></i>
+                                                                    <i class="far fa-star"></i>
+                                                                    <i class="far fa-star"></i>
                                                                 </>
                                                                 :
                                                                 item.avg_job_rating === "0.00" ?
                                                                     <>
-                                                                        <i class="fa fa-star-o rating-star"></i>
-                                                                        <i class="fa fa-star-o rating-star"></i>
-                                                                        <i class="fa fa-star-o rating-star"></i>
-                                                                        <i class="fa fa-star-o rating-star"></i>
-                                                                        <i class="fa fa-star-o rating-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
                                                                     </>
                                                                     : null
                                             }

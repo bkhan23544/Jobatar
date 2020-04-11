@@ -106,9 +106,19 @@ class JobListing extends Component {
 
                 <div class="row top-sec">
                     <div class="col-lg-12">
-                        <div className="topLabel">
-                            {/* {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>} */}
-                            <div className="cashAndExchange">{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement}</div>
+                        {/* {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>} */}
+                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            <div>
+                                {isOwner && <div className="d-flex">
+                                    <NavLink to={viewLink} className="btn btn-secondary mr-2"><i
+                                        className="far fa-eye"></i> View {item.view_counts}</NavLink>
+                                    <NavLink to={`/job/update/${item.id}`} className="btn btn-primary"><i
+                                        className="fas fa-pencil-alt"></i> Edit</NavLink>
+                                </div>}
+                            </div>
+                            <div className="topLabel">
+                                <div className="cashAndExchange">{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement}</div>
+                            </div>
                             {/* {item.settlement && item.settlement === 'cash' && <div className="label label-primary">{item.type}</div>} */}
                         </div>
                         <div class="col-lg-12 col-xs-12">
@@ -223,7 +233,7 @@ class JobListing extends Component {
                                 </NavLink>
                             </div>
                             <h5> {item.user.name} </h5>
-                            <p><i class="fa fa-map-marker"></i> {item.user.countryCode && item.user.countryCode.name}</p>
+                            <p><i class="fas fa-map-marker-alt icon-color"></i> {item.user.countryCode && item.user.countryCode.name}</p>
                             <p class="p-star">
                                 {item.user.avg_job_rating === "5.00" ?
                                     <>
@@ -240,7 +250,7 @@ class JobListing extends Component {
                                             <i class="fa fa-star rating-star"></i>
                                             <i class="fa fa-star rating-star"></i>
                                             <i class="fa fa-star rating-star"></i>
-                                            <i class="fa fa-star-o rating-star"></i>
+                                            <i class="far fa-star"></i>
                                         </>
                                         :
                                         item.user.avg_job_rating === "3.00" ?
@@ -248,35 +258,35 @@ class JobListing extends Component {
                                                 <i class="fa fa-star rating-star"></i>
                                                 <i class="fa fa-star rating-star"></i>
                                                 <i class="fa fa-star rating-star"></i>
-                                                <i class="fa fa-star-o rating-star"></i>
-                                                <i class="fa fa-star-o rating-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
                                             </>
                                             :
                                             item.user.avg_job_rating === "2.00" ?
                                                 <>
                                                     <i class="fa fa-star rating-star"></i>
                                                     <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star-o rating-star"></i>
-                                                    <i class="fa fa-star-o rating-star"></i>
-                                                    <i class="fa fa-star-o rating-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
                                                 </>
                                                 :
                                                 item.user.avg_job_rating === "1.00" ?
                                                     <>
                                                         <i class="fa fa-star rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
                                                     </>
                                                     :
                                                     item.user.avg_job_rating === "0.00" ?
                                                         <>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
                                                         </>
                                                         : null
                                 }
