@@ -13,6 +13,8 @@ import { DocumentTitle } from '../../../../helpers/DocumentTitle';
 import { confirmAlert } from "react-confirm-alert";
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+// import '../../../../assets/css/font-awesome.min.css';
+
 
 
 const deadlineList = [
@@ -396,7 +398,7 @@ class PublicJobView extends Component {
                                         </div>
                                         <div class="col-lg-2">
                                             <h5> Location </h5>
-                                            <p><i class="fa fa-map-marker"></i> {item && item.user.countryCode && item.user.countryCode.name}</p>
+                                            <p><i class="fas fa-map-marker-alt"></i>{item && item.user.countryCode && item.user.countryCode.name}</p>
                                         </div>
                                         <div class="col-lg-2">
                                             <h5> Budget </h5>
@@ -413,7 +415,7 @@ class PublicJobView extends Component {
                                             <h5> Proposals </h5>
                                             <p>{item && item.proposal_count}</p>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-lg-2 buttton">
                                             {(item && !gs.isOwner(item.user_id) && (proposalStatus === false) && (item.is_closed === 0) && !(proposal && proposal.status === status_declined)) &&
                                                 <a href="#" onClick={this.offerOpen} class="kafe-btn kafe-btn-mint-small"><i class="fa fa-align-left"></i> Send Proposal</a>
                                             }
@@ -442,7 +444,7 @@ class PublicJobView extends Component {
 
                                         <li>
                                             <div class="icon">
-                                                <p class="tr-title"><i class="fa fa-black-tie" aria-hidden="true"></i> Job Description</p>
+                                                <p class="tr-title"><i class="fab fa-black-tie"></i> Job Description</p>
                                             </div>
                                             <div className="media-body" dangerouslySetInnerHTML={{ __html: item && item.description }}></div>
                                             <div className="chips mb-3">

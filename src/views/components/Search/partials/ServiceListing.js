@@ -129,7 +129,7 @@ class ServiceListing extends Component {
                                             </NavLink>
                                         </div>
                                         <h5> {item.user.name} </h5>
-                                        <p><i class="fa fa-map-marker"></i> {item.user.countryCode && item.user.countryCode.name}</p>
+                                        <p><i className="fas fa-map-marker-alt icon-color"></i> {item.user.countryCode && item.user.countryCode.name}</p>
                                     </div>
                                 </div>
                             </div>

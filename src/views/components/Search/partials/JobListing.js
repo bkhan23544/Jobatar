@@ -261,7 +261,7 @@ class JobListing extends Component {
                                         </NavLink>
                                     </div>
                                     <h5> {item.user.name} </h5>
-                                    <p><i class="fa fa-map-marker"></i> {item.user.countryCode && item.user.countryCode.name}</p>
+                                    <p><i className="fas fa-map-marker-alt icon-color"></i> {item.user.countryCode && item.user.countryCode.name}</p>
                                     <p class="p-star">
                                         {item.user.avg_job_rating === "5.00" ?
                                             <>
@@ -278,7 +278,7 @@ class JobListing extends Component {
                                                     <i class="fa fa-star rating-star"></i>
                                                     <i class="fa fa-star rating-star"></i>
                                                     <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star-o rating-star"></i>
+                                                    <i class="fa fa-star rating-star"></i>
                                                 </>
                                                 :
                                                 item.user.avg_job_rating === "3.00" ?
@@ -286,35 +286,35 @@ class JobListing extends Component {
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
-                                                        <i class="fa fa-star-o rating-star"></i>
+                                                        <i class="fa fa-star rating-star"></i>
+                                                        <i class="fa fa-star rating-star"></i>
                                                     </>
                                                     :
                                                     item.user.avg_job_rating === "2.00" ?
                                                         <>
                                                             <i class="fa fa-star rating-star"></i>
                                                             <i class="fa fa-star rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
-                                                            <i class="fa fa-star-o rating-star"></i>
+                                                            <i class="fa fa-star rating-star"></i>
+                                                            <i class="fa fa-star rating-star"></i>
+                                                            <i class="fa fa-star rating-star"></i>
                                                         </>
                                                         :
                                                         item.user.avg_job_rating === "1.00" ?
                                                             <>
                                                                 <i class="fa fa-star rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
-                                                                <i class="fa fa-star-o rating-star"></i>
+                                                                <i class="fa fa-star rating-star"></i>
+                                                                <i class="fa fa-star rating-star"></i>
+                                                                <i class="fa fa-star rating-star"></i>
+                                                                <i class="fa fa-star rating-star"></i>
                                                             </>
                                                             :
                                                             item.user.avg_job_rating === "0.00" ?
                                                                 <>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
-                                                                    <i class="fa fa-star-o rating-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
                                                                 </>
                                                                 : null
                                         }

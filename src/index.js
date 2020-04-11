@@ -12,8 +12,8 @@ import "./ali.scss";
 // import 'animate.min.css'
 import { history } from './helpers/history';
 import './assets/css/bootstrap.min.css'
-import './assets/css/font-awesome.min.css';
-import './assets/css/base.css';
+// import './assets/css/font-awesome.min.css';
+// import './assets/css/base.css';
 
 configureUrlQuery({ history, addChangeHandlers: false });
 const App = lazy(() => import('./App')) ;

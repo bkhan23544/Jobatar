@@ -165,7 +165,9 @@ h1, .h1 {font-size: 1.7rem;}
 	}
 } // Multiple select css end
 
-.form-control.is-invalid, .was-validated .form-control:invalid {background-position: 98% calc(.375em + 0.8rem);}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+	// background-position: 98% calc(.375em + 0.8rem);
+}
 
 #alert-design {position: fixed; z-index: 9; right: 20px; bottom: 0px; display: none}
 
@@ -511,6 +513,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 	h4 {font-size: 16px;}
 	.menus {padding: 40px 0px 10px 0px; border-bottom: 1px solid #707070;
 		ul {line-height: 30px; font-size: 14px;
+			li{display: block;}
 			a {color: rgba($white, 0.9);}
 			a:hover, a:focus {text-decoration: none; color: $info;}
 		}
@@ -522,6 +525,15 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		}
 		.btn {border-radius: 0px !important;  font-weight: 600; color: darken($white, 20);
 			&:hover {color: $primary;}
+		}
+		input{
+			height: 50px;
+		}
+		.input-group-append{
+			position: absolute;
+			height: 50px;
+			right: 0px;
+			top: 0;
 		}
 	}
 	.copy-right {padding: 30px 0px 25px 0px;
@@ -578,7 +590,17 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 .card-instruction {box-shadow: 0px 0px 5px rgba($black, 0.2); border-radius: 4px !important; border: 1px solid rgba($black, 0.085) !important;
 	.card-body {padding-top: 10px;}
 	.card-text {font-size: 14px; font-weight: 400;}
-	.card-title {border-left: none !important; border-bottom: 1px solid $gray-300; text-align: left; padding-bottom: 10px !important; font-size: 16px; margin-bottom: 12px !important; text-align: center}
+	.card-title {
+			border-left: none !important;
+			border-bottom: 1px solid #dee2e6;
+			text-align: left;
+			padding-bottom: 10px !important;
+			font-size: 20px;
+			margin-bottom: 12px !important;
+			text-align: center;
+			font-family: 'Abhaya Libre', serif;
+			letter-spacing: 1px;
+	}
 	.sub-title {font-size: 14px;}
 	&.services {box-shadow: none; border-radius: 0px !important;}
 } // Card Instruction css end
@@ -957,8 +979,8 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		}
 	}
 	h3 {font-size: calc(0.8rem + 0.5vw); font-weight: bold; padding-bottom: 6px; text-align: center;}
-	.designation {text-align: center; margin-bottom: 15px;}
-	.address {text-align: center; margin-bottom: 30px;}
+	.designation {text-align: center; margin-bottom: 15px; font-weight: bold;}
+	.address {text-align: center; margin-bottom: 30px; font-weight: bold;}
 	.sharing {text-align: center;
 		h5 {font-size: 16px; font-weight: bold;}
 		ul {list-style: none; padding-left: 0px; margin-bottom: 2px;
@@ -972,10 +994,12 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 		&.languages {
+			font-weight: bold;
 			span + span:before {content: ", "}
 		}
 	}
 	.since {font-size: 12px; margin-bottom: 10px;
+		font-weight: bold;
 		big {font-size: 16px;}
 	}
 } // Public Profile card css end
