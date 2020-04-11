@@ -13,7 +13,7 @@ class ContractLayout extends Component {
         const { children, title, status, itemLink } = this.props;
         return (<Main>
             <DocumentTitle title={ title } />
-            <div className="my-services bg-body">
+            <div className="my-services bg-body RecievedProposals">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 mb-1">

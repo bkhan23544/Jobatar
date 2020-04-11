@@ -339,7 +339,7 @@ body{
 	 margin-bottom: 0px !important;
    }
 
-.work {
+.work,.jobBoxx {
 	// background-color: #fff;
 	// padding: 20px 10px 10px 10px;
 	// color: #272727;
@@ -651,6 +651,145 @@ body{
 		}
 	} 
 	
+}
+.jobBoxx{
+	.job{
+		width: auto;
+		&:last-child{
+			height: auto;
+			width: auto;
+			display: inherit;
+		}
+	}
+}
+.PostedJobs{
+	h1{
+		span{
+			color: #345581;
+			font-size: 24px;
+		}
+		a{
+			background-color: rgba($color: #345581, $alpha: 0.9);
+			border: none;
+			&:hover{
+				background-color: rgba($color: #345581, $alpha: 1);
+				color: white !important;
+			}
+		}
+	}
+	.public-navbar{
+		width: 99%;
+		margin: auto;
+		.nav{
+			display: flex;
+			justify-content: space-between;
+		}
+		.nav-link{
+		@media only screen and (max-width: 768px){
+			width: 66px;
+			margin: 0;
+			padding: 0;
+		}
+			&:hover{
+				color: #345581 !important;
+			}
+		}
+		.nav-link.active{
+			color: #345581 !important;
+		}
+	}
+	.common-not-found{
+		h5{
+			color: #345581;
+		}
+		p{
+			color: #898b8c;
+			a{
+				color: rgba($color: #345581, $alpha: 0.8);
+				&:hover{
+					color: rgba($color: #345581, $alpha: 1) !important;
+				}
+			}
+			.btn-primary{
+				color: white;
+				border: none;
+				background-color: rgba($color: #345581, $alpha: 0.9);
+				&:hover{
+					background-color: rgba($color: #345581, $alpha: 1);
+					color: white !important;
+				}
+			}
+		}
+	}
+}
+.RecievedProposals{
+	h1{
+		span{
+			color: #345581
+		}
+		a{
+			background-color: rgba($color: #345581, $alpha: 0.9);
+			border: none;
+			&:hover{
+				background-color: rgba($color: #345581, $alpha: 1);
+				color: white !important;
+			}
+		}
+	}
+	.input-group-append{
+		position: absolute;
+		right: 4px;
+		top: 50%;
+		transform: translate(0, -50%);
+		z-index: 5;
+		button{
+			border: none;
+			background-color: rgba($color: #345581, $alpha: 0.9);
+			&:hover{
+				background-color: rgba($color: #345581, $alpha: 1);
+			}
+		}
+	}
+	.public-navbar{
+		width: 99%;
+		margin: auto;
+		.nav-link{
+		@media only screen and (max-width: 768px){
+			margin: 0;
+			width: 66px;
+			padding: 0;
+		}
+			&:hover{
+				color: #345581 !important;
+			}
+		}
+		.nav-link.active{
+			color: #345581 !important;
+		}
+	}
+	.common-not-found{
+		h5{
+			color: #345581;
+		}
+		p{
+			color: #898b8c;
+			a{
+				color: rgba($color: #345581, $alpha: 0.8);
+				&:hover{
+					color: rgba($color: #345581, $alpha: 1) !important;
+				}
+			}
+			.btn-primary{
+				color: white;
+				border: none;
+				background-color: rgba($color: #345581, $alpha: 0.9);
+				&:hover{
+					background-color: rgba($color: #345581, $alpha: 1);
+					color: white !important;
+				}
+			}
+		}
+	}
 }
 
 
@@ -1156,6 +1295,90 @@ ul li {
 		&:hover{
 			color: #345581;
 			background-color: white;
+		}
+	}
+}
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #345581;
+    margin-bottom: 20px;
+    width: 100%;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	.box-header {
+		color: #444;
+		display: block;
+		padding: 10px;
+		position: relative;
+		.box-title {
+			display: inline-block;
+			font-family: 'Montserrat', sans-serif;	
+			font-size: 18px;
+			color: #3d464d;
+			margin: 0;
+			line-height: 1;
+		}
+	}
+	.box-body {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		padding: 10px;
+		tr th{	
+			font-family: 'Abhaya Libre', serif;
+			font-size: 18px; 
+		}
+		td a{
+			font-family: 'Abhaya Libre', serif;
+			font-size: 18px; 
+			color: #345581 !important;
+		}
+		td a.kafe-btn{
+			font-family: 'Abhaya Libre', serif;
+			font-size: 14px; 
+			color: #fff !important;
+			background-color: rgba($color: #345581, $alpha: 0.9);
+			&:hover{
+				background-color: rgba($color: #345581, $alpha: 1);
+			}
+		}
+		td{
+			font-family: 'Abhaya Libre', serif;
+			font-size: 18px; 
+			color: #848484 !important;
+			vertical-align: middle;
+			text-align: center;
+			font-weight: bold;
+			i{
+				color: #345581;
+			}
+			.badge{
+				background-color: #345581;
+			}
+		}
+		td img{
+			padding-right: 5px;
+		}
+		td span.label-mint{
+			font-family: 'Abhaya Libre', serif;
+			font-size: 18px !important;
+			padding: 1px 10px;
+			border-radius: 3px;
+			// font-weight: 400 !important; 
+		}
+		td i.fa{ 
+			color: #345581 !important;	
+		}
+		.first{
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			@media only screen and (max-width: 768px){
+				flex-direction: column;
+			}
 		}
 	}
 }
