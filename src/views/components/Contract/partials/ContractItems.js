@@ -18,7 +18,7 @@ const status_counter_offers = 9;
 
 class ContractItems extends Component {
 
-    proposalStatus= (item) => {
+    proposalStatus = (item) => {
         let statusTitle = '';
         //const isOwner = gs.isOwner(item.provider_id);
         let cls = '';
@@ -33,7 +33,7 @@ class ContractItems extends Component {
                 cls = 'primary';
                 break;
             case status_accepted:
-                statusTitle =  "Accepted";
+                statusTitle = "Accepted";
                 cls = 'primary';
                 break;
             case status_accepted_and_closed:
@@ -64,56 +64,102 @@ class ContractItems extends Component {
                 statusTitle = "Accepted";
                 cls = 'primary';
         }
-        return {title:statusTitle, cls:cls};
+        return { title: statusTitle, cls: cls };
     };
 
     _getName = (item) => {
-        return ;
+        return;
     }
 
     render() {
         const { results, status, settlement, pagination } = this.props;
+        console.log(results)
         return (<Fragment>
-            {results && results.map((item) =>
-           <div className="card service-box" key={`e#${item.id}`}>
+            {results && results.length ?
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Proposals from Freelancers</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Freelancer</th>
+                                        <th>Job Title</th>
+                                        <th>Assigned</th>
+                                        <th>Proposal</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {results && results.map((item) =>
+                                        //    <div className="card service-box" key={`e#${item.id}`}>
 
-                    <div className="card-body">
-                        <h5 className="card-title">
-                            <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
-                        </h5>
-                        <div className="d-flex align-items-center">
-                            <div className="col pl-0 d-flex align-items-center">
-                                <div className="category text-truncate w-20 pr-2">
-                                    <span> {item.proposalRecipient && item.proposalRecipient.name }</span>
-                                </div>
-                                <div className="date pr-3 w-25">
-                                    { moment(item.updated_at * 1000).format('LLL') }
-                                </div>
-                                <div className="ratings d-flex align-items-center w-50">
-                                    {settlement === 'cash' &&
-                                        <div className="price d-flex align-items-center"> {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"><i className="fas fa-snowboarding"></i></small>}</div>
-                                    }
-                                    {settlement === 'exchange' && <Fragment>
-                                        <div className="title pr-2">Service Exchange</div>
-                                        {item.item && item.item.skills && item.item.skills.slice(0, 4).map((skill) => <div key={`${skill.id}`} className="badge badge-pill badge-secondary px-3">{skill.title}</div>) }
-                                    </Fragment>}
-                                </div>
+                                        //             <div className="card-body">
+                                        //                 <h5 className="card-title">
+                                        //                     <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
+                                        //                 </h5>
+                                        //                 <div className="d-flex align-items-center">
+                                        //                     <div className="col pl-0 d-flex align-items-center">
+                                        //                         <div className="category text-truncate w-20 pr-2">
+                                        //                             <span> {item.proposalRecipient && item.proposalRecipient.name }</span>
+                                        //                         </div>
+                                        //                         <div className="date pr-3 w-25">
+                                        //                             { moment(item.updated_at * 1000).format('LLL') }
+                                        //                         </div>
+                                        //                         <div className="ratings d-flex align-items-center w-50">
+                                        //                             {settlement === 'cash' &&
+                                        //                                 <div className="price d-flex align-items-center"> {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"><i className="fas fa-snowboarding"></i></small>}</div>
+                                        //                             }
+                                        //                             {settlement === 'exchange' && <Fragment>
+                                        //                                 <div className="title pr-2">Service Exchange</div>
+                                        //                                 {item.item && item.item.skills && item.item.skills.slice(0, 4).map((skill) => <div key={`${skill.id}`} className="badge badge-pill badge-secondary px-3">{skill.title}</div>) }
+                                        //                             </Fragment>}
+                                        //                         </div>
 
-                                <div className="status w-15 text-left">
-                                    {item.isDispute && <span className={`badge mr-2 badge-info`}>Disputed</span> }
-                                    <span className={`badge badge-${this.proposalStatus(item).cls}`}>{this.proposalStatus(item).title}</span>
-                                </div>
-                            </div>
-                            {<div className="auction d-flex align-items-center">
-                                <div className="button d-flex">
-                                    <Link className="btn btn-sm" to={`/${status.toLowerCase()}/view/${item.id}`}><i className="fas fa-eye"></i></Link>
-                                </div>
-                            </div>}
+                                        //                         <div className="status w-15 text-left">
+                                        //                             {item.isDispute && <span className={`badge mr-2 badge-info`}>Disputed</span> }
+                                        //                             <span className={`badge badge-${this.proposalStatus(item).cls}`}>{this.proposalStatus(item).title}</span>
+                                        //                         </div>
+                                        //                     </div>
+                                        //                     {<div className="auction d-flex align-items-center">
+                                        //                         <div className="button d-flex">
+                                        //                             <Link className="btn btn-sm" to={`/${status.toLowerCase()}/view/${item.id}`}><i className="fas fa-eye"></i></Link>
+                                        //                         </div>
+                                        //                     </div>}
+                                        //                 </div>
+                                        //                     {(status_declined === item.status) && <div><b>Decline Reason: </b> {item.comment}</div>}
+                                        //             </div>
+                                        //         </div>
+                                        <tr>
+                                            <td className="first">
+                                                <img src={item.actionBy.avatar} class="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
+                                                <a href="#"> {item.proposalRecipient && item.proposalRecipient.name}</a>
+                                            </td>
+                                            <td>
+                                                <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
+                                            </td>
+                                            <td>
+                                                {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"><i className="fas fa-snowboarding"></i></small>}
+                                            </td>
+                                            <td>
+                                                {item.isDispute && <span className={`badge mr-2 badge-info`}>Disputed</span>}
+                                                <span className={`badge badge-${this.proposalStatus(item).cls}`}>{this.proposalStatus(item).title}</span>
+                                            </td>
+                                            <td>
+                                                <Link className="kafe-btn kafe-btn-mint-small" to={`/${status.toLowerCase()}/view/${item.id}`}> View Proposal</Link>
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
                         </div>
-                            {(status_declined === item.status) && <div><b>Decline Reason: </b> {item.comment}</div>}
                     </div>
                 </div>
-            )}
+                :
+                null
+            }
             {(results && results.length === 0) &&
                 <div className="card service-box">
                     <div className="card-body text-center">

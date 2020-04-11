@@ -9,7 +9,7 @@ class JobLayout extends Component {
         const {children} = this.props;
         return (<Main>
             <DocumentTitle title={'My Jobs'} />
-            <div className="bg-body allJobsPage">
+            <div className="bg-body allJobsPage PostedJobs">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">

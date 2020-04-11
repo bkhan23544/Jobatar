@@ -90,7 +90,8 @@ class ContractListing extends Component {
                         </div>
                     </div>
                 </div>
-            </div> : results && <ContractItems results={results} pagination={pagination} status={status} settlement={settlement} title={title}  />}
+            </div> : results && 
+            <ContractItems results={results} pagination={pagination} status={status} settlement={settlement} title={title}  />}
             <div>
                 <Pagination className="justify-content-end"
                             pageSize={pagination && pagination.pageSize}
