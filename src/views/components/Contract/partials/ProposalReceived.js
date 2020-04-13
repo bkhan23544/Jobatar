@@ -159,7 +159,7 @@ class ProposalReceived extends Component {
                                             //                         </div>
                                             //                         <div className="ratings d-flex align-items-center w-50">
                                             //                             {settlement === 'cash' &&
-                                            //                                 <div className="price d-flex align-items-center"> {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"><i className="fas fa-snowboarding"></i></small>}</div>
+                                            //                                 <div className="price d-flex align-items-center"> {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"></small>}</div>
                                             //                             }
                                             //                             {settlement === 'exchange' && <Fragment>
                                             //                                 <div className="title pr-2">Service Exchange</div>

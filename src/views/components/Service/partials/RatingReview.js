@@ -3,10 +3,12 @@ import Rating from '@material-ui/lab/Rating';
 import { Element } from 'react-scroll';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
-import { Link } from  "react-router-dom";
+import { Link } from "react-router-dom";
 import { Box } from '@material-ui/core';
 import "react-alice-carousel/lib/alice-carousel.css";
 import { itemService } from '../../../../common/services';
+import Select from 'react-select';
+
 
 class RatingReview extends Component {
 
@@ -33,7 +35,7 @@ class RatingReview extends Component {
             isShowAvgRating,
             proposal
         });
-       this.ratings(moduleId);
+        this.ratings(moduleId);
     }
 
     componentWillReceiveProps() {
@@ -45,7 +47,7 @@ class RatingReview extends Component {
             isShowAvgRating,
             proposal
         });
-       this.ratings(moduleId);
+        this.ratings(moduleId);
     }
 
     ratings = (moduleId, settlement = null) => {
@@ -53,7 +55,7 @@ class RatingReview extends Component {
         let user_id = item && item.user && item.user.id;
         let item_id = item && item.id;
         let proposal_id = proposal && proposal.id ? proposal.id : null;
-        itemService.review("GET", null, { item_id, moduleId, settlement, user_id,  proposal_id })
+        itemService.review("GET", null, { item_id, moduleId, settlement, user_id, proposal_id })
             .then(res => {
                 res && res.items && this.setState({ reviews: res.items });
             });
@@ -63,7 +65,7 @@ class RatingReview extends Component {
         const { moduleId } = this.state;
         this.ratings(moduleId, e.target.value);
         let formField = { ...this.state.formField };
-        if(e.target.value) {
+        if (e.target.value) {
             formField['selectedReviews'] = e.target.value;
             this.setState(formField);
         } else {
@@ -73,22 +75,43 @@ class RatingReview extends Component {
 
     };
 
+    changable=(e)=>{
+        this.setState({
+            settlement: e
+        },()=>{
+            console.log(this.state.settlement)
+        })
+    }
+
     render() {
         const { item, reviews, isShowDropdown, isShowAvgRating, selectedReviews } = this.state;
         let profile = item && item.user && item.user.userProfile;
+        const options = [
+            { value: '', label: 'All Reviews' },
+            { value: 'cash', label: 'Cash Reviews' },
+            { value: 'exchange', label: 'Exchange Reviews' }
+        ]
+        return (<Element className="public-rating card col-lg-12 col-md-12 col-sm-12 col-12" name="rating_review">
+            {reviews ? <div className="card-body">
+                <div className="d-flex align-items-center w-100 mb-4">
 
-        return (<Element className="public-rating card" name="rating_review">
-            {reviews ? <div className="card-body px-0">
-                <div className="d-flex align-items-center w-100 mb-4 px-3">
-                        
                     <p className="col pl-0 mb-0 rating-heading"><i className="fa fa-star rating-icon" aria-hidden="true"></i>  Rating & Review</p>
-                    {isShowDropdown && <select className="custom-select" name="settlement" onChange={this.handleChange} style={{ width: '230px' }}>
-                        <option value="">All Reviews</option>
-                        <option value="cash">Cash Reviews</option>
-                        <option value="exchange">Exchange Reviews</option>
-                    </select>}
+                    {isShowDropdown &&
+                        <Select
+                            name="settlement"
+                            className="selecttt"
+                            onChange={(e)=>this.changable(e)}
+                            options={options}
+                            value={this.state.settlement}
+                        />
+                        // <select className="custom-select" name="settlement" onChange={this.handleChange} style={{ width: '230px' }}>
+                        //     <option value="">All Reviews</option>
+                        //     <option value="cash">Cash Reviews</option>
+                        //     <option value="exchange">Exchange Reviews</option>
+                        // </select>
+                    }
                 </div>
-                
+
                 <hr />
                 {profile && (isShowAvgRating === true) && <div className="w-100 px-3">
                     <div className="row rating-all align-items-center">
@@ -180,23 +203,23 @@ class RatingReview extends Component {
                 </div>}
                 {reviews && reviews.length > 0 &&
                     <Fragment><div className="review-heading px-3">
-                        { (selectedReviews === null) && 'All Reviews' }
-                        { (selectedReviews === 'cash') && 'Cash Reviews' }
-                        { (selectedReviews === 'exchange') && 'Exchange Reviews' }
-                </div>
-                    <hr /></Fragment>
+                        {(selectedReviews === null) && 'All Reviews'}
+                        {(selectedReviews === 'cash') && 'Cash Reviews'}
+                        {(selectedReviews === 'exchange') && 'Exchange Reviews'}
+                    </div>
+                        <hr /></Fragment>
                 }
                 {reviews && reviews.length === 0 &&
-                <div className="review-text px-3" style={{marginTop: '-8px'}}>
-                    <div className="common-not-found d-flex align-items-center justify-content-center">
-                        <div className="inner text-center">
-                            <figure>
-                                <img src="/images/not-found/REVIEW-1-01.png" alt="Review not found" width="100" />
-                            </figure>
-                            <h5>No Rating & Review has been given yet</h5>
+                    <div className="review-text px-3" style={{ marginTop: '-8px' }}>
+                        <div className="common-not-found d-flex align-items-center justify-content-center">
+                            <div className="inner text-center">
+                                <figure>
+                                    <img src="/images/not-found/REVIEW-1-01.png" alt="Review not found" width="100" />
+                                </figure>
+                                <h5>No Rating & Review has been given yet</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
                 {reviews && reviews.map((item) =>
                     <div className="review-list d-flex flex-wrap px-3" key={item.id}>
@@ -220,13 +243,13 @@ class RatingReview extends Component {
                     </div>
                 )}
             </div> : <div className="common-not-found d-flex align-items-center justify-content-center">
-                <div className="inner text-center">
-                    <figure>
-                        <img src="/images/not-found/REVIEW-1-01.png" alt="Review not found" width="100" />
-                    </figure>
-                    <h5>No Rating & Review has been given yet</h5>
-                </div>
-            </div>}
+                    <div className="inner text-center">
+                        <figure>
+                            <img src="/images/not-found/REVIEW-1-01.png" alt="Review not found" width="100" />
+                        </figure>
+                        <h5>No Rating & Review has been given yet</h5>
+                    </div>
+                </div>}
         </Element>);
     }
 }
