@@ -69,7 +69,7 @@ class App extends React.Component {
                             <AuthRoute exact path="/services" component={ServiceListing} />
                             <AuthRoute exact path="/service/create" component={ServiceCreate} />
                             <AuthRoute exact path="/service/update/:id" component={ServiceUpdate} />
-                            <AuthRoute exact path="/service/view/:id" component={ServiceView} />
+                            <AuthRoute exact path="/service/view/:id" private={true} component={PublicServiceView} />
                             {/* <AuthRoute exact path="/service/proposal/:id" component={ServiceProposalView} /> */}
                             <AuthRoute exact path="/service/success" component={ServiceSuccess} />
 

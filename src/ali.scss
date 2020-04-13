@@ -258,6 +258,10 @@ body{
 .card-box {
 	.img-circle {
 		border-radius: 50%;
+		.img-circle{
+			border-color: #345581 !important;
+			border-width: 3px !important;
+		}
 	}
 	background-color: #fff;
 	padding: 10px 10px 10px 10px;
@@ -290,6 +294,10 @@ body{
 	transform: rotate(40deg);
    }
    .card-box .member-card .member-thumb {
+	.img-circle{
+		border-color: #345581 !important;
+		border-width: 3px !important;
+	}
 	position: relative;
 	height: 120px;
 	width: 120px;
@@ -385,7 +393,29 @@ body{
 		background-color: white;
 		padding: 20px;
 		border-radius: 10px;
-		margin: 10px;;
+		margin: 10px;
+		.previousButton{
+			.btn-secondary{
+				background-color: #eeeefd;
+				border-color: #eeeefd;
+				color: #454be9;
+				&:hover{
+					background-color: #cecff9;
+					border-color: #cecff9;
+					color: #454be9;
+				}
+			}
+			.btn-primary{
+				background-color: #d4fef2;
+				border-color: #d4fef2;
+				color: #03c68e;
+				&:hover{
+					background-color: #bbfeeb;
+					border-color: #bbfeeb;
+					color: #03c68e;
+				}
+			}
+		}
 		&:hover,
 		&:focus {
 			background-color: #ececec;
@@ -965,6 +995,7 @@ ul li {
 		margin-bottom: 30px;
 		position: relative;
 		overflow: hidden;
+		border-bottom: 3px solid #345581;
 		.buttton{
 			margin-top: 10px;
 		}
@@ -1186,6 +1217,7 @@ ul li {
 		margin-bottom: 30px;
 		position: relative;
 		overflow: hidden;
+		border-bottom: 3px solid #345581;
 		.row{
 			padding: 0px 5px!important;
 			margin: 0px !important;
@@ -1435,6 +1467,17 @@ ul li {
 			.badge{
 				background-color: #345581;
 			}
+			.btn-outline-info{
+				font-family: 'Abhaya Libre', serif;
+				font-size: 14px; 
+				color: #fff !important;
+				background-color: rgba($color: #345581, $alpha: 0.9);
+				padding: 5px;
+				border-radius: 2px;
+				&:hover{
+					background-color: rgba($color: #345581, $alpha: 1);
+				}
+			}
 		}
 		td img{
 			padding-right: 5px;
@@ -1457,6 +1500,364 @@ ul li {
 			padding-bottom: 0;
 			@media only screen and (max-width: 768px){
 				flex-direction: column;
+			}
+		}
+	}
+}
+
+
+.image-gallery-slide{
+}
+
+.image-gallery-thumbnail.active, .image-gallery-thumbnail:hover, .image-gallery-thumbnail:focus{
+	border: 4px solid #345581 !important;
+}
+.image-gallery-icon{
+	&:hover{
+		color: #345581 !important;
+	}
+}
+
+.individual-service{
+	background-color: #f4f4f4 !important;
+	.card{
+		background-color: transparent;
+		padding: 27px;
+	}
+	.bottom-shadow{
+		box-shadow: none;
+		padding-bottom: 20px;
+		border-bottom: 2px solid #F6F6F7;
+	}
+	.head{
+		margin-top: 50px;
+		text-align: center;
+		font-size: 35px;
+		color: #345581;
+		font-family: 'Abhaya Libre', serif;
+		.auction{
+			display: inline !important;
+			float: right;
+			.offer{
+				display: inline;
+				a{
+					padding: 5px;
+					padding-left: 10px;
+					padding-right: 10px;
+					background-color: white;
+					color: #345581;
+					border: 1px solid #345581;
+					font-size: 16px;
+					font-weight: 600;
+					&:hover{
+						color: white;
+						background-color: #345581;
+					}
+				}
+			}
+		}
+	}
+	.card-box{
+		border-bottom: 3px solid #345581;
+		.img-circle{
+			border-color: #345581 !important;
+			border-width: 3px !important;
+		}
+		.member-card{
+			h5{
+				margin-bottom: 5px !important;
+				color: #595959;
+			}
+			h4{
+				margin: 0;
+				font-size: 14px;
+				font-family: 'Abhaya Libre', serif;
+				color: #595959;
+			}
+			p{
+				color: #595959;
+				font-size: 14px;
+				font-family: 'Abhaya Libre', serif;
+			}
+			.text{
+				text-align: left;
+				padding: 10px;
+				color: #595959;
+				font-size: 18px;
+				font-weight: 600;
+				letter-spacing: 1px;
+			}
+			.display-text-group{
+				text-align: left;
+				padding: 10px;
+				color: #7d7d7d;
+				font-size: 14px;
+			}
+			.read-more-button{
+				color: #345581;
+				margin-top: 10px;
+			}
+		}
+	}
+	.send-offer{
+		button{
+			background-color: rgba($color: #345581, $alpha: 0.9);
+			border: 0;
+			&:hover{
+				background-color: rgba($color: #345581, $alpha: 1);
+			}
+		}
+	}
+	.nav-list{
+		margin-top: 50px;
+		margin-bottom: 10px;
+		display: flex;
+		justify-content: start;
+		.nav-link{
+			padding: 0;
+			margin-right: 10px;
+			button{
+				border: 1px solid #345581;
+				border-radius: 5px;
+				color: #345581;
+				padding: 8px 30px;
+				font-size: 14px;
+				font-weight: 600;
+				&:hover{
+					background-color: #345581;
+					color: white;
+					transition: 0.2s;
+				}
+			}
+			button.active{
+				background-color: #345581;
+				color: white;
+				transition: 0.2s;
+			}
+		}
+	}
+	.BottomView{
+		.bottomViewInside{
+			padding-top: 20px;
+			.description,.portfolio,.skills,.public-rating{
+				.card-body{
+					background-color: #fff;
+					padding: 40px 30px 10px 30px;
+					color: #272727;
+					border-radius: 4px;
+					margin-bottom: 30px;
+					position: relative;
+					overflow: hidden;
+					border-bottom: 3px solid #345581;
+				}
+			}
+			.description{
+				.card-body{
+					max-height: 500px;
+					display: flex;
+					flex-direction: column;
+					// justify-content: space-between;
+					h5{
+						font-family: 'Abhaya Libre', serif;
+						display: block;
+						font-size: 18px;
+						font-weight: 700;
+						color: #345581;
+					}
+					hr{
+						margin-top: 10px;
+						margin-bottom: 10px;
+						// background-color: #345581;
+					}
+					.badge{
+						background-color: #345581 !important;
+						margin-right: 3px;
+						padding: 5px;
+						padding-left: 10px;
+						padding-right: 10px;
+						border-radius: 3px;
+						color: white;
+						font-family: 'Abhaya Libre', serif;
+						letter-spacing: 1px;
+					}
+				}
+			}
+			.portfolio{
+				.card-body{
+					max-height: 500px;
+					h5{
+						font-family: 'Abhaya Libre', serif;
+						display: block;
+						font-size: 18px;
+						font-weight: 700;
+						color: #345581;
+					}
+					hr{
+						margin-top: 10px;
+						margin-bottom: 10px;
+						// background-color: #345581;
+					}
+				}
+				.docs{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					padding: 10px;
+					border-radius: 5px;
+					transition: 0.5s;
+					text-decoration: none;
+					&:hover{
+						box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
+						h6{
+							a{
+								color: #345581;
+							}
+						}
+					}
+					h6{
+						text-align: left;
+						margin: 0;
+						font-size: 14px;
+						a{
+							text-decoration: none;
+						}
+					}
+					i{
+						margin: 0;
+					}
+				}
+			}
+			.public-rating{
+				padding: 0;
+				padding-left: 15px;
+				padding-right: 15px;
+				box-shadow: none;
+				.card-body{
+					max-height: 500px;
+					.rating-heading{
+						font-family: 'Abhaya Libre', serif;
+						display: block;
+						font-size: 18px;
+						font-weight: 700;
+						color: #345581;
+						i{
+							font-size: 18px;
+						}
+					}
+					hr{
+						margin-top: 10px;
+						margin-bottom: 10px;
+						// background-color: #345581;
+					}
+				}
+			}
+			.same-person{
+				h4{
+					font-family: 'Abhaya Libre', serif;
+					display: block;
+					font-size: 18px;
+					font-weight: 700;
+					color: #345581;
+				}
+			}
+		}
+	}
+}
+.selecttt{
+	width: 280px;
+}
+.service-proposal{
+	.heading{
+		font-family: 'Abhaya Libre', serif;
+		font-size: 30px;
+		color: #345581;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+}
+
+.svcsLBox{
+	.favorite{
+		z-index: 10;
+	}
+	.caption{
+		text-align: left;
+		.ratings{
+			justify-content: left;
+		}
+		.badge{
+			margin: 0;
+			float: right;
+		}
+		.badge-info{
+			background-color: red;
+		}
+		.badge-primary{
+			background-color: green;
+		}
+	}
+	.offer{
+		display: inherit;
+		margin-top: -5px;
+		color: red;
+	}
+	.DropDownDots{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		z-index: 10;
+		padding: 0;
+		button{
+			outline: none;
+		}
+		.dropdown-toggle{
+			padding: 0;
+		}
+		i{
+			color: #fff;
+		}
+	}
+	.dropdown-toggle::after{
+		color: transparent;
+	}
+	.serviceOverlayer{
+		transition: 0.7s;
+	}
+	&:hover{
+		.serviceOverlayer{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			z-index: 9;
+			box-shadow: inset 0 0 120px -15px black;
+			transition: 0.7s;
+		}
+	}
+}
+.my-services{
+	.heading{
+		margin: 0;
+		font-size: calc(0.8rem + 0.5vw);
+		font-weight: 600;
+		padding-bottom: 10px;
+		span{
+			color: #345581;
+			font-size: 24px;
+			&::before{
+				height: 0;
+			}
+		}
+		a{
+			background-color: rgba(52, 85, 129, 0.9);
+			border: none;
+			font-size: 13px;
+			text-transform: uppercase;
+			font-weight: 600;
+			padding: 8px 20px;
+			display: flex;
+			align-items: center;
+			&:hover{
+				background-color: rgba(52, 85, 129, 1);
 			}
 		}
 	}

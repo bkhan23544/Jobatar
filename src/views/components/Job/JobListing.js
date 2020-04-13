@@ -108,7 +108,7 @@ class JobListing extends Component {
                     <div class="col-lg-12">
                         {/* {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>} */}
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
-                            <div>
+                            <div className="previousButton">
                                 {isOwner && <div className="d-flex">
                                     <NavLink to={viewLink} className="btn btn-secondary mr-2"><i
                                         className="far fa-eye"></i> View {item.view_counts}</NavLink>
@@ -122,7 +122,7 @@ class JobListing extends Component {
                             {/* {item.settlement && item.settlement === 'cash' && <div className="label label-primary">{item.type}</div>} */}
                         </div>
                         <div class="col-lg-12 col-xs-12">
-                            <h4><a href="jobpost.html"><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></a>
+                            <h4><a href="jobpost.html"><NavLink to={viewLink}>{item.title}</NavLink></a>
                             </h4>
                             {item.category.parent ?
                                 <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title}</small></h5>

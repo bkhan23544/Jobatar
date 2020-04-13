@@ -14,6 +14,7 @@ import { history } from './helpers/history';
 import './assets/css/bootstrap.min.css'
 // import './assets/css/font-awesome.min.css';
 // import './assets/css/base.css';
+import "react-image-gallery/styles/scss/image-gallery.scss";
 
 configureUrlQuery({ history, addChangeHandlers: false });
 const App = lazy(() => import('./App')) ;
