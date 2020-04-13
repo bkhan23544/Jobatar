@@ -100,12 +100,15 @@ class Search extends Component {
         //console.log('Seact js', this.props);
         return (
             <Fragment>
-                <form className="form-inline order-1 ml-lg-5" onSubmit={this.handleSubmit.bind(this)}>
+                <form className="form-inline order-1 ml-lg-5 search-bar-hide" onSubmit={this.handleSubmit.bind(this)}>
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text">
                                 <FormControl variant="outlined">
                                     <Select
+                                    MenuProps={{
+                                        disableScrollLock: true
+                                      }}
                                     value={category ? category : ''}
                                     onChange={this.handleChange}
                                     input={<Input 

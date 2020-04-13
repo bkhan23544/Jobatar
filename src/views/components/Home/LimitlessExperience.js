@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import { Modal } from 'react-bootstrap';
-import "../../../custom.css"
 
 class LimitlessExperience extends Component {
 
@@ -32,19 +31,19 @@ class LimitlessExperience extends Component {
                     </div>
 
                     <div className="row container">
-                        <span className="col-md-6" onClick={this.handleShow} className="layer"><img src="assets/img/video.jpg" alt="" className="img-fluid" width={500} /></span>
+                        <span className="col-md-6" onClick={this.handleShow} className="layer"><img src="assets/img/videocl.png" alt="" className="img-fluid" width={500} /></span>
                         <div className="col-md-6">
-                            <div>
+                            <div className="mt-2">
                                 <p className="exp-title">Easily hire top freelancers</p>
                                 <h6>Post jobs to hire talented freelancers per hour or fixed price</h6>
                             </div>
 
-                            <div>
+                            <div className="mt-2">
                                 <p className="exp-title">Exchange Services</p>
                                 <h6>Flexible options to exchange services. No money required</h6>
                             </div>
 
-                            <div>
+                            <div className="mt-2">
                                 <p className="exp-title">Find Co-founders</p>
                                 <h6>Connect with ideal partners to partner with for your business ideas</h6>
                             </div>
@@ -55,14 +54,14 @@ class LimitlessExperience extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose} className="demo-model" centered size="lg">
                     <Modal.Header closeButton className="py-2">
-                        <Modal.Title as="h5">Watch our demo video</Modal.Title>
+                        <Modal.Title><h2 className="section-titles">Watch our demo video</h2></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="p-0" style={{ marginBottom: '-7px' }}>
                         <video controls autoPlay className="w-100">
                             <source src="/images/JoBarterMainCorrected.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
-                        {/* <iframe width="560" className="w-100" title="Demo video"  height="515" src="https://www.youtube.com/embed/8HB4sA1dte0?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+                        {/* <iframe width="560" className="w-100" title="Demo video"  height="515" src="https://www.youtube.com/watch?v=pLi7Ilnftr8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
                     </Modal.Body>
                 </Modal>

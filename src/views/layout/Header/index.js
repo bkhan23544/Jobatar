@@ -39,7 +39,7 @@ class Header extends Component {
         const { loggedIn } = this.state;
         return (
             <header id="header" className={`${this.state.activeClass}`}>
-                {/* <div className="text-center font-weight-bold">Please be aware this site is under development and we are in the process of deploying many new features. Please let us know if you have any question or suggestions.</div> */}
+                
                 <Navbar bg="light" expand="xl" variant="light" className="">
                     <Container>
                         <NavLink className="navbar-brand" to="/">
@@ -47,7 +47,15 @@ class Header extends Component {
                         </NavLink>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Search history={history} />
-                        <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
+                        {loggedIn ?
+                            <LoggedUser /> :
+                            <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
+                                 <NavLink className="nav-link btn btn-info ml-3 sign-up-btn" to="/register">Sign Up</NavLink>
+                                <NavLink className="nav-link btn btn-info login-btn" to="/login">Sign in</NavLink>
+                             
+                            </Nav>
+                        }
+                        <Navbar.Collapse id="basic-navbar-nav" className="order-xl-3 mr-lg-5">
                             <Nav className="navbar-nav ml-auto navbar-main">
                                 <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>
                                 <NavDropdown title="BROWSE">
@@ -63,13 +71,8 @@ class Header extends Component {
                             </Nav>
                         </Navbar.Collapse>
 
-                        {loggedIn ?
-                            <LoggedUser /> :
-                            <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
-                                <NavLink className="nav-link btn btn-info" to="/login">Sign in</NavLink>
-                                <NavLink className="nav-link btn btn-info ml-3" to="/register">Get started</NavLink>
-                            </Nav>
-                        }
+                       
+                        
                     </Container>
                 </Navbar>
             </header>

@@ -20,6 +20,7 @@ const login = (params) => {
                              gs.navigation('service-search', true);
                         }
                     });
+                 
                 }
             })
             .catch(exception => {

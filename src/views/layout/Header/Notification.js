@@ -47,8 +47,8 @@ class Notification extends Component {
     };
 
     fetchMoreData = () => {
-        const { items, count } = this.state;
-        if (items.length >= count) {
+        const { items, totalCount } = this.state;
+        if (items.length >= totalCount) {
           this.setState({ hasMore: false });
           return;
         }
@@ -60,7 +60,10 @@ class Notification extends Component {
             this.offset = this.offset + 1;
             let lists = this.state.items;
             data.items.forEach(group => {
-                lists.push(group);
+                let index = lists(f => f.id == group.id);
+                if (index === -1) {
+                    lists.push(group);
+                }
             });
             this.setState({
                 items: lists,
@@ -93,7 +96,7 @@ class Notification extends Component {
             <Fragment>
                 <Dropdown className="dropdown-notification">
                     <Dropdown.Toggle as="a" className="nav-link" to="/setting/notifications">
-                        <img src="/images/Bell.svg" alt="" className="img-fluid" width="25" />
+                        <img src="/images/Bell.png" alt="" className="img-fluid" width="25" />
                         <span className="badge badge-info">{(count > 0) ? count : ''}</span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu-right dropdown-menu-media">

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
-import "../../../custom.css"
 
 class ExploreCategories extends Component {
     render() {
@@ -8,7 +7,7 @@ class ExploreCategories extends Component {
         <div className="category-list">
                <div class="section-title section-padding">
 	    <h1 className="explore">EXPLORE CATEGORIES</h1>
-       <p className="tagline-text">Buid a trusted team for your business</p>
+       <p className="tagline-text">Build a trusted team for your business</p>
 	   </div>
        <div className="container category-margin">
        <div className="row">

@@ -8,6 +8,7 @@ import {store} from './config/store';
 import { SnackbarProvider } from 'notistack';
 import "./bootstrap.scss";
 import "./style.scss";
+import './custom.css'
 import "./ali.scss";
 // import 'animate.min.css'
 import { history } from './helpers/history';

@@ -189,7 +189,7 @@ class Messenger extends Component {
 			<Main>
 				<DocumentTitle title={`Messages`} />
 				<div className="w-100 pull-left bg-body">
-					{(messages && messages.length > 0) ? (<div className="messenger container my-4">
+					{(messages && messages.length > 0) ? (<div className="messenger row container my-4">
 						<div className="sidebar">
 							{this.loadConversation()}
 						</div>

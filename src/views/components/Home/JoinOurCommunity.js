@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import { globalService as gs } from '../../../common/services';
-import "../../../custom.css"
 
 
 class JoinOurCommunity extends Component {
@@ -17,7 +16,7 @@ class JoinOurCommunity extends Component {
                   <div className="row">
                       <div className="col-12 text-center">
                           <h2 className="text join">JOIN OUR COMMUNITY</h2>
-                          <h5 className="text join">DREAM BIG. ACHIEVE YOUR BUSINESS GOALS. TAKE ACTION TODAY.</h5>
+                          <h4 className="text">DREAM BIG. ACHIEVE YOUR BUSINESS GOALS. TAKE ACTION TODAY.</h4>
                           {gs.identity && <NavLink to="/register" className="btn join-btn">GET STARTED</NavLink>}
                       </div>
                   </div>

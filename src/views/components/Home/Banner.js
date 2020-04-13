@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
-import "../../../custom.css"
 // import "../../../assets/css/style.css"
 // eslint-disable-next-line
 import HomeSearch from './partials/HomeSearch';
@@ -44,8 +43,8 @@ class Banner extends Component {
             <section className="tr-banner section-before bg-image">
             <div className="container">
              <div className="banner-content text-center">
-              <h2>Find the best Freelancers in their finest hour</h2>
-              <h3>Getting a job done has never been easy.</h3>
+              <h2>Save money by using your skills</h2>
+              <h3>Hire top-notch freelancers. Exchange your services. Connect with ideal co-founders.</h3>
                    
               <div className="row hidden-xs">
                        

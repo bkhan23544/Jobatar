@@ -186,7 +186,7 @@ color: white !important;
 }
 
 .section-heading{
-	font-size: 70px;
+	font-size: 60px;
 	text-align: center;
 	color: #345581;
 	font-weight: 500;
@@ -202,7 +202,7 @@ line-height: 1.2;
 }
 .section-text{
 	color: gray;
-    font-size: 25px;
+    font-size: 22px;
     font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 }
@@ -210,16 +210,16 @@ line-height: 1.2;
 .guide-heading{
 	color: #345581;
     font-family: "Grold";
-	font-size: 50px;
+	font-size: 40px;
     margin-left: 50px;
     line-height: 1.2;
 }
 
 .guide-content{
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 	color: gray;
-	margin-top: 50px;
+    margin-top: 50px;
 }
 
 .guide-wrapper{
@@ -229,8 +229,7 @@ line-height: 1.2;
 }
 
 .guide-section{
-	
-	width: 800px;
+	/* width: 800px; */
 	margin-top: 100px;
 }
 
@@ -239,7 +238,10 @@ line-height: 1.2;
 }
 
 .guide-image{
-	
+    /* border: 1px solid black; */
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
 }
 
 .highlight{
@@ -255,7 +257,7 @@ line-height: 1.2;
 
 .explore{
     color: #345581 !important;
-    font-family: "Grold";
+    font-family: "Bebas Neue";
     font-size: 40px !important;
 }
 
@@ -372,6 +374,13 @@ font-size: 2vw;
 }
 .description-profile .personal-details .media-body ul > li > span {
 	font-weight: normal;
+}
+
+.media-body{
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 200;
+    color:rgb(61, 61, 61) !important;
 }
 .description-profile .label-success {
   /* font-family: "Grold"; */
@@ -526,19 +535,23 @@ font-size: 2vw;
    }
 
    .form-label{
-       color: #000;
+       color: #345581;
        font-weight: 700;
        /* background-color:#345581 ;
        padding: 3px; */
      
    }
 
-   .form-control:focus{
+   /* .form-control{
+       margin-top: 10px;
+   } */
+
+   /* .form-control:focus{
     border-color:#345581 !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
     outline: 0 none !important;
 
-   }
+   } */
 
    .multiple-select:focus{
     border-color:#345581 !important;
@@ -585,6 +598,81 @@ font-size: 2vw;
 .custom-control-input:focus{
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
 }
+
+.main-testimonial{
+    margin-left: 15%;
+}
+
+@media (max-width: 767px) {.guide-wrapper {
+    display: block!important;
+}
+}
+
+.layer{
+    cursor: pointer;
+}
+
+.join{
+    font-family: "Bebas Neue";
+}
+
+.sign-up-btn{
+    color: white;
+    background-color:#345581 !important;
+    border:1px solid #345581 !important;
+    border-radius: 0px !important;
+    margin-right: 10px;
+}
+
+
+
+.login-btn{
+color: #345581 !important;
+background-color: white !important;
+border:1px solid #345581 !important;
+border-radius: 0px !important;
+}
+
+.login-btn:hover{
+    color: white !important;
+    background-color:#345581 !important;
+    border:1px solid #345581
+  }
+
+  .sign-up-btn:hover{
+    color: #345581 !important;
+    background-color:#345581 !important;
+    border:1px solid #345581
+  } 
+
+
+  @media (max-width: 650px) {
+     .search-bar-hide{
+       display: none;
+     }
+ } 
+
+ @media (max-width: 650px) {
+    .hide-how{
+      display: none;
+    }
+}
+
+.how-banner-img{
+    min-width: 400px;
+}
+
+.testimonial-align{
+    margin: 0 auto !important;
+}
+
+
+
+
+ /* .navbar-toggler{
+    float: left;
+ } */
+
 
 
    

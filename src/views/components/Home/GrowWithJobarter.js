@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../../../custom.css"
 import { NavLink } from "react-router-dom";
 import { globalService as gs } from '../../../common/services';
 
@@ -13,7 +12,7 @@ class GrowWithJobarter extends Component {
                   <div className="row">
                       <div className="col-12 text-center">
                           <h2 className="text join">GROW WITH JOBARTER</h2>
-                          <h5 className="text join">TRANSFORM YOUR BUSINESS WITH US.</h5>
+                          <h4 className="text">TRANSFORM YOUR BUSINESS WITH US</h4>
                           {gs.identity && <NavLink to="/register" className="btn join-btn">JOIN NOW</NavLink>}
                       </div>
                   </div>

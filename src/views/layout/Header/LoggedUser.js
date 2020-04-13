@@ -68,6 +68,7 @@ class LoggedUser extends Component {
         this.setState({ unread });
     };
 
+
     render() {
         const { authentication, item, renderNotification } = this.state;
         const user = authentication && authentication.loggedIn && authentication.authentication.user;
@@ -75,10 +76,10 @@ class LoggedUser extends Component {
         return (<Fragment>
             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
                 {(renderNotification === true) && <Notification />}
-                <a className="nav-link" href="/messages">
-                    <img src="/images/Message.svg" alt="" className="img-fluid" width="25" />
+                <NavLink className="nav-link" to="/messages">
+                    <img src="/images/Message.png" alt="" className="img-fluid header-img" width="25" />
                     <span className="badge badge-info">{this.state.unread ? this.state.unread : '' }</span>
-                </a>
+                </NavLink>
                 <NavDropdown title={
                     <span>
                         <img src={user && user.avatar} alt="" className="img-fluid border rounded-circle" width="40" height="40" />

@@ -1050,10 +1050,18 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
       img {width: 150px}
 	}
 }
-.testimonialss{
+
+@media (max-width: 767px) {.messenger {
+    display: block!important;
+}
+}
+
+
+
+.testimonial{
 	h5{
 		width: 470px;
-		margin: auto;
+		// margin: auto;
 		font-size: 16px;
 		line-height: 24px;
 		font-weight: 600;
@@ -1061,9 +1069,9 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	}
 	h6{
 		width: 470px;
-		margin: auto;
+		// margin: auto;
 		font-size: 14px;
-		line-height: 22px;
+		// line-height: 22px;
 		font-weight: 600;
 		font-family: 'Roboto', sans-serif;
 	}

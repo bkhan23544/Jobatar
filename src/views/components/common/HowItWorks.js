@@ -43,14 +43,14 @@ class HowItWorks extends Component {
                 <div className="caption d-flex align-items-center">
                     <div className="container">
                         <div className="row">
-                        {ar>1 &&  
-                        <div className="row">
+                    
+                        <div className="row hide-how">
                         <div>
                            <h1 className="how-text">How it works</h1>
                            <p className="exp-text">An Explanation of how Jobarter works</p>
                            </div>
-                       <img src="assets/img/1.png" className="img-fluid w-50 ml-5"/>
-                       </div>}
+                       <img src="assets/img/1.png" className="img-fluid w-50 ml-5 how=banner-img"/>
+                       </div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ JoBarter can help you two specific ways
            </div>
            </div>
 
- <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
+ <div className="guide-wrapper container">
      <div className="guide-section container">
 <p className="guide-heading">1. Post A Job</p>
 
@@ -77,12 +77,12 @@ as much information that you can provide to make it easier for interested freela
 understand your requirements. Once your job is posted, freelancers will start sending
 you proposals for your job post. You can choose to accept, decline, or revise the proposals.</p>
      </div> 
-     <img className="guide-image" src="assets/img/home/2.png" width={400} height={400}/>
+     <img  src="assets/img/home/2.png" width={400} height={400}/>
      </div>          
 
 
-     <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
-     <img className="guide-image" src="assets/img/home/3.png" width={500} height={400}/>
+     <div className="guide-wrapper container">
+     <img className="guide-image" src="assets/img/home/3.png"/>
      <div className="guide-section">
 <p className="guide-heading">2. Browse for Services</p>
 
@@ -111,7 +111,7 @@ clients. JoBarter makes it easier for you to find jobs. We can help you find job
            </div>
            </div> 
 
-           <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
+           <div className="guide-wrapper container">
      <div className="guide-section">
 <p className="guide-heading">1. Post A Service</p>
 
@@ -127,7 +127,7 @@ post your service, just wait and potential clients will start sending offers to 
      </div> 
 
      
-     <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
+     <div className="guide-wrapper container">
      <img className="guide-image" src="assets/img/home/5.png" width={400} height={400}/>
      <div className="guide-section">
 <p className="guide-heading">2. Browse for Jobs</p>
@@ -162,7 +162,7 @@ launch your business venture in two specific ways:
            </div>
            </div> 
 
-           <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
+           <div className="guide-wrapper container">
      <div className="guide-section">
 <p className="guide-heading">1. Post Co-founder Profile</p>
 
@@ -172,12 +172,12 @@ you to provide more details about your own experience as a co-founder. You also 
 need to provide information about the ideal co-founder you are looking for, including
 your wish list, preferred location, and relevant industry.</p>
      </div>
-     <img className="guide-image" src="assets/img/home/6.png" width={400} height={400}/>
+     <img src="assets/img/home/6.png" className="guide-image" width={400} height={400}/>
      </div> 
 
      
-     <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
-     <img className="guide-image" src="assets/img/home/7.png" width={400} height={400}/>
+     <div className="guide-wrapper container">
+     <img  src="assets/img/home/7.png" className="guide-image" width={400} height={400}/>
      <div className="guide-section">
 <p className="guide-heading">2. Browse for Co-founders</p>
 
@@ -201,7 +201,7 @@ based on trust, transparency and collaboration.
            </div>
            </div> 
 
-           <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
+           <div className="guide-wrapper container">
      <div className="guide-section">
 <p className="guide-heading">1. Rating</p>
 
@@ -209,12 +209,12 @@ based on trust, transparency and collaboration.
 competence, and whether you would recommend the person to other members of our
 community.</p>
      </div>
-     <img className="guide-image" src="assets/img/home/8.png" width={400} height={400}/>
+     <img  src="assets/img/home/8.png" className="guide-image" width={400} height={400}/>
      </div> 
 
      
-     <div className="guide-wrapper container" style={{flexWrap:ar>1?"nowrap":"wrap"}}>
-     <img className="guide-image" src="assets/img/home/9.png" width={400} height={400}/>
+     <div className="guide-wrapper container">
+     <img  src="assets/img/home/9.png" className="guide-image" width={400} height={400}/>
      <div className="guide-section">
 <p className="guide-heading">2. Review</p>
 

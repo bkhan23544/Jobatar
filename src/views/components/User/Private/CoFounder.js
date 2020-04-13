@@ -261,7 +261,7 @@ class CoFounder extends Component {
                                                 <Col xs={12}>
                                                     <div className="form-group">
                                                     <span className="form-label">Business Stage</span>
-                                                        <div className="w-100">
+                                                        <div className="w-100 mt-2">
                                                             <Form.Check custom inline label="Concept" type="radio"
                                                                         name="exp_status"
                                                                         value={1}
@@ -349,7 +349,7 @@ class CoFounder extends Component {
                                                     <div className="form-group">
                                                     <span className="form-label">Preferred Location</span>
                                                         <Select
-                                                            className="multiple-select mb-2"
+                                                            className="multiple-select mt-2"
                                                             classNamePrefix="multi"
                                                             isSearchable isMulti
                                                             defaultValue={formField.ideal_locations}
@@ -379,7 +379,7 @@ class CoFounder extends Component {
                                                 <Col xs={12} md={6}>
                                                     <div className="form-group">
                                                     <span className="form-label">Previous Startup experience</span>
-                                                        <div className="w-100">
+                                                        <div className="w-100 mt-2">
                                                             <Form.Check custom inline label="Yes" type="radio"
                                                                         name="ideal_startup_experience"
                                                                         defaultChecked={(formField.ideal_startup_experience === 1)}
