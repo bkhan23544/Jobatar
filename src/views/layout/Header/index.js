@@ -46,7 +46,7 @@ class Header extends Component {
                             <img src="/images/logo.svg" alt="" className="img-fluid" width="140" />
                         </NavLink>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Search history={history} />
+                      
                         {loggedIn ?
                             <LoggedUser /> :
                             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
@@ -55,9 +55,10 @@ class Header extends Component {
                              
                             </Nav>
                         }
+                        <Search history={history} />
                         <Navbar.Collapse id="basic-navbar-nav" className="order-xl-3 mr-lg-5">
-                            <Nav className="navbar-nav ml-auto navbar-main">
-                                <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>
+                       <Nav className="navbar-nav ml-auto navbar-main">
+                               <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>
                                 <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>
                                     <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br/> <small>To Buy or Exchange</small></NavLink>
@@ -69,6 +70,8 @@ class Header extends Component {
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
                                 </NavDropdown>
                             </Nav>
+                           
+                      
                         </Navbar.Collapse>
 
                        

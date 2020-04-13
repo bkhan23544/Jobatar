@@ -49,7 +49,7 @@ class HowItWorks extends Component {
                            <h1 className="how-text">How it works</h1>
                            <p className="exp-text">An Explanation of how Jobarter works</p>
                            </div>
-                       <img src="assets/img/1.png" className="img-fluid w-50 ml-5 how=banner-img"/>
+                       <img src="assets/img/1.png" className="img-fluid w-50 ml-5 how-banner-img"/>
                        </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ as much information that you can provide to make it easier for interested freela
 understand your requirements. Once your job is posted, freelancers will start sending
 you proposals for your job post. You can choose to accept, decline, or revise the proposals.</p>
      </div> 
-     <img  src="assets/img/home/2.png" width={400} height={400}/>
+     <img className="guide-image" src="assets/img/home/2.png" />
      </div>          
 
 
@@ -123,12 +123,12 @@ start describing the service that you offer. Provide as much information as you 
 potential clients will know how proficient you are with your skills. After you submit and
 post your service, just wait and potential clients will start sending offers to you.</p>
      </div>
-     <img className="guide-image" src="assets/img/home/4.png" width={400} height={400}/>
+     <img className="guide-image" src="assets/img/home/4.png" />
      </div> 
 
      
      <div className="guide-wrapper container">
-     <img className="guide-image" src="assets/img/home/5.png" width={400} height={400}/>
+     <img className="guide-image" src="assets/img/home/5.png" />
      <div className="guide-section">
 <p className="guide-heading">2. Browse for Jobs</p>
 
@@ -172,12 +172,12 @@ you to provide more details about your own experience as a co-founder. You also 
 need to provide information about the ideal co-founder you are looking for, including
 your wish list, preferred location, and relevant industry.</p>
      </div>
-     <img src="assets/img/home/6.png" className="guide-image" width={400} height={400}/>
+     <img src="assets/img/home/6.png" className="guide-image" />
      </div> 
 
      
      <div className="guide-wrapper container">
-     <img  src="assets/img/home/7.png" className="guide-image" width={400} height={400}/>
+     <img  src="assets/img/home/7.png" className="guide-image" />
      <div className="guide-section">
 <p className="guide-heading">2. Browse for Co-founders</p>
 
@@ -209,12 +209,12 @@ based on trust, transparency and collaboration.
 competence, and whether you would recommend the person to other members of our
 community.</p>
      </div>
-     <img  src="assets/img/home/8.png" className="guide-image" width={400} height={400}/>
+     <img  src="assets/img/home/8.png" className="guide-image" />
      </div> 
 
      
      <div className="guide-wrapper container">
-     <img  src="assets/img/home/9.png" className="guide-image" width={400} height={400}/>
+     <img  src="assets/img/home/9.png" className="guide-image" />
      <div className="guide-section">
 <p className="guide-heading">2. Review</p>
 

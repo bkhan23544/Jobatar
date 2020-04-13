@@ -239,8 +239,9 @@ line-height: 1.2;
 
 .guide-image{
     /* border: 1px solid black; */
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
+    min-width: 350px;
+    max-width: 100vw;
     height: 350px;
 }
 
@@ -657,13 +658,21 @@ border-radius: 0px !important;
       display: none;
     }
 }
-
+/* 
 .how-banner-img{
     min-width: 400px;
-}
+    max-width: 400px;
+    min-height: 300px;
+    max-height: 300px;
+} */
 
 .testimonial-align{
     margin: 0 auto !important;
+}
+
+.btn-outline-primary:hover{
+color:white !important;
+background-color: #345581 !important;
 }
 
 

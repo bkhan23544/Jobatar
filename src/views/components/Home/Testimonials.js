@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Testimonials extends Component{
     render(){
         return(
-            <div>
+            // <div style={{border:"1px solid black"}}>
                 <div>
                
             <div class="section-title section-padding">
@@ -37,7 +37,7 @@ class Testimonials extends Component{
 </div>
            </div>
            </div>
-           </div>
+           
         )
     }
 }
