@@ -147,97 +147,99 @@ class FreelancerListing extends Component {
 
             <div class="row">
                 {
-                process.loading ? "Loading.." :
-                    results && results.items && results.items.map((item) =>
-                        <div class="col-md-4">
-                            <div class="card-box text-center">
-                            <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(item)}>
-                                {(item.is_favorite) ? <i className="fas fa-heart text-info"></i> :
-                                    <i className="far fa-heart"></i>}
-                            </IconButton>
-                                {item.feautured &&
-                                    <div class="most-popular">
-                                        <span>Feautured</span>
-                                    </div>
-                                }
-                                <div class="clearfix"></div>
-                                <div class="member-card">
-                                    <div class="member-thumb">
-                                        <NavLink to={`/user/public/${(is_co_founder) ? 'co-founder' : 'about'}/${item.id}`}><img src={item.avatar} class="img-circle img-thumbnail" alt="profile-image" /></NavLink>
-                                        {item.feautured && <i class="fa fa-star member-star text-success" title="verified user"></i>}
-                                    </div>
+                    process.loading ? "Loading.." :
+                        results && results.items && results.items.map((item) =>
+                            <div class="col-md-4">
+                                <div class="card-box text-center">
+                                    <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(item)}>
+                                        {(item.is_favorite) ? <i className="fas fa-heart text-info"></i> :
+                                            <i className="far fa-heart"></i>}
+                                    </IconButton>
+                                    {item.feautured &&
+                                        <div class="most-popular">
+                                            <span>Feautured</span>
+                                        </div>
+                                    }
+                                    <div class="clearfix"></div>
+                                    <div class="member-card">
+                                        <div class="member-thumb">
+                                            <NavLink to={`/user/public/${(is_co_founder) ? 'co-founder' : 'about'}/${item.id}`}><img src={item.avatar} class="img-circle img-thumbnail" alt="profile-image" /></NavLink>
+                                            {item.feautured && <i class="fa fa-star member-star text-success" title="verified user"></i>}
+                                        </div>
 
-                                    <div class="small-line-height">
-                                        <NavLink to={`/user/public/${(is_co_founder) ? 'co-founder' : 'about'}/${item.id}`}><h4><a href="company.html">{item.name}</a></h4></NavLink>
-                                        <p class="text-muted p-location"><i class="fas fa-map-marker-alt icon-color"></i> {item && item.countryCode && item.countryCode.name}</p>
-                                        <p class="p-star">
-                                            {item.avg_job_rating === "5.00" ?
-                                                <>
-                                                    <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star rating-star"></i>
-                                                    <i class="fa fa-star rating-star"></i>
-                                                </>
-                                                :
-                                                item.avg_job_rating === "4.00" ?
+                                        <div class="small-line-height">
+                                            <NavLink to={`/user/public/${(is_co_founder) ? 'co-founder' : 'about'}/${item.id}`}><h4><a href="company.html">{item.name}</a></h4></NavLink>
+                                            <p class="text-muted p-location"><i class="fas fa-map-marker-alt icon-color"></i> {item && item.countryCode && item.countryCode.name}</p>
+                                            <p class="p-star">
+                                                {item.avg_job_rating === "5.00" ?
                                                     <>
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
                                                         <i class="fa fa-star rating-star"></i>
-                                                        <i class="far fa-star"></i>
+                                                        <i class="fa fa-star rating-star"></i>
                                                     </>
                                                     :
-                                                    item.avg_job_rating === "3.00" ?
+                                                    item.avg_job_rating === "4.00" ?
                                                         <>
                                                             <i class="fa fa-star rating-star"></i>
                                                             <i class="fa fa-star rating-star"></i>
                                                             <i class="fa fa-star rating-star"></i>
-                                                            <i class="far fa-star"></i>
+                                                            <i class="fa fa-star rating-star"></i>
                                                             <i class="far fa-star"></i>
                                                         </>
                                                         :
-                                                        item.avg_job_rating === "2.00" ?
+                                                        item.avg_job_rating === "3.00" ?
                                                             <>
                                                                 <i class="fa fa-star rating-star"></i>
                                                                 <i class="fa fa-star rating-star"></i>
-                                                                <i class="far fa-star"></i>
+                                                                <i class="fa fa-star rating-star"></i>
                                                                 <i class="far fa-star"></i>
                                                                 <i class="far fa-star"></i>
                                                             </>
                                                             :
-                                                            item.avg_job_rating === "1.00" ?
+                                                            item.avg_job_rating === "2.00" ?
                                                                 <>
                                                                     <i class="fa fa-star rating-star"></i>
-                                                                    <i class="far fa-star"></i>
+                                                                    <i class="fa fa-star rating-star"></i>
                                                                     <i class="far fa-star"></i>
                                                                     <i class="far fa-star"></i>
                                                                     <i class="far fa-star"></i>
                                                                 </>
                                                                 :
-                                                                item.avg_job_rating === "0.00" ?
+                                                                item.avg_job_rating === "1.00" ?
                                                                     <>
-                                                                        <i class="far fa-star"></i>
+                                                                        <i class="fa fa-star rating-star"></i>
                                                                         <i class="far fa-star"></i>
                                                                         <i class="far fa-star"></i>
                                                                         <i class="far fa-star"></i>
                                                                         <i class="far fa-star"></i>
                                                                     </>
-                                                                    : null
-                                            }
-                                            {/* 99% (222) */}
-                                        </p>
-                                    </div>
+                                                                    :
+                                                                    item.avg_job_rating === "0.00" ?
+                                                                        <>
+                                                                            <i class="far fa-star"></i>
+                                                                            <i class="far fa-star"></i>
+                                                                            <i class="far fa-star"></i>
+                                                                            <i class="far fa-star"></i>
+                                                                            <i class="far fa-star"></i>
+                                                                        </>
+                                                                        : null
+                                                }
+                                                {/* 99% (222) */}
+                                            </p>
+                                        </div>
 
-                                    <h5 style={!item.skills.length ? { opacity: 0 } : { opacity: 1 }} >{item.skills.length ? item.skills.map((a) => `${a.title}, `) : "aaaaaaaaaa aaaaaaaaaaaa aaaaaaaa aaaaa"}</h5>
-                                    {/* <h6>{is_co_founder ? "Co-founder" : "Individual"}</h6> */}
-                                    {/* <p class="text-muted font-16">
+                                        <h5 style={!item.skills.length ? { opacity: 0 } : { opacity: 1 }} >{item.skills.length ? item.skills.map((a) => `${a.title}, `) : "aaaaaaaaaa aaaaaaaaaaaa aaaaaaaa aaaaa"}</h5>
+                                        <div className="text">{item.about && item.about.substr(0, 180)}{item.about && item.about.length > 180 ? "..." : null}</div>
+
+                                        {/* <h6>{is_co_founder ? "Co-founder" : "Individual"}</h6> */}
+                                        {/* <p class="text-muted font-16">
                                         {item.about}
 		   </p> */}
 
-                                </div>
-                                {/* <div class="row">
+                                    </div>
+                                    {/* <div class="row">
                                     <div class="col-sm-4">
                                         <h6>1</h6>
                                         <p class="bottom">Jobs Done</p>
@@ -251,9 +253,9 @@ class FreelancerListing extends Component {
                                         <p class="bottom">Hourly Rate</p>
                                     </div>
                                 </div> */}
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
                 }
             </div>
         );

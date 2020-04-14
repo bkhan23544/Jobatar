@@ -288,6 +288,10 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			background-color: #345581;
 			color: white;
 		}
+		&:active{
+			background-color: #345581 !important;
+			border-color: #345581 !important;
+		}
 	}
 	.btn-info{
 		background-color: rgba($color: #345581, $alpha: 0.9);

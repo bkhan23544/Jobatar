@@ -10,7 +10,7 @@ class FavoriteLayout extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="pb-2">My Favorites</h1>
+                            <h1 className="pb-2 heading">My Favorites</h1>
                             <FavoriteNavbar />
                         </div>
                         <div className="col-12">
