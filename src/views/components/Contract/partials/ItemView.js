@@ -18,7 +18,10 @@ const ItemView = (props) => {
             <div className="card-body">
                 <h5 className="card-title text-primary">{`${moduleTitle} Information`}</h5>
                 <div className="image">
-                    {item.cover && <Link to={(auth.id === item.user_id) ? pgLinkOwner : pgLink}><img className="img-fluid" src={item.cover} alt="Images" /></Link>}
+                    {console.log(item)}
+                    {item.cover && <Link to={(auth.id === item.user_id) ? pgLinkOwner : pgLink}>
+                        <img className="img-fluid" src={item.cover} alt="Images" />
+                        </Link>}
                     {(moduleTitle === 'Service') && <div className="fixed badge badge-primary">{settlement}</div>}
                 </div>
                 <div className="text">

@@ -620,11 +620,11 @@ class JobForm extends Component {
                                                     <h1>Connections</h1>
                                                     <div className="connectionFlex">
                                                         {connections.map((a) => {
-                                                            let obj = this.state.connectionToShow.find((b) => b.id === a)
+                                                            let obj = this.state.connectionToShow && this.state.connectionToShow.find((b) => b.id === a)
                                                             return (
                                                                 <div className="Connection">
-                                                                    <img src={obj.avatar} />
-                                                                    <p>{obj.name}</p>
+                                                                    <img src={obj && obj.avatar} />
+                                                                    <p>{obj && obj.name}</p>
                                                                 </div>
                                                             )
                                                         })}

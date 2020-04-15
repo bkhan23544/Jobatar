@@ -13,7 +13,7 @@ class GrowWithJobarter extends Component {
                       <div className="col-12 text-center">
                           <h2 className="text join">GROW WITH JOBARTER</h2>
                           <h4 className="text">TRANSFORM YOUR BUSINESS WITH US</h4>
-                          {gs.identity && <NavLink to="/register" className="btn join-btn">JOIN NOW</NavLink>}
+                          {!gs.identity && <NavLink to="/register" className="btn join-btn">JOIN NOW</NavLink>}
                       </div>
                   </div>
               </div>

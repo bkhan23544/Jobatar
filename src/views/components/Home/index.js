@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Main } from '../../layout';
 import Banner from "./Banner";
+import { Redirect, Link } from 'react-router-dom';
+
 import ExploreCategories from './ExploreCategories';
 import JoinOurCommunity from './JoinOurCommunity';
 import LimitlessExperience from './LimitlessExperience';
@@ -10,6 +12,8 @@ import { DocumentTitle } from '../../../helpers/DocumentTitle';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
 import { alertSelectors } from '../../../common/redux/selectors';
+import { globalService as gs } from '../../../common/services';
+
 
 
 
@@ -28,6 +32,10 @@ class Home extends Component {
     }
 
     render() {
+        const { process } = this.props;
+        if (gs.identity) {
+            return (<Redirect to='/job-search' />)
+        }
         return (<Main>
             <DocumentTitle title={`Home`} />
             <Banner loggedIn={this.loggedIn}/>

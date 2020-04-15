@@ -8,8 +8,9 @@ import FormValidator from '../../../helpers/FormValidator';
 import { DocumentTitle } from '../../../helpers/DocumentTitle';
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import {globalService as gs} from "../../../common/services";
+import { globalService as gs } from "../../../common/services";
 import { Button } from '@material-ui/core';
+import { Animated } from "react-animated-css";
 
 //import GoogleLogin from 'react-google-login';
 //import LinkedIn from "linkedin-login-for-react";
@@ -91,7 +92,7 @@ class Login extends React.Component {
 
     resendVerification = () => {
         const { dispatch, alert } = this.props;
-        dispatch(authActions.resendVerification({user_id: alert.user_id}, {user_id: alert.user_id}));
+        dispatch(authActions.resendVerification({ user_id: alert.user_id }, { user_id: alert.user_id }));
     }
 
     accessToken = (token) => {
@@ -108,13 +109,14 @@ class Login extends React.Component {
         let isValid = this.submitted ?
             this.validator().validate(formField) :
             validation;
-        if(alert && alert.user_id) gs.firebaseLogout();
+        if (alert && alert.user_id) gs.firebaseLogout();
 
         return (
             <main className="login-wrap">
                 <DocumentTitle title={`Login`} />
-                <div className="login-container container d-flex flex-wrap justify-content-center">
-                    <div className="login-form order-md-2 d-flex flex-wrap align-items-center">
+                <div className="login-container d-flex flex-wrap justify-content-center">
+                    <div className="login-form col-lg-7 col-md-7 order-md-2 d-flex flex-wrap align-items-center">
+                                        <Animated animationInDuration={2000} animationIn="slideInDown" >
                         <div className="login-box mx-auto col">
                             <form name="form" onSubmit={this.handleSubmit} noValidate>
                                 <div className="logo">
@@ -125,15 +127,16 @@ class Login extends React.Component {
                                 <h2>Sign In</h2>
                                 <div className="row">
                                     <div className="col-12">
-                                        <div className="form-group">
-                                            <label htmlFor="username">Email</label>
-                                            <input type="text" name="username" value={username} onChange={this.handleChange}
-                                                autoFocus
-                                                className={'form-control ' + (submitted && isValid.username.isInvalid ? 'is-invalid' : '')} />
-                                            {submitted && validation.username.isInvalid &&
-                                                <div className="invalid-feedback"> {isValid.username.message} </div>
-                                            }
-                                        </div>
+                                            <div className="form-group">
+                                                <label htmlFor="username">Email</label>
+                                                <input type="text" name="username" value={username} onChange={this.handleChange}
+                                                    autoFocus
+                                                    className={'form-control ' + (submitted && isValid.username.isInvalid ? 'is-invalid' : '')} />
+                                                {submitted && validation.username.isInvalid &&
+                                                    <div className="invalid-feedback"> {isValid.username.message} </div>
+                                                }
+                                            </div>
+
                                         <div className="form-group">
                                             <label htmlFor="password">Password</label>
                                             <input type="password" name="password" value={password}
@@ -149,7 +152,7 @@ class Login extends React.Component {
                                         <div className="form-group">
                                             <LaddaButton className="btn btn-info btn-block" loading={this.props.process.loading} data-style={EXPAND_RIGHT}>Sign In</LaddaButton>
                                         </div>
-                                        {(alert && alert.user_id) && <div className="form-group or text-light text-center" style={{fontSize: '12px', marginBottom: '0px'}}>
+                                        {(alert && alert.user_id) && <div className="form-group or text-light text-center" style={{ fontSize: '12px', marginBottom: '0px' }}>
                                             Your Email is not verified yet. If you did not received a verification email then please click
                                             <button className="btn btn-link" type="button" onClick={this.resendVerification}>Resend</button>
                                         </div>}
@@ -164,7 +167,7 @@ class Login extends React.Component {
                                                 firebaseAuth={firebase.auth()}
                                             />}
                                         {this.state.isSignedIn &&
-                                            <Button type="button" className="btn btn-primary" onClick={() => gs.firebaseLogout() }>Logout</Button>
+                                            <Button type="button" className="btn btn-primary" onClick={() => gs.firebaseLogout()}>Logout</Button>
                                         }
 
                                         {/*
@@ -181,14 +184,19 @@ class Login extends React.Component {
                                 </div>
                             </form>
                         </div>
+                        </Animated>
+
                     </div>
                     <div className="login-bg order-md-1 d-flex flex-wrap align-items-end"
                         style={{ backgroundImage: `url('/images/signup-bg@2x.png')` }}>
                         <div className="caption">
+                            <Animated animationInDuration={1500} animationIn="slideInUp">
                             <div className="text">As a freelancer for the past four years, JoBarter is exactly what I need to take my business to the next level.
                             </div>
+
                             <h4>Hilda Schwartz</h4>
                             <h6>Manhattan, New York</h6>
+                            </Animated>
                         </div>
                     </div>
                 </div>

@@ -230,7 +230,7 @@ class FreelancerListing extends Component {
                                             </p>
                                         </div>
 
-                                        <h5 style={!item.skills.length ? { opacity: 0 } : { opacity: 1 }} >{item.skills.length ? item.skills.map((a) => `${a.title}, `) : "aaaaaaaaaa aaaaaaaaaaaa aaaaaaaa aaaaa"}</h5>
+                                        <h5 style={!item.skills.length ? { opacity: 0 } : { opacity: 1 }} >{item.skills.length ? item.skills.map((a, i) => i < 5 ? `${a.title}, ` : null) : ""}{item.skills.length ? item.skills.length > 5 ? "..." : null : null}</h5>
                                         <div className="text">{item.about && item.about.substr(0, 180)}{item.about && item.about.length > 180 ? "..." : null}</div>
 
                                         {/* <h6>{is_co_founder ? "Co-founder" : "Individual"}</h6> */}

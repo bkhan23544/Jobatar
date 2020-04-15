@@ -720,8 +720,8 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 	}
 	> .caption {padding: 10px 15px; float: left; width: 100%;text-align: center;}
 	h3 {
-		margin-bottom: 0px !important;
-		font-family: "Grold";
+		margin-bottom: 5px !important;
+		font-family: "HKGrotesk";
 		font-size: 19px;
 		font-weight: 700;
 		color: #345581;
@@ -740,15 +740,15 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		display: block;
 		margin-top: 5px;
 		@media only screen and (max-width: 768px){
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			justify-content: space-between;
+			// display: flex;
+			// align-items: center;
+			// flex-direction: column;
+			// justify-content: space-between;
 		}
 		img {
 			width: 60px;
 			height:60px;
-			border-radius: 3px;
+			border-radius: 50%;
 			margin-right: 10px;
 			
 			-webkit-transition: all .4s ease;
@@ -766,16 +766,16 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 		h5 {
-			font-family: "Grold";
+			font-family: "HKGrotesk";
 			font-weight: 700;
 			color: #345581;
-			font-size: 12px;
+			font-size: 16px;
 			line-height: 0.4;
 			a{
-				font-family: "Grold";
+				font-family: "HKGrotesk";
 				font-weight: 700;
 				color: #345581;
-				font-size: 14px !important;
+				font-size: 16px !important;
 				line-height: 0.4;
 			}
 		@media only screen and (max-width: 768px){
@@ -783,7 +783,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		}
 		}
 		p {
-			font-family: "Grold";
+			font-family: "HKGrotesk";
 			padding-bottom: 0px;
 			font-size: 14px;
 			color: #868585 !important;
@@ -794,7 +794,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 		h4 {
-			font-family: "Grold";
+			font-family: "HKGrotesk";
 			font-weight: 700;
 			color: #345581;
 			font-size: 19px !important;
@@ -802,7 +802,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		}
 		.prices{
 			.label-primary{
-				font-family: "Grold";
+				font-family: "HKGrotesk";
 				margin-bottom: 5px;
 				font-size: 13px;
 				margin-right: 3px;
@@ -811,7 +811,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 				padding: 5px;
 			}
 			div{
-				font-family: "Grold";
+				font-family: "HKGrotesk";
 				text-decoration: none;
 				font-weight: 700;
 				margin-right: 5px;

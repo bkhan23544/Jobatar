@@ -34,6 +34,8 @@ const BuyerView = (props) => {
                             <i className="fas fa-map-marker-alt text-primary"></i> {item && item.countryCode && item.countryCode.name}
                         </div>}
                     <ReadMoreReact className="custom-description" text={gs.html2text(item.about)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+                    {props.isVisibleMessage && <button className="btn btn-primary" onClick={props.messageOpen}><i className="far fa-comments"></i> Message</button>}
+
                 </div>
             </div>
         </div>
