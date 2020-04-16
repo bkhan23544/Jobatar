@@ -17,6 +17,7 @@ import { ProfileUpdate, ExperienceAndEducation, StripConnect, CoFounder, PublicA
 import { ContractListing, ContractView } from './views/components/Contract';
 import Message from './views/components/Messanger';
 import {userActions} from "./common/redux/actions";
+import Dashboard from './views/components/User/Private/Dashboard';
 
 class App extends React.Component {
 
@@ -64,6 +65,7 @@ class App extends React.Component {
                             <AuthRoute path="/cofounders-search" component={FreelancerSearch} title={`Co-founder Search`} is_co_founder={true} />
                             <AuthRoute path="/job-search" component={JobSearch} is_publish="publish" is_closed="0"/>
                             <AuthRoute path="/service-search" component={ServiceSearch} />
+                            <AuthRoute path="/dashboard" component={Dashboard} />
 
                             {/* Create Service */}
                             <AuthRoute exact path="/services" component={ServiceListing} />

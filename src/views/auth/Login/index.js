@@ -11,6 +11,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { globalService as gs } from "../../../common/services";
 import { Button } from '@material-ui/core';
 import { Animated } from "react-animated-css";
+import Checkbox from '@material-ui/core/Checkbox';
 
 //import GoogleLogin from 'react-google-login';
 //import LinkedIn from "linkedin-login-for-react";
@@ -115,8 +116,7 @@ class Login extends React.Component {
             <main className="login-wrap">
                 <DocumentTitle title={`Login`} />
                 <div className="login-container d-flex flex-wrap justify-content-center">
-                    <div className="login-form col-lg-7 col-md-7 order-md-2 d-flex flex-wrap align-items-center">
-                                        <Animated animationInDuration={2000} animationIn="slideInDown" >
+                    <div className="login-form col-lg-12 col-md-12 order-md-2 d-flex flex-wrap align-items-center">
                         <div className="login-box mx-auto col">
                             <form name="form" onSubmit={this.handleSubmit} noValidate>
                                 <div className="logo">
@@ -124,30 +124,50 @@ class Login extends React.Component {
                                         <img src="/images/logo.svg" alt="" className="img-fluid" />
                                     </Link>
                                 </div>
-                                <h2>Sign In</h2>
+                                <h2>Welcome Back</h2>
+                                {!this.state.isSignedIn &&
+                                    <StyledFirebaseAuth className={'fireLogin'}
+                                        uiConfig={this.uiConfig}
+                                        firebaseAuth={firebase.auth()}
+                                    />}
+                                <div className="OrDiv">
+                                    <div className="line"></div>
+                                    <div className="center">OR</div>
+                                    <div className="line"></div>
+                                </div>
                                 <div className="row">
                                     <div className="col-12">
-                                            <div className="form-group">
-                                                <label htmlFor="username">Email</label>
-                                                <input type="text" name="username" value={username} onChange={this.handleChange}
-                                                    autoFocus
-                                                    className={'form-control ' + (submitted && isValid.username.isInvalid ? 'is-invalid' : '')} />
-                                                {submitted && validation.username.isInvalid &&
-                                                    <div className="invalid-feedback"> {isValid.username.message} </div>
-                                                }
-                                            </div>
+                                        <div className="form-group">
+                                            {/* <label htmlFor="username">Email</label> */}
+                                            <input type="text" name="username" value={username} onChange={this.handleChange}
+                                                placeholder="Email"
+                                                autoFocus
+                                                className={'form-control ' + (submitted && isValid.username.isInvalid ? 'is-invalid' : '')} />
+                                            {submitted && validation.username.isInvalid &&
+                                                <div className="invalid-feedback"> {isValid.username.message} </div>
+                                            }
+                                        </div>
 
                                         <div className="form-group">
-                                            <label htmlFor="password">Password</label>
+                                            {/* <label htmlFor="password">Password</label> */}
                                             <input type="password" name="password" value={password}
+                                                placeholder="Password"
                                                 onChange={this.handleChange}
                                                 className={'form-control ' + (submitted && isValid.password.isInvalid ? 'is-invalid' : '')} />
                                             {submitted && validation.password.isInvalid &&
                                                 <div className="invalid-feedback"> {isValid.password.message} </div>
                                             }
-                                            <small className="form-text text-right">
-                                                <Link to="/forgot-password" style={{ fontWeight: 'bold' }}>Forgot Password ?</Link>
-                                            </small>
+                                        </div>
+                                        <div className="forgotPassword">
+                                            <span style={{float: "left"}}>
+                                                <Checkbox
+                                                    size="medium"
+                                                    color="primary"
+                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                                />
+                                                Remember me
+                                            </span>
+                                            <Link to="/forgot-password" style={{ fontWeight: 'bold' }}>Forgot Password ?</Link>
                                         </div>
                                         <div className="form-group">
                                             <LaddaButton className="btn btn-info btn-block" loading={this.props.process.loading} data-style={EXPAND_RIGHT}>Sign In</LaddaButton>
@@ -156,16 +176,12 @@ class Login extends React.Component {
                                             Your Email is not verified yet. If you did not received a verification email then please click
                                             <button className="btn btn-link" type="button" onClick={this.resendVerification}>Resend</button>
                                         </div>}
-                                        <div className="form-group or text-light text-center">
-                                            or login with
-                                        </div>
+                                        {/* <div className="form-group or text-light text-center">
+                                                or login with
+                                            </div> */}
+                                        <div className="hrDiv"></div>
                                     </div>
                                     <div className="col-12">
-                                        {!this.state.isSignedIn &&
-                                            <StyledFirebaseAuth className={'fireLogin'}
-                                                uiConfig={this.uiConfig}
-                                                firebaseAuth={firebase.auth()}
-                                            />}
                                         {this.state.isSignedIn &&
                                             <Button type="button" className="btn btn-primary" onClick={() => gs.firebaseLogout()}>Logout</Button>
                                         }
@@ -178,27 +194,30 @@ class Login extends React.Component {
                                         */}
 
                                         <div className="login">
-                                            Not a member yet? <Link to={'/register'}>Join now</Link>
+                                            Don't have an account?<Link to={'/register'}> Sign Up</Link>
+                                        </div>
+                                        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                                            <img style={{ height: 44 }} src="https://www.f-cdn.com/assets/main/en/assets/login-signup/app-store-badges/apple-app-store-badge.png" />
+                                            <img style={{ height: 44 }} src="https://www.f-cdn.com/assets/main/en/assets/login-signup/app-store-badges/google-play-store-badge.png" />
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        </Animated>
 
                     </div>
-                    <div className="login-bg order-md-1 d-flex flex-wrap align-items-end"
+                    {/* <div className="login-bg order-md-1 d-flex flex-wrap align-items-end"
                         style={{ backgroundImage: `url('/images/signup-bg@2x.png')` }}>
                         <div className="caption">
                             <Animated animationInDuration={1500} animationIn="slideInUp">
-                            <div className="text">As a freelancer for the past four years, JoBarter is exactly what I need to take my business to the next level.
+                                <div className="text">As a freelancer for the past four years, JoBarter is exactly what I need to take my business to the next level.
                             </div>
 
-                            <h4>Hilda Schwartz</h4>
-                            <h6>Manhattan, New York</h6>
+                                <h4>Hilda Schwartz</h4>
+                                <h6>Manhattan, New York</h6>
                             </Animated>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </main>
         );

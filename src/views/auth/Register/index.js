@@ -8,6 +8,8 @@ import { authActions } from "../../../common/redux/actions";
 import { DocumentTitle } from '../../../helpers/DocumentTitle';
 import { globalService as gs } from '../../../common/services';
 import { Animated } from "react-animated-css";
+import { StyledFirebaseAuth } from 'react-firebaseui';
+import firebase from "firebase";
 
 
 class Register extends React.Component {
@@ -70,6 +72,20 @@ class Register extends React.Component {
         }
     };
 
+    uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            //firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        callbacks: {
+            signInSuccess: () => false
+        }
+    };
+
     render() {
         const { process } = this.props;
         if (gs.identity) {
@@ -106,8 +122,7 @@ class Register extends React.Component {
             <main className="login-wrap">
                 <DocumentTitle title={`Register`} />
                 <div className="login-container d-flex flex-wrap justify-content-center">
-                    <div className="login-form col-lg-7 col-md-7 order-md-2 d-flex flex-wrap align-items-center">
-                    <Animated animationInDuration={2000} animationIn="slideInDown" >
+                    <div className="login-form col-lg-12 col-md-12 order-md-2 d-flex flex-wrap align-items-center">
 
                         <div className="login-box mx-auto">
                             <form name="form" onSubmit={this.handleSubmit} noValidate>
@@ -116,23 +131,35 @@ class Register extends React.Component {
                                         <img src="images/logo.svg" alt="" className="img-fluid" />
                                     </Link>
                                 </div>
-                                <h2>Create Your Free Account</h2>
+                                <h2>Sign Up</h2>
                                 {/* <h5>Already have an account? <Link to="/login">Sign In</Link></h5> */}
+                                {!this.state.isSignedIn &&
+                                    <StyledFirebaseAuth className={'fireLogin'}
+                                        uiConfig={this.uiConfig}
+                                        firebaseAuth={firebase.auth()}
+                                    />}
+                                <div className="OrDiv">
+                                    <div className="line"></div>
+                                    <div className="center">OR</div>
+                                    <div className="line"></div>
+                                </div>
                                 <div className="row">
-                                    <div className="col-sm-6 col-12">
+                                    <div className="col-12">
                                         <div className="form-group">
-                                            <label htmlFor="first_name">First Name</label>
+                                            {/* <label htmlFor="first_name">First Name</label> */}
                                             <input type="text" name="first_name" value={first_name} onChange={this.handleChange}
+                                                placeholder="First Name"
                                                 className={'form-control ' + (submitted && validation.first_name.isInvalid ? ' is-invalid' : '')} />
                                             {submitted && validation.first_name.isInvalid &&
                                                 <div className="invalid-feedback">{validation.first_name.message}</div>
                                             }
                                         </div>
                                     </div>
-                                    <div className="col-sm-6 col-12">
+                                    <div className="col-12">
                                         <div className="form-group">
-                                            <label htmlFor="last_name">Last Name</label>
+                                            {/* <label htmlFor="last_name">Last Name</label> */}
                                             <input type="text" name="last_name" value={last_name} onChange={this.handleChange}
+                                                placeholder="Last Name"
                                                 className={'form-control ' + (submitted && validation.last_name.isInvalid ? 'is-invalid' : '')} />
                                             {submitted && validation.last_name.isInvalid &&
                                                 <div className="invalid-feedback">{validation.last_name.message}</div>
@@ -141,32 +168,34 @@ class Register extends React.Component {
                                     </div>
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <label htmlFor="email">Email</label>
+                                            {/* <label htmlFor="email">Email</label> */}
                                             <input type="text" name="email" value={email} onChange={this.handleChange}
+                                                placeholder="Email"
                                                 className={'form-control ' + (submitted && validation.email.isInvalid ? 'is-invalid' : '')} />
                                             {submitted && validation.email.isInvalid &&
                                                 <div className="invalid-feedback">{validation.email.message}</div>
                                             }
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="password">Password</label>
+                                            {/* <label htmlFor="password">Password</label> */}
                                             <input type="password" name="password" value={password} onChange={this.handleChange}
+                                                placeholder="Password"
                                                 className={'form-control ' + (submitted && validation.password.isInvalid ? 'is-invalid' : '')} />
                                             {submitted && validation.password.isInvalid &&
                                                 <div className="invalid-feedback">{validation.password.message}</div>
                                             }
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="confirm_password">Confirm Password</label>
+                                            {/* <label htmlFor="confirm_password">Confirm Password</label> */}
                                             <input type="password" name="confirm_password" value={confirm_password} onChange={this.handleChange}
+                                                placeholder="Confirm Password"
                                                 className={'form-control ' + (submitted && validation.confirm_password.isInvalid ? 'is-invalid' : '')} />
                                             {submitted && validation.confirm_password.isInvalid &&
                                                 <div className="invalid-feedback">{validation.confirm_password.message}</div>
                                             }
                                         </div>
                                         <div className="form-group">
-                                            <LaddaButton className="btn btn-info btn-block" loading={process.loading} data-style={EXPAND_RIGHT}>Create
-                                                Account</LaddaButton>
+                                            <LaddaButton className="btn btn-info btn-block" loading={process.loading} data-style={EXPAND_RIGHT}>Join Jobarter</LaddaButton>
                                         </div>
                                         {/* <div className="form-group or text-light text-center">
                                             or signup with
@@ -190,10 +219,9 @@ class Register extends React.Component {
                                 </div>
                             </form>
                         </div>
-                        </Animated>
                     </div>
                     {/* <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}></Animated> */}
-                    <div className="login-bg col-lg-5 col-md-5 order-md-1 d-flex flex-wrap align-items-end"
+                    {/* <div className="login-bg col-lg-5 col-md-5 order-md-1 d-flex flex-wrap align-items-end"
                         style={{ backgroundImage: `url('/images/freelancer-working.jpeg')` }}>
                         <div className="caption">
                         <Animated animationInDuration={1500} animationIn="slideInUp">
@@ -204,7 +232,7 @@ class Register extends React.Component {
                             <h6>Cleveland, Ohio</h6>
                             </Animated>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </main>
         );
