@@ -17,8 +17,8 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import {globalService as gs, itemService} from '../../../../common/services';
-import {alertSelectors, processSelectors} from "../../../../common/redux/selectors";
+import { globalService as gs, itemService } from '../../../../common/services';
+import { alertSelectors, processSelectors } from "../../../../common/redux/selectors";
 
 const deadlineList = [
     { id: 1, value: 'Up to 3 days' },
@@ -115,7 +115,7 @@ class JobForm extends Component {
                     subcategory_id: formField.subcategory_id,
                     settlement: formField.settlement,
                     type: formField.type,
-                    budget: (formField.budget === null) ? '' : formField.budget ,
+                    budget: (formField.budget === null) ? '' : formField.budget,
                     deadline: formField.deadline,
                     duration: formField.duration,
                     locations: formField.locations,
@@ -191,7 +191,7 @@ class JobForm extends Component {
 
     handleSubmit = (e, action) => {
         //e.preventDefault();
-        if(e !== null) e.preventDefault();
+        if (e !== null) e.preventDefault();
         const { formField } = this.state;
         const validation = this.validator().validate(formField);
 
@@ -232,8 +232,8 @@ class JobForm extends Component {
             itemService.job(method, { userItem: params }, param)
                 .then(response => {
                     console.log('response', response)
-                    if (response.success === true){
-                        if(params.is_publish === 'draft') {
+                    if (response.success === true) {
+                        if (params.is_publish === 'draft') {
                             dispatch(alertSelectors.success('You have successfully saved the job as draft. Please go to "My Jobs", and then select "Drafts" to complete and submit the job posting.'));
                         } else {
                             let action = (method === "POST" && param !== null) ? 'update' : 'add';
@@ -261,6 +261,12 @@ class JobForm extends Component {
         this.handleSubmit(null, 'draft');
     };
 
+    takingData = (data) => {
+        this.setState({
+            connectionToShow: data
+        })
+    }
+
 
     render() {
         const { id, formField, submitted, validation, connectionDialogOpen, questionDialogOpen } = this.state;
@@ -286,7 +292,7 @@ class JobForm extends Component {
                 validService = true;
                 validBudget = false;
                 break;
-                default:
+            default:
                 validService = true;
                 validBudget = true;
                 validConnections = true;
@@ -609,8 +615,24 @@ class JobForm extends Component {
                                                     <div className="invalid-feedback d-block"> {isValid.connections.message} </div>
                                                 }
                                             </div>
+                                            {connections.length ?
+                                                <div className="connectionToShow">
+                                                    <h1>Connections</h1>
+                                                    <div className="connectionFlex">
+                                                        {connections.map((a) => {
+                                                            let obj = this.state.connectionToShow && this.state.connectionToShow.find((b) => b.id === a)
+                                                            return (
+                                                                <div className="Connection">
+                                                                    <img src={obj && obj.avatar} />
+                                                                    <p>{obj && obj.name}</p>
+                                                                </div>
+                                                            )
+                                                        })}
+                                                    </div>
+                                                </div>
+                                                : null}
 
-                                            <ConnectionsDialog selectedValue={'connectionValue'} open={connectionDialogOpen} onClose={this.handleConnection} selected={connections} />
+                                            <ConnectionsDialog takingData={this.takingData} selectedValue={'connectionValue'} open={connectionDialogOpen} onClose={this.handleConnection} selected={connections} />
                                             { /* <div className="connections">
                                                 <div className="list">
                                                     <h6>Questions 01</h6>

@@ -18,7 +18,7 @@ import {
 } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import SearchIcon from '@material-ui/icons/Search';
-import {itemService} from "../../../../common/services";
+import { itemService } from "../../../../common/services";
 
 
 const ConnectionsDialog = (props) => {
@@ -27,7 +27,7 @@ const ConnectionsDialog = (props) => {
     const [search, setSearch] = useState('');
     const [connections, setConnections] = useState([]);
 
-    const { onClose, open, connection } = props;
+    const { onClose, open, connection, takingData } = props;
     let connectionList = connection && connection.data && connection.data.items;
 
     const listOfConnection = new Set();
@@ -37,6 +37,7 @@ const ConnectionsDialog = (props) => {
 
         itemService.inviteMember("GET", null).then(data => {
             setConnections(data.items);
+            takingData(data.items)
         });
 
         setChecked((props && props.selected) ? props.selected : []);
@@ -74,6 +75,7 @@ const ConnectionsDialog = (props) => {
     };
 
     console.log("connections:", connections);
+    // console.log("function:", takingData);
 
     return (
         <Dialog
@@ -88,7 +90,7 @@ const ConnectionsDialog = (props) => {
             <DialogTitle id="simple-dialog-title">
                 Select members from your connection
                 {/*<Fab color="inherit" onClick={handleClose}>*/}
-                    {/*<i className="fas fa-times"></i>*/}
+                {/*<i className="fas fa-times"></i>*/}
                 {/*</Fab>*/}
             </DialogTitle>
             <DialogContent dividers className={''}>
@@ -109,24 +111,25 @@ const ConnectionsDialog = (props) => {
                         </div>
                     </div>
                 </div>
-                <List style={{marginLeft: '-24px', marginRight: '-24px'}} dense>
+                <List style={{ marginLeft: '-24px', marginRight: '-24px' }} dense>
                     {connections && connections.map((item) => {
                         return (
-                        <ListItem key={Math.random()} button>
-                            <ListItemAvatar style={{marginLeft: '10px'}}>
-                                <Avatar alt={item.name} src={item.avatar} />
-                            </ListItemAvatar>
+                            <ListItem key={Math.random()} button>
+                                <ListItemAvatar style={{ marginLeft: '10px' }}>
+                                    <Avatar alt={item.name} src={item.avatar} />
+                                </ListItemAvatar>
                                 <ListItemText id={item.id} primary={item.name} />
-                            <ListItemSecondaryAction>
-                                <Checkbox
-                                    edge="end"
+                                <ListItemSecondaryAction>
+                                    <Checkbox
+                                        edge="end"
                                         onChange={handleToggle(item.id)}
                                         checked={checked.indexOf(item.id) !== -1}
-                                    inputProps={{ 'aria-labelledby': item.id }}
-                                />
-                            </ListItemSecondaryAction>
-                        </ListItem>
-                        )}
+                                        inputProps={{ 'aria-labelledby': item.id }}
+                                    />
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                        )
+                    }
                     )}
                     {(connections && connections.length === 0) && <div className="p-3 text-center">Connections not found</div>}
                 </List>

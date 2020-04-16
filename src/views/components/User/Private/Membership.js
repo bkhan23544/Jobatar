@@ -73,7 +73,7 @@ class Membership extends Component {
                             </div>
                         </div>
                         <div className="col-12">
-                            <p className="text-center">We are waiving our membership plan for our first 1,000 users for the first 6 months as a token of our appreciation. Enjoy your unlimited access to all of our features. Thank you for being a valuable member of our trusted community.</p>
+                            <p className="text-center memText">We are waiving our membership plan for our first 1,000 users for the first 6 months as a token of our appreciation. Enjoy your unlimited access to all of our features. Thank you for being a valuable member of our trusted community.</p>
                         </div>
                     </div>
                 </div>

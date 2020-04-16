@@ -79,8 +79,8 @@ const register = (data) => {
                 dispatch(alertSelectors.success(response.message));
                 dispatch(processSelectors.stop());
                 //gs.firebaseRegister(data.email);
-                gs.navigation('home');
                 gs.messageAlert('Check your email to complete the sign up process.');
+                // gs.navigation('login'); // this is remove by sadiq we are navigating to login when upper message alert is press a close button the function is send from them of navigation
             })
             .catch(exception => {
                 exception.text().then(errorMessage => {

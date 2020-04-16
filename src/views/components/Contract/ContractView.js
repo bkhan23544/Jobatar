@@ -486,7 +486,7 @@ class ContractView extends Component {
                             </div>
                             <div className="col-md-4 col-12">
                                 <ItemView item={proposalItem} settlement={settlement} itemType={itemType} moduleTitle={moduleTitle} />
-                                {(!isBid || gs.isOwner(proposalItem.user_id)) && <BuyerView item={isProvider ? itemOwner : itemProvider} settlement={settlement} title={isProvider ? 'Owner Info' : `${providerTitle} Info`} moduleTitle={moduleTitle} />}
+                                {(!isBid || gs.isOwner(proposalItem.user_id)) && <BuyerView messageOpen={this.messageOpen} isVisibleMessage={isVisibleMessage} item={isProvider ? itemOwner : itemProvider} settlement={settlement} title={isProvider ? 'Owner Info' : `${providerTitle} Info`} moduleTitle={moduleTitle} />}
                             </div>
                             {proposal && <div className="col-md-8 col-12">
                                 {!isBid && <div className="card mb-4 offerInfo">
@@ -562,7 +562,7 @@ class ContractView extends Component {
 
                                                 {isVisibleConformation && !isBid && <h5>Would you like to accept the offer request?</h5>}
                                                 <div className="mb-3">
-                                                    {isVisibleMessage && <button className="btn btn-primary" onClick={this.messageOpen}><i className="far fa-comments"></i> Message</button>}
+                                                    {/* {isVisibleMessage && <button className="btn btn-primary" onClick={this.messageOpen}><i className="far fa-comments"></i> Message</button>} */}
 
                                                     {isVisibleConformation && !isBid && <Fragment>
 

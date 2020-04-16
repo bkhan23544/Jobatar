@@ -156,9 +156,18 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	.login-container {min-height: calc(100vh - 0px);}
 	.login-bg {width: 460px; background-repeat: no-repeat; background-size: cover; background-position: center; position: relative;
 		.caption {padding: 24px; color: $white;
-			.text {margin-bottom: 30px; font-weight: 300;}
-			h4 {font-weight: bold; margin-bottom: 6px; font-size: 16px;}
-			h6 {font-size: 12px; opacity: 0.6; padding-bottom: 8px;}
+			.text {margin-bottom: 30px; font-weight: 300;font-family: serif;font-size: 20px;}
+			h4 {
+				margin-bottom: 0px;
+				font-size: 16px;
+				font-family: sans-serif;
+				font-style: italic;}
+			h6 {font-size: 14px;
+				opacity: 0.6;
+				/* padding-bottom: 8px; */
+				padding: 0;
+				/* padding-bottom: 8px; */
+				margin: 0px;}
 		}
 	}
 	.login-form {width: calc(100% - 460px);
@@ -287,6 +296,10 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		&:hover{
 			background-color: #345581;
 			color: white;
+		}
+		&:active{
+			background-color: #345581 !important;
+			border-color: #345581 !important;
 		}
 	}
 	.btn-info{

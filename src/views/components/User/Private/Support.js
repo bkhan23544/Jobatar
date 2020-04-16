@@ -71,7 +71,7 @@ class Support extends Component {
         return (<Main>
             <DocumentTitle title={`Profile Details`}/>
 
-            <div className="update-profile bg-body" style={{minHeight: 'calc(100vh - 342px)'}}>
+            <div className="update-profile supportPage bg-body" style={{minHeight: 'calc(100vh - 342px)'}}>
                 <div className="container">
                     <Card className="mb-4 mb-lg-5">
                         <Card.Header>
@@ -119,7 +119,7 @@ class Support extends Component {
                                             }
                                         </div>
                                         <div className="form-group">
-                                            <LaddaButton type="submit" className="btn btn-info btn-lg" loading={process.loading ? true : false} data-style={EXPAND_RIGHT}>Submit</LaddaButton>
+                                            <LaddaButton type="submit" className="col-lg-2 btn btn-info btn-lg" loading={process.loading ? true : false} data-style={EXPAND_RIGHT}>Submit</LaddaButton>
                                         </div>
                                     </Col>
                                 </Row>

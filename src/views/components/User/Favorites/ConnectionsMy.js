@@ -158,6 +158,11 @@ class ConnectionsMy extends Component {
     render() {
         const { favorite, process } = this.props;
         let results = (favorite && favorite.connections) ? favorite.connections.items : null;
+        // if (results) {
+        //     for (let i = 0; i < 10; i++) {
+        //         results.push(results[0])
+        //     }
+        // }
         return (<Main>
             <DocumentTitle title="Cofounder Connection" />
 
@@ -165,7 +170,7 @@ class ConnectionsMy extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="pb-2 d-flex align-items-center flex-wrap">Co-founder</h1>
+                            <h1 className="pb-2 d-flex align-items-center flex-wrap heading">Co-founder</h1>
                         </div>
                         <div className="col-12">
                             <CoFounderNavbar />

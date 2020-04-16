@@ -141,20 +141,6 @@ class PublicServiceView extends Component {
                     }
                     images.push(obj)
                 }
-                for (let i = 0; i < images2.length; i++) {
-                    let obj = {
-                        original: images2[i].path,
-                        thumbnail: images2[i].thumb,
-                    }
-                    images.push(obj)
-                }
-                for (let i = 0; i < images2.length; i++) {
-                    let obj = {
-                        original: images2[i].path,
-                        thumbnail: images2[i].thumb,
-                    }
-                    images.push(obj)
-                }
                 console.log(images2)
                 this.setState({
                     images
@@ -399,7 +385,7 @@ class PublicServiceView extends Component {
                                     <div className="card-text pt-4">
                                         <div className="row">
                                             {console.log(item)}
-                                            {(item && item.media.docs && item.media.docs) ? '' : <div className="col-12">Portfolio not found</div>}
+                                            {(item && item.media.docs && item.media.docs) ? '' : <div className="col-12">No data yet</div>}
                                             {item && item.media.docs && item.media.docs.map((doc) =>
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-12" key={doc.id}>
                                                     <a target="_blank" rel="noopener noreferrer" href={`${doc.path}`} download>
