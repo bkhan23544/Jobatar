@@ -269,7 +269,7 @@ class ProfileUpdate extends Component {
                                                     <figure className="d-flex align-items-center profile-upload justify-content-center">
                                                         <div className="pic rounded-circle">
                                                             <img className="img-fluid rounded-circle border" alt="profile" width="145" height="145" src={(userProfile && (userProfile.avatar !== null)) ? userProfile.avatar.thumb : '/images/dummy-profile.png'} />
-                                                            <label className="btn btn-info btn-upload text-white">
+                                                            <label className="btn btn-upload text-white">
                                                                 <i className="fas fa-camera-retro"></i>
                                                                 <input type="file" accept="image/*" onChange={this.handleUpload} />
                                                             </label>

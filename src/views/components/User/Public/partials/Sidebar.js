@@ -31,7 +31,7 @@ const Sidebar = (props) => {
                     <div className="pic rounded-circle">
                         <img className="img-fluid rounded-circle border" alt="profile" width="145" height="145" src={((user && user.user.id) === (auth && auth.id)) ? auth.avatar : user && user.user.avatar} />
                         {((user && user.user.id) === (auth && auth.id)) &&
-                            <label className="btn btn-info btn-upload">
+                            <label className="btn btn-upload">
                                 <i className="fas fa-camera-retro"></i>
                                 <input type="file" accept="image/*" onChange={handleUpload} />
                             </label>}

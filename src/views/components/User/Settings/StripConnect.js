@@ -136,7 +136,10 @@ class StripConnect extends Component {
                                 </Col>
                                 <Col xs="12" md="9" xl="8" className="add-stripe-account">
                                     <div className="py-3 w-100 float-left border-bottom mb-3">
-                                        <Card.Title className="mb-0">Bank Information</Card.Title>
+                                        <div className="on-icon">
+                                       <p className="pay-title">Bank Information</p>
+                                       </div>
+                                        {/* <Card.Title className="mb-0">Bank Information</Card.Title> */}
                                         {!isStripeConnect && <Card.Text className="mt-3" style={{fontWeight: 400}}>Bank Connect allows you to accept credit card payments within the platform for the services that you offer.</Card.Text>}
                                     </div>
                                     <Card className="button pl-0" style={{ boxShadow: 'none', backgroundImage: 'none' }}>
@@ -171,10 +174,14 @@ class StripConnect extends Component {
                                                     {submitted && isValid.routing_number.isInvalid &&
                                                     <div className="invalid-feedback"> {isValid.routing_number.message} </div>
                                                     }
+                                                    <hr/>
                                                 </div>
+                                                
                                             </div>
                                             <div className="py-3 w-100 float-left border-bottom mb-3">
-                                                <Card.Title className="mb-0">Account Holder Information</Card.Title>
+                                            <div className="on-icon">
+                                       <p className="pay-title">Account Holder Information</p>
+                                       </div>
                                             </div>
 
                                             <div className="form-group row">
@@ -293,7 +300,7 @@ class StripConnect extends Component {
                                                         />
                                                     </div>
                                                     <div className="form-group text-info">
-                                                        <h5>Please Double-check your account info!</h5>
+                                                        <h3>Please Double-check your account info!</h3>
                                                         <p>Incorrect or mismatched account name and number can result in withdrawal delays and fees.</p>
                                                     </div>
                                                    <div className="form-group">

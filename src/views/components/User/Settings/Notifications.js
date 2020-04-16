@@ -91,7 +91,9 @@ class Notifications extends Component {
                                     <NavBar />
                                 </Col>
                                 <Col xs="12" md="9" xl="9" className="add-stripe-account">
-                                    <Card.Title>Notifications</Card.Title>
+                                <div className="on-icon">
+                                       <p className="pay-title">Notifications</p>
+                                       </div>
                                     {(notification && notification === 0) && <div className={'common-not-found p-3 text-center'} style={{minHeight: '240px'}}>
                                         <div className="inner">
                                             <figure>
@@ -105,7 +107,7 @@ class Notifications extends Component {
                                         {notification && notification.map(item => <div className={`list-group-item list-group-item-action d-flex align-items-center ${(item && item.status === 'Read') ? 'bg-white' : 'bg-light'}`} key={item && item.message_id}>
                                             <span className={'w-100'} onClick={() => this.read(item)}><Link to={urlHelper.notifyUrl(item)}>{item && item.notification}</Link></span>
                                             <small className="float-right text-muted ml-2 text-nowrap">{moment(item && item.created_at * 1000).format('LL')}</small>
-                                            <button className={'btn btn-outline-info btn-sm float-right ml-2'} onClick={() => this.delete(item)}><i className={'fa fa-trash'}></i></button>
+                                            <button className={'btn btn-outline-info btn-sm float-right ml-2 trash-btn'} onClick={() => this.delete(item)}><i className={'fa fa-trash'}></i></button>
                                         </div>)}
                                     </div>
                                     <Pagination className="justify-content-end"

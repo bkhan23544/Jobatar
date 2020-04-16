@@ -360,6 +360,21 @@ font-size: 2vw;
     color: #345581;
     margin-right: 10px;
 }
+
+.on-icon i{
+    font-size: 30px;
+    color: #345581;
+    margin-right: 10px;
+}
+
+.pay-title{
+    display: block;
+ font-size: 18px;
+ font-weight: 700;
+ color: #345581 !important;
+}
+
+
 .description-profile .tr-title,
 .work .tr-title{
  /* font-family: "Grold";	 */
@@ -385,13 +400,12 @@ font-size: 2vw;
 }
 .description-profile .label-success {
   /* font-family: "Grold"; */
-  background: #345581 !important; 
+  background: rgba(52,85,129,0.7) !important; 
   margin-bottom: 5px;
   margin-left: 10px;
   font-size: 15px;
-  padding: 3px;
-  color: #fff !important;
-  letter-spacing: 2px;
+  padding: 10px;
+  color: #000 !important;
 }
 
 .tr-list {
@@ -406,8 +420,14 @@ font-size: 2vw;
 }
 
 .btn-upload{
+    color: white;
 	background-color:#345581 ;
 	border: none;
+}
+
+.btn-upload:hover{
+    color: white !important;
+    background-color: gray;
 }
 
 .icon-color{
@@ -563,7 +583,7 @@ font-size: 2vw;
    .ladda-btn{
        background-color: #345581 !important;
        color:white;
-       border: none;
+       border: 1px solid #345581 !important;
    }
 
    .fa-cloud-upload-alt{
@@ -572,14 +592,14 @@ font-size: 2vw;
 
    .add-new-btn{
        color: #345581;
-       border-color:#345581 ;
+       border:1px solid #345581 !important ;
        height:30px
    }
 
    .add-new-btn:hover{
        background-color:#345581 ;
        border-color:#345581 ;
-       color: white;
+       color: white !important;
    }
 
    .add-new-btn:checked{
@@ -587,13 +607,14 @@ font-size: 2vw;
    }
 
 .trash-btn{
-    color: gray;
-    border-color:gray ;
+    color: gray !important;
+    border-color:gray !important;
 }
 
 .trash-btn:hover{
-    background-color:gray ;
-    border-color:gray ;
+    background-color:gray !important;
+    border-color:gray !important;
+    color: white !important;
 }
 
 .custom-control-input:focus{
@@ -674,6 +695,27 @@ border-radius: 0px !important;
 color:white !important;
 background-color: #345581 !important;
 }
+
+.connection-btn{
+    background-color: #345581 !important;
+    border: 1px solid #345581 !important;
+}
+
+.text-info{
+    color: #345581 !important;
+}
+
+.btn-info{
+    background-color: #345581 !important;
+    border: 1px solid #345581 !important;
+}
+
+.subscribe-btn{
+    color:black !important;
+    background-color: white !important;
+}
+
+
 
 
 

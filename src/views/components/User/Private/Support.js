@@ -74,7 +74,11 @@ class Support extends Component {
             <div className="update-profile bg-body" style={{minHeight: 'calc(100vh - 342px)'}}>
                 <div className="container">
                     <Card className="mb-4 mb-lg-5">
-                        <Card.Header>Support</Card.Header>
+                        <Card.Header>
+                        <div className="on-icon">
+                                       <p className="pay-title">Support</p>
+                                       </div>
+                        </Card.Header>
                         <Card.Body>
                             {/* <Card.Title>Coming Soon</Card.Title> */}
 

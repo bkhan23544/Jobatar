@@ -8,7 +8,7 @@ class Membership extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="text-center heading"><span>Pricing Plans</span></h1>
+                            <h1 className="text-center explore"><span>Pricing Plans</span></h1>
                         </div>
                     </div>
                     <div className="row">

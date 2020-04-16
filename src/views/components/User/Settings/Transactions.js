@@ -121,7 +121,9 @@ class Transactions extends Component {
                                     <NavBar/>
                                 </Col>
                                 <Col xs="12" md="9" xl="9" className="add-stripe-account">
-                                    <Card.Title>My Transactions</Card.Title>
+                                <div className="on-icon">
+                                       <p className="pay-title">My Transactions</p>
+                                       </div>
                                     <Table aria-label="simple table" className="mb-4 border">
                                         <TableHead>
                                             <TableRow>

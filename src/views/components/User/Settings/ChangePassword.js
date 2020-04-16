@@ -111,7 +111,7 @@ class ChangePassword extends Component {
                                                     }
                                                 </div>
                                                 <div className="form-group">
-                                                    <LaddaButton type="submit" className="btn btn-info btn-lg" loading={process.loading ? true : false} data-style={EXPAND_RIGHT}>Save</LaddaButton>
+                                                    <LaddaButton type="submit" className="btn btn-info btn-lg ladda-btn" loading={process.loading ? true : false} data-style={EXPAND_RIGHT}>Save</LaddaButton>
 
                                                 </div>
                                             </Col>

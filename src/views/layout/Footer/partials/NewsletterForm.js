@@ -60,7 +60,7 @@ class NewsletterForm extends Component {
                                 value={formField.email} className={'form-control ' + (submitted && isValid.email.isInvalid ? 'is-invalid' : '')} />
 
                         <div className="input-group-append">
-                            <button className="btn btn-info text-black" type="submit" id="button-addon2">Subscribe</button>
+                            <button className="btn btn-info subscribe-btn" type="submit" id="button-addon2">Subscribe</button>
                         </div>
                     </div>
                 </form>
