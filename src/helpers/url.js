@@ -11,37 +11,37 @@ const notifyUrl = (item) => {
         case 'password-reset-token':
         case 'upload-avatar':
         case 'upload-banner':
-            url = '/user/update';
+            url = '/dashBoard/user/update';
             break;
         case 'mail-chimp-newsletter':
-            url = '/setting/stripe-connect';
+            url = '/dashBoard/setting/stripe-connect';
             break;
         case 'create-job':
-            url = '/jobs';
+            url = '/dashBoard/jobs';
             break;
         case 'stripe-connect':
-            url = '/setting/stripe-connect';
+            url = '/dashBoard/setting/stripe-connect';
             break;
         case 'create-message':
             url = '/messages';
             break;
         case 'connection-pending':
-            url = '/user/connection/received-request';
+            url = '/dashBoard/user/connection/received-request';
             break;
         case 'connection-accepted':
-            url = '/user/connection/my-cofounder';
+            url = '/dashBoard/user/connection/my-cofounder';
             break;
         case 'connection-deactivated':
-            url = '/user/connection/sent-request';
+            url = '/dashBoard/user/connection/sent-request';
             break;
         case 'alert-connect-stripe':
-            url = '/user/update';
+            url = '/dashBoard/user/update';
             break;
         case 'alert-verify-account':
-            url = '/user/update';
+            url = '/dashBoard/user/update';
             break;
         case 'connection-declined':
-            url = '/user/connection/sent-request';
+            url = '/dashBoard/user/connection/sent-request';
             break;
         case 'proposal-offers':
         case 'proposal-counter_offers':
@@ -72,7 +72,7 @@ const notifyUrl = (item) => {
             url = `/contracts/view/${item.item_id}`;
             break;
         default:
-            url = '/user/update';
+            url = '/dashBoard/user/update';
     }
     return url;
 };

@@ -6,9 +6,9 @@ const CoFounderNavbar = () => {
         <div className="public-navbar card mb-4">
             <div className="card-body">
                 <nav className="nav">
-                    <NavLink className="nav-link" to={`/user/connection/my-cofounder`}>My Co-founder</NavLink>
-                    <NavLink className="nav-link" to={`/user/connection/received-request`}>Received Request</NavLink>
-                    <NavLink className="nav-link" to={`/user/connection/sent-request`}>Sent Request</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/connection/my-cofounder`}>My Co-founder</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/connection/received-request`}>Received Request</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/connection/sent-request`}>Sent Request</NavLink>
                 </nav>
             </div>
         </div>

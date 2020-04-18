@@ -1,11 +1,11 @@
 import { SCHEMA, DOMAIN, REACT_APP_IS_WEB, REACT_APP_FIREBASE_PASSWORD } from 'react-native-dotenv';
 import { storageHelper, navigationHelper, alertHelper, firebaseConfig as FC } from '../../config';
-// const apiRoot = process.env.REACT_APP_API_ROOT ? process.env.REACT_APP_API_ROOT : `${"https"}://api.${"jobarter.com"}`;
-// const rootUrl = process.env.REACT_APP_HOSTNAME ? process.env.REACT_APP_HOSTNAME : `${"https"}://${"jobarter.com"}`;
-// const uploadRoot = process.env.REACT_APP_STORAGE ? process.env.REACT_APP_STORAGE : `${"https"}://uploads.${"jobarter.com"}`;
-const apiRoot = process.env.REACT_APP_API_ROOT ? process.env.REACT_APP_API_ROOT : `${SCHEMA}://api.${DOMAIN}`;
-const rootUrl = process.env.REACT_APP_HOSTNAME ? process.env.REACT_APP_HOSTNAME : `${SCHEMA}://${DOMAIN}`;
-const uploadRoot = process.env.REACT_APP_STORAGE ? process.env.REACT_APP_STORAGE : `${SCHEMA}://uploads.${DOMAIN}`;
+const apiRoot = process.env.REACT_APP_API_ROOT ? process.env.REACT_APP_API_ROOT : `${"https"}://api.${"jobarter.com"}`;
+const rootUrl = process.env.REACT_APP_HOSTNAME ? process.env.REACT_APP_HOSTNAME : `${"https"}://${"jobarter.com"}`;
+const uploadRoot = process.env.REACT_APP_STORAGE ? process.env.REACT_APP_STORAGE : `${"https"}://uploads.${"jobarter.com"}`;
+// const apiRoot = process.env.REACT_APP_API_ROOT ? process.env.REACT_APP_API_ROOT : `${SCHEMA}://api.${DOMAIN}`;
+// const rootUrl = process.env.REACT_APP_HOSTNAME ? process.env.REACT_APP_HOSTNAME : `${SCHEMA}://${DOMAIN}`;
+// const uploadRoot = process.env.REACT_APP_STORAGE ? process.env.REACT_APP_STORAGE : `${SCHEMA}://uploads.${DOMAIN}`;
 const isWeb = process.env.REACT_APP_IS_WEB ? process.env.REACT_APP_IS_WEB : REACT_APP_IS_WEB;
 const firebasePassword = process.env.REACT_APP_FIREBASE_PASSWORD ? process.env.REACT_APP_FIREBASE_PASSWORD : REACT_APP_FIREBASE_PASSWORD;
 

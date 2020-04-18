@@ -163,86 +163,89 @@ class ConnectionsMy extends Component {
         //         results.push(results[0])
         //     }
         // }
-        return (<Main>
-            <DocumentTitle title="Cofounder Connection" />
+        return (
+            // <Main>
+            <>
+                <DocumentTitle title="Cofounder Connection" />
 
-            <div className="bg-body my-favorites">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h1 className="pb-2 d-flex align-items-center flex-wrap heading">Co-founder</h1>
-                        </div>
-                        <div className="col-12">
-                            <CoFounderNavbar />
-                        </div>
-                        <div className="col-12">
-                            <div className="row">
-                                {process.loading ? <Fragment>
-                                    {[1, 2, 3, 4].map((item) =>
-                                        <div className="col-md-6 col-12" key={`loa${item}`}>
-                                            <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={0} width={300} />
-                                        </div>
-                                    )}
-                                </Fragment> : <Fragment>
-                                        {results && results.map((item, index) =>
-                                            <div className="col-md-6 col-12" key={Math.floor(Math.random() * (+40 - +1)) + +1}>
-                                                <div className="freLncrBox no-hover card mb-4">
-                                                    <div className="card-body d-flex flex-wrap">
-                                                        <div className="profile">
-                                                            <img alt="images" className="img-fluid rounded-circle" width="145" height="145" src={item.connection && item.connection.avatar} />
-                                                        </div>
-                                                        <div className="caption">
-                                                            <h3><NavLink to={`/user/public/about/${item.connection && item.connection.id}`}>{item.connection && item.connection.name}</NavLink></h3>
-                                                            <div className="position">
-                                                                <span>{item.connection && item.connection.title}</span>
-                                                            </div>
-                                                            <div className="address d-flex align-items-center flex-wrap">
-                                                                <div className="w-100 mb-1 text-truncate">
-                                                                    <i className="fas fa-map-marker-alt mr-2"></i>
-                                                                    {item.connection && item.connection.countryCode && item.connection.countryCode.name}
-                                                                </div>
-                                                                <div className="w-100 mb-2">
-                                                                    {item.connection.connections} Connections
-                                                            </div>
-                                                            </div>
-                                                            <div className="action d-flex align-items-center">
-                                                                <button className="btn btn-primary px-4" onClick={() => this.messageOpen(item)}>Message</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
+                <div className="bg-body my-favorites col-lg-9 col-sm-12">
+                    <div className="">
+                        <div className="row">
+                            <div className="col-12">
+                                <h1 className="pb-2 d-flex align-items-center flex-wrap heading">Co-founder</h1>
+                            </div>
+                            <div className="col-12">
+                                <CoFounderNavbar />
+                            </div>
+                            <div className="col-12" style={{overflow: "hidden"}}>
+                                <div className="row">
+                                    {process.loading ? <Fragment>
+                                        {[1, 2, 3, 4].map((item) =>
+                                            <div className="col-md-6 col-12" key={`loa${item}`}>
+                                                <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={0} width={300} />
                                             </div>
                                         )}
-                                        {(results && results.length === 0) && <div className="col-12">
-                                            <div className="card service-box">
-                                                <div className="card-body text-center">
-                                                    <div className="common-not-found d-flex align-items-center justify-content-center">
-                                                        <div className="inner">
-                                                            <figure>
-                                                                <img src="/images/not-found/Co-founder.png" alt="Not found" width="100" />
-                                                            </figure>
-                                                            <h5>You have not connected with any co-founder yet</h5>
-                                                            <p className="title">This is where you'll see all the co-founders you are connected with</p>
+                                    </Fragment> : <Fragment>
+                                            {results && results.map((item, index) =>
+                                                <div className="col-md-6 col-12" key={Math.floor(Math.random() * (+40 - +1)) + +1}>
+                                                    <div className="freLncrBox no-hover card mb-4">
+                                                        <div className="card-body d-flex flex-wrap">
+                                                            <div className="profile">
+                                                                <img alt="images" className="img-fluid rounded-circle" width="145" height="145" src={item.connection && item.connection.avatar} />
+                                                            </div>
+                                                            <div className="caption">
+                                                                <h3><NavLink to={`/user/public/about/${item.connection && item.connection.id}`}>{item.connection && item.connection.name}</NavLink></h3>
+                                                                <div className="position">
+                                                                    <span>{item.connection && item.connection.title}</span>
+                                                                </div>
+                                                                <div className="address d-flex align-items-center flex-wrap">
+                                                                    <div className="w-100 mb-1 text-truncate">
+                                                                        <i className="fas fa-map-marker-alt mr-2"></i>
+                                                                        {item.connection && item.connection.countryCode && item.connection.countryCode.name}
+                                                                    </div>
+                                                                    <div className="w-100 mb-2">
+                                                                        {item.connection.connections} Connections
+                                                            </div>
+                                                                </div>
+                                                                <div className="action d-flex align-items-center">
+                                                                    <button className="btn btn-primary px-4" onClick={() => this.messageOpen(item)}>Message</button>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>}
-                                    </Fragment>}
-                                <div className="col-12">
-                                    <Pagination className="justify-content-end"
-                                        pageSize={20}
-                                        totalCount={(favorite && favorite.connections && favorite.connections.pagination.totalCount) ? favorite.connections.pagination.totalCount : 10}
-                                        onChangePage={this.onChangePage} />
+                                            )}
+                                            {(results && results.length === 0) && <div className="col-12">
+                                                <div className="card service-box">
+                                                    <div className="card-body text-center">
+                                                        <div className="common-not-found d-flex align-items-center justify-content-center">
+                                                            <div className="inner">
+                                                                <figure>
+                                                                    <img src="/images/not-found/Co-founder.png" alt="Not found" width="100" />
+                                                                </figure>
+                                                                <h5>You have not connected with any co-founder yet</h5>
+                                                                <p className="title">This is where you'll see all the co-founders you are connected with</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>}
+                                        </Fragment>}
+                                    <div className="col-12">
+                                        <Pagination className="justify-content-end"
+                                            pageSize={20}
+                                            totalCount={(favorite && favorite.connections && favorite.connections.pagination.totalCount) ? favorite.connections.pagination.totalCount : 10}
+                                            onChangePage={this.onChangePage} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </Main>);
+            </>
+            // </Main>
+        );
     }
 }
 

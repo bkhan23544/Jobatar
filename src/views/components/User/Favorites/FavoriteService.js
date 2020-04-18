@@ -119,7 +119,7 @@ class FavoriteService extends Component {
                             //     </div>
                             // </div>
 
-                            <div className="col-md-3" key={item.item.id}>
+                            <div className="col-md-4" key={item.item.id}>
                                 <div className="svcsLBox w-100 float-left">
                                     <div className="image">
                                         <Link to={`/user/public/service/view/${item.item.id}`} className="bg-image">

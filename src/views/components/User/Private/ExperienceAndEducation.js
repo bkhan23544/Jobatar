@@ -78,18 +78,20 @@ class ExperienceAndEducation extends Component {
         const educationsItems = educations.data ? educations.data : [];
         const {experienceItem, educationItem } = this.state;
 
-        return (<Main>
+        return (
+        // <Main>
+        <>
             <DocumentTitle title={`Experience and Education`}/>
-            <div className="update-profile bg-body">
-                <div className="container">
+            <div className="update-profile bg-body col-9">
+                <div className="">
                     <Card className="mb-4 mb-lg-5">
-                    <p className="card-titles ml-2 mt-4"> My Profile</p>
+                    {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
                         <Card.Body>
                             <Row>
-                                <Col xs="12" md="3" xl="4">
+                                {/* <Col xs="12" md="3" xl="4">
                                     <NavBar instruction="experience" />
-                                </Col>
-                                <Col xs="12" md="9" xl="8">
+                                </Col> */}
+                                <Col xs="12" md="12" xl="12">
                                     <div className="py-3 w-100 float-left mb-3">
                                        <div className="row h-5">
                                         <span className="col-10 section-titles">Experience</span>
@@ -122,7 +124,9 @@ class ExperienceAndEducation extends Component {
                     </Card>
                 </div>
             </div>
-        </Main>);
+            </>
+        // </Main>
+        );
     }
 }
 

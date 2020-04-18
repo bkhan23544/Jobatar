@@ -428,7 +428,7 @@ class PublicServiceView extends Component {
                                 <OtherServices item={item} service_id={this.state.id} service={this.service} />
                             }
                             {this.props.private &&
-                                item && item.userItemProposals && <div name="offers_received" className="card-body px-0">
+                                item && item.userItemProposals && <div name="offers_received" className="card-body col-12">
                                     <h5 className="card-title px-3">Offers Received ({item.received_offers})</h5>
                                     <hr />
                                     {<ProposalReceived results={item.userItemProposals} module={ModuleHelper.UserService} />}

@@ -70,7 +70,7 @@ class ProfileUpdate extends Component {
         const country_code = userProfile.countryCode ? { value: userProfile.countryCode.code, label: userProfile.countryCode.name } : null;
         const languages = authentication.authentication.user.languages;
 
-        const lans = ( typeof languages === 'string' )  ? [ languages ] : languages;
+        const lans = (typeof languages === 'string') ? [languages] : languages;
         const lang2 = ((lans === null) || (lans === undefined)) ? ["English"] : lans; //undefined
         const profileLanguage = lang2.map((item, index) => ({ value: item, label: item }));
 
@@ -110,7 +110,7 @@ class ProfileUpdate extends Component {
         this.updatedState();
         const { media } = authentication.authentication.user;
         dispatch(uploadSelectors.respond(media));
-        defaultService.coreField({field: 'languages'}).then((res) => {
+        defaultService.coreField({ field: 'languages' }).then((res) => {
             this.setState({
                 languageList: res
             })
@@ -123,12 +123,12 @@ class ProfileUpdate extends Component {
     }
 
     addCoFounder = () => {
-        const {dispatch} = this.props;
-        dispatch(userActions.profile("POST", {userProfile: {is_co_founder: 1}}, 'co-founder'));
+        const { dispatch } = this.props;
+        dispatch(userActions.profile("POST", { userProfile: { is_co_founder: 1 } }, 'co-founder'));
     }
 
     removeCoFounder = () => {
-        this.setState({removeCoFounder: false})
+        this.setState({ removeCoFounder: false })
     }
 
     handleSelect = (item, { action, name }) => {
@@ -166,23 +166,23 @@ class ProfileUpdate extends Component {
 
     handleSelectAddress = address => {
         geocodeByAddress(address)
-          .then(results => {
-              console.log(getLatLng(results[0]));
-          })
-          .then(latLng => {
-            console.log('Success', latLng)
-          })
-          .catch(error => console.error('Error', error));
+            .then(results => {
+                console.log(getLatLng(results[0]));
+            })
+            .then(latLng => {
+                console.log('Success', latLng)
+            })
+            .catch(error => console.error('Error', error));
     };
 
 
     handleUpload = (e) => {
         const { dispatch } = this.props;
-        this.setState({loadingProfile: true});
+        this.setState({ loadingProfile: true });
         defaultService.uploadWithoutProgress(e.target.files).then((res) => {
             let fileId = res.files[0].id;
-            dispatch(userActions.profile("POST", {userProfile: {avatar_id: fileId}}, 'avatar'));
-            this.setState({loadingProfile: false});
+            dispatch(userActions.profile("POST", { userProfile: { avatar_id: fileId } }, 'avatar'));
+            this.setState({ loadingProfile: false });
         });
     };
 
@@ -192,7 +192,7 @@ class ProfileUpdate extends Component {
         const { formField, FieldModel } = this.state;
         //const validation = this.validator().validate(formField);
         this.setState({ submitted: true, loading: true });
-        if( this.validator.allValid() ){
+        if (this.validator.allValid()) {
             const { dispatch, upload, authentication } = this.props;
             let { userProfile } = authentication.authentication.user;
             //let identity = authentication.authentication.user.id;
@@ -213,7 +213,7 @@ class ProfileUpdate extends Component {
             this.validator.showMessages();
         }
         setTimeout(() => {
-            this.setState({loading: false});
+            this.setState({ loading: false });
         }, 800);
     };
 
@@ -226,19 +226,21 @@ class ProfileUpdate extends Component {
         let isValid = this.validator.fields;
         const { userProfile } = authentication.authentication.user;
         //console.log(this.validator, this.validator.helpers);
-        return (<Main>
-            <DocumentTitle title={`Update Profile`} />
-         
-            <div className="update-profile bg-body">
-                <div className="container">
-                    <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
-                        <Card className="mb-4 mb-lg-5">
+        return (
+            // <Main>
+            <>
+                <DocumentTitle title={`Update Profile`} />
 
-   <p className="card-titles ml-2 mt-4"> My Profile</p>
+                <div className="update-profile bg-body col-lg-9 col-sm-12">
+                    <div className="">
+                        <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                            <Card className="mb-4 mb-lg-5">
 
-                            <Card.Body>
-                                <Row>
-                                    <Col xs="12" md="3" xl="4">
+                                {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
+
+                                <Card.Body>
+                                    <Row>
+                                        {/* <Col xs="12" md="3" xl="4">
                                         <NavBar instruction="profile" />
                                         {removeCoFounder &&<Fragment>
                                             {((parseInt(userProfile.is_co_founder) === 0) || (userProfile.is_co_founder === null)) &&
@@ -256,167 +258,167 @@ class ProfileUpdate extends Component {
                                                 </div>
                                             }
                                         </Fragment>}
-                                    </Col>
-                                    <Col xs="12" md="9" xl="8">
-                                        <div className="py-3 w-100 float-left">
-                                         
-                                               <span className="section-titles">Update Profile</span>
-                                              
-                                               
-                                            <Row>
-                                                <Col className="card-profile border-0 mb-3 col-md-3 col-12 order-md-2 text-center" style={{boxShadow: 'none'}}>
-                                                    <label><Link to={`/user/public/about/${userProfile && userProfile.user_id}`} className="float-right">View Profile</Link></label>
-                                                    <figure className="d-flex align-items-center profile-upload justify-content-center">
-                                                        <div className="pic rounded-circle">
-                                                            <img className="img-fluid rounded-circle border" alt="profile" width="145" height="145" src={(userProfile && (userProfile.avatar !== null)) ? userProfile.avatar.thumb : '/images/dummy-profile.png'} />
-                                                            <label className="btn btn-info btn-upload text-white">
-                                                                <i className="fas fa-camera-retro"></i>
-                                                                <input type="file" accept="image/*" onChange={this.handleUpload} />
-                                                            </label>
-                                                            {loadingProfile && <div className="loader rounded-circle"><span></span> <span></span></div>}
-                                                        </div>
-                                                    </figure>
-                                                </Col>
-                                                <Col className="col-md-9 col-12 order-md-1">
-                                                    <div className="form-group d-none">
-                                                        <Autocomplete
-                                                            className={'form-control'}
-                                                            onPlaceSelected={(place) => {
-                                                            console.log(place);
-                                                            }}
-                                                            types={['(regions)']}
-                                                            componentRestrictions={{country: "ru"}}
-                                                        />
-                                                        <PlacesAutocomplete
-                                                            value={this.state.address}
-                                                            onChange={this.handleChangeAddress}
-                                                            onSelect={this.handleSelectAddress}
-                                                            shouldFetchSuggestions={this.state.address.length > 2}
-                                                        >
-                                                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                                                            <div >
-                                                                <input
-                                                                {...getInputProps({
-                                                                    placeholder: 'Search Places ...',
-                                                                    className: 'location-search-input',
-                                                                })}
-                                                                className={'form-control'}
-                                                                />
-                                                                <div className="autocomplete-dropdown-container">
-                                                                {loading && <div>Loading...</div>}
-                                                                {/* {console.log("suggestions", suggestions)} */}
-                                                                {suggestions.map(suggestion => {
-                                                                    const className = suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
-                                                                    // inline style for demonstration purpose
-                                                                    const style = suggestion.active ? { backgroundColor: '#fafafa', cursor: 'pointer' } : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                                                                    return (
-                                                                    <div
-                                                                        {...getSuggestionItemProps(suggestion, {
-                                                                        className,
-                                                                        style,
-                                                                        })}
-                                                                    >
-                                                                        <span>{suggestion.description}</span>
-                                                                    </div>
-                                                                    );
-                                                                })}
-                                                                </div>
+                                    </Col> */}
+                                        <Col xs="12" md="12" xl="12">
+                                            <div className="py-3 w-100 float-left">
+
+                                                <span className="section-titles">Update Profile</span>
+
+
+                                                <Row>
+                                                    <Col className="card-profile border-0 mb-3 col-md-3 col-12 order-md-2 text-center" style={{ boxShadow: 'none' }}>
+                                                        <label><Link to={`/user/public/about/${userProfile && userProfile.user_id}`} className="float-right">View Profile</Link></label>
+                                                        <figure className="d-flex align-items-center profile-upload justify-content-center">
+                                                            <div className="pic rounded-circle">
+                                                                <img className="img-fluid rounded-circle border" alt="profile" width="145" height="145" src={(userProfile && (userProfile.avatar !== null)) ? userProfile.avatar.thumb : '/images/dummy-profile.png'} />
+                                                                <label className="btn btn-info btn-upload text-white">
+                                                                    <i className="fas fa-camera-retro"></i>
+                                                                    <input type="file" accept="image/*" onChange={this.handleUpload} />
+                                                                </label>
+                                                                {loadingProfile && <div className="loader rounded-circle"><span></span> <span></span></div>}
                                                             </div>
-                                                            )}
-                                                        </PlacesAutocomplete>
-                                                    </div>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Title</span>
-                                                        <input type="text" value={formField.title} name="title"
-                                                            onChange={this.handleChange}
-                                                            onBlur={() => this.validator.showMessageFor('title')}
-                                                            className={'form-control ' + (this.validator.errorMessages.title !== null ? 'is-invalid' : '')} />
-                                                        {this.validator.message('title', formField.title, 'required')}
-                                                    </div>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Languages</span>
-                                                        <Select
-                                                            className="multiple-select mb-2"
-                                                            classNamePrefix="multi"
-                                                            isSearchable
-                                                            isMulti
-                                                            defaultValue={FieldModel.languages}
-                                                            name="languages"
-                                                            onChange={this.languagesSelect}
-                                                            options={languageList && languageList.map(item => ({ value: item.option_code, label: item.option_value }))} />
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">First Name</span>
-                                                        <input type="text" value={formField.first_name} name="first_name"
-                                                            onChange={this.handleChange}
-                                                            onBlur={() => this.validator.showMessageFor('first_name')}
-                                                            className={'form-control ' + (this.validator.errorMessages.first_name !== null ? 'is-invalid' : '')} />
-                                                        {this.validator.message('first_name', formField.first_name, 'required')}
-                                                    </div>
-                                                </Col>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Last Name</span>
-                                                        <input type="text" value={formField.last_name} name="last_name"
-                                                            onChange={this.handleChange}
-                                                            onBlur={() => this.validator.showMessageFor('last_name')}
-                                                            className={'form-control ' + (this.validator.errorMessages.last_name !== null ? 'is-invalid' : '')} />
-                                                        {this.validator.message('last_name', formField.last_name, 'required')}
-                                                    </div>
-                                                </Col>
-                                            </Row>
+                                                        </figure>
+                                                    </Col>
+                                                    <Col className="col-md-9 col-12 order-md-1">
+                                                        <div className="form-group d-none">
+                                                            <Autocomplete
+                                                                className={'form-control'}
+                                                                onPlaceSelected={(place) => {
+                                                                    console.log(place);
+                                                                }}
+                                                                types={['(regions)']}
+                                                                componentRestrictions={{ country: "ru" }}
+                                                            />
+                                                            <PlacesAutocomplete
+                                                                value={this.state.address}
+                                                                onChange={this.handleChangeAddress}
+                                                                onSelect={this.handleSelectAddress}
+                                                                shouldFetchSuggestions={this.state.address.length > 2}
+                                                            >
+                                                                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                                                    <div >
+                                                                        <input
+                                                                            {...getInputProps({
+                                                                                placeholder: 'Search Places ...',
+                                                                                className: 'location-search-input',
+                                                                            })}
+                                                                            className={'form-control'}
+                                                                        />
+                                                                        <div className="autocomplete-dropdown-container">
+                                                                            {loading && <div>Loading...</div>}
+                                                                            {/* {console.log("suggestions", suggestions)} */}
+                                                                            {suggestions.map(suggestion => {
+                                                                                const className = suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
+                                                                                // inline style for demonstration purpose
+                                                                                const style = suggestion.active ? { backgroundColor: '#fafafa', cursor: 'pointer' } : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                                                                return (
+                                                                                    <div
+                                                                                        {...getSuggestionItemProps(suggestion, {
+                                                                                            className,
+                                                                                            style,
+                                                                                        })}
+                                                                                    >
+                                                                                        <span>{suggestion.description}</span>
+                                                                                    </div>
+                                                                                );
+                                                                            })}
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </PlacesAutocomplete>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Title</span>
+                                                            <input type="text" value={formField.title} name="title"
+                                                                onChange={this.handleChange}
+                                                                onBlur={() => this.validator.showMessageFor('title')}
+                                                                className={'form-control ' + (this.validator.errorMessages.title !== null ? 'is-invalid' : '')} />
+                                                            {this.validator.message('title', formField.title, 'required')}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Languages</span>
+                                                            <Select
+                                                                className="multiple-select mb-2"
+                                                                classNamePrefix="multi"
+                                                                isSearchable
+                                                                isMulti
+                                                                defaultValue={FieldModel.languages}
+                                                                name="languages"
+                                                                onChange={this.languagesSelect}
+                                                                options={languageList && languageList.map(item => ({ value: item.option_code, label: item.option_value }))} />
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">First Name</span>
+                                                            <input type="text" value={formField.first_name} name="first_name"
+                                                                onChange={this.handleChange}
+                                                                onBlur={() => this.validator.showMessageFor('first_name')}
+                                                                className={'form-control ' + (this.validator.errorMessages.first_name !== null ? 'is-invalid' : '')} />
+                                                            {this.validator.message('first_name', formField.first_name, 'required')}
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Last Name</span>
+                                                            <input type="text" value={formField.last_name} name="last_name"
+                                                                onChange={this.handleChange}
+                                                                onBlur={() => this.validator.showMessageFor('last_name')}
+                                                                className={'form-control ' + (this.validator.errorMessages.last_name !== null ? 'is-invalid' : '')} />
+                                                            {this.validator.message('last_name', formField.last_name, 'required')}
+                                                        </div>
+                                                    </Col>
+                                                </Row>
 
-                                            <Row>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Email Address</span>
-                                                        <input type="text" className="form-control" value={formField.email} name="email" readOnly
-                                                            onChange={this.handleChange} />
-                                                    </div>
-                                                </Col>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Address</span>
-                                                        <input type="text" value={formField.hometown} name="hometown"
-                                                            onChange={this.handleChange}
-                                                            onBlur={() => this.validator.showMessageFor('hometown')}
-                                                            className={'form-control ' + (this.validator.errorMessages.hometown !== null ? 'is-invalid' : '')} />
-                                                        {this.validator.message('hometown', formField.hometown, 'required')}
-                                                    </div>
-                                                </Col>
-                                            </Row>
+                                                <Row>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Email Address</span>
+                                                            <input type="text" className="form-control" value={formField.email} name="email" readOnly
+                                                                onChange={this.handleChange} />
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Address</span>
+                                                            <input type="text" value={formField.hometown} name="hometown"
+                                                                onChange={this.handleChange}
+                                                                onBlur={() => this.validator.showMessageFor('hometown')}
+                                                                className={'form-control ' + (this.validator.errorMessages.hometown !== null ? 'is-invalid' : '')} />
+                                                            {this.validator.message('hometown', formField.hometown, 'required')}
+                                                        </div>
+                                                    </Col>
+                                                </Row>
 
-                                            <Row>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                      <span className="form-label">Select Country </span>
-                                                        {countriesList && <Select
-                                                            className={'multiple-select mb-2 ' + (this.validator.errorMessages.country_code !== null ? 'is-invalid' : '')}
-                                                            classNamePrefix="multi"
-                                                            isSearchable
-                                                            defaultValue={formField.country_code}
-                                                            name="country_code"
-                                                            onChange={this.handleSelect}
-                                                            options={countriesList.map(item => ({ value: item.code, label: item.name }))} />}
-                                                        {this.validator.message('country_code', formField.country_code, 'required')}
-                                                    </div>
-                                                </Col>
-                                                <Col xs={12} md={6}>
-                                                    {/*<div className="form-group">*/}
+                                                <Row>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Select Country </span>
+                                                            {countriesList && <Select
+                                                                className={'multiple-select mb-2 ' + (this.validator.errorMessages.country_code !== null ? 'is-invalid' : '')}
+                                                                classNamePrefix="multi"
+                                                                isSearchable
+                                                                defaultValue={formField.country_code}
+                                                                name="country_code"
+                                                                onChange={this.handleSelect}
+                                                                options={countriesList.map(item => ({ value: item.code, label: item.name }))} />}
+                                                            {this.validator.message('country_code', formField.country_code, 'required')}
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12} md={6}>
+                                                        {/*<div className="form-group">*/}
                                                         {/*<div className="custom-control custom-checkbox mt-4 pt-2">*/}
-                                                            {/*<input type="checkbox" className="custom-control-input" id="customCheck1"*/}
-                                                                {/*name="is_co_founder"*/}
-                                                                {/*value={''}*/}
-                                                                {/*defaultChecked={(formField.is_co_founder === 1)}*/}
-                                                                {/*onChange={this.handleCheckboxChange} />*/}
-                                                            {/*<label className="custom-control-label" htmlFor="customCheck1">Co-founder</label>*/}
+                                                        {/*<input type="checkbox" className="custom-control-input" id="customCheck1"*/}
+                                                        {/*name="is_co_founder"*/}
+                                                        {/*value={''}*/}
+                                                        {/*defaultChecked={(formField.is_co_founder === 1)}*/}
+                                                        {/*onChange={this.handleCheckboxChange} />*/}
+                                                        {/*<label className="custom-control-label" htmlFor="customCheck1">Co-founder</label>*/}
                                                         {/*</div>*/}
-                                                    {/*</div>*/}
-                                                    {/* <div className="form-group">
+                                                        {/*</div>*/}
+                                                        {/* <div className="form-group">
                                                         <label>Phone Number</label>
                                                         <div className="input-group">
                                                             <div className="input-group-prepend">
@@ -433,111 +435,112 @@ class ProfileUpdate extends Component {
                                                                    placeholder="Phone Number" />
                                                         </div>
                                                     </div> */}
-                                                    <div className="form-group">
-                                                    <span className="form-label">Phone Number </span>
-                                                        <input type="text"
-                                                               className={'form-control ' + (this.validator.errorMessages.mobile !== null ? 'is-invalid' : '')}
-                                                               value={formField.mobile}
-                                                               name="mobile"
-                                                               onBlur={() => this.validator.showMessageFor('mobile')}
-                                                               onChange={this.handleChange} />
-                                                        {this.validator.message('mobile', formField.mobile, 'phone')}
-                                                    </div>
-                                                </Col>
-                                            </Row>
-
-                                            <Row>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">About Me </span>
-                                                        <textarea className="form-control" rows="3" value={formField.about} name="about"
-                                                                  onChange={this.handleChange}></textarea>
-                                                    </div>
-                                                </Col>
-                                                <Col xs={12} md={6}>
-                                                    <div className="form-group">
-                                                    <span className="form-label">Website </span>
-                                                        <input type="text" className={'form-control ' + (this.validator.errorMessages.website !== null ? 'is-invalid' : '')} value={formField.website} name="website"
-                                                               onChange={this.handleChange} />
-                                                        {this.validator.message('website', formField.website, 'url')}
-                                                    </div>
-                                                </Col>
-                                                <Col xs={12}>
-                                                <hr/>
-                                                <span className="section-titles">Skills</span>
-                                               
-                                                    <div className="form-group">
-                                                        {/* <label>Skills</label> */}
-                                                        {(formField.skills || !formField.skills) &&
-                                                            <Select
-                                                                className={'multiple-select mb-2 ' + (this.validator.errorMessages.skills !== null ? 'is-invalid' : '')}
-                                                                classNamePrefix="multi"
-                                                                isSearchable isMulti
-                                                                defaultValue={formField.skills}
-                                                                name="skills"
-                                                                onChange={this.handleSelect}
-                                                                options={skillsList.map(item => ({ value: item.id, label: item.name }))} />}
-                                                        {this.validator.message('skills', formField.skills, 'required')}
-                                                    </div>
-
-                                                    <hr/>
-                                                    <span className="section-titles">Social Media Accounts</span>
-                                                  
-                                                    <h6>Please provide your social media links for our internal verification.</h6>
-                                                    <div className="row">
-                                                        {platformsList && <Fragment>
-                                                            {platformsList.map((platform, index) =>
-                                                                <div className="col-md-6 col-12" key={`platform-${platform.slug}`}>
-                                                                    <div className="form-group">
-                                                                        <div className="border-bottom">
-                                                                        <span className="form-label">{platform.title}</span>
-                                                                            <input type="text"
-                                                                                className="form-control"
-                                                                                name={platform.slug}
-                                                                                placeholder="Link ..."
-                                                                                onChange={this.handlePlatform}
-                                                                                value={(formField.platforms[platform.slug] ? formField.platforms[platform.slug] : "")} />
-                                                                            {this.validator.message(platform.slug, formField.platforms[platform.slug], 'url')}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>)}
-                                                        </Fragment>}
-                                                    </div>
-                                                    <hr/>
-                                                    <span className="section-titles">Additional Document</span>
-                                                 
-                                                    <div className="form-group">
                                                         <div className="form-group">
-                                                            <FileUploader upload={upload} coverImage={formField.cover_id} accept={'.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf, video/*'} />
+                                                            <span className="form-label">Phone Number </span>
+                                                            <input type="text"
+                                                                className={'form-control ' + (this.validator.errorMessages.mobile !== null ? 'is-invalid' : '')}
+                                                                value={formField.mobile}
+                                                                name="mobile"
+                                                                onBlur={() => this.validator.showMessageFor('mobile')}
+                                                                onChange={this.handleChange} />
+                                                            {this.validator.message('mobile', formField.mobile, 'phone')}
                                                         </div>
-                                                    </div>
+                                                    </Col>
+                                                </Row>
 
-                                                </Col>
-                                            </Row>
-                                        </div>
-                                    </Col>
-                                </Row>
+                                                <Row>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">About Me </span>
+                                                            <textarea className="form-control" rows="3" value={formField.about} name="about"
+                                                                onChange={this.handleChange}></textarea>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12} md={6}>
+                                                        <div className="form-group">
+                                                            <span className="form-label">Website </span>
+                                                            <input type="text" className={'form-control ' + (this.validator.errorMessages.website !== null ? 'is-invalid' : '')} value={formField.website} name="website"
+                                                                onChange={this.handleChange} />
+                                                            {this.validator.message('website', formField.website, 'url')}
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12}>
+                                                        <hr />
+                                                        <span className="section-titles">Skills</span>
 
-                               
+                                                        <div className="form-group">
+                                                            {/* <label>Skills</label> */}
+                                                            {(formField.skills || !formField.skills) &&
+                                                                <Select
+                                                                    className={'multiple-select mb-2 ' + (this.validator.errorMessages.skills !== null ? 'is-invalid' : '')}
+                                                                    classNamePrefix="multi"
+                                                                    isSearchable isMulti
+                                                                    defaultValue={formField.skills}
+                                                                    name="skills"
+                                                                    onChange={this.handleSelect}
+                                                                    options={skillsList.map(item => ({ value: item.id, label: item.name }))} />}
+                                                            {this.validator.message('skills', formField.skills, 'required')}
+                                                        </div>
 
-                            </Card.Body>
-                        </Card>
-                        <Card className="button bg-white">
-                            <div className=" d-flex align-items-center">
-                                <div className="col pl-0">Update all your latest changes by clicking on “Save Changes ”</div>
-                                <LaddaButton className="btn ladda-btn" loading={loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
-                            </div>
-                        </Card>
-                    </form>
+                                                        <hr />
+                                                        <span className="section-titles">Social Media Accounts</span>
+
+                                                        <h6>Please provide your social media links for our internal verification.</h6>
+                                                        <div className="row">
+                                                            {platformsList && <Fragment>
+                                                                {platformsList.map((platform, index) =>
+                                                                    <div className="col-md-6 col-12" key={`platform-${platform.slug}`}>
+                                                                        <div className="form-group">
+                                                                            <div className="border-bottom">
+                                                                                <span className="form-label">{platform.title}</span>
+                                                                                <input type="text"
+                                                                                    className="form-control"
+                                                                                    name={platform.slug}
+                                                                                    placeholder="Link ..."
+                                                                                    onChange={this.handlePlatform}
+                                                                                    value={(formField.platforms[platform.slug] ? formField.platforms[platform.slug] : "")} />
+                                                                                {this.validator.message(platform.slug, formField.platforms[platform.slug], 'url')}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>)}
+                                                            </Fragment>}
+                                                        </div>
+                                                        <hr />
+                                                        <span className="section-titles">Additional Document</span>
+
+                                                        <div className="form-group">
+                                                            <div className="form-group">
+                                                                <FileUploader upload={upload} coverImage={formField.cover_id} accept={'.xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf, video/*'} />
+                                                            </div>
+                                                        </div>
+
+                                                    </Col>
+                                                </Row>
+                                            </div>
+                                        </Col>
+                                    </Row>
+
+
+
+                                </Card.Body>
+                            </Card>
+                            <Card className="button bg-white">
+                                <div className=" d-flex align-items-center">
+                                    <div className="col pl-0">Update all your latest changes by clicking on “Save Changes ”</div>
+                                    <LaddaButton className="btn ladda-btn" loading={loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
+                                </div>
+                            </Card>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </>
 
 
 
 
 
-
-        </Main>);
+            // </Main>
+        );
     }
 }
 

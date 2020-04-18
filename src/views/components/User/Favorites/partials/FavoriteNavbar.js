@@ -6,10 +6,10 @@ const FavoriteNavbar = () => {
         <div className="public-navbar card mb-4">
             <div className="card-body">
                 <nav className="nav">
-                    <NavLink className="nav-link" to={`/user/favorite/services`}>Services</NavLink>
-                    <NavLink className="nav-link" to={`/user/favorite/jobs`}>Jobs</NavLink>
-                    <NavLink className="nav-link" to={`/user/favorite/freelancers`}>Freelancers</NavLink>
-                    <NavLink className="nav-link" to={`/user/favorite/co-founders`}>Co-founders</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/favorite/services`}>Services</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/favorite/jobs`}>Jobs</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/favorite/freelancers`}>Freelancers</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard/user/favorite/co-founders`}>Co-founders</NavLink>
                 </nav>
             </div>
         </div>

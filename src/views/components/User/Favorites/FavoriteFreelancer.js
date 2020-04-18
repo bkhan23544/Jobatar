@@ -110,7 +110,7 @@ class FavoriteFreelancer extends Component {
                         //     </div>
                         // </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card-box text-center">
                                 <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(freelancer)}>
                                     <i className="fas fa-heart text-info"></i>
