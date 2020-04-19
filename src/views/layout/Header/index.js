@@ -88,6 +88,8 @@ class Header extends Component {
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
                                 </NavDropdown>
+                                <NavLink activeClassName="active" className="nav-link" to="/dashBoard"><b>DASHBOARD</b></NavLink>
+
                             </Nav>
                         </Navbar.Collapse>
 

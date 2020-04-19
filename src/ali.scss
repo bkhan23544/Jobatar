@@ -2652,35 +2652,39 @@ ul li {
     		margin: 0;
 			padding: 0;
 			transition: 0.5s;
-			&:active {
-				// background: #345581 !important;
-				// color: #fff !important;
-				.fa{
-				// color: #fff !important;
-
-				}
-				a{
-					
-					// color: #fff !important;
-
-				}
-
-			}
+			
 			.link{
+		// transition: .4s;
+
 				&:hover{
-				background: rgba($color: #345581, $alpha: 0.9);
+				background: rgba($color: #345581, $alpha: 1);
 				color: #fff !important;
+				border-radius: 4px;
+				// transition: .4s;
+
+			
 				i{
 					color: #fff !important;
 	
 					}
-				a{
-						
-					color: #fff !important;
-
+					
 				}
-			}
+						span{
+							i{
+								// transform: rotate(0deg);
+								transition: .4s;
+	
+							}
+			
+						}
 		}
+		.Nestedlink{
+			&:hover{
+				color: #345581 !important;
+				font-weight: 700;
+		
+		}
+	}
 			&:focus{
 				color: #fff !important;
 
@@ -2694,45 +2698,37 @@ ul li {
 				color: #88898a;
 				text-decoration: none;
 				&:active{
-				// color: #fff !important;
+				color: #fff !important;
 					
-				}
-				.fa {
-					width: 20px;
-					font-size: 16px;
-					color: #345581;
-					&:hover{
-						color: #fff;
-					}
-				}
-				span{
-					i{
-						width: auto;
-						height: auto;
-						padding: 0;
-						margin-right: 10px;
-						color: #345581;
-						-webkit-transition: transform 0.5s ease;
-						-o-transition: transform 0.5s ease;
-						transition: transform 0.5s ease;
-						&:hover{
-							color: #345581 !important;
-						}
-					}
 				}
 			}
 		}
 		.link.active{
-			background-color: #345581;
-			color: white;
+			// background-color: #345581;
+			// color: white;
+			background: rgba($color: #345581, $alpha: 1);
+				color: #fff !important;
+				border-radius: 4px;
 			i{
 				color: #fff !important;
 
 				}
 			a{
 					
-				color: #fff !important;
+				// color: #fff !important;
 
+			}
+		}
+		.Nestedlink.activei{
+			color: #345581;
+			font-weight: 700;
+			i{
+				color: rgb(52, 85, 129);
+				margin-right: 5px;
+				background-image: url(https://www.iconsdb.com/icons/preview/red/circle-xxl.png);
+				background-repeat: no-repeat;
+				background-size: 8px 8px;
+				background-position: center;
 			}
 		}
 		ul{
@@ -2751,9 +2747,35 @@ ul li {
 		// height: 110px;
 		// transition: 0.4s;
 	// 	text-align: center;
-    // transform: rotate(-90deg);
-		
+	// transform: rotate(-90deg);
 	
+		#active2 ~ul{
+		
+
+				overflow: hidden;
+				height: 0px;
+				transition: 0.4s;
+				padding-top: 0px;
+    			padding-bottom: 0px;
+		
+		}
+		#active3 ~ul{
+			overflow: hidden;
+			height: 0px;
+			transition: 0.4s;
+			padding-top: 0px;
+			padding-bottom: 0px;
+	
+	}
+	
+	}
+	.rotateDown{
+		transform: rotate(-90deg);
+	}
+	.showNested{
+		padding-top: 10px !important;
+    	height: 122px !important;
+    	padding-bottom: 10px !important;
 	}
 	
 	.box {

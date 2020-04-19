@@ -179,12 +179,12 @@ class StripConnect extends Component {
                                                     <Card.Title className="mb-0">Account Holder Information</Card.Title>
                                                 </div>
 
-                                                <div className="form-group row">
+                                                {/* <div className="form-group row">
                                                     <label className="col-sm-3 col-form-label">Id Number (SSN)</label>
                                                     <div className="col-sm-8">
                                                         <input type="text" className="form-control" value={formField.id_number} name="id_number" onChange={this.handleChange} />
                                                     </div>
-                                                </div>
+                                                </div> */}
 
                                                 <div className="form-group row">
                                                     <label className="col-sm-3 col-form-label">Routing Number</label>

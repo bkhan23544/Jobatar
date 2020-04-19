@@ -18,7 +18,7 @@ const login = (params) => {
                     .then((user) => {
                         if (user)  {
                             //  gs.navigation('service-search', true);
-                             gs.navigation('dashboard', true);
+                             gs.navigation('dashBoard', true);
                         }
                     });
                  
