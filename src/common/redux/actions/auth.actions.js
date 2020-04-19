@@ -17,7 +17,8 @@ const login = (params) => {
                     gs.firebaseLogin(params.username)
                     .then((user) => {
                         if (user)  {
-                             gs.navigation('service-search', true);
+                            //  gs.navigation('service-search', true);
+                             gs.navigation('dashboard', true);
                         }
                     });
                  

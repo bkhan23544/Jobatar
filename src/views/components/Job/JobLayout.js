@@ -7,10 +7,12 @@ import { DocumentTitle } from '../../../helpers/DocumentTitle';
 class JobLayout extends Component {
     render() {
         const {children} = this.props;
-        return (<Main>
+        return (
+        // <Main>
+        <>
             <DocumentTitle title={'My Jobs'} />
-            <div className="bg-body allJobsPage PostedJobs">
-                <div className="container">
+            <div className="col-lg-9 col-sm-12 bg-body allJobsPage PostedJobs">
+                <div className="">
                     <div className="row">
                         <div className="col-12">
                             <h1 className="d-flex align-items-center">
@@ -25,7 +27,9 @@ class JobLayout extends Component {
                     </div>
                 </div>
             </div>
-        </Main>);
+            </>
+        // </Main>
+        );
     }
 }
 

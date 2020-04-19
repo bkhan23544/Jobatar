@@ -132,13 +132,13 @@ class Register extends React.Component {
                                     </Link>
                                 </div>
                                 <h2>Sign Up</h2>
-                                {/* <h5>Already have an account? <Link to="/login">Sign In</Link></h5>
-                                {!this.state.isSignedIn &&
+                                {/* <h5>Already have an account? <Link to="/login">Sign In</Link></h5> */}
+                                {/* {!this.state.isSignedIn &&
                                     <StyledFirebaseAuth className={'fireLogin'}
                                         uiConfig={this.uiConfig}
                                         firebaseAuth={firebase.auth()}
-                                    />}
-                                <div className="OrDiv">
+                                    />} */}
+                                {/* <div className="OrDiv">
                                     <div className="line"></div>
                                     <div className="center">OR</div>
                                     <div className="line"></div>

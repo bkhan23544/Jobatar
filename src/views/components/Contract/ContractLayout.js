@@ -11,24 +11,29 @@ class ContractLayout extends Component {
 
     render() {
         const { children, title, status, itemLink } = this.props;
-        return (<Main>
-            <DocumentTitle title={ title } />
-            <div className="my-services bg-body RecievedProposals">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 mb-1">
-                            <h1 className="d-flex align-items-center">
-                                <span className="col pl-0">{title}</span>
-                            </h1>
-                        </div>
-                        <div className="col-12">
-                            <ContractNavbar itemLink={itemLink} title={title} status={status} />
-                            {children}
+        console.log(title)
+        return (
+            // <Main>
+            <>
+                <DocumentTitle title={title} />
+                <div className={`my-services bg-body RecievedProposals col-lg-9 col-sm-12`}>
+                    <div className="col-12">
+                        <div className="row">
+                            <div className="col-12 mb-1" style={{padding: 0}}>
+                                <h1 className="d-flex align-items-center">
+                                    <span className="col pl-0">{title}</span>
+                                </h1>
+                            </div>
+                            <div className="col-12" style={{padding: 0}}>
+                                <ContractNavbar itemLink={itemLink} title={title} status={status} />
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Main>);
+            </>
+            // </Main> 
+        );
     }
 }
 

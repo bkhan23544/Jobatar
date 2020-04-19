@@ -10,8 +10,8 @@ const ContractNavbar = (props) => {
         <div className="public-navbar card mb-4">
             <div className="card-body">
                 <nav className="nav">
-                    <NavLink className="nav-link" to={itemLink +`/cash`}>Cash</NavLink>
-                    <NavLink className="nav-link" to={itemLink + `/exchange`}>Exchange</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard` + itemLink + `/cash`}>Cash</NavLink>
+                    <NavLink className="nav-link" to={`/dashBoard` + itemLink + `/exchange`}>Exchange</NavLink>
                 </nav>
             </div>
         </div>

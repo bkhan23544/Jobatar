@@ -85,17 +85,17 @@ class LoggedUser extends Component {
                         <img src={user && user.avatar} alt="" className="img-fluid border rounded-circle" width="40" height="40" />
                     </span>
                 } className="profile-dropdown">
-                    <NavLink className="dropdown-item border-bottom-0" to="/user/update">My Profile</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/update">My Profile</NavLink>
                     <Dropdown>
                         <Dropdown.Toggle as="a" className="dropdown-item pr-2 border-bottom-0" to="/services">
                             Services <i className="fas fa-angle-up float-right"></i>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <NavLink className="dropdown-item" to={"/services"}>My Services</NavLink>
-                            <NavLink className="dropdown-item" to={"/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService &&  item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
-                            <NavLink className="dropdown-item" to={"/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink>
-                            <NavLink className="dropdown-item" to={"/contracts/services/cash"}>Accepted Offers</NavLink>
-                            <NavLink className="dropdown-item" to={"/completed/services/cash"}>Completed Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/services"}>My Services</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService &&  item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/contracts/services/cash"}>Accepted Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/completed/services/cash"}>Completed Offers</NavLink>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown>
@@ -103,11 +103,11 @@ class LoggedUser extends Component {
                             Jobs <i className="fas fa-angle-up float-right"></i>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <NavLink className="dropdown-item" to={"/jobs"}>My Jobs</NavLink>
-                            <NavLink className="dropdown-item" to={"/offers/received/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.offers > 0 ? `new` : '')}</span> Received Proposals</NavLink>
-                            <NavLink className="dropdown-item" to={"/offers/sent/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.counter > 0 ? `new` : '')}</span> Sent Proposals</NavLink>
-                            <NavLink className="dropdown-item" to={"/contracts/jobs/cash"}>Accepted Proposals</NavLink>
-                            <NavLink className="dropdown-item" to={"/completed/jobs/cash"}>Completed Proposals</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/jobs"}>My Jobs</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.offers > 0 ? `new` : '')}</span> Received Proposals</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.counter > 0 ? `new` : '')}</span> Sent Proposals</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/contracts/jobs/cash"}>Accepted Proposals</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/completed/jobs/cash"}>Completed Proposals</NavLink>
                         </Dropdown.Menu>
                     </Dropdown>
 
@@ -143,12 +143,14 @@ class LoggedUser extends Component {
                         </Dropdown.Menu>
                     </Dropdown> */}
 
-                    <NavLink className="dropdown-item border-bottom-0" to="/user/connection/my-cofounder"><span className="badge badge-danger">{(item && item.connection && item.connection.requests > 0 ? `new` : '')}</span> Co-founders</NavLink>
-                    <NavLink className="dropdown-item border-bottom-0" to="/user/favorite/services">Favorites</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/connection/my-cofounder"><span className="badge badge-danger">{(item && item.connection && item.connection.requests > 0 ? `new` : '')}</span> Co-founders</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/favorite/services">Favorites</NavLink>
                     <Dropdown.Divider />
                     {/* <NavLink className="dropdown-item" to="/user/transactions">Transactions</NavLink> */}
-                    <NavLink className="dropdown-item border-bottom-0" to="/setting/account-info">Account Settings</NavLink>
-                    <NavLink className="dropdown-item border-bottom-0" to="/user/membership">Manage Membership</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/stripe-connect">Payment Method</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/setting/transactions">Transactions</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/setting/notifications">Notifications</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/membership">Manage Membership</NavLink>
                     <NavLink className="dropdown-item border-bottom-0" to="/user/support">Support</NavLink>
                     {/* <NavLink className="dropdown-item" to={`/user/public/about/${this.user.id}`}>View Profile</NavLink>
                     <NavLink className="dropdown-item" to="/user/change-password">Change Password</NavLink> */}

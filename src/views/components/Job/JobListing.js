@@ -139,9 +139,9 @@ class JobListing extends Component {
                                 : null}
 
                             {item.type === "hourly" ?
-                                <h6>{item.budget} {item.budget ? "$$ per hour" : ""}</h6>
-                                :
-                                <h6>{item.budget} $$ fixed</h6>
+                               <p className="cash-text">{item.budget ? "$"+item.budget+"/hr" : ""}</p>
+                               :
+                               <p className="cash-text">{item.budget ? "$"+item.budget+" Fixed" : ""}</p>
                             }
                             {/* <p><small>Posted 14 Hours ago</small></p> */}
                         </div>
@@ -313,8 +313,8 @@ class JobListing extends Component {
         let results = (jobs && jobs.items) ? jobs.items : null;
 
         return (<JobLayout>
-            <div className="row">
-                <div className="col-12 jobBoxx">
+            <div className="row" style={{margin:0}}>
+                <div className="jobBoxx col-12" style={{padding: 0}}>
                     {loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={2} width={700} /> : <Fragment>
                         {(results && results.length === 0) && <div>
                             <div className="jobBox card mb-4">
