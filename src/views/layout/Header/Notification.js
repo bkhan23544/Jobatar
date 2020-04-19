@@ -47,8 +47,8 @@ class Notification extends Component {
     };
 
     fetchMoreData = () => {
-        const { items, totalCount } = this.state;
-        if (items.length >= totalCount) {
+        const { items, count } = this.state;
+        if (items.length >= count) {
           this.setState({ hasMore: false });
           return;
         }
@@ -60,10 +60,7 @@ class Notification extends Component {
             this.offset = this.offset + 1;
             let lists = this.state.items;
             data.items.forEach(group => {
-                let index = lists(f => f.id == group.id);
-                if (index === -1) {
-                    lists.push(group);
-                }
+                lists.push(group);
             });
             this.setState({
                 items: lists,

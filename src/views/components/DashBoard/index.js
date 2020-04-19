@@ -206,10 +206,36 @@ const authSelector = createSelector(
     authentication => authentication
 );
 
+
+
+const processSelector = createSelector(
+    state => state.process,
+    process => process
+);
+
+const userSelector = createSelector(
+    state => state.user,
+    user => user
+);
+
+const experienceSelector = createSelector(
+    state => state.experiences,
+    experiences => experiences
+);
+
+const educationSelector = createSelector(
+    state => state.educations,
+    educations => educations
+);
+
 const mapStateToProps = createSelector(
+    processSelector,
+    userSelector,
+    experienceSelector,
+    educationSelector,
     authSelector,
-    (authentication) => ({
-        authentication
+    (process, user, experiences, educations,authentication) => ({
+        process, user, experiences, educations,authentication
     })
 );
 

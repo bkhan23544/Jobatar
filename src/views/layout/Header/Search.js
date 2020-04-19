@@ -101,20 +101,20 @@ class Search extends Component {
         return (
             <Fragment>
                 <form className="form-inline order-1 ml-lg-5" onSubmit={this.handleSubmit.bind(this)}>
-                    <div className="input-group">
+                    <div className="input-group" style={{maxWidth:"90vw",margin:"0 auto"}}>
                         <div className="input-group-prepend">
                             <span className="input-group-text">
                                 <FormControl variant="outlined">
                                     <Select
-                                    MenuProps={{
-                                        disableScrollLock: true
-                                      }}
                                     value={category ? category : ''}
                                     onChange={this.handleChange}
                                     input={<Input 
                                     name="category"
                                     id="outlined-age-simple" />}
                                     className="header-search"
+                                    MenuProps={{
+                                        disableScrollLock: true
+                                      }}
                                     >
                                     {/*<MenuItem value="Select">Select</MenuItem>*/}
                                     <MenuItem value="jobs">Jobs</MenuItem>

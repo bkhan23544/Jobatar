@@ -139,9 +139,9 @@ class JobListing extends Component {
                                 : null}
 
                             {item.type === "hourly" ?
-                                <h6>{item.budget} {item.budget ? "$$ per hour" : ""}</h6>
-                                :
-                                <h6>{item.budget} $$ fixed</h6>
+                               <p className="cash-text">{item.budget ? "$"+item.budget+"/hr" : ""}</p>
+                               :
+                               <p className="cash-text">{item.budget ? "$"+item.budget+" Fixed" : ""}</p>
                             }
                             {/* <p><small>Posted 14 Hours ago</small></p> */}
                         </div>

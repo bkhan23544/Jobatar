@@ -105,15 +105,30 @@ console.log(userCoFounderExperience)
          
 
                     <div class="card-box-profile-details">
+                   
 
 <div className="description-profile">
+    
 
- <ul className="tr-list resume-info">			
+ <ul className="tr-list resume-info">	
+ 		
 
   <li>
+      <div className="row">
    <div className="icon">
     <p className="tr-title"><i className="fa fa-briefcase" aria-hidden="true"></i> Cofounder Experience</p>
    </div>  
+   <div className="connection d-flex flex-nowrap align-items-center row" style={{marginLeft:"auto"}}>
+                            {((about && about.is_connection === false) || (about && about.is_connection === 2)) && <button onClick={() => this.addConnection(about)} className="btn btn-info connection-btn"><i className="fas fa-plus"></i> Connection</button> }
+                            {(about && about.is_connection === 0) && <button className="btn btn-primary" style={{pointerEvents: 'none'}}>Request Pending</button> }
+
+                            {(about && about.is_connection === 1) && <button className="btn btn-success" onClick={() => this.connected(about)}><i className="fas fa-check"></i> Connected</button> }
+
+                            <span className="count pl-3 btn btn-link">{about && about.num_of_connections} Connections</span>
+                        </div>
+                        </div>
+
+
    <div className="media-body">
    {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
     {(about && about.userCoFounderExperience === null) ? 'No data yet' : userCoFounderExperience && userCoFounderExperience.description}
@@ -162,32 +177,32 @@ console.log(userCoFounderExperience)
                                 <div className="wizard-inner">
                                     <Nav as="ul" variant="tab" className="nav-tabs d-flex justify-content-around">
                                         <Nav.Item as="li" style={{width: '20%'}}>
-                                            <Nav.Link eventKey={`business_1`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status ==1 ? "#345581": "none"}}>1</span>
+                                            <Nav.Link disabled eventKey={`business_1`}>
+                                                <span className="round-tab">1</span>
                                                 <span className="text">Concept</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
-                                            <Nav.Link eventKey={`business_2`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==2 ? "#345581": "none"}}>2</span>
+                                            <Nav.Link disabled eventKey={`business_2`}>
+                                                <span className="round-tab">2</span>
                                                 <span className="text" style={{color:"black"}}>Design</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
-                                            <Nav.Link eventKey={`business_3`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==3 ? "#345581": "none"}}>3</span>
+                                            <Nav.Link disabled eventKey={`business_3`}>
+                                                <span className="round-tab">3</span>
                                                 <span className="text">Development</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
-                                            <Nav.Link eventKey={`business_4`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==4 ? "#345581": "none"}}>4</span>
+                                            <Nav.Link disabled eventKey={`business_4`}>
+                                                <span className="round-tab">4</span>
                                                 <span className="text">Launch</span>
                                             </Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item as="li" style={{width: '20%'}}>
-                                            <Nav.Link eventKey={`business_5`}>
-                                                <span className="round-tab" style={{backgroundColor:userCoFounderExperience && userCoFounderExperience.status==5 ? "#345581": "none"}}>5</span>
+                                            <Nav.Link disabled eventKey={`business_5`}>
+                                                <span className="round-tab">5</span>
                                                 <span className="text">Growth</span>
                                             </Nav.Link>
                                         </Nav.Item>
@@ -206,10 +221,13 @@ console.log(userCoFounderExperience)
    </div>  
    <div className="media-body">
    {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : <div>
+  
+                                  {(userCoFounderIdeal && userCoFounderIdeal.description) ?      <div>
                                 <h5><b className="icon-color">{userCoFounderIdeal && userCoFounderIdeal.title}</b></h5>
                                 <div className="about-text">
                                     {userCoFounderIdeal && userCoFounderIdeal.description}
                                 </div>
+                                </div> : 'No data yet'}
                             </div>}
    </div>
    <hr/>
@@ -220,11 +238,8 @@ console.log(userCoFounderExperience)
     <p className="tr-title"><i className="fa fa-cogs" aria-hidden="true"></i> Skills</p>
    </div>  
    <div className="media-body">
-{about.userProfile && about.userProfile.skills.map((skill)=>{
-    return(
-        <span className="label label-success">{skill.title}{about.skills && about.userProfile.skills.length === 0 && 'No data yet'}</span>
-    )
-})}
+   {about.userProfile && about.userProfile.skills.map((skill) => <span className="label label-success" key={skill.id}>{skill.title }</span>)}
+   {about.userProfile && about.userProfile.skills.length === 0 && 'No data yet'}
 
    </div>
    <hr/>

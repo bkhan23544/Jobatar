@@ -9,7 +9,7 @@ import { alertSelectors } from '../../../../common/redux/selectors';
 import { globalService as gs, itemService } from '../../../../common/services';
 import { SearchLoader } from '../../../../common/loaders';
 import Rating from '@material-ui/lab/Rating';
-import ReadMoreReact from "read-more-react";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 
 class JobListing extends Component {
 
@@ -167,9 +167,9 @@ class JobListing extends Component {
                                         : null}
 
                                     {item.type === "hourly" ?
-                                        <h6>{item.budget} {item.budget ? "$$ per hour" : ""}</h6>
+                                        <p className="cash-text">{item.budget ? "$"+item.budget+"/hr" : ""}</p>
                                         :
-                                        <h6>{item.budget} $$ fixed</h6>
+                                        <p>{item.budget ? "$"+item.budget+" Fixed" : ""}</p>
                                     }
                                     {/* <p><small>Posted 14 Hours ago</small></p> */}
                                 </div>
@@ -182,7 +182,17 @@ class JobListing extends Component {
                                 <div class="col-lg-12">
                                     {/* <hr class="small-hr" /> */}
                                     {/* <p>Description of every page/module: I have a PSD ebay store and listing design in photoshop that needs to be sliced and coded for eBay to be mobile responsive. Description of requirements/features: Mobile Responsive Ebay store and listing design...</p> */}
-                                    <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+                                  {/* <ReadMoreReact text={item && gs.html2text(item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} /> */}
+                                  <ReactReadMoreReadLess
+        charLimit={200}
+        readMoreText={"Read more ▼"}
+        readLessText={"Read less ▲"}
+        readMoreClassName="job-text"
+        readLessClassName="job-text"
+      >
+         {gs.html2text(item.description)}
+          </ReactReadMoreReadLess>
+                                {/* <p className="job-text">{gs.html2text(item.description)}</p> */}
 
                                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
                                         {item.skills.length &&
