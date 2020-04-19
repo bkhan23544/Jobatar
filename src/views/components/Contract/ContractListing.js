@@ -29,6 +29,7 @@ class ContractListing extends Component {
             const { title, status, module, settlement, itemLink} = this.props;
             this.loadProposal(status, module, settlement, 1);
             this.setState({ title, status, module, settlement, itemLink});
+          
         }
     }
 
@@ -71,7 +72,11 @@ class ContractListing extends Component {
         const { title, status, proposals, itemLink, loading , q} = this.state;
         let results = proposals && proposals.items ? proposals.items : [];
         let pagination = proposals && proposals.pagination ? proposals.pagination : [];
-        console.log(this.props)
+        const {module} = this.props;
+
+var obj = {title,status,module,settlement,itemLink,q}
+
+        console.log(obj,"These Are The items")
         return (<ContractLayout title={title} status={status} itemLink={itemLink}>
             <div className="card service-box">
                 <div className="card-body p-3">

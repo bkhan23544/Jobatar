@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import {Main} from "../../layout";
 import {createSelector} from "reselect";
 import {authActions} from "../../../common/redux/actions";
+import { userActions } from '../../../common/redux/actions';
 import {Switch,Route, Link ,NavLink,withRouter} from "react-router-dom";
+
 // import { JobCreate, JobUpdate, JobView, JobSuccess, JobListing } from '../Job';
 // import Service from '../Service';
 
@@ -16,7 +18,10 @@ class DashBoard extends React.Component {
 
         super(props);
         // reset login status
-        this.onLogout = this.onLogout.bind(this);
+		this.onLogout = this.onLogout.bind(this);
+		
+
+
     }
 
     onLogout(){
@@ -46,6 +51,8 @@ class DashBoard extends React.Component {
 			}
 		}
 	}
+
+
 
     render() {
 		const { children } = this.props;
@@ -363,3 +370,4 @@ const DashboardTab = ()=> {
 	    `</div>
 	)
 }
+

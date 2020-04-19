@@ -59,7 +59,9 @@ class JobListing extends Component {
         this.setState({ loading: true });
         itemService.job("GET", null, formField).then(response => {
             this.setState({ jobs: response, loading: false });
+            console.log(response,"Mine")
         });
+        
     };
 
     onChangePage = (page) => {
