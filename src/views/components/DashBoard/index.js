@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {Main} from "../../layout";
 import {createSelector} from "reselect";
 import {authActions} from "../../../common/redux/actions";
-import {Switch,Route, Link ,NavLink,withRouter ,Redirect} from "react-router-dom";
-// import { globalService as gs, authService } from '../../../common/services';
+import { userActions } from '../../../common/redux/actions';
+import {Switch,Route, Link ,NavLink,withRouter} from "react-router-dom";
 
 // import { JobCreate, JobUpdate, JobView, JobSuccess, JobListing } from '../Job';
 // import Service from '../Service';
@@ -20,9 +20,8 @@ class DashBoard extends React.Component {
         // reset login status
 		this.onLogout = this.onLogout.bind(this);
 		
-		this.state={
-			routeTo : false,
-		}
+
+
     }
 
     onLogout(){
@@ -401,3 +400,4 @@ const DashboardTab = ()=> {
 	    `</div>
 	)
 }
+

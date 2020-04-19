@@ -86,6 +86,7 @@ class RatingReview extends Component {
     render() {
         const { item, reviews, isShowDropdown, isShowAvgRating, selectedReviews } = this.state;
         let profile = item && item.user && item.user.userProfile;
+        console.log(profile,"this is profile")
         const options = [
             { value: '', label: 'All Reviews' },
             { value: 'cash', label: 'Cash Reviews' },
