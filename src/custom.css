@@ -84,6 +84,7 @@ color: white !important;
 .inline-wrapper{
   display: flex;
   flex-direction: row;
+ flex-wrap: nowrap;
 }
 
 .features {
@@ -586,6 +587,10 @@ font-size: 2vw;
        border: 1px solid #345581 !important;
    }
 
+   .ladda-btn:hover{
+       color: white !important;
+   }
+
    .fa-cloud-upload-alt{
        color: #345581 !important;
    }
@@ -663,7 +668,7 @@ border-radius: 0px !important;
 
   .sign-up-btn:hover{
     color: #345581 !important;
-    background-color:#345581 !important;
+    background-color:white !important;
     border:1px solid #345581
   } 
 
@@ -691,6 +696,11 @@ border-radius: 0px !important;
     margin: 0 auto !important;
 }
 
+.btn-outline-primary{
+    color: #345581;
+}
+
+
 .btn-outline-primary:hover{
 color:white !important;
 background-color: #345581 !important;
@@ -713,6 +723,21 @@ background-color: #345581 !important;
 .subscribe-btn{
     color:black !important;
     background-color: white !important;
+}
+
+.job-text{
+	color: gray;
+	font-family: "Roboto";
+	font-size: 16px;
+}
+
+.center-align{
+    text-align: center;
+    justify-content: center;
+}
+
+.table-text{
+    font-size: 15px !important;
 }
 
 

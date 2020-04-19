@@ -416,7 +416,7 @@ class CoFounder extends Component {
                         <Card className="button bg-white">
                             <div className=" d-flex align-items-center">
                                 <div className="col pl-0">Update all your latest changes by clicking on “Save Changes”</div>
-                                <div className="row">
+                                <div className="row center-align">
                                 {(parseInt(userProfile.is_co_founder) === 1) && <button type="button" className="btn btn-outline-primary mr-4" onClick={this.coFounderDeactivate}>Deactivate Co-Founder</button>}
                                 <LaddaButton className="btn ladda-btn" loading={this.state.loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
                                 </div>

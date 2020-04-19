@@ -66,48 +66,19 @@ class Header extends Component {
         return (
             <header id="header" className={`${this.state.activeClass}`}>
                 {/* <div className="text-center font-weight-bold">Please be aware this site is under development and we are in the process of deploying many new features. Please let us know if you have any question or suggestions.</div> */}
-                <Navbar bg="light" expand="xl" variant="light" className="">
-                    <Container>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar bg="light" className="navbar-expand-custom" expand="xl" variant="light">
+                    
+                    <Container fluid="xl" >
+                    <Navbar.Toggle className="navbar-toggle"/>
                         <NavLink className="navbar-brand" to="/">
                             <img src="/images/logo.svg" alt="" className="img-fluid" width="140" />
                         </NavLink>
                        
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
-                            <Nav> <Search history={history} /></Nav>
+                            <Nav ><Search history={history}/></Nav>
                             <Nav className="navbar-nav ml-auto navbar-main mt-2">
                                 <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>
-                                <div
-                                    style={{ cursor: "pointer" }}
-                                    onMouseOver={() => this.changeClasseToOpen("browse")}
-                                    onMouseOut={() => this.changeClasseToClose("browse")}
-                                    onClick={() => this.toggle2("browse")}
-                                    activeClassName=""
-                                    className="nav-link"
-                                >
-                                    <b>BROWSE</b>
-                                    <div id="browse" className="navDropDownClose">
-                                        <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br /><small>To Apply For</small></NavLink>
-                                        <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br /> <small>To Buy or Exchange</small></NavLink>
-                                        <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br /> <small>To Hire</small></NavLink>
-                                        <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br /> <small>To Partner With</small></NavLink>
-                                    </div>
-                                </div>
-                                <div
-                                    onMouseOver={() => this.changeClasseToOpen2("browse2")}
-                                    onMouseOut={() => this.changeClasseToClose2("browse2")}
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => this.toggle("browse2")}
-                                    activeClassName=""
-                                    className="nav-link"
-                                >
-                                    <b>POST</b>
-                                    <div id="browse2" className="navDropDownClose">
-                                        <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br /><small>To Receive Offers</small></NavLink>
-                                        <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br /><small>To Sell or Exchange</small></NavLink>
-                                    </div>
-                                </div>
-                                {/* <NavDropdown title="BROWSE">
+                                <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>
                                     <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br/> <small>To Buy or Exchange</small></NavLink>
                                     <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br/> <small>To Hire</small></NavLink>
@@ -116,15 +87,15 @@ class Header extends Component {
                                 <NavDropdown title="POST">
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
-                                </NavDropdown> */}
+                                </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>
 
                         {loggedIn ?
                             <LoggedUser /> :
                             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
-                                <NavLink className="nav-link btn btn-info" to="/login">Sign in</NavLink>
-                                <NavLink className="nav-link btn btn-info ml-3" to="/register">Get started</NavLink>
+                                <NavLink className="nav-link btn login-btn" to="/login">Login</NavLink>
+                                <NavLink className="nav-link btn ml-3 sign-up-btn" to="/register">Sign Up</NavLink>
                             </Nav>
                         }
                     </Container>

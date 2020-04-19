@@ -444,7 +444,7 @@ class PublicJobView extends Component {
 
                                         <li>
                                             <div class="icon">
-                                                <p class="tr-title"><i class="fab fa-black-tie"></i> Job Description</p>
+                                                <p class="tr-title"> Job Description</p>
                                             </div>
                                             <div className="media-body" dangerouslySetInnerHTML={{ __html: item && item.description }}></div>
                                             <div className="chips mb-3">

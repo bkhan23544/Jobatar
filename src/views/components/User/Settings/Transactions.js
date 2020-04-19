@@ -4,7 +4,8 @@ import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers'
 import Select from "react-select";
 import {Main} from '../../../layout';
 import Pagination from '../../../../helpers/Pagination';
-import {Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
+import {Table, TableHead, TableRow, TableCell, TableBody,Paper,TableContainer,makeStyles} from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 import {itemService} from "../../../../common/services";
@@ -13,6 +14,13 @@ import {Col, Row} from "react-bootstrap";
 import NavBar from "./partials/NavBar";
 import Card from "react-bootstrap/esm/Card";
 
+
+
+const styles = theme => ({
+    table: {
+      minWidth: 50,
+    },
+  });
 
 class Transactions extends Component {
 
@@ -60,6 +68,7 @@ class Transactions extends Component {
         const {formField, transactions} = this.state;
         let results = (transactions && transactions.items) ? transactions.items : null;
         let pagination = (transactions && transactions.pagination) ? transactions.pagination : null;
+        const { classes } = this.props;
 
         return (<Main>
             <DocumentTitle title={`My Transactions`}/>
@@ -124,7 +133,7 @@ class Transactions extends Component {
                                 <div className="on-icon">
                                        <p className="pay-title">My Transactions</p>
                                        </div>
-                                    <Table aria-label="simple table" className="mb-4 border">
+                                    {/* <Table aria-label="simple table" className="mb-4 border" >
                                         <TableHead>
                                             <TableRow>
                                                 <TableCell>Transaction ID</TableCell>
@@ -165,7 +174,57 @@ class Transactions extends Component {
                                                 </TableRow>
                                             ))}
                                         </TableBody>
-                                    </Table>
+                                    </Table> */}
+ <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="right" className="table-text">Transaction ID</TableCell>
+            <TableCell align="right" className="table-text">Transaction Date</TableCell>
+            <TableCell align="right" className="table-text">Contract Name</TableCell>
+            <TableCell align="right" className="table-text">Admin Fee</TableCell>
+            <TableCell align="right" className="table-text">Amount</TableCell>
+            <TableCell align="right" className="table-text">Transfer</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {(results && results.length === 0) && <TableRow>
+              <TableCell colSpan={5}>
+              <div
+                                                        className="common-not-found d-flex align-items-center justify-content-center">
+                                                        <div className="inner text-center">
+                                                            <figure>
+                                                                <img src="/images/not-found/My-Transactions.png"
+                                                                     alt="Image" width="100"/>
+                                                            </figure>
+                                                            <h5>YOU DON’T HAVE ANY TRANSACTION YET</h5>
+                                                            <p className="title">This is where you’ll be able to track
+                                                                all your transactions</p>
+                                                        </div>
+                                                    </div>
+              </TableCell>
+            </TableRow>}
+
+{results && results.map(item => (
+    <TableRow key={item.id}>
+        <TableCell component="th" scope="row">
+            {item.transactionID}
+        </TableCell>
+        <TableCell>{moment(item.created_at * 1000).format('LLL')}</TableCell>
+        <TableCell>{item.proposal.item.title}</TableCell>
+        <TableCell>${item.admin_fee}</TableCell>
+        <TableCell>${item.total_amount}</TableCell>
+        <TableCell>${item.transfer_amount}</TableCell>
+    </TableRow>
+))}
+          
+        </TableBody>
+      </Table>
+    </TableContainer>
+
+
+
+
                                     <Pagination className="justify-content-center"
                                                 pageSize={pagination && pagination.pageSize}
                                                 totalCount={(pagination && pagination.pageCount) ? pagination.pageCount : 1}
@@ -181,4 +240,4 @@ class Transactions extends Component {
     }
 }
 
-export default Transactions;
+export default withStyles(styles)(Transactions);

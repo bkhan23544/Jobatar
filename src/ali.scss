@@ -402,12 +402,30 @@ body{
 	// margin-bottom: 30px;
 	// position: relative;
 	// overflow: hidden;
+
+
+	
 	.job{
 		// padding: 10px 0 0px 0;
 		background-color: white;
 		padding: 20px;
-		border-radius: 10px;
 		margin: 10px;
+		
+		
+		.cash-text{
+			color: #345581 !important;
+			font-size: 16px !important;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-weight: 600 !important;
+		}
+
+		.job-text{
+			color: gray;
+			font-family: "Roboto";
+			font-size: 16px;
+		}
+
 		.previousButton{
 			.btn-secondary{
 				background-color: #eeeefd;
@@ -540,6 +558,12 @@ body{
 				line-height: 0.8;
 			}
 		}
+&:hover{
+background-color: white;
+box-shadow: 0px 0px 5px rgba(black, 0.2);
+}
+
+
 		.mid-sec {
 			padding: 0px 0 5px 0;
 			span {
@@ -632,20 +656,24 @@ body{
 					line-height: 0.4;
 				}
 			}
-			p {
-				font-family: 'HKGrotesk';
-				font-weight: 800;
-				padding-bottom: 0px;
-				font-size: 18px;
-				color: #585457 !important;
-				line-height: 0.8;
-				margin: 0;
-				margin-bottom: 2px;
-				i{
-					font-size: 10px;	
-					color: #345581;
-				}
-			}
+           
+
+			// p {
+			// 	font-family: 'HKGrotesk';
+			// 	font-weight: 800;
+			// 	padding-bottom: 0px;
+			// 	font-size: 18px;
+			// 	color: #585457 !important;
+			// 	line-height: 0.8;
+			// 	margin: 0;
+			// 	margin-bottom: 2px;
+			// 	i{
+			// 		font-size: 10px;	
+			// 		color: #345581;
+			// 	}
+			// }
+
+
 			h4 {
 				font-family: 'HKGrotesk';
 				font-weight: 700;
@@ -739,7 +767,8 @@ body{
 			 width: 100%;
 			}
 		}
-	} 
+	}
+
 	
 }
 .jobBoxx,.my-favorites{
@@ -813,6 +842,11 @@ body{
 		}
 	}
 }
+
+
+			
+
+
 .RecievedProposals{
 	padding-top: 0;
 	h1{
@@ -829,6 +863,8 @@ body{
 			}
 		}
 	}
+
+	
 	// .input-group-append{
 	// 	position: absolute;
 	// 	right: 4px;
@@ -1622,8 +1658,8 @@ ul li {
 			.display-text-group{
 				text-align: left;
 				padding: 10px;
-				color: #7d7d7d;
-				font-size: 14px;
+				color: #000;
+				font-size: 12px;
 			}
 			.read-more-button{
 				color: #345581;
@@ -2183,11 +2219,13 @@ ul li {
 				border-radius: 5px;
 			}
 			.displayed-text{
-				color: #898b8c;
+				color: #000 !important;
 				font-family: 'HKGrotesk';
-				font-size: 16px;
+				font-size: 12px !important;
 				margin-top: 10px;
 			}
+
+			
 			.read-more-button{
 				font-family: 'HKGrotesk';
 				font-weight: 600;
@@ -2249,9 +2287,9 @@ ul li {
 			}
 		}
 		.displayed-text{
-			color: #898b8c;
+			color: #000;
 			font-family: 'HKGrotesk';
-			font-size: 16px;
+			font-size: 12px;
 			margin-top: 10px;
 		}
 		.read-more-button{
