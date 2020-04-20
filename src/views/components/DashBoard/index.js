@@ -31,9 +31,9 @@ class DashBoard extends React.Component {
 	}
 	
 	toggleActive=(index,id)=>{
-		console.log(index,id)
+		// console.log(index,id)
 		
-		for(let i = 0; i < 12; i++){
+		for(let i = 0; i < 13; i++){
 			if(i+1 === index){
 				document.getElementById(id+index).classList.add("active")
 			}else{
@@ -69,7 +69,7 @@ class DashBoard extends React.Component {
 		}
 	}
 	toggleActiveNested=(index,id)=>{
-		console.log(index)
+		// console.log(index)
 		for(let i = 0; i < 10; i++){
 			if(i+1 === index){
 				document.getElementById(id+index).classList.add("activei")
@@ -194,7 +194,7 @@ class DashBoard extends React.Component {
 			
 			<li><Link id="active7" onClick={()=>this.toggleActive(7,"active")} to={`/dashBoard/stripe-connect`} className="link"><i className="fas fa-money-check-alt" style={{color:"#345581",marginRight:5}}></i>Payment method</Link></li>
 
-			<li><Link id="active8" onClick={()=>this.toggleActive(8,"active")} to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:5}}></i>Manage Mambership</Link></li>
+			<li><Link id="active8" onClick={()=>this.toggleActive(8,"active")} to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:5}}></i>Manage Membership</Link></li>
 
 			<li><Link id="active9" onClick={()=>this.toggleActive(9,"active")} to={`/dashBoard/setting/notifications`} className="link"><i className="fas fa-bell" style={{color:"#345581",marginRight:5}}></i>Notifications</Link></li>
 
@@ -213,13 +213,18 @@ class DashBoard extends React.Component {
 					<i className="fas fa-book-reader" style={{color:"#345581",marginRight:5}}></i>Experience & Education
 				</Link>
 			</li>
+			<li>
+				<Link id="active12" onClick={()=>this.toggleActive(12,"active")} to={`/dashhBoard/user/co-founder`} className="link">
+				<i className="fas fa-handshake" style={{color:"#345581",marginRight:5}}></i>Co-Founder
+				</Link>
+			</li>
 			{/* <li>
 			  <a href="profileimage.html">
 				<i className="fa fa-image"></i>  <span>Change Profile Image</span>
 			  </a>
 			</li> */}
 			<li>
-			<Link id="active12" onClick={()=>this.toggleActive(12,"active")} to={`/dashBoard/setting/change-password`} className="link">
+			<Link id="active13" onClick={()=>this.toggleActive(13,"active")} to={`/dashBoard/setting/change-password`} className="link">
 				<i className="fas fa-lock" style={{color:"#345581",marginRight:5}}></i><span>Change Password</span>
 			</Link>
 			</li>
