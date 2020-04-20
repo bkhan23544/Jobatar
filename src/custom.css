@@ -187,7 +187,7 @@ color: white !important;
 }
 
 .section-heading{
-	font-size: 60px;
+	font-size: 40px;
 	text-align: center;
 	color: #345581;
 	font-weight: 500;
@@ -203,7 +203,7 @@ line-height: 1.2;
 }
 .section-text{
 	color: gray;
-    font-size: 22px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 }
@@ -211,13 +211,13 @@ line-height: 1.2;
 .guide-heading{
 	color: #345581;
     font-family: "Grold";
-	font-size: 40px;
+	font-size: 30px;
     margin-left: 50px;
     line-height: 1.2;
 }
 
 .guide-content{
-    font-size: 18px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 	color: gray;
     margin-top: 50px;
@@ -375,6 +375,13 @@ font-size: 2vw;
  color: #345581 !important;
 }
 
+.support-title{
+    display: block;
+    font-size: 39px;
+    font-weight: 700;
+    color: #345581 !important;
+}
+
 
 .description-profile .tr-title,
 .work .tr-title{
@@ -401,12 +408,17 @@ font-size: 2vw;
 }
 .description-profile .label-success {
   /* font-family: "Grold"; */
-  background: rgba(52,85,129,0.7) !important; 
-  margin-bottom: 5px;
-  margin-left: 10px;
-  font-size: 15px;
-  padding: 10px;
-  color: #000 !important;
+  font-family: 'HKGrotesk';
+				background: #D3D3D3!important;
+				margin-top: 5px;
+				font-size: 16px;
+				margin-right: 3px;
+				padding: 8px 10px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    font-size: 13px;
+				color: #000 !important;
+				letter-spacing: 1px;
 }
 
 .tr-list {

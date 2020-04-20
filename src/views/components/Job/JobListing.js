@@ -156,7 +156,7 @@ class JobListing extends Component {
                         <div class="col-lg-12">
                             {/* <hr class="small-hr" /> */}
                             {/* <p>Description of every page/module: I have a PSD ebay store and listing design in photoshop that needs to be sliced and coded for eBay to be mobile responsive. Description of requirements/features: Mobile Responsive Ebay store and listing design...</p> */}
-                            <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+                            {gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
 
                             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
                                 {item.skills.length &&

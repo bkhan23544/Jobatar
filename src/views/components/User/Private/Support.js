@@ -10,11 +10,11 @@ import { itemService, globalService as gs } from '../../../../common/services';
 import { alertSelectors } from '../../../../common/redux/selectors';
 
 class Support extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             formField: {
+                category: '',
                 subject: '',
                 comment: '',
             },
@@ -27,6 +27,7 @@ class Support extends Component {
     validator = () => {
         return new FormValidator([
             {field: 'subject', method: 'isEmpty', validWhen: false, message: 'Subject is required.'},
+            {field: 'category', method: 'isEmpty', validWhen: false, message: 'Category is required.'},
             {field: 'comment', method: 'isEmpty', validWhen: false, message: 'Comment is required.'},
         ]);
     };
@@ -45,9 +46,10 @@ class Support extends Component {
             const { formField } = this.state;
             const { dispatch } = this.props;
             const formValue = {
-                userSupport:{ 
+                userSupport:{
                     text: formField.comment,
                     info: {
+                        category: formField.category,
                         subject: formField.subject,
                         status: 'Open'
                     },
@@ -62,7 +64,6 @@ class Support extends Component {
         }
 
     };
-
     render() {
         const {formField, submitted, validation} = this.state;
         let isValid = submitted ? this.validator().validate(formField) : validation;
@@ -76,7 +77,7 @@ class Support extends Component {
                     <Card className="mb-4 mb-lg-5">
                         <Card.Header>
                         <div className="on-icon">
-                                       <p className="pay-title">Support</p>
+                                       <p className="support-title">Support</p>
                                        </div>
                         </Card.Header>
                         <Card.Body>
@@ -97,6 +98,17 @@ class Support extends Component {
                                         </div>
                                     </Col> */}
                                     <Col xs="12">
+                                    <div className="form-group">
+                                            <label>Category</label>
+                                            <select className="form-control" name="category" value={formField.category}
+                                                onChange={this.handleChange} className={'form-control ' + (submitted && isValid.category.isInvalid ? 'is-invalid' : '')}>
+                                                <option value="none">Select Category</option>
+                                                <option value="dispute">Disputes</option>
+                                                <option value="payment">Payment Issues</option>
+                                                <option value="account">Account Issues </option>
+                                            </select>
+                                            {submitted && isValid.category.isInvalid && <div className="invalid-feedback"> {isValid.category.message} </div>}
+                                        </div>
                                         <div className="form-group">
                                             <label>Subject</label>
                                             <input type="text" placeholder="Enter Subject"

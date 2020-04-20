@@ -22,9 +22,9 @@ class Membership extends Component {
                                     </div> */}
                                         <div className="caption">
                                             <h3 className="card-title">Basic <br /><small>1 Month Plan</small></h3>
-                                            <h3 className="price">$19.99 / <small>Month</small></h3>
+                                            <h3 className="price">$39.99 / <small>Month</small></h3>
                                             <div className="text px-3">
-                                                <p>$19.99 billed monthly, cancel anytime <br /> <span className="text-info font-weight-bold">&nbsp;</span></p>
+                                                <p>$39.99 billed monthly, cancel anytime <br /> <span className="text-info font-weight-bold">&nbsp;</span></p>
                                                 <p>Unlimited access to service exchange &amp; find co-founders</p>
                                             </div>
                                             <div className="button px-3">
@@ -42,9 +42,9 @@ class Membership extends Component {
                                     </div> */}
                                         <div className="caption">
                                             <h3 className="card-title">Standard <br /> <small>6 Months Plan</small></h3>
-                                            <h3 className="price">$14.99 / <small>Month</small></h3>
+                                            <h3 className="price">$24.99 / <small>Month</small></h3>
                                             <div className="text px-3">
-                                                <p>$89.94 billed semi-annually, cancel anytime <br /> <span className="text-info font-weight-bold">Save $30</span></p>
+                                                <p>$179.94 billed semi-annually, cancel anytime <br /> <span className="text-info font-weight-bold">Save $60</span></p>
                                                 <p>Unlimited access to service exchange &amp; find co-founders</p>
                                             </div>
                                             <div className="button px-3">
@@ -62,9 +62,9 @@ class Membership extends Component {
                                     </div> */}
                                         <div className="caption">
                                             <h3 className="card-title">Premium <br /> <small>12 Months Plan</small></h3>
-                                            <h3 className="price">$8.99 / <small>Month</small></h3>
+                                            <h3 className="price">$19.99 / <small>Month</small></h3>
                                             <div className="text px-3">
-                                                <p>$107.88 billed annually, cancel anytime<br /> <span className="text-info font-weight-bold">Save $132</span></p>
+                                                <p>$239.88 billed annually, cancel anytime<br /> <span className="text-info font-weight-bold">Save $240</span></p>
                                                 <p>Unlimited access to service exchange &amp; find co-founders</p>
                                             </div>
                                             <div className="button px-3">

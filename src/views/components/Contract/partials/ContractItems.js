@@ -82,7 +82,7 @@ class ContractItems extends Component {
                     </div>
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table id="example1" class="table table-bordered table-hover">
+                            <table id="example1" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Freelancer</th>
