@@ -320,8 +320,8 @@ class FreelancerSearch extends PureComponent {
                         </div>
                     </div>
                     <div className="section2">
-                        <div className="row">
-                            <form style={{ width: "100%" }} name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                        <div className="row"> */}
+                            {/* <form style={{ width: "100%" }} name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                                 <div style={{ width: "100%", paddingLeft: 5, paddingRight: 5 }} className="any-search mb-3 mb-lg-4">
                                     <div className="input-group">
                                         <input type="text" className="form-control" onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
@@ -331,8 +331,8 @@ class FreelancerSearch extends PureComponent {
                                     </div>
                                     <p onClick={() => this.filterToggle("section1")}>Advance Filter</p>
                                 </div>
-                            </form>
-                            <div className="col-12 sorting mb-3 d-flex align-items-center">
+                            </form> */}
+                            {/* <div className="col-12 sorting mb-3 d-flex align-items-center">
                                 <h6 className="col pl-0 mb-0">
                                     {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}
                                     {(results && results.length === 0) && 'No search result found.'}
@@ -371,6 +371,25 @@ class FreelancerSearch extends PureComponent {
                     <div className="row">
 
                         <div className="col-lg-9">
+                        <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                                <div style={{ width: "100%", marginBottom: "20px" }} className="input-group">
+                                    <input type="text" className="form-control"  onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
+                                    <div className="input-group-prepend">
+                                        <button className="btn btn-info" type="submit">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {/* <form style={{ width: "100%" }} name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                                <div style={{ width: "100%", paddingLeft: 5, paddingRight: 5 }} className="any-search mb-3 mb-lg-4">
+                                    <div className="input-group">
+                                        <input type="text" className="form-control" onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
+                                        <div className="input-group-prepend">
+                                            <button className="btn btn-info" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                    <p onClick={() => this.filterToggle("section1")}>Advance Filter</p>
+                                </div>
+                            </form> */}
                             <FreelancerListing results={results} is_co_founder={formField.is_co_founder} />
                             <div className="paginationCommon blogPagination text-center">
                                 <Pagination className=""
