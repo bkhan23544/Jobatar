@@ -61,7 +61,7 @@ class ForgotPassword extends Component {
             <div className="login-container container d-flex flex-wrap justify-content-center">
                 <div className="login-form order-md-2 d-flex flex-wrap align-items-center">
                     <div className="login-box mx-auto">
-                        <form style={{width: '420px'}} name="forgot" onSubmit={this.handleSubmit} noValidate>
+                        <form style={{width: '340px'}} name="forgot" onSubmit={this.handleSubmit} noValidate>
                             <div className="logo text-center">
                                 <Link to="/">
                                     <img src="images/logo.svg" alt="" className="img-fluid"/>

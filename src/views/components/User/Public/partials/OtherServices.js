@@ -16,7 +16,7 @@ const OtherServices = (props) => {
     return (
         <div className="col-12 same-person">
             <h4>Other Services {item ? `by ${item.user.name}` : ''}</h4>
-            {items && items.length < 1 ? 'Other Services not found' : ''}
+            {items && items.length < 1 ? 'No Data Yet' : ''}
             <div className="row">
                 {items && <Fragment>
                     {items && items.slice(0, 4).map((item) =>

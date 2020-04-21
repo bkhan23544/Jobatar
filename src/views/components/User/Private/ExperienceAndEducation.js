@@ -82,7 +82,7 @@ class ExperienceAndEducation extends Component {
         // <Main>
         <>
             <DocumentTitle title={`Experience and Education`}/>
-            <div className="update-profile bg-body col-9">
+            <div className="update-profile bg-body col-lg-9 col-sm-12">
                 <div className="">
                     <Card className="mb-4 mb-lg-5">
                     {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}

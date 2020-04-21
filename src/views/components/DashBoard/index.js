@@ -20,8 +20,10 @@ class DashBoard extends React.Component {
         // reset login status
 		this.onLogout = this.onLogout.bind(this);
 		
-
-
+		this.state={
+			routeTo : false,
+			notification:false
+		}
     }
 
     onLogout(){
@@ -30,9 +32,9 @@ class DashBoard extends React.Component {
 	}
 	
 	toggleActive=(index,id)=>{
-		console.log(index,id)
+		// console.log(index,id)
 		
-		for(let i = 0; i < 12; i++){
+		for(let i = 0; i < 13; i++){
 			if(i+1 === index){
 				document.getElementById(id+index).classList.add("active")
 			}else{
@@ -68,7 +70,7 @@ class DashBoard extends React.Component {
 		}
 	}
 	toggleActiveNested=(index,id)=>{
-		console.log(index)
+		// console.log(index)
 		for(let i = 0; i < 10; i++){
 			if(i+1 === index){
 				document.getElementById(id+index).classList.add("activei")
@@ -82,9 +84,16 @@ class DashBoard extends React.Component {
 		if(this.props.history.location.pathname === "/dashBoard"){
 			console.log("don not roujth")
 			this.setState({
-				routeTo: false
+				routeTo: false,
+				notification :  false
 			})
-		}else{
+		}else if(this.props.history.location.pathname === "/dashBoard/setting/notifications"){
+			this.setState({
+				// routeTo: false,
+				notification :  true
+			})
+		}
+		else{
 			console.log("roujth")
 			this.setState({
 				routeTo: true
@@ -99,6 +108,9 @@ class DashBoard extends React.Component {
 		if(this.state.routeTo){
 		
 			this.props.history.push("/dashBoard")
+		}else if(this.state.notification){
+			this.props.history.push("/dashBoard/setting/notifications")
+			this.toggleActive(9,"active")
 		}
 	}
 	
@@ -155,11 +167,11 @@ class DashBoard extends React.Component {
 				</span>
 			  </Link>
 			  <ul className="treeview-menu">
-				<li><Link id="activei1" onClick={()=>this.toggleActiveNested(1,"activei")} to={`/dashBoard/jobs`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> My Jobs</Link></li>
-				<li><Link id="activei2" onClick={()=>this.toggleActiveNested(2,"activei")} to={`/dashBoard/offers/received/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Received Proposal</Link></li>
-				<li><Link id="activei3" onClick={()=>this.toggleActiveNested(3,"activei")} to={`/dashBoard/offers/sent/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Send Proposal</Link></li>
-				<li><Link id="activei4" onClick={()=>this.toggleActiveNested(4,"activei")} to={`/dashBoard/contracts/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Accepted Proposal</Link></li>
-				<li><Link id="activei5" onClick={()=>this.toggleActiveNested(5,"activei")} to={`/dashBoard/completed/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Complete Proposal</Link></li>
+				<li><Link id="activei1" onClick={()=>this.toggleActiveNested(1,"activei")} to={`/dashBoard/jobs`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> My Jobs</Link></li>
+				<li><Link id="activei2" onClick={()=>this.toggleActiveNested(2,"activei")} to={`/dashBoard/offers/received/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Received Proposal</Link></li>
+				<li><Link id="activei3" onClick={()=>this.toggleActiveNested(3,"activei")} to={`/dashBoard/offers/sent/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Send Proposal</Link></li>
+				<li><Link id="activei4" onClick={()=>this.toggleActiveNested(4,"activei")} to={`/dashBoard/contracts/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Accepted Proposal</Link></li>
+				<li><Link id="activei5" onClick={()=>this.toggleActiveNested(5,"activei")} to={`/dashBoard/completed/jobs/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Complete Proposal</Link></li>
 			  </ul>
 			</li>
 			<li className="treeview">
@@ -175,11 +187,11 @@ class DashBoard extends React.Component {
 				</span>
 			  </Link>
 			  <ul className="treeview-menu">
-			  <li><Link id="activei6" onClick={()=>this.toggleActiveNested(6,"activei")} to={`/dashBoard/services`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> My Service</Link></li>
-				<li><Link id="activei7" onClick={()=>this.toggleActiveNested(7,"activei")} to={`/dashBoard/offers/received/services/cash`} className="Nestedlink activei"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Received Offers</Link></li>
-				<li><Link id="activei8" onClick={()=>this.toggleActiveNested(8,"activei")} to={`/dashBoard/offers/sent/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Send Offers</Link></li>
-				<li><Link id="activei9" onClick={()=>this.toggleActiveNested(9,"activei")} to={`/dashBoard/contracts/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Accepted Offers</Link></li>
-				<li><Link id="activei10" onClick={()=>this.toggleActiveNested(10,"activei")} to={`/dashBoard/completed/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}></i> Complete Offers</Link></li>
+			  <li><Link id="activei6" onClick={()=>this.toggleActiveNested(6,"activei")} to={`/dashBoard/services`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> My Service</Link></li>
+				<li><Link id="activei7" onClick={()=>this.toggleActiveNested(7,"activei")} to={`/dashBoard/offers/received/services/cash`} className="Nestedlink activei"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Received Offers</Link></li>
+				<li><Link id="activei8" onClick={()=>this.toggleActiveNested(8,"activei")} to={`/dashBoard/offers/sent/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Send Offers</Link></li>
+				<li><Link id="activei9" onClick={()=>this.toggleActiveNested(9,"activei")} to={`/dashBoard/contracts/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Accepted Offers</Link></li>
+				<li><Link id="activei10" onClick={()=>this.toggleActiveNested(10,"activei")} to={`/dashBoard/completed/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Complete Offers</Link></li>
 			  </ul>
 			</li>
 			<li><Link id="active4" onClick={()=>this.toggleActive(4,"active")} to={`/dashBoard/user/connection/my-cofounder`} className="link"><i className="fas fa-handshake" style={{color:"#345581",marginRight:5}}></i><span>Co-founder</span></Link></li>
@@ -193,7 +205,7 @@ class DashBoard extends React.Component {
 			
 			<li><Link id="active7" onClick={()=>this.toggleActive(7,"active")} to={`/dashBoard/stripe-connect`} className="link"><i className="fas fa-money-check-alt" style={{color:"#345581",marginRight:5}}></i>Payment method</Link></li>
 
-			<li><Link id="active8" onClick={()=>this.toggleActive(8,"active")} to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:5}}></i>Manage Mambership</Link></li>
+			<li><Link id="active8" onClick={()=>this.toggleActive(8,"active")} to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:5}}></i>Manage Membership</Link></li>
 
 			<li><Link id="active9" onClick={()=>this.toggleActive(9,"active")} to={`/dashBoard/setting/notifications`} className="link"><i className="fas fa-bell" style={{color:"#345581",marginRight:5}}></i>Notifications</Link></li>
 
@@ -212,13 +224,18 @@ class DashBoard extends React.Component {
 					<i className="fas fa-book-reader" style={{color:"#345581",marginRight:5}}></i>Experience & Education
 				</Link>
 			</li>
+			<li>
+				<Link id="active12" onClick={()=>this.toggleActive(12,"active")} to={`/dashhBoard/user/co-founder`} className="link">
+				<i className="fas fa-handshake" style={{color:"#345581",marginRight:5}}></i>Co-Founder
+				</Link>
+			</li>
 			{/* <li>
 			  <a href="profileimage.html">
 				<i className="fa fa-image"></i>  <span>Change Profile Image</span>
 			  </a>
 			</li> */}
 			<li>
-			<Link id="active12" onClick={()=>this.toggleActive(12,"active")} to={`/dashBoard/setting/change-password`} className="link">
+			<Link id="active13" onClick={()=>this.toggleActive(13,"active")} to={`/dashBoard/setting/change-password`} className="link">
 				<i className="fas fa-lock" style={{color:"#345581",marginRight:5}}></i><span>Change Password</span>
 			</Link>
 			</li>

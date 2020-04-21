@@ -86,6 +86,8 @@ class LoggedUser extends Component {
                     </span>
                 } className="profile-dropdown">
                     <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/update">My Profile</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/experience-and-education">Experience & Education</NavLink>
+                    <NavLink className="dropdown-item border-bottom-0" to="/dashhBoard/user/co-founder">Co-Founder</NavLink>
                     <Dropdown>
                         <Dropdown.Toggle as="a" className="dropdown-item pr-2 border-bottom-0" to="/services">
                             Services <i className="fas fa-angle-up float-right"></i>

@@ -142,7 +142,7 @@ class App extends React.Component {
               {/* User Profile Update */}
               {/* <AuthRoute exact path="/user/update" component={ProfileUpdate} /> */}
               {/* <AuthRoute exact path="/user/experience-and-education" component={ExperienceAndEducation} /> */}
-              <AuthRoute exact path="/user/co-founder" component={CoFounder} />
+              {/* <AuthRoute exact path="/user/co-founder" component={CoFounder} /> */}
               {/* <AuthRoute exact path="/user/membership" component={Membership} /> */}
               <AuthRoute exact path="/user/public/about/:id" component={PublicAbout} />
               <AuthRoute exact path="/user/public/job/:id" component={PublicJob} />
@@ -228,6 +228,7 @@ class App extends React.Component {
 
                       <AuthRoute exact path="/dashBoard/user/update" component={ProfileUpdate} />
                       <AuthRoute exact path="/dashBoard/user/experience-and-education" component={ExperienceAndEducation} />
+                      <AuthRoute exact path="/dashhBoard/user/co-founder" component={CoFounder} />
                       <AuthRoute exact path="/dashBoard/setting/change-password" component={ChangePassword} />
 
 

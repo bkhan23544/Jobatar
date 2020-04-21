@@ -128,10 +128,10 @@ class Transactions extends Component {
                         <Card.Header>My Transactions</Card.Header>
                         <div className="card-body">
                             <Row>
-                                <Col xs="12" md="3" xl="3">
+                                {/* <Col xs="12" md="3" xl="3">
                                     <NavBar/>
-                                </Col>
-                                <Col xs="12" md="9" xl="9" className="add-stripe-account">
+                                </Col> */}
+                                <Col xs="12" md="12" xl="12" className="add-stripe-account">
                                 <div className="on-icon">
                                        <p className="pay-title">My Transactions</p>
                                        </div>

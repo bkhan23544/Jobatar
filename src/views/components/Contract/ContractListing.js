@@ -83,7 +83,7 @@ var obj = {title,status,module,settlement,itemLink,q}
                     <div className="input-group mb-0">
                         <input type="text" className="form-control" name="q" value={q} placeholder="Search..." onChange={this.handleChange} style={{height: '40px'}} />
                             <div className="input-group-append">
-                                <button className="btn btn-info" type="button" onClick={this.submitSerch}>Search</button>
+                                <button className="btn btn-info" type="button" style={{borderRadius:"5px"}} onClick={this.submitSerch}>Search</button>
                             </div>
                     </div>
                 </div>
