@@ -10,7 +10,7 @@ class ExploreCategories extends Component {
        <p className="tagline-text">Build a trusted team for your business</p>
 	   </div>
        <div className="container category-margin">
-       <div className="row">
+       <div id="deleteDiv" className="row">
   <div class="col-lg-3">
 		   <div class="category-box tr-category">
 			<a href="hire.html">
@@ -50,7 +50,7 @@ class ExploreCategories extends Component {
           </div>
 
 
-          <div class="row">
+          <div id="deleteDiv" class="row">
 		 
          <div class="col-lg-3">
           <div class="category-box tr-category">

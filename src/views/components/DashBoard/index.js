@@ -144,7 +144,7 @@ class DashBoard extends React.Component {
         </div>
       </div> */}
 	  <div className="container">
-	   <div className="row">
+	   <div id="deleteDiv" className="row">
 	   
 	    <div className="col-sm-4 col-md-3 dashboardMenu">
 		
@@ -302,7 +302,7 @@ const DashboardTab = ()=> {
 		 
 		  <div className="dashboard-info">	
 		  
-		    <div className="row">
+		    <div id="deleteDiv" className="row">
 			
 		     <div className="col-sm-3">
 			  <div className="fun-fact">

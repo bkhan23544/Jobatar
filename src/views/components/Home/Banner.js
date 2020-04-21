@@ -46,7 +46,7 @@ class Banner extends Component {
               <h2>Save money by using your skills</h2>
               <h3>Hire top-notch freelancers. Exchange your services. Connect with ideal co-founders.</h3>
                    
-              <div className="row hidden-xs">
+              <div id="deleteDiv" className="row hidden-xs">
                        
                <div className="col-lg-4 col-sm-6">
                 <div className="features">

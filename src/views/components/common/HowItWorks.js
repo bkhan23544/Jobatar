@@ -42,7 +42,7 @@ class HowItWorks extends Component {
                 <img src="assets/img/background.png" alt="" className="img-fluid w-100" />
                 <div className="caption d-flex align-items-center">
                     <div className="container">
-                        <div className="row">
+                        {/* <div className="row"> */}
                     
                         <div className="row hide-how">
                         <div>
@@ -51,7 +51,7 @@ class HowItWorks extends Component {
                            </div>
                        <img src="assets/img/1.png" className="img-fluid w-50 ml-5 how-banner-img"/>
                        </div>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
 </div>    
@@ -59,8 +59,8 @@ class HowItWorks extends Component {
 
 
                        <div className="instruction">
-               <div>
-               <p className="section-heading">Hire the best experts</p>
+               <div id="responsiveHeading">
+               <p  className="section-heading">Hire the best experts</p>
               <div className="text-section"> <p className="section-text">
                Whatever you need, we have it. If you need to get work done,<br/>
 JoBarter can help you two specific ways

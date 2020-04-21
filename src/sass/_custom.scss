@@ -625,6 +625,15 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			a {color: rgba($white, 0.9);}
 			a:hover, a:focus {text-decoration: none; color: $info;}
 		}
+		.container
+		.row:before{
+			display: none;
+			content:0;
+		}
+		.container:after{
+			display: none;
+			content:0;
+		}
 	}
 	.input-group {
 		.form-control {background-color: transparent; border-radius: 0px !important; color: darken($white, 20); border-color: rgba($white, 0.45);

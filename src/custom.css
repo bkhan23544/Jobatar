@@ -240,10 +240,10 @@ line-height: 1.2;
 
 .guide-image{
     /* border: 1px solid black; */
-    width: 350px;
-    min-width: 350px;
+    width: 325px;
+    min-width: 325px;
     max-width: 100vw;
-    height: 350px;
+    height: 325px;
 }
 
 .highlight{
