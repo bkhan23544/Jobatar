@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Pagination from '../../../helpers/Pagination';
 import { SearchLoader } from '../../../common/loaders';
 import { globalService as gs, itemService } from '../../../common/services';
-import ReadMoreReact from "read-more-react";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 class JobListing extends Component {
@@ -156,7 +156,15 @@ class JobListing extends Component {
                         <div class="col-lg-12">
                             {/* <hr class="small-hr" /> */}
                             {/* <p>Description of every page/module: I have a PSD ebay store and listing design in photoshop that needs to be sliced and coded for eBay to be mobile responsive. Description of requirements/features: Mobile Responsive Ebay store and listing design...</p> */}
-                            {gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+                            <ReactReadMoreReadLess
+        charLimit={200}
+        readMoreText={"Read more ▼"}
+        readLessText={"Read less ▲"}
+        readMoreClassName="job-text"
+        readLessClassName="job-text"
+      >
+         {gs.html2text(item.description).slice(-6)==="&nbsp;" ? gs.html2text(item.description).slice(0,gs.html2text(item.description).length-7) : gs.html2text(item.description)}
+          </ReactReadMoreReadLess>
 
                             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
                                 {item.skills.length &&

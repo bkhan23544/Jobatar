@@ -61,7 +61,7 @@ class JobListing extends Component {
 
     render() {
         const { process, results } = this.props;
-        console.log((results))
+        console.log( results && results.items && gs.html2text(results.items[4].description).slice(-8)==="&nbsp;" && "verified","description")
         return (
             // <div className="row">
             //     <div className="col-12">
@@ -190,7 +190,8 @@ class JobListing extends Component {
         readMoreClassName="job-text"
         readLessClassName="job-text"
       >
-         {gs.html2text(item.description)}
+  {gs.html2text(item.description)}
+{/* //    ? gs.html2text(item.description).slice(0,gs.html2text(item.description).length-7) : gs.html2text(item.description)} */}
           </ReactReadMoreReadLess>
                                 {/* <p className="job-text">{gs.html2text(item.description)}</p> */}
 
