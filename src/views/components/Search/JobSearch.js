@@ -339,7 +339,7 @@ class JobSearch extends Component {
 
             <section className="featured-users">
                 <div className="container">
-                    <div className="section-title" style={{ paddingTop: 20 }}>
+                    <div className="section-title">
                         <h1>Jobs</h1>
                         <h6 className="col pl-0 mb-0">
                             {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}

@@ -49,7 +49,7 @@ class HowItWorks extends Component {
                            <h1 className="how-text">How it works</h1>
                            <p className="exp-text">An Explanation of how Jobarter works</p>
                            </div>
-                       <img src="assets/img/1.png" className="img-fluid w-50 ml-5 how-banner-img"/>
+                       <img src="assets/img/1.png" className="img-fluid w-40 h-auto ml-5 how-banner-img"/>
                        </div>
                         {/* </div> */}
                     </div>

@@ -182,7 +182,7 @@ class CoFounder extends Component {
 
                                         <Col xs="12" md="12" xl="12">
                                             <div className="py-3 w-100 float-left">
-                                                <span className="section-titles">Co-founder Experience</span>
+                                                <Card.Title><span className="section-titles">Co-founder Experience</span></Card.Title>
                                                 <Row>
                                                     <Col xs={12}>
                                                         <div className="form-group">
@@ -194,7 +194,7 @@ class CoFounder extends Component {
 
                                                     <Col xs={12}>
                                                         <hr />
-                                                        <span className="section-titles">Additional Information</span>
+                                                        <Card.Title><span className="section-titles">Additional Information</span></Card.Title>
                                                     </Col>
                                                 </Row>
 
@@ -298,7 +298,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                        <span className="section-titles">My Ideal Co-founder</span>
+                                                    <Card.Title><span className="section-titles">My Ideal Co-founder</span></Card.Title>
                                                         <div className="form-group">
                                                             <span className="form-label">What I am looking for</span>
                                                             <textarea className="form-control" rows="4"
@@ -312,7 +312,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                        <span className="section-titles">Skill</span>
+                                                    <Card.Title><span className="section-titles">Skill</span></Card.Title>
                                                         <div className="form-group">
                                                             <Select
                                                                 className="multiple-select mb-2"
@@ -328,7 +328,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                        <span className="section-titles">My Wishlist</span>
+                                                    <Card.Title><span className="section-titles">My Wishlist</span></Card.Title>
                                                     </Col>
                                                 </Row>
                                                 <Row>

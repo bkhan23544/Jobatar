@@ -262,7 +262,7 @@ class ProfileUpdate extends Component {
                                         <Col xs="12" md="12" xl="12">
                                             <div className="py-3 w-100 float-left">
 
-                                                <span className="section-titles">Update Profile</span>
+                                            <Card.Title> <span className="section-titles">Update Profile</span></Card.Title>
 
 
                                                 <Row>
@@ -466,7 +466,7 @@ class ProfileUpdate extends Component {
                                                     </Col>
                                                     <Col xs={12}>
                                                         <hr />
-                                                        <span className="section-titles">Skills</span>
+                                                       <Card.Title> <span className="section-titles">Skills</span></Card.Title>
 
                                                         <div className="form-group">
                                                             {/* <label>Skills</label> */}
@@ -483,7 +483,7 @@ class ProfileUpdate extends Component {
                                                         </div>
 
                                                         <hr />
-                                                        <span className="section-titles">Social Media Accounts</span>
+                                                        <Card.Title> <span className="section-titles">Social Media Accounts</span></Card.Title>
 
                                                         <h6>Please provide your social media links for our internal verification.</h6>
                                                         <div className="row">
@@ -506,7 +506,7 @@ class ProfileUpdate extends Component {
                                                             </Fragment>}
                                                         </div>
                                                         <hr />
-                                                        <span className="section-titles">Additional Document</span>
+                                                        <Card.Title><span className="section-titles">Additional Document</span></Card.Title>
 
                                                         <div className="form-group">
                                                             <div className="form-group">

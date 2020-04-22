@@ -295,8 +295,8 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		}
 	}
 	.custom-control-input:checked ~ .custom-control-label::before{
-		background-color: #345581 !important;
-		border-color: #345581 !important;
+		background-color: #454be9 !important;
+		border-color: #454be9 !important;
 	}
 	.custom-control-label{
 		display: flex;
@@ -314,7 +314,7 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		min-height: 34px;
 	}
 	.MuiSwitch-colorPrimary.Mui-checked{
-		color: #345581 !important;
+		color: #454be9 !important;
 	}
 	.upload-progress {position: absolute; top: -1px; left: -1px; width: calc(100% + 2px); display: none;}
 	ul.upload-pdf {font-size: 1.1rem; line-height: 36px; color: rgba($black, 0.7); padding-left: 0px; list-style: none;
