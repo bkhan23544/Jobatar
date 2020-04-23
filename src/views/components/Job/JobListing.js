@@ -59,9 +59,9 @@ class JobListing extends Component {
         this.setState({ loading: true });
         itemService.job("GET", null, formField).then(response => {
             this.setState({ jobs: response, loading: false });
-            console.log(response,"Mine")
+            console.log(response, "Mine")
         });
-        
+
     };
 
     onChangePage = (page) => {
@@ -77,85 +77,90 @@ class JobListing extends Component {
         let isOwner = (item.user_id === gs.identity.user.id);
         let viewLink = isOwner ? `/job/view/${item.id}` : `/user/public/job/view/${item.id}`;
         return (
-          
+      
 
-            <div className="job">	
-		  
-<div className="row top-sec">
+            <div className="job">
 
-{isOwner && <div className="d-flex">
-    <NavLink to={viewLink} className="btn btn-secondary mr-2"><i
-        className="far fa-eye"></i> View {item.view_counts}</NavLink>
-    <NavLink to={`/job/update/${item.id}`} className="btn btn-primary"><i
-        className="fas fa-pencil-alt"></i> Edit</NavLink>
-</div>}
+                <div className="row top-sec">
 
-			<div className="col-12 row"> 
-            {isOwner ? <img className="img-responsive" src={item.user.avatar} alt=""/>
-            : <NavLink to={`/user/public/about/${item && item.user.id}`}><img className="img-responsive" src={item.user.avatar} alt=""/></NavLink>}
-            <div className="col-10">
-			 <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
-             {/* {item.category.parent ?
-			 <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title}</small></h5>
-             :  <h5>{item.category.title}<small></small></h5>} */}
-             </div>
-		
-			
-		   </div>
-		  </div>
-		  
-		  <div className="row mid-sec">			 
-		   <div className="col-lg-12">			 
-		   <div className="col-lg-12">
-			<hr className="small-hr"/>
-			<p>{gs.html2text(item.description)}</p>
-            {item.skills.length &&
-                                            item.skills.map((a, index) =>
-                                                <span key={index} class="label label-success">{a.title}</span>
-                                            )
-                                        }
-		   </div>
-		   </div>
-		  </div>
-		  
-		  <div className="row bottom-sec">
-		   <div className="col-lg-12">
-			
-			<div className="col-lg-12">
-			 <hr className="small-hr"/>
-			</div> 
-			
-			<div className="col-lg-2">
-			 <h5> Type </h5>
-			 <p>{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement.charAt(0).toUpperCase()+item.settlement.slice(1)}</p>
-			</div>
-			{item.budget &&<div className="col-lg-2">
-             <h5> Budget </h5>
-            {item.type === "hourly" ?
-                                        <p>{item.budget ? "$"+item.budget+"/hr" : ""}</p>
-                                        :
-                                        <p>{item.budget ? "$"+item.budget+" Fixed" : ""}</p>
-                                       
-                                    }
-			</div>}
-            {item.settlement === 'both' || item.settlement === 'exchange' &&
-			<div className="col-lg-2">
-			 <h5> Exchange With </h5>
-			 <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>
-            {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
-			</div>
-    }
-			{!isOwner && <div className="col-lg-2">
-			 <h5>Posted By</h5>
-			 <p><NavLink to={`/user/public/about/${item && item.user.id}`}>{item.user.name}</NavLink></p>
-			</div>}
-			<div className="col-lg-4">
-			</div>
-			
-		   </div>
-		  </div>
-		 
-		 </div>
+                    {/* <div className="col-2" style={{border:"1px solid red"}}>
+			 <a href="freelancer.html">
+			  <img className="img-responsive" src="images/team-1.jpg" alt=""/>
+			 </a>
+			</div> */}
+                    <div className="col-12 row">
+                        <img className="img-responsive" src={item.user.avatar} alt="" />
+                        <div className="col-lg-8 col-sm-12">
+                            <h4><NavLink to={viewLink}>{item.title}</NavLink></h4>
+                            {item.category && item.category.parent ?
+                                <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title && item.category.title}</small></h5>
+                                : <h5>{item.category && item.category.title && item.category.title}<small></small></h5>}
+                        </div>
+
+                        {isOwner && <div className="EditDeleteButton">
+                            <NavLink to={viewLink} className="btn btn-secondary mr-2"><i
+                                className="far fa-eye"></i> View {item.view_counts}</NavLink>
+                            <NavLink to={`/job/update/${item.id}`} className="btn btn-primary"><i
+                                className="fas fa-pencil-alt"></i> Edit</NavLink>
+                        </div>}
+                    </div>
+                </div>
+
+                <div className="row mid-sec">
+                    <div className="col-lg-12">
+                        <div className="col-lg-12">
+                            <hr className="small-hr" />
+                            <p>{gs.html2text(item.description)}</p>
+                            <div className="flexWrap">
+                                {item.skills.length &&
+                                    item.skills.map((a, index) =>
+                                        <span key={index} class="label label-success">{a.title}</span>
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row bottom-sec">
+                    <div className="col-lg-12">
+
+                        <div className="col-lg-12">
+                            <hr className="small-hr" />
+                        </div>
+
+                        <div className="col-lg-2">
+                            <h5> Type </h5>
+                            <p>{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement.charAt(0).toUpperCase() + item.settlement.slice(1)}</p>
+                        </div>
+                        {item.budget && <div className="col-lg-2">
+                            <h5> Budget </h5>
+                            {item.type === "hourly" ?
+                                <p>{item.budget ? "$" + item.budget + "/hr" : ""}</p>
+                                :
+                                <p>{item.budget ? "$" + item.budget + " Fixed" : ""}</p>
+
+                            }
+                        </div>}
+                        {item.settlement === 'both' || item.settlement === 'exchange' &&
+                            <div className="col-lg-2">
+                                <h5> Exchange With </h5>
+                                <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>
+                                    {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
+                            </div>
+                        }
+                        <div className="col-lg-2">
+                            <h5>Posted By</h5>
+                            <p><NavLink to={`/user/public/about/${item && item.user.id}`}>{item.user.name}</NavLink></p>
+                        </div>
+                        <div className="col-lg-4">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         )
     }
 
@@ -165,8 +170,8 @@ class JobListing extends Component {
         let results = (jobs && jobs.items) ? jobs.items : null;
 
         return (<JobLayout>
-            <div className="row" style={{margin:0}}>
-                <div className="jobBoxx col-12" style={{padding: 0}}>
+            <div className="row" style={{ margin: 0 }}>
+                <div className="jobBoxx col-12" style={{ padding: 0 }}>
                     {loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={2} width={700} /> : <Fragment>
                         {(results && results.length === 0) && <div>
                             <div className="jobBox card mb-4">

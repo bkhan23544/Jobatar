@@ -231,7 +231,7 @@ class ProfileUpdate extends Component {
             <>
                 <DocumentTitle title={`Update Profile`} />
 
-                <div className="update-profile bg-body col-lg-9 col-sm-12">
+                <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">

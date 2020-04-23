@@ -17,7 +17,7 @@ class ContractLayout extends Component {
             <>
                 <DocumentTitle title={title} />
                 <div className={`my-services bg-body RecievedProposals col-lg-9 col-sm-12`}>
-                    <div className="col-12">
+                    <div className="col-12 MarginTop47">
                         <div className="row">
                             <div className="col-12 mb-1" style={{padding: 0}}>
                                 <h1 className="d-flex align-items-center">

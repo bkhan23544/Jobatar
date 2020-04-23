@@ -124,13 +124,13 @@ class ProposalReceived extends Component {
             // </Element>
             <Fragment>
                 {results && results.length ?
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Proposals from Freelancers</h3>
+                    <div className="box">
+                        <div className="box-header">
+                            <h3 className="box-title">Proposals from Freelancers</h3>
                         </div>
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-hover">
+                        <div className="box-body">
+                            <div className="table-responsive">
+                                <table id="example1" className="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>Freelancer</th>
@@ -183,8 +183,10 @@ class ProposalReceived extends Component {
                                             //         </div>
                                             <tr>
                                                 <td className="first">
-                                                    <img src={item.actionBy.avatar} class="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
+                                                    <div className="insideFirst">
+                                                    <img src={item.actionBy.avatar} className="img-responsive img-circle pull-left" width="40" height="40" alt="Image" />
                                                     <NavLink to={`/user/public/about/${item.provider_id}`}>{item.provider.name}</NavLink>
+                                                    </div>
                                                 </td>
                                                 {/* <td>
                                                     {item.comment}
@@ -193,7 +195,7 @@ class ProposalReceived extends Component {
                                                     ${item.budget}
                                                 </td>
                                                 <td>
-                                                    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                                                    <div style={{ display: "flex", justifyContent: "flex-start" }}>
                                                         <small>({item.provider.avg_rating})</small>
                                                         <Box component="fieldset" mx={1} borderColor="transparent">
                                                             <Rating value={item.provider.avg_rating} readOnly />

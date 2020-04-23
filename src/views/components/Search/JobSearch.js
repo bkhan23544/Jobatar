@@ -341,10 +341,6 @@ class JobSearch extends Component {
                 <div className="container">
                     <div className="section-title">
                         <h1>Jobs</h1>
-                        <h6 className="col pl-0 mb-0">
-                            {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}
-                            {(results && results.length === 0) && 'No search result found.'}
-                        </h6>
                     </div>
                     <div className="row">
 
@@ -352,7 +348,7 @@ class JobSearch extends Component {
                             <div className="work">
                                 <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                                     <div className="any-search mb-3 mb-lg-4">
-                                        <div className="input-group">
+                                        <div className="input-group headerInput">
                                             <input type="text" className="form-control" onChange={this.handleChange} value={formField.name} name="name" placeholder="Search by Skill, Job title" />
                                             <div className="input-group-prepend">
                                                 <button className="btn btn-info" type="submit">Search</button>
@@ -372,8 +368,14 @@ class JobSearch extends Component {
 
                         <div className="col-sm-4 col-md-3">
                             <div className="widget">
-                                <div className="text-right">
-                                    <button style={{color: "red !important"}} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
+                                <div className="filterHead">
+                                    <h6 className="col pl-0 mb-0 text-left">
+                                        <span>
+                                        {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}
+                                        {(results && results.length === 0) && 'No search result found.'}
+                                        </span>
+                                    </h6>
+                                    <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
                                 </div>
                                 {/* <h3 className="widget_title">Category</h3> */}
                                 {/* <ul className="tr-list">

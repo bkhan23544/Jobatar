@@ -248,7 +248,11 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 	}
-	.navbar {background-color: $white !important; box-shadow: 0px 4px 4px rgba($black, 0.1);}
+	.navbar {background-color: $white !important; box-shadow: 0px 4px 4px rgba($black, 0.1);
+	.container-xl{
+		justify-content: space-evenly;
+	}
+	}
 	.navbar-main {
 		.nav-link {color: #343434; padding-left: 12px; padding-right: 12px; font-weight: bold; text-transform: uppercase;font-family: "Roboto", Helvetica, sans-serif;
 			transition: 0.3s;
@@ -354,89 +358,96 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			transition: 0.1s;
 		}
 	}
-	// .searchDropDownIcon{
-	// 	display: flex;
-	// 	flex-direction: column;
-	// 	align-items: center;
-	// 	justify-content: center;
-	// 	.searchDropDownClose{
-	// 		position: fixed;
-	// 		background-color: white;
-	// 		height: 0;
-	// 		overflow: hidden;
-	// 		margin-top: 40px;
-	// 		transition: 0.5s;
-	// 		left: 50%;
-	// 		transform: translate(-50%,0);
-	// 		width: 1199px;
-	// 		.form-inline{
-	// 			width: 100%;
-	// 			justify-content: flex-end;
-	// 			margin: 0 !important;
-	// 			.MuiBadge-root{
-	// 				// width: 100%;
-	// 				width: 100%;
-	// 				float: right;
-	// 				@media(min-width: 1024px) {
-	// 				}
-	// 			}
-	// 			.input-group{
-	// 				width: 100%;
-	// 				.form-control{
-	// 					width: 100%;
-	// 				}
-	// 			}
-	// 		}
-	// 		@media(max-width: 991px) {
-	// 				width: 100%;
-	// 		}
-	// 		@media(max-width: 767px) {
-	// 				width: 100%;
-	// 		}
-	// 		@media(max-width: 360px) {
-	// 				width: 100%;
-	// 		}
-	// 	}
-	// 	.searchDropDownOpen{
-	// 		height: auto;
-	// 		padding: 20px;
-	// 		margin-top: 80px;
-	// 		background-color: white;
-	// 		border-radius: 5px;
-	// 		width: 1199px;
-	// 		border: 1px solid #ff5851;
-	// 		overflow: hidden;
-	// 		transition: 0.5s;
-	// 		.form-inline{
-	// 			width: 100%;
-	// 			justify-content: flex-end;
-	// 			margin: 0 !important;
-	// 			.MuiBadge-root{
-	// 				// width: 100%;
-	// 				width: 100%;
-	// 				float: right;
-	// 				@media(min-width: 1024px) {
-	// 				}
-	// 			}
-	// 			.input-group{
-	// 				width: 100%;
-	// 				.form-control{
-	// 					width: 100%;
-	// 				}
-	// 			}
-	// 		}
-	// 		@media(max-width: 991px) {
-	// 				width: 100%;
-	// 		}
-	// 		@media(max-width: 767px) {
-	// 				width: 100%;
-	// 		}
-	// 		@media(max-width: 360px) {
-	// 				width: 100%;
-	// 		}
-	// 	}
-	// }
-	.dropdown-item.active, .dropdown-item:active {background-color: rgba($color:  #345581, $alpha: 1); color: $white;}
+	.searchDropDownIcon{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		i{
+			// height: 25px;
+			// width: 25px;
+			font-size: 22px;
+			color: #454be9;
+		}
+		.searchDropDownClose{
+			position: fixed;
+			background-color: white;
+			height: 0;
+			overflow: hidden;
+			margin-top: 40px;
+			transition: 0.5s;
+			left: 50%;
+			transform: translate(-50%,0);
+			width: 1199px;
+			.form-inline{
+				width: 100%;
+				justify-content: flex-end;
+				margin: 0 !important;
+				.MuiBadge-root{
+					// width: 100%;
+					width: 100%;
+					float: right;
+					@media(min-width: 1024px) {
+					}
+				}
+				.input-group{
+					width: 100%;
+					.form-control{
+						width: 100%;
+					}
+				}
+			}
+			@media(max-width: 991px) {
+					width: 100%;
+			}
+			@media(max-width: 767px) {
+					width: 100%;
+			}
+			@media(max-width: 360px) {
+					width: 100%;
+			}
+		}
+		.searchDropDownOpen{
+			height: auto;
+			padding: 20px;
+			margin-top: 80px;
+			background-color: white;
+			// border-radius: 5px;
+			width: 1199px;
+			// border: 1px solid #454be9;
+			box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+			overflow: hidden;
+			transition: 0.5s;
+			.form-inline{
+				width: 100%;
+				justify-content: flex-end;
+				margin: 0 !important;
+				.MuiBadge-root{
+					// width: 100%;
+					width: 100%;
+					float: right;
+					@media(min-width: 1024px) {
+					}
+				}
+				.input-group{
+					width: 100%;
+					.form-control{
+						width: 100%;
+					}
+				}
+			}
+			@media(max-width: 991px) {
+					width: 100%;
+			}
+			@media(max-width: 767px) {
+					width: 100%;
+			}
+			@media(max-width: 360px) {
+					width: 100%;
+			}
+		}
+	}
+	.dropdown-item.active, .dropdown-item:active {background-color: rgba($color:  #454be9, $alpha: 1); color: $white;}
 	.profile-dropdown {
 		.dropdown-toggle {padding-right: 0px;
 			&:after {content: none;}

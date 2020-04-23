@@ -349,19 +349,15 @@ class ServiceSearch extends PureComponent {
 
             <section className="featured-users">
                 <div className="container">
-                    <div className="section-title" style={{ paddingTop: 20 }}>
+                    <div className="section-title">
                         <h1>Services</h1>
-                        <h6 className="mt-3 mt-lg-4 pb-3 col pl-0">
-                            {(search && search.services && search.services.pagination && search.services.pagination.totalCount > 0) && `${search.services.pagination.totalCount} Search result found.`}
-                            {(results && results.length === 0) && 'No search result found.'}
-                        </h6>
                     </div>
                     <div className="row">
 
-                        <div className="col-lg-9">
+                        <div className="col-lg-9 MarginTop">
                             {/* <div className="work"> */}
                             <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
-                                <div style={{ width: "100%", marginBottom: "20px" }} className="input-group">
+                                <div style={{ width: "100%", marginBottom: "20px" }} className="input-group headerInput2">
                                     <input type="text" className="form-control" onChange={this.handleChange} value={formField.title} name="title"
                                         placeholder="Search by Skill, Service" />
                                     <div className="input-group-prepend">
@@ -379,7 +375,16 @@ class ServiceSearch extends PureComponent {
                         </div>
                         <div className="col-sm-4 col-md-3">
                             <div className="widget">
-                                <div className="text-right">
+                                {/* <div className="text-right">
+                                    <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
+                                </div> */}
+                                <div className="filterHead">
+                                    <h6 className="col pl-0 mb-0 text-left">
+                                        <span>
+                                            {(search && search.services && search.services.pagination && search.services.pagination.totalCount > 0) && `${search.services.pagination.totalCount} Search result found.`}
+                                            {(results && results.length === 0) && 'No search result found.'}
+                                        </span>
+                                    </h6>
                                     <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
                                 </div>
                                 {/* <h3 className="widget_title">Category</h3> */}

@@ -82,7 +82,7 @@ class ExperienceAndEducation extends Component {
         // <Main>
         <>
             <DocumentTitle title={`Experience and Education`}/>
-            <div className="update-profile bg-body col-lg-9 col-sm-12">
+            <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
                 <div className="">
                     <Card className="mb-4 mb-lg-5">
                     {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
@@ -93,7 +93,7 @@ class ExperienceAndEducation extends Component {
                                 </Col> */}
                                 <Col xs="12" md="12" xl="12">
                                     <div className="py-3 w-100 float-left mb-3">
-                                       <div className="row h-5">
+                                       <div className="h-5 set-h-5">
                                         <span className="col-10 section-titles">Experience</span>
                                             <button onClick={this.addNew.bind(this, 'experience')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
                                             </div>
@@ -106,7 +106,7 @@ class ExperienceAndEducation extends Component {
                                     </div>
 
                                     <div className="py-3 w-100 float-left">
-                                    <div className="row h-5">
+                                    <div className="h-5 set-h-5">
                                         <span className="col-10 section-titles">Education</span>
                                             <button onClick={this.addNew.bind(this, 'education')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
                                             </div>

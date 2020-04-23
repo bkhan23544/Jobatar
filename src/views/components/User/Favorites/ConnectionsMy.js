@@ -168,11 +168,11 @@ class ConnectionsMy extends Component {
             <>
                 <DocumentTitle title="Cofounder Connection" />
 
-                <div className="bg-body my-favorites col-lg-9 col-sm-12">
+                <div className="bg-body my-favorites col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
-                            <div className="col-12">
-                                <h1 className="pb-2 d-flex align-items-center flex-wrap heading">Co-founder</h1>
+                            <div className="col-12 MarginTop47">
+                                <h1 className="pb-2 d-flex align-items-center flex-wrap heading marginBottom0">Co-founder</h1>
                             </div>
                             <div className="col-12">
                                 <CoFounderNavbar />
@@ -188,7 +188,7 @@ class ConnectionsMy extends Component {
                                     </Fragment> : <Fragment>
                                             {results && results.map((item, index) =>
                                                 <div className="col-md-6 col-12" key={Math.floor(Math.random() * (+40 - +1)) + +1}>
-                                                    <div className="freLncrBox no-hover card mb-4">
+                                                    <div className="freLncrBox no-hover card mb-4" style={{padding: 0}}>
                                                         <div className="card-body d-flex flex-wrap">
                                                             <div className="profile">
                                                                 <img alt="images" className="img-fluid rounded-circle" width="145" height="145" src={item.connection && item.connection.avatar} />

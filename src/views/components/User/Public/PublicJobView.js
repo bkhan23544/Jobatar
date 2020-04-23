@@ -381,7 +381,7 @@ class PublicJobView extends Component {
                                 <div class="row bottom-sec">
                                     <div class="col-lg-12">
                                         <h3>{item && item.title}</h3>
-                                        <h4>{item && item.category.parent && item.category.parent.title} - {item && item.category.title}</h4>
+                                        <h4>{item && item.category && item.category.parent && item.category.parent.title && item.category.parent.title} - {item && item.category && item.category.title}</h4>
 
                                         <div class="col-lg-12">
                                             <hr class="small-hr" />

@@ -75,8 +75,8 @@ class Header extends Component {
                         </NavLink>
                        
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
-                            <Nav ><Search history={history}/></Nav>
-                            <Nav className="navbar-nav ml-5 navbar-main mt-2">
+                            {/* <Nav ><Search history={history}/></Nav> */}
+                            <Nav className="navbar-nav ml-auto navbar-main mt-2">
                                 {!loggedIn && <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>}
                                 {loggedIn && <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>

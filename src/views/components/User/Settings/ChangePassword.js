@@ -66,7 +66,7 @@ class ChangePassword extends Component {
             <>
                 <DocumentTitle title={`Change Password`} />
 
-                <div className="update-profile bg-body col-9">
+                <div className="update-profile bg-body col-9 paddingTop0">
                     <div className="">
                         <Card className="mb-4 mb-lg-5">
                             <Card.Header>Change Password</Card.Header>

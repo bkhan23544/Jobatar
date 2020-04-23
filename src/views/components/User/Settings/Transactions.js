@@ -74,7 +74,7 @@ class Transactions extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`My Transactions`} />
-                <div className="update-profile bg-body pt-5 col-lg-9 col-sm-12">
+                <div className="update-profile bg-body pt-5 col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         {/*<div className="print text-right">*/}
                         {/*<Link className="btn btn-info mr-2" to={`/setting/account-info`}>Back</Link>*/}
@@ -125,7 +125,7 @@ class Transactions extends Component {
                             {/*</div>*/}
                             {/*</div>
                             </div>*/}
-                        <Card.Header>My Transactions</Card.Header>
+                        {/* <Card.Header>My Transactions</Card.Header> */}
                         <div className="card-body">
                             <Row>
                                 {/* <Col xs="12" md="3" xl="3">

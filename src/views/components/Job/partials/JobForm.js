@@ -302,7 +302,7 @@ class JobForm extends Component {
         validConnections = (formField.visibility === 'private') ? false : true;
 
         return (
-            <div className="col-md-12 col-12">
+            <div className="col-md-12 col-12" style={{padding: 0}}>
                 <div className="heading mb-xl-3 mb-2">
                     <h1 className="text-center font-weight-bold">Post a Job</h1>
                 </div>
@@ -687,7 +687,7 @@ class JobForm extends Component {
                                 </div>
                             </Element>
                             <div className="action text-right">
-                                <div className="row">
+                                <div className="">
                                     <div className="col-12">
                                         <button type="button" className="btn btn-outline-info btn-lg ml-3" onClick={this.saveDraft}>Save as Draft</button>
                                         <button type="submit" className="btn btn-info btn-lg ml-3">Submit</button>
