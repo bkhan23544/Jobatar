@@ -24,6 +24,10 @@ const serviceSearch = (is_redirect) => {
     is_redirect ? (window.location.href = '/service-search') :  history.push('/service-search');
 };
 
+const dashBoard = (is_redirect) => {
+    is_redirect ? (window.location.href = '/dashBoard') :  history.push('/dashBoard');
+}
+
 const offersLocation = (location) => {
     history.push(`/${location}`) ;
 };
@@ -41,5 +45,6 @@ export const navigationHelper = {
     offersLocation,
     serviceSearch,
     services,
-    message
+    message,
+    dashBoard
 };

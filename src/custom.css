@@ -79,9 +79,9 @@
 }
 
 .inline-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
 }
 
 .features {
@@ -950,6 +950,16 @@
     background-color: #345581 !important;
     color: white !important;
     border: 1px solid #345581 !important;
+}
+
+
+
+
+
+@media (min-width:768px){
+#basic-navbar-nav{
+    max-width: 300px !important;
+}
 }
 
 

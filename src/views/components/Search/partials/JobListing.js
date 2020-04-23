@@ -73,7 +73,7 @@ class JobListing extends Component {
 
                      
                             <div className="col-12 row">
-                                <img className="img-responsive" src={item.user.avatar} alt="" />
+                            <NavLink to={`/user/public/about/${item && item.user.id}`}><img className="img-responsive" src={item.user.avatar} alt="" /></NavLink>
                                 <div className="col-10">
                                     <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
                                     {item.category && item.category.parent ?

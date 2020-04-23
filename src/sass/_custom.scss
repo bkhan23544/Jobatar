@@ -367,7 +367,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			// height: 25px;
 			// width: 25px;
 			font-size: 22px;
-			color: #454be9;
+			color: #345581;
 		}
 		.searchDropDownClose{
 			position: fixed;
@@ -414,7 +414,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			background-color: white;
 			// border-radius: 5px;
 			width: 1199px;
-			// border: 1px solid #454be9;
+			// border: 1px solid #345581;
 			box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 			overflow: hidden;
 			transition: 0.5s;
@@ -447,7 +447,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 	}
-	.dropdown-item.active, .dropdown-item:active {background-color: rgba($color:  #454be9, $alpha: 1); color: $white;}
+	.dropdown-item.active, .dropdown-item:active {background-color: rgba($color:  #345581, $alpha: 1); color: $white;}
 	.profile-dropdown {
 		.dropdown-toggle {padding-right: 0px;
 			&:after {content: none;}

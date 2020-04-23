@@ -68,14 +68,13 @@ class Header extends Component {
                 {/* <div className="text-center font-weight-bold">Please be aware this site is under development and we are in the process of deploying many new features. Please let us know if you have any question or suggestions.</div> */}
                 <Navbar bg="light" className="navbar-expand-custom" expand="xl" variant="light">
                     
-                    <Container fluid="xl" >
+                    <Container fluid="xl">
                     <Navbar.Toggle className="navbar-toggle"/>
                         <NavLink className="navbar-brand" to="/">
                             <img src="/images/logo.svg" alt="" className="img-fluid" width="140" />
                         </NavLink>
                        
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
-                            {/* <Nav ><Search history={history}/></Nav> */}
                             <Nav className="navbar-nav ml-auto navbar-main mt-2">
                                 {!loggedIn && <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>}
                                 {loggedIn && <NavDropdown title="BROWSE">
@@ -85,10 +84,10 @@ class Header extends Component {
                                     <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br/> <small>To Partner With</small></NavLink>
                                 </NavDropdown>}
                                 {loggedIn && <NavLink activeClassName="active" className="nav-link" to="/dashBoard"><b>DASHBOARD</b></NavLink>}
-                                {loggedIn && <button className="post-btn ml-5"><NavDropdown title={<span className="text-white">POST</span>}>
+                                {loggedIn && <div><button className="post-btn ml-3"><NavDropdown title={<span className="text-white">POST</span>}>
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
-                                </NavDropdown></button>}
+                                </NavDropdown></button></div>}
                              
 
                             </Nav>

@@ -149,10 +149,10 @@ class JobListing extends Component {
                                     {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
                             </div>
                         }
-                        <div className="col-lg-2">
+                        {/* <div className="col-lg-2">
                             <h5>Posted By</h5>
                             <p><NavLink to={`/user/public/about/${item && item.user.id}`}>{item.user.name}</NavLink></p>
-                        </div>
+                        </div> */}
                         <div className="col-lg-4">
                         </div>
 

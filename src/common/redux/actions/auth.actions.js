@@ -1,5 +1,6 @@
 import { globalService as gs, authService } from '../../services';
 import { alertSelectors, processSelectors, authSelectors } from "../selectors";
+import {history} from '../../../helpers/history'
 
 const login = (params) => {
     return dispatch => {
@@ -14,11 +15,12 @@ const login = (params) => {
                     dispatch(authSelectors.success(authentication));
                     dispatch(alertSelectors.success(authentication.message));
                     dispatch(processSelectors.stop());
-                    gs.firebaseLogin(params.username)
+                    gs.navigation('dashBoard', true);
+                    gs.firebaseLogin(params.username,params.password)
                     .then((user) => {
                         if (user)  {
                             //  gs.navigation('service-search', true);
-                             gs.navigation('dashBoard', true);
+                            //  gs.navigation('dashBoard', true);
                         }
                     });
                  

@@ -77,7 +77,7 @@ const firebaseLogin = async (username) => {
     const authentication = await parseItem('authentication');
     const user = authentication && authentication.user;
     const auth = app.auth();
-   // console.log(username , " === " ,firebasePassword);
+//    console.log(username , " === " ,firebasePassword);
     return await auth.signInWithEmailAndPassword(username, firebasePassword)
         .then((auth) => {
             sendToFirebase(`/User/${user.id}`, user);
@@ -302,6 +302,9 @@ const navigation = (location, is_reload = false, params=null) => {
         case 'service-search':
             navigationHelper.serviceSearch(is_reload);
             break;
+        case 'dashBoard':
+            navigationHelper.dashBoard(is_reload);
+            break;    
         case 'message':
             navigationHelper.message(is_reload, query);
         default:

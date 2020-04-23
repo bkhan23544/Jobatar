@@ -1290,7 +1290,7 @@ ul li {
 					font-weight: 700 !important;
 					&:hover{
 						color: white !important;
-						background-color: #454be9 !important;
+						background-color: #345581 !important;
 						cursor: pointer;
 					}
 				  }
@@ -2957,23 +2957,23 @@ ul li {
 	.btn-secondary{
 		background-color: #eeeefd;
 		border-color: #eeeefd;
-		color: #454be9;
+		color: #345581;
 		&:hover{
 			background-color: #cecff9;
 			border-color: #cecff9;
-			color: #454be9;
+			color: #345581;
 		}
 		&:focus{
 			box-shadow: 0 0 0 0.2rem rgba(60,61,65,.5);
 			background-color: #cecff9;
 			border-color: #cecff9;
-			color: #454be9;
+			color: #345581;
 		}
 		&:active{
 			box-shadow: 0 0 0 0.2rem rgba(60,61,65,.5);
 			background-color: #cecff9 !important;
 			border-color: #cecff9 !important;
-			color: #454be9 !important;
+			color: #345581 !important;
 		}
 	}
 	.btn-primary{
