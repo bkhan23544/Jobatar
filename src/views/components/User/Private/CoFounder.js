@@ -169,7 +169,7 @@ class CoFounder extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`Co-Founder`} />
-                <div className="update-profile bg-body col-lg-9 col-sm-12">
+                <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         <form name="co-founder" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">
@@ -418,7 +418,7 @@ class CoFounder extends Component {
                             <Card className="button bg-white">
                                 <div className=" d-flex align-items-center">
                                     <div className="col pl-0">Update all your latest changes by clicking on “Save Changes”</div>
-                                    <div className="row center-align">
+                                    <div className="center-align">
                                         {(parseInt(userProfile.is_co_founder) === 1) && <button type="button" className="btn btn-outline-primary mr-4" onClick={this.coFounderDeactivate}>Deactivate Co-Founder</button>}
                                         <LaddaButton className="btn ladda-btn" loading={this.state.loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
                                     </div>

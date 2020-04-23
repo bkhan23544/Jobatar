@@ -555,7 +555,8 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 
 } // Blog Individual page css end
 
-.update-profile {padding: 30px 0px;
+.update-profile {
+	// padding: 30px 0px;
 	.card {border-radius: 0px; border: none;
 		.card-header {border-bottom-color: $gray-300; font-weight: bold; font-size: calc(0.8rem + .4vw); padding: calc(.7rem + .2vw); background-color: $white;}
 		.card-title {border-left: 2px solid $primary; padding: 6px 0px 6px 15px; margin-bottom: 20px; font-size: 16px;

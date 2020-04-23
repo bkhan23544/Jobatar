@@ -134,8 +134,10 @@ class ContractItems extends Component {
                                         //         </div>
                                         <tr>
                                             <td className="first">
-                                                <img src={item.actionBy.avatar} class="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
+                                                <div className="insideFirst">
+                                                <img src={item.actionBy.avatar} class="img-responsive img-circle pull-left" width="40" height="40" alt="Image" />
                                                 <a href="#"> {item.proposalRecipient && item.proposalRecipient.name}</a>
+                                                </div>
                                             </td>
                                             <td>
                                                 <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>

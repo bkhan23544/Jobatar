@@ -7,6 +7,8 @@ import { createSelector } from 'reselect';
 import { authActions, jobActions, serviceActions, searchActions, favoriteActions, proposalActions, messageActions } from '../../../common/redux/actions';
 import Notification from "./Notification";
 import { globalService as gs, itemService } from '../../../common/services';
+import Search from "./Search";
+import SearchIcon from '@material-ui/icons/Search';
 
 class LoggedUser extends Component {
 
@@ -69,12 +71,32 @@ class LoggedUser extends Component {
         this.setState({ unread });
     };
 
+    toggleSearch=(id)=>{
+        document.getElementById(id).classList.toggle("searchDropDownOpen")
+    }
+
     render() {
         const { authentication, item, renderNotification } = this.state;
         const user = authentication && authentication.loggedIn && authentication.authentication.user;
 
         return (<Fragment>
             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
+            <div className="searchDropDownIcon">
+                    {/* <SearchIcon
+                        style={{ color: "#454be9" }}
+                        fontSize="large"
+                        onClick={() => this.toggleSearch("searchDropDown")}
+                    /> */}
+                    <i class="fas fa-search"
+                        onClick={() => this.toggleSearch("searchDropDown")}
+                    ></i>
+                    <div
+                        id="searchDropDown"
+                        className="searchDropDownClose"
+                    >
+                        <Search history={this.props.history} />
+                    </div>
+                </div>
                 {(renderNotification === true) && <Notification />}
                 <a className="nav-link" href="/messages">
                     <img src="/images/Message.png" alt="" className="img-fluid" width="25" />

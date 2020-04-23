@@ -61,92 +61,95 @@ class JobListing extends Component {
 
     render() {
         const { process, results } = this.props;
-        console.log( results && results.items && gs.html2text(results.items[4].description).slice(-8)==="&nbsp;" && "verified","description")
+        console.log(results && results.items && gs.html2text(results.items[4].description).slice(-8) === "&nbsp;" && "verified", "description")
         return (
-   
+
 
             process.loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={4} /> :
-                results && results.items && results.items.map((item) =>
-<div className="job">	
-		  
-<div className="row top-sec">
+                results && results.items ? results.items.map((item) =>
+                    <div className="job" style={{overflow: "hidden"}}>
 
-			{/* <div className="col-2" style={{border:"1px solid red"}}>
+                        <div className="row top-sec">
+
+                            {/* <div className="col-2" style={{border:"1px solid red"}}>
 			 <a href="freelancer.html">
 			  <img className="img-responsive" src="images/team-1.jpg" alt=""/>
 			 </a>
 			</div> */}
-			<div className="col-12 row"> 
-            <img className="img-responsive" src={item.user.avatar} alt=""/>
-            <div className="col-10">
-			 <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
-             {item.category.parent ?
-			 <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title}</small></h5>
-             :  <h5>{item.category.title}<small></small></h5>}
-             </div>
-		
-			
-		   </div>
-		  </div>
-		  
-		  <div className="row mid-sec">			 
-		   <div className="col-lg-12">			 
-		   <div className="col-lg-12">
-			<hr className="small-hr"/>
-			<p>{gs.html2text(item.description)}</p>
-            {item.skills.length &&
+                            <div className="col-12 row">
+                                <img className="img-responsive" src={item.user.avatar} alt="" />
+                                <div className="col-10">
+                                    <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
+                                    {item.category && item.category.parent ?
+                                        <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title && item.category.title}</small></h5>
+                                        : <h5>{item.category && item.category.title && item.category.title}<small></small></h5>}
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div className="row mid-sec">
+                            <div className="col-lg-12">
+                                <div className="col-lg-12">
+                                    <hr className="small-hr" />
+                                    <p>{gs.html2text(item.description)}</p>
+                                    <div className="flexWrap">
+                                        {item.skills.length &&
                                             item.skills.map((a, index) =>
                                                 <span key={index} class="label label-success">{a.title}</span>
                                             )
                                         }
-		   </div>
-		   </div>
-		  </div>
-		  
-		  <div className="row bottom-sec">
-		   <div className="col-lg-12">
-			
-			<div className="col-lg-12">
-			 <hr className="small-hr"/>
-			</div> 
-			
-			<div className="col-lg-2">
-			 <h5> Type </h5>
-			 <p>{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement.charAt(0).toUpperCase()+item.settlement.slice(1)}</p>
-			</div>
-			{item.budget &&<div className="col-lg-2">
-             <h5> Budget </h5>
-            {item.type === "hourly" ?
-                                        <p>{item.budget ? "$"+item.budget+"/hr" : ""}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row bottom-sec">
+                            <div className="col-lg-12">
+
+                                <div className="col-lg-12">
+                                    <hr className="small-hr" />
+                                </div>
+
+                                <div className="col-lg-2">
+                                    <h5> Type </h5>
+                                    <p>{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement.charAt(0).toUpperCase() + item.settlement.slice(1)}</p>
+                                </div>
+                                {item.budget && <div className="col-lg-2">
+                                    <h5> Budget </h5>
+                                    {item.type === "hourly" ?
+                                        <p>{item.budget ? "$" + item.budget + "/hr" : ""}</p>
                                         :
-                                        <p>{item.budget ? "$"+item.budget+" Fixed" : ""}</p>
-                                       
+                                        <p>{item.budget ? "$" + item.budget + " Fixed" : ""}</p>
+
                                     }
-			</div>}
-            {item.settlement === 'both' || item.settlement === 'exchange' &&
-			<div className="col-lg-2">
-			 <h5> Exchange With </h5>
-			 <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>
-            {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
-			</div>
-    }
-			<div className="col-lg-2">
-			 <h5>Posted By</h5>
-			 <p><NavLink to={`/user/public/about/${item && item.user.id}`}>{item.user.name}</NavLink></p>
-			</div>
-			<div className="col-lg-4">
-			</div>
-			
-		   </div>
-		  </div>
-		 
-		 </div>
-	
-		 
-		 
-						
-                
+                                </div>}
+                                {item.settlement === 'both' || item.settlement === 'exchange' &&
+                                    <div className="col-lg-2">
+                                        <h5> Exchange With </h5>
+                                        <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>
+                                            {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
+                                    </div>
+                                }
+                                <div className="col-lg-2">
+                                    <h5>Posted By</h5>
+                                    <p><NavLink to={`/user/public/about/${item && item.user.id}`}>{item.user.name}</NavLink></p>
+                                </div>
+                                <div className="col-lg-4">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
                 )
+                    : null
 
 
         );

@@ -14,7 +14,7 @@ class JobLayout extends Component {
             <div className="col-lg-9 col-sm-12 bg-body allJobsPage PostedJobs">
                 <div className="">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 MarginTop47">
                             <h1 className="d-flex align-items-center">
                                 <span className="col pl-0">My Jobs</span>
                                 <Link to="/job/create" className="btn btn-info">Post a Job</Link>

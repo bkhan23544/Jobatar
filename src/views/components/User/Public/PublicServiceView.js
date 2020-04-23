@@ -243,7 +243,7 @@ class PublicServiceView extends Component {
                                             <i className="far fa-chart-bar"></i> {item && item.proposal_count} times Booked
                                         </div>
                                         <div className="sold">
-                                            <i className="fas fa-cubes"></i> {`${item && item.category.title}`}
+                                            <i className="fas fa-cubes"></i> {`${item && item.category && item.category.title}`}
                                         </div>
                                         <div className="price">{(item && item.budget === null) ? <small>Not Set</small> : `$${item && item.budget}`}</div>
                                     </div>

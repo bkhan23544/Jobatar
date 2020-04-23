@@ -61,16 +61,16 @@ class ServiceListing extends Component {
             // <Main>
             <>
                 <DocumentTitle title={'My Services'} />
-                <div className="my-services bg-body col-lg-9 col-sm-12">
+                <div className="my-services bg-body col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
-                            <div className="col-12 mb-3">
+                            <div className="col-12 mb-3 MarginTop472">
                                 <h1 className="d-flex heading">
                                     <span className="col pl-0">My Services</span>
                                     <Link to="/service/create" className="btn btn-info headingButton">Post a Service</Link>
                                 </h1>
                             </div>
-                            <div className="col-12">
+                            <div className="col-12 paddingRL0">
                                 {process.loading ? <div className="card service-box"><div className="card-body"><div className="d-flex justify-content-center"><div className="spinner-border text-info"><span className="sr-only">Loading...</span></div></div></div></div> :
                                     <Fragment>
                                         {results.items && results.items.map((item) =>

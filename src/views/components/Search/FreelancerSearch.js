@@ -321,7 +321,7 @@ class FreelancerSearch extends PureComponent {
                     </div>
                     <div className="section2">
                         <div className="row"> */}
-                            {/* <form style={{ width: "100%" }} name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+            {/* <form style={{ width: "100%" }} name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                                 <div style={{ width: "100%", paddingLeft: 5, paddingRight: 5 }} className="any-search mb-3 mb-lg-4">
                                     <div className="input-group">
                                         <input type="text" className="form-control" onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
@@ -332,7 +332,7 @@ class FreelancerSearch extends PureComponent {
                                     <p onClick={() => this.filterToggle("section1")}>Advance Filter</p>
                                 </div>
                             </form> */}
-                            {/* <div className="col-12 sorting mb-3 d-flex align-items-center">
+            {/* <div className="col-12 sorting mb-3 d-flex align-items-center">
                                 <h6 className="col pl-0 mb-0">
                                     {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}
                                     {(results && results.length === 0) && 'No search result found.'}
@@ -365,15 +365,15 @@ class FreelancerSearch extends PureComponent {
 
             <section className="featured-users">
                 <div className="container">
-                    <div className="section-title" style={{ paddingTop: 20 }}>
+                    <div className="section-title">
                         <h1>{formField.is_co_founder ? "Co-founder" : "Freelancers"}</h1>
                     </div>
                     <div className="row">
 
-                        <div className="col-lg-9">
-                        <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
-                                <div style={{ width: "100%", marginBottom: "20px" }} className="input-group">
-                                    <input type="text" className="form-control"  onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
+                        <div className="col-lg-9 MarginTop">
+                            <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
+                                <div style={{ width: "100%", marginBottom: "20px" }} className="input-group headerInput2">
+                                    <input type="text" className="form-control" onChange={event => this.handleChange(event)} value={formField.name} name="name" placeholder={(location.pathname === '/cofounders-search') ? 'Search by Cofounder' : 'Search by Freelancer'} />
                                     <div className="input-group-prepend">
                                         <button className="btn btn-info" type="submit">Search</button>
                                     </div>
@@ -401,9 +401,20 @@ class FreelancerSearch extends PureComponent {
                         </div>
                         <div class="col-sm-4 col-md-3">
                             <div className="widget">
-                                <div className="text-right">
+                                {/* <div className="text-right">
+                                    <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
+                                </div> */}
+
+                                <div className="filterHead">
+                                    <h6 className="col pl-0 mb-0 text-left">
+                                        <span>
+                                            {(results && results.pagination && results.pagination.totalCount > 0) && `${results.pagination.totalCount} Search result found.`}
+                                            {(results && results.length === 0) && 'No search result found.'}
+                                        </span>
+                                    </h6>
                                     <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>
                                 </div>
+
                                 {/* <h3 className="widget_title">Category</h3> */}
                                 {/* <ul className="tr-list">
                                     <li><a href="" className="active"><i className="fa fa-code"></i> Web & Mobile Development</a></li>
@@ -536,8 +547,8 @@ class FreelancerSearch extends PureComponent {
                                                 {/* <FormLabel component="legend">Gender</FormLabel> */}
                                                 <RadioGroup aria-label="budget" value={formField.budget}
                                                     name="budget"
-                                                    // onChange={(ev) => this.RadioButtonChanger(ev)} 
-                                                    >
+                                                // onChange={(ev) => this.RadioButtonChanger(ev)} 
+                                                >
                                                     {[
                                                         { value: "0", label: "Any hourly rate" },
                                                         { value: "1", label: "$10 and below" },
@@ -571,8 +582,8 @@ class FreelancerSearch extends PureComponent {
                                                 {/* <FormLabel component="legend">Gender</FormLabel> */}
                                                 <RadioGroup aria-label="budget" value={formField.budget}
                                                     name="budget"
-                                                    // onChange={(ev) => this.RadioButtonChanger(ev)} 
-                                                    >
+                                                // onChange={(ev) => this.RadioButtonChanger(ev)} 
+                                                >
                                                     {[
                                                         { value: "0", label: "Any hours" },
                                                         { value: "1", label: "1+ hours billed" },
