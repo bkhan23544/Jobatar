@@ -277,7 +277,7 @@
 }
 
 .join-btn {
-    background-color: #454be9 !important;
+    background-color: #345581 !important;
     color: white !important;
     font-size: 25px !important;
     margin-top: 15vh;
@@ -289,7 +289,7 @@
 }
 
 .main-man {
-    border: 5px solid #454be9;
+    border: 5px solid #345581;
     border-radius: 100px;
 }
 
@@ -364,13 +364,13 @@
 
 .description-profile .resume-info .icon i, .work .icon i {
     font-size: 30px;
-    color: #454be9;
+    color: #345581;
     margin-right: 10px;
 }
 
 .on-icon i {
     font-size: 30px;
-    color: #454be9;
+    color: #345581;
     margin-right: 10px;
 }
 
@@ -440,7 +440,7 @@
 
 .btn-upload {
     color: white;
-    background-color: #454be9;
+    background-color: #345581;
     border: none;
 }
 
@@ -450,7 +450,7 @@
 }
 
 .icon-color {
-    color: #454be9;
+    color: #345581;
 }
 
 .profile-heading {
@@ -458,7 +458,7 @@
 }
 
 .custom-select:focus {
-    border-color: #454be9 !important;
+    border-color: #345581 !important;
 }
 
 .rating-heading {
@@ -471,7 +471,7 @@
 
 .rating-icon {
     font-size: 30px;
-    color: #454be9;
+    color: #345581;
     margin-right: 10px;
 }
 
@@ -587,7 +587,7 @@
 .form-label {
     color: #000;
     font-weight: 700;
-    /* background-color:#454be9 ;
+    /* background-color:#345581 ;
        padding: 3px; */
 }
 
@@ -596,22 +596,22 @@
    } */
 
 /* .form-control:focus{
-    border-color:#454be9 !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #454be9 !important;
+    border-color:#345581 !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
     outline: 0 none !important;
 
    } */
 
 .multiple-select:focus {
-    border-color: #454be9 !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #454be9 !important;
+    border-color: #345581 !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
     outline: 0 none !important;
 }
 
 .ladda-btn {
-    background-color: #454be9 !important;
+    background-color: #345581 !important;
     color: white;
-    border: 1px solid #454be9 !important;
+    border: 1px solid #345581 !important;
 }
 
 .ladda-btn:hover {
@@ -619,7 +619,7 @@
 }
 
 .fa-cloud-upload-alt {
-    color: #454be9 !important;
+    color: #345581 !important;
 }
 
 .add-new-btn {
@@ -629,13 +629,13 @@
 }
 
 .add-new-btn:hover {
-    background-color: #454be9;
-    border-color: #454be9;
+    background-color: #345581;
+    border-color: #345581;
     color: white !important;
 }
 
 .add-new-btn:checked {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #454be9 !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
 }
 
 .trash-btn {
@@ -650,7 +650,7 @@
 }
 
 .custom-control-input:focus {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #454be9 !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #345581 !important;
 }
 
 .main-testimonial {
@@ -673,29 +673,29 @@
 
 .sign-up-btn {
     color: white;
-    background-color: #454be9 !important;
-    border: 1px solid #454be9 !important;
+    background-color: #345581 !important;
+    border: 1px solid #345581 !important;
     border-radius: 0px !important;
     margin-right: 10px;
 }
 
 .login-btn {
-    color: #454be9 !important;
+    color: #345581 !important;
     background-color: white !important;
-    border: 1px solid #454be9 !important;
+    border: 1px solid #345581 !important;
     border-radius: 0px !important;
 }
 
 .login-btn:hover {
     color: white !important;
-    background-color: #454be9 !important;
-    border: 1px solid #454be9
+    background-color: #345581 !important;
+    border: 1px solid #345581
 }
 
 .sign-up-btn:hover {
-    color: #454be9 !important;
+    color: #345581 !important;
     background-color: white !important;
-    border: 1px solid #454be9
+    border: 1px solid #345581
 }
 
 @media (max-width: 650px) {
@@ -723,17 +723,17 @@
 }
 
 .btn-outline-primary {
-    color: #454be9;
+    color: #345581;
 }
 
 .btn-outline-primary:hover {
     color: white !important;
-    background-color: #454be9 !important;
+    background-color: #345581 !important;
 }
 
 .connection-btn {
-    background-color: #454be9 !important;
-    border: 1px solid #454be9 !important;
+    background-color: #345581 !important;
+    border: 1px solid #345581 !important;
 }
 
 .text-info {
@@ -741,8 +741,8 @@
 }
 
 .btn-info {
-    background-color: #454be9 !important;
-    border: 1px solid #454be9 !important;
+    background-color: #345581 !important;
+    border: 1px solid #345581 !important;
 }
 
 .subscribe-btn {
@@ -792,7 +792,7 @@
 
 .job .label-success:hover{
     color: white !important;
-    background-color: #454be9 !important;
+    background-color: #345581 !important;
 }
 
 .job:before {
@@ -915,7 +915,7 @@
 
 .job .mid-sec .label-success:hover{
     color: white !important;
-    background-color: #454be9 !important;
+    background-color: #345581 !important;
     cursor: pointer;
 }
 
@@ -943,6 +943,15 @@
     font-size: 14px;
     color: #868585 !important;
 }
+
+
+
+.post-btn{
+    background-color: #345581 !important;
+    color: white !important;
+    border: 1px solid #345581 !important;
+}
+
 
 /* .navbar-toggler{
     float: left;

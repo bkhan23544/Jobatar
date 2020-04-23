@@ -76,7 +76,7 @@ class Header extends Component {
                        
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
                             <Nav ><Search history={history}/></Nav>
-                            <Nav className="navbar-nav ml-auto navbar-main mt-2">
+                            <Nav className="navbar-nav ml-5 navbar-main mt-2">
                                 {!loggedIn && <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>}
                                 {loggedIn && <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>
@@ -84,11 +84,12 @@ class Header extends Component {
                                     <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br/> <small>To Hire</small></NavLink>
                                     <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br/> <small>To Partner With</small></NavLink>
                                 </NavDropdown>}
-                                {loggedIn && <NavDropdown title="POST">
+                                {loggedIn && <NavLink activeClassName="active" className="nav-link" to="/dashBoard"><b>DASHBOARD</b></NavLink>}
+                                {loggedIn && <button className="post-btn ml-5"><NavDropdown title={<span className="text-white">POST</span>}>
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
-                                </NavDropdown>}
-                                {loggedIn && <NavLink activeClassName="active" className="nav-link" to="/dashBoard"><b>DASHBOARD</b></NavLink>}
+                                </NavDropdown></button>}
+                             
 
                             </Nav>
                         </Navbar.Collapse>

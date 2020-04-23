@@ -62,7 +62,7 @@ body{
 				.MuiButtonBase-root{
 					// padding: 0;
 					min-height: 33px !important;
-					background-color: #454be9;
+					background-color: #345581;
 					border-radius: 5px 5px 0 0;
 					.MuiExpansionPanelSummary-content{
 						margin: 0;
@@ -98,7 +98,7 @@ body{
 				.MuiButtonBase-root{
 					// padding: 0;
 					min-height: 33px !important;
-					background-color: #454be9;
+					background-color: #345581;
 					border-radius: 0px 0px 5px 5px;
 					.MuiExpansionPanelSummary-content{
 						margin: 0;
@@ -137,7 +137,7 @@ body{
 				.top{
 					// padding: 0;
 					min-height: 33px !important;
-					background-color: #454be9;
+					background-color: #345581;
 					border-radius: 0px;
 					.MuiExpansionPanelSummary-content{
 						margin: 0;
@@ -176,7 +176,7 @@ body{
 				.top{
 					// padding: 0;
 					min-height: 33px !important;
-					background-color: #454be9;
+					background-color: #345581;
 					border-radius: 0px;
 					.MuiExpansionPanelSummary-content{
 						margin: 0;
@@ -430,11 +430,11 @@ body{
 // 			.btn-secondary{
 // 				background-color: #eeeefd;
 // 				border-color: #eeeefd;
-// 				color: #454be9;
+// 				color: #345581;
 // 				&:hover{
 // 					background-color: #cecff9;
 // 					border-color: #cecff9;
-// 					color: #454be9;
+// 					color: #345581;
 // 				}
 // 			}
 // 			.btn-primary{
@@ -979,8 +979,8 @@ ul li {
     z-index: 3;
     color: #fff !important;
     cursor: default;
-    background-color: #454be9 !important;
-    border-color: #454be9 !important;
+    background-color: #345581 !important;
+    border-color: #345581 !important;
 }
 @media(max-width:992px) {	
 	.paginationCommon.blogPagination {
@@ -1017,9 +1017,9 @@ ul li {
 	top: 0%;
 }
 .wizard .nav-tabs li .nav-link:hover, .wizard .nav-tabs li .nav-link:focus, .wizard .nav-tabs li .nav-link.active{
-	color: #454be9 !important;
+	color: #345581 !important;
 	.round-tab{
-		background-color: #454be9 !important;
+		background-color: #345581 !important;
 	}
 }
 

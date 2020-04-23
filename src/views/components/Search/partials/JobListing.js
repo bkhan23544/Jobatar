@@ -80,9 +80,9 @@ class JobListing extends Component {
             <img className="img-responsive" src={item.user.avatar} alt=""/>
             <div className="col-10">
 			 <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
-             {item.category.parent ?
+             {/* {item.category ?
 			 <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title}</small></h5>
-             :  <h5>{item.category.title}<small></small></h5>}
+             :  <h5>{item.category.title}<small></small></h5>} */}
              </div>
 		
 			
