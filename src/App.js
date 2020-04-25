@@ -174,62 +174,64 @@ class App extends React.Component {
                   <DashBoard>
 
                     <Switch>
-                      <Route exact path={"/dashBoard"}>
+                      {/* <Route exact path={"/dashBoard"}>
                         <DashboardTab />
-                      </Route>
+                      </Route> */}
+                      <AuthRoute exact path="/dashBoard/dashBoardTab" component={DashboardTab}  />
 
 
-                      <AuthRoute exact path="/dashBoard/jobs" component={JobListing} is_publish="publish" />
-                      <AuthRoute exact path="/dashBoard/job/draft" component={JobListing} is_publish="draft" />
-                      <AuthRoute exact path="/dashBoard/job/closed" component={JobListing} is_closed="1" />
-                      <AuthRoute exact path="/dashBoard/job/invited" component={JobListing} is_visibility="private" />
+
+                      <AuthRoute  path="/dashBoard/jobs" component={JobListing} is_publish="publish" />
+                      <AuthRoute  path="/dashBoard/job/draft" component={JobListing} is_publish="draft" />
+                      <AuthRoute  path="/dashBoard/job/closed" component={JobListing} is_closed="1" />
+                      <AuthRoute  path="/dashBoard/job/invited" component={JobListing} is_visibility="private" />
 
 
-                      <AuthRoute exact path="/dashBoard/offers/received/jobs/cash" component={ContractListing} status="Received" title="Received Proposals" module="UserItem" settlement="cash" itemLink="/offers/received/jobs" />
-                      <AuthRoute exact path="/dashBoard/offers/received/jobs/exchange" component={ContractListing} status="Received" title="Received Proposals" module="UserItem" settlement="exchange" itemLink="/offers/received/jobs" />
+                      <AuthRoute  path="/dashBoard/offers/received/jobs/cash" component={ContractListing} status="Received" title="Received Proposals" module="UserItem" settlement="cash" itemLink="/offers/received/jobs" />
+                      <AuthRoute  path="/dashBoard/offers/received/jobs/exchange" component={ContractListing} status="Received" title="Received Proposals" module="UserItem" settlement="exchange" itemLink="/offers/received/jobs" />
 
-                      <AuthRoute exact path="/dashBoard/offers/sent/jobs/cash" component={ContractListing} status="Sent" title="Sent Proposals" module="UserItem" settlement="cash" itemLink="/offers/sent/jobs" />
-                      <AuthRoute exact path="/dashBoard/offers/sent/jobs/exchange" component={ContractListing} status="Sent" title="Sent Proposals" module="UserItem" settlement="exchange" itemLink="/offers/sent/jobs" />
+                      <AuthRoute  path="/dashBoard/offers/sent/jobs/cash" component={ContractListing} status="Sent" title="Sent Proposals" module="UserItem" settlement="cash" itemLink="/offers/sent/jobs" />
+                      <AuthRoute  path="/dashBoard/offers/sent/jobs/exchange" component={ContractListing} status="Sent" title="Sent Proposals" module="UserItem" settlement="exchange" itemLink="/offers/sent/jobs" />
 
-                      <AuthRoute exact path="/dashBoard/contracts/jobs/cash" component={ContractListing} status="Contracts" title="Accepted Proposals" module="UserItem" settlement="cash" itemLink="/contracts/jobs" />
-                      <AuthRoute exact path="/dashBoard/contracts/jobs/exchange" component={ContractListing} status="Contracts" title="Accepted Proposals" module="UserItem" settlement="exchange" itemLink="/contracts/jobs" />
+                      <AuthRoute  path="/dashBoard/contracts/jobs/cash" component={ContractListing} status="Contracts" title="Accepted Proposals" module="UserItem" settlement="cash" itemLink="/contracts/jobs" />
+                      <AuthRoute  path="/dashBoard/contracts/jobs/exchange" component={ContractListing} status="Contracts" title="Accepted Proposals" module="UserItem" settlement="exchange" itemLink="/contracts/jobs" />
 
-                      <AuthRoute exact path="/dashBoard/completed/jobs/cash" component={ContractListing} status="Completed" title="Completed Proposals" module="UserItem" settlement="cash" itemLink="/completed/jobs" />
-                      <AuthRoute exact path="/dashBoard/completed/jobs/exchange" component={ContractListing} status="Completed" title="Completed Proposals" module="UserItem" settlement="exchange" itemLink="/completed/jobs" />
+                      <AuthRoute  path="/dashBoard/completed/jobs/cash" component={ContractListing} status="Completed" title="Completed Proposals" module="UserItem" settlement="cash" itemLink="/completed/jobs" />
+                      <AuthRoute  path="/dashBoard/completed/jobs/exchange" component={ContractListing} status="Completed" title="Completed Proposals" module="UserItem" settlement="exchange" itemLink="/completed/jobs" />
 
-                      <AuthRoute exact path="/dashBoard/services" component={ServiceListing} />
+                      <AuthRoute  path="/dashBoard/services" component={ServiceListing} />
 
-                      <AuthRoute exact path="/dashBoard/offers/received/services/cash" component={ContractListing} status="Received" title="Received Offers" module="UserService" settlement="cash" itemLink="/offers/received/services" />
-                      <AuthRoute exact path="/dashBoard/offers/received/services/exchange" component={ContractListing} status="Received" title="Received Offers" module="UserService" settlement="exchange" itemLink="/offers/received/services" />
+                      <AuthRoute  path="/dashBoard/offers/received/services/cash" component={ContractListing} status="Received" title="Received Offers" module="UserService" settlement="cash" itemLink="/offers/received/services" />
+                      <AuthRoute  path="/dashBoard/offers/received/services/exchange" component={ContractListing} status="Received" title="Received Offers" module="UserService" settlement="exchange" itemLink="/offers/received/services" />
 
-                      <AuthRoute exact path="/dashBoard/offers/sent/services/cash" component={ContractListing} status="Sent" title="Sent Offers" module="UserService" settlement="cash" itemLink="/offers/sent/services" />
-                      <AuthRoute exact path="/dashBoard/offers/sent/services/exchange" component={ContractListing} status="Sent" title="Sent Offers" module="UserService" settlement="exchange" itemLink="/offers/sent/services" />
+                      <AuthRoute  path="/dashBoard/offers/sent/services/cash" component={ContractListing} status="Sent" title="Sent Offers" module="UserService" settlement="cash" itemLink="/offers/sent/services" />
+                      <AuthRoute  path="/dashBoard/offers/sent/services/exchange" component={ContractListing} status="Sent" title="Sent Offers" module="UserService" settlement="exchange" itemLink="/offers/sent/services" />
 
-                      <AuthRoute exact path="/dashBoard/contracts/services/cash" component={ContractListing} status="Contracts" title="Accepted Offers" module="UserService" settlement="cash" itemLink="/contracts/services" />
-                      <AuthRoute exact path="/dashBoard/contracts/services/exchange" component={ContractListing} status="Contracts" title="Accepted Offers" module="UserService" settlement="exchange" itemLink="/contracts/services" />
+                      <AuthRoute  path="/dashBoard/contracts/services/cash" component={ContractListing} status="Contracts" title="Accepted Offers" module="UserService" settlement="cash" itemLink="/contracts/services" />
+                      <AuthRoute  path="/dashBoard/contracts/services/exchange" component={ContractListing} status="Contracts" title="Accepted Offers" module="UserService" settlement="exchange" itemLink="/contracts/services" />
 
-                      <AuthRoute exact path="/dashBoard/completed/services/cash" component={ContractListing} status="Completed" title="Completed Offers" module="UserService" settlement="cash" itemLink="/completed/services" />
-                      <AuthRoute exact path="/dashBoard/completed/services/exchange" component={ContractListing} status="Completed" title="Completed Offers" module="UserService" settlement="exchange" itemLink="/completed/services" />
+                      <AuthRoute  path="/dashBoard/completed/services/cash" component={ContractListing} status="Completed" title="Completed Offers" module="UserService" settlement="cash" itemLink="/completed/services" />
+                      <AuthRoute  path="/dashBoard/completed/services/exchange" component={ContractListing} status="Completed" title="Completed Offers" module="UserService" settlement="exchange" itemLink="/completed/services" />
 
-                      <AuthRoute exact path="/dashBoard/user/favorite/services" component={FavoriteService} />
-                      <AuthRoute exact path="/dashBoard/user/favorite/jobs" component={FavoriteJobs} />
-                      <AuthRoute exact path="/dashBoard/user/favorite/freelancers" component={FavoriteFreelancer} />
-                      <AuthRoute exact path="/dashBoard/user/favorite/co-founders" component={FavoriteCoFounder} />
+                      <AuthRoute  path="/dashBoard/user/favorite/services" component={FavoriteService} />
+                      <AuthRoute  path="/dashBoard/user/favorite/jobs" component={FavoriteJobs} />
+                      <AuthRoute  path="/dashBoard/user/favorite/freelancers" component={FavoriteFreelancer} />
+                      <AuthRoute  path="/dashBoard/user/favorite/co-founders" component={FavoriteCoFounder} />
 
-                      <AuthRoute exact path="/dashBoard/user/connection/my-cofounder" component={ConnectionsMy} />
-                      <AuthRoute exact path="/dashBoard/user/connection/received-request" component={ConnectionsRequest} />
-                      <AuthRoute exact path="/dashBoard/user/connection/sent-request" component={ConnectionsSent} />
+                      <AuthRoute  path="/dashBoard/user/connection/my-cofounder" component={ConnectionsMy} />
+                      <AuthRoute  path="/dashBoard/user/connection/received-request" component={ConnectionsRequest} />
+                      <AuthRoute  path="/dashBoard/user/connection/sent-request" component={ConnectionsSent} />
 
-                      <AuthRoute exact path="/dashBoard/user/membership" component={Membership} />
+                      <AuthRoute  path="/dashBoard/user/membership" component={Membership} />
 
-                      <AuthRoute exact path="/dashBoard/stripe-connect" component={StripConnect} />
-                      <AuthRoute exact path="/dashBoard/setting/transactions" component={Transactions} />
-                      <AuthRoute exact path="/dashBoard/setting/notifications" component={Notifications} />
+                      <AuthRoute  path="/dashBoard/stripe-connect" component={StripConnect} />
+                      <AuthRoute  path="/dashBoard/setting/transactions" component={Transactions} />
+                      <AuthRoute  path="/dashBoard/setting/notifications" component={Notifications} />
 
-                      <AuthRoute exact path="/dashBoard/user/update" component={ProfileUpdate} />
-                      <AuthRoute exact path="/dashBoard/user/experience-and-education" component={ExperienceAndEducation} />
-                      <AuthRoute exact path="/dashhBoard/user/co-founder" component={CoFounder} />
-                      <AuthRoute exact path="/dashBoard/setting/change-password" component={ChangePassword} />
+                      <AuthRoute  path="/dashBoard/user/update" component={ProfileUpdate} />
+                      <AuthRoute  path="/dashBoard/user/experience-and-education" component={ExperienceAndEducation} />
+                      <AuthRoute  path="/dashhBoard/user/co-founder" component={CoFounder} />
+                      <AuthRoute  path="/dashBoard/setting/change-password" component={ChangePassword} />
 
 
 

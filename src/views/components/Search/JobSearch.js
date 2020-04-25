@@ -342,7 +342,7 @@ class JobSearch extends Component {
                     <div className="section-title">
                         <h1>Jobs</h1>
                     </div>
-                    <div className="row">
+                    <div className="row reverseDirection">
 
                         <div className="col-lg-9">
                             <div className="work">

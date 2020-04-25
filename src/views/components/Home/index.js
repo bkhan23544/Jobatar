@@ -34,7 +34,7 @@ class Home extends Component {
     render() {
         const { process } = this.props;
         if (gs.identity) {
-            return (<Redirect to='/dashBoard' />)
+            return (<Redirect to='/dashBoard/dashBoardTab' />)
         }
         return (<Main>
             <DocumentTitle title={`Home`} />

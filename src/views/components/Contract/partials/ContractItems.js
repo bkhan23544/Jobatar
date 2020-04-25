@@ -140,7 +140,7 @@ class ContractItems extends Component {
                                                 </div>
                                             </td>
                                             <td>
-                                                <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
+                                                <Link className="titell" to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
                                             </td>
                                             <td>
                                                 {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"></small>}

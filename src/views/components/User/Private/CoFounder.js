@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Main } from '../../../layout';
 import { Card, Row, Col, Form } from 'react-bootstrap';
 import Select from 'react-select';
@@ -48,6 +48,8 @@ class CoFounder extends Component {
             submitted: false,
             validation: this.validator().valid(),
             loading: false,
+            removeCoFounder: true,
+
         };
     }
 
@@ -157,9 +159,19 @@ class CoFounder extends Component {
     }
 
 
+    removeCoFounder = () => {
+        this.setState({ removeCoFounder: false })
+    }
+
+    addCoFounder = () => {
+        const { dispatch } = this.props;
+        dispatch(userActions.profile("POST", { userProfile: { is_co_founder: 1 } }, 'co-founder'));
+    }
+
+
     render() {
         const { skills, countries, authentication } = this.props;
-        const { formField, submitted, validation } = this.state;
+        const { formField, submitted, validation, removeCoFounder } = this.state;
         let skillsList = skills.data ? skills.data : [];
         let countriesList = countries.data ? countries.data : [];
         let isValid = submitted ? this.validator().validate(formField) : validation;
@@ -170,6 +182,23 @@ class CoFounder extends Component {
             <>
                 <DocumentTitle title={`Co-Founder`} />
                 <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
+                    {removeCoFounder &&
+                        ((parseInt(userProfile.is_co_founder) === 0) || (userProfile.is_co_founder === null)) &&
+                        <div className="fadedDiv">
+                            <div className='custom-ui bg-white border coFounder mt-3 AlertCofounder'>
+                                <h5>Are you interested in finding to co-founder for your business
+                                                idea? </h5>
+                                <button type="button" onClick={this.removeCoFounder} className="btn btn-info" style={{
+                                    width: '50px',
+                                    padding: '7px'
+                                }}>No
+                                                </button>
+                                <button type="button" className="btn btn-primary ml-2"
+                                    style={{ width: '50px', padding: '7px' }} onClick={this.addCoFounder}>Yes
+                                                </button>
+                            </div>
+                        </div>
+                    }
                     <div className="">
                         <form name="co-founder" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">
@@ -298,7 +327,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                    <Card.Title><span className="section-titles">My Ideal Co-founder</span></Card.Title>
+                                                        <Card.Title><span className="section-titles">My Ideal Co-founder</span></Card.Title>
                                                         <div className="form-group">
                                                             <span className="form-label">What I am looking for</span>
                                                             <textarea className="form-control" rows="4"
@@ -312,7 +341,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                    <Card.Title><span className="section-titles">Skill</span></Card.Title>
+                                                        <Card.Title><span className="section-titles">Skill</span></Card.Title>
                                                         <div className="form-group">
                                                             <Select
                                                                 className="multiple-select mb-2"
@@ -328,7 +357,7 @@ class CoFounder extends Component {
                                                 <hr />
                                                 <Row>
                                                     <Col xs={12}>
-                                                    <Card.Title><span className="section-titles">My Wishlist</span></Card.Title>
+                                                        <Card.Title><span className="section-titles">My Wishlist</span></Card.Title>
                                                     </Col>
                                                 </Row>
                                                 <Row>

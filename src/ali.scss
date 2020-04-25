@@ -331,8 +331,8 @@ body{
    .card-box h4 a{
 	margin-bottom: 0px !important;
 	font-family: 'HKGrotesk';
-	font-size: 19px;
-	font-weight: 500;
+	font-size: 16px;
+	font-weight: 700;
 	color: #345581 !important;
 	line-height: 0 !important; 
    }
@@ -1543,6 +1543,7 @@ ul li {
 			}
 		}
 		td{
+			max-width: 230px;
 			font-family: 'HKGrotesk';
 			font-size: 18px; 
 			color: #848484 !important;
@@ -1558,6 +1559,8 @@ ul li {
 			text-align: left;
 			font-family: 'Varela Round', sans-serif;
 			font-size: 14px;
+			padding-top: 5px;
+			padding-bottom: 5px;
 
 			i{
 				color: #345581;
@@ -1581,7 +1584,13 @@ ul li {
 			}
 		}
 		td img{
-			padding-right: 5px;
+			margin-right: 5px;
+			height: 25px;
+			width: 25px;
+		}
+		.titell{
+			color: #535F80 !important;
+			font-size: 14px;
 		}
 		td span.label-mint{
 			font-family: 'HKGrotesk';
@@ -1592,6 +1601,9 @@ ul li {
 		}
 		td i.fa{ 
 			color: #345581 !important;	
+		}
+		tr{
+			
 		}
 		.first{
 			.insideFirst{
@@ -1989,13 +2001,20 @@ ul li {
 		}
 	}
 	.freLncrBox{
+		.card-body{
+			flex-direction: row-reverse;
+		}
 		.profile{
 			width: auto;
+			width: 50%;
+			padding: 0;
+			text-align: center;
 		}
 		.caption{
 			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, 'HKGrotesk';
 			width: auto;
 			padding-left: 10px;
+			width: 50%;
 			h3{
 				font-size: 18px;
 				color: #345581;
@@ -2005,7 +2024,7 @@ ul li {
 			}
 			.action{
 				button{
-					background-color: rgba($color: #345581, $alpha: 0.9);
+					background-color: #345581;
 					border-color: #345581;
 					outline: none;
 					&:hover{
@@ -2998,4 +3017,121 @@ ul li {
 			color: #03c68e !important;
 		}
 	}
+}
+
+.fadedDiv{
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color: white, $alpha: 0.7);
+	position: absolute;
+	z-index: 5;
+	.AlertCofounder{
+		position: absolute;
+		z-index: 5;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%,-25%);
+	}
+}
+
+.MuiRadio-colorSecondary.Mui-checked{
+	color: #d65456 !important;
+}
+
+.job .top-sec {
+	.row{
+		// justify-content: center;
+		// text-align: center;
+	}
+	.ImageA{
+		border: 2px solid #345581;
+		border-radius: 50%;
+		padding: 2px;
+	}
+img{
+	border-radius: 50%;
+}
+}
+.job{
+	.read-more-button{
+		color: #345581;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: bold;
+		display: inline-block;
+		margin-left: 20px;
+	}
+}
+.job .mid-sec{
+	min-height: 120px;
+}
+
+.post-btn{
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 5px;
+	margin-left: 5rem !important;
+}
+
+.work,.jobBoxx,.my-favorites{
+	.job{
+		padding-top: 0;
+		&::before{
+			display: none;
+		}
+	}
+}
+
+.searchDropDownIcon22{
+	@media(max-width: 767px) {
+		display: inline-block;
+	}
+	@media(min-width: 768px) {
+		display: none;
+	}
+}
+
+.searchDropDownIcon2{
+	@media(max-width: 767px) {
+		display: none;
+	}
+	@media(min-width: 768px) {
+		display: inline-block;
+	}
+}
+
+
+@media(max-width: 767px) {
+	.FlexDivSearch{
+		.post-btn{
+			width: 50%;
+			margin: 0 !important
+		}
+		.searchDropDownIcon22{
+			width: 50%;
+			.searchDropDownIcon{
+				width: 100% !important;
+				margin: 0 !important;
+			}
+		}
+	}
+}
+.reverseDirection{
+	flex-direction: row-reverse;
+	@media(max-width: 767px) {
+		flex-direction: column-reverse;
+		margin-top: 20px;
+	}
+}
+.filterHead{
+	flex-direction: row-reverse;
+	h6{
+		text-align: right !important;
+		padding: 0;
+		margin: 0;
+	}
+}
+.positionAbsHeart{
+	position: absolute;
+	right: 15px;
 }

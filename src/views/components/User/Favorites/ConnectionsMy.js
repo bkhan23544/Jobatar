@@ -196,7 +196,7 @@ class ConnectionsMy extends Component {
                                                             <div className="caption">
                                                                 <h3><NavLink to={`/user/public/about/${item.connection && item.connection.id}`}>{item.connection && item.connection.name}</NavLink></h3>
                                                                 <div className="position">
-                                                                    <span>{item.connection && item.connection.title}</span>
+                                            <span>{item.connection && item.connection.title.slice(0,18)}{item.connection.title.length > 18 && "..."}</span>
                                                                 </div>
                                                                 <div className="address d-flex align-items-center flex-wrap">
                                                                     <div className="w-100 mb-1 text-truncate">

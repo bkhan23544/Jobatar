@@ -368,7 +368,7 @@ class FreelancerSearch extends PureComponent {
                     <div className="section-title">
                         <h1>{formField.is_co_founder ? "Co-founder" : "Freelancers"}</h1>
                     </div>
-                    <div className="row">
+                    <div className="row reverseDirection">
 
                         <div className="col-lg-9 MarginTop">
                             <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>

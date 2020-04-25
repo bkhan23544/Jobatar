@@ -248,13 +248,22 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			}
 		}
 	}
-	.navbar {background-color: $white !important; box-shadow: 0px 4px 4px rgba($black, 0.1);
+	.navbar {background-color: $white !important; 
+		// box-shadow: 0px 4px 4px rgba($black, 0.1);
 	.container-xl{
 		justify-content: space-evenly;
 	}
 	}
 	.navbar-main {
-		.nav-link {color: #343434; padding-left: 12px; padding-right: 12px; font-weight: bold; text-transform: uppercase;font-family: "Roboto", Helvetica, sans-serif;
+	@media (min-width: 768px){
+		width: 100%;
+		justify-content: center;
+	}
+	@media (max-width: 768px){
+		margin: 0 !important;
+		margin-bottom: 10px !important;
+	}
+		.nav-link {color: #343434; padding-left: 15px; padding-right: 15px; font-weight: bold; text-transform: uppercase;font-family: "Roboto", Helvetica, sans-serif;
 			transition: 0.3s;
 			&:hover {color: #345581;}
 			&.active {color: $primary; font-weight: 600;}
@@ -271,7 +280,19 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			&:hover {background-color: white; border-color: #345581; color: #345581;}
 			> img {margin-top: 8px;}
 		}
-		.badge {position: absolute; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 10px; right: 0px;}
+		.badge {
+			// position: absolute; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 10px; right: 0px;
+			position: absolute;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: 5px;
+			right: 0px;
+			background: #d65456;
+		}
 		.btn {color: $white; text-transform: uppercase; font-size: 13px; font-weight: 600;}
 		.dropdown-item .badge {right: 3px; font-size: 12px; width: 25px; height: 25px; top: 3px; background-color: transparent; color: $warning; font-weight: 800;}
 	}
@@ -359,94 +380,159 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 		}
 	}
 	.searchDropDownIcon{
+		// display: flex;
+		// flex-direction: row;
+		// align-items: center;
+		// justify-content: center;
+		// color: #343434;
+		// padding-left: 12px;
+		// padding-right: 12px;
+		// font-weight: bold;
+		// text-transform: uppercase;
+		// font-family: "Roboto", Helvetica, sans-serif;
+		// transition: 0.3s;
+		// background-color: white;
+		// color: #345581;
+		// border: 1px solid #345581;
+		// height: 32px;
+		// width: 95px;
+		// font-weight: 500;
+		// margin-right: 20px;
+		// margin-left: 1rem!important;
+		// border-radius: 5px;
+		// cursor: pointer;
+
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #343434;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Roboto", Helvetica, sans-serif;
+    transition: 0.3s;
+    background-color: white;
+    color: #d65456;
+    border: 1px solid #d65456;
+    height: 32px;
+    width: 110px;
+	font-weight: 500;
+	@media(min-width: 767px) {
+		margin-right: 47px;
+		margin-left: -8rem !important;
+	}
+    border-radius: 5px;
+    cursor: pointer;
+
+		&:hover{
+			background-color: #d65456;
+			color: white;
+			border: 1px solid #d65456;
+			i{
+				color: white;
+			}
+		}
 		i{
 			// height: 25px;
 			// width: 25px;
-			font-size: 22px;
-			color: #345581;
-		}
-		.searchDropDownClose{
-			position: fixed;
-			background-color: white;
-			height: 0;
-			overflow: hidden;
-			margin-top: 40px;
-			transition: 0.5s;
-			left: 50%;
-			transform: translate(-50%,0);
-			width: 1199px;
-			.form-inline{
-				width: 100%;
-				justify-content: flex-end;
-				margin: 0 !important;
-				.MuiBadge-root{
-					// width: 100%;
-					width: 100%;
-					float: right;
-					@media(min-width: 1024px) {
-					}
-				}
-				.input-group{
-					width: 100%;
-					.form-control{
-						width: 100%;
-					}
-				}
-			}
-			@media(max-width: 991px) {
-					width: 100%;
-			}
-			@media(max-width: 767px) {
-					width: 100%;
-			}
-			@media(max-width: 360px) {
-					width: 100%;
-			}
-		}
-		.searchDropDownOpen{
-			height: auto;
-			padding: 20px;
-			margin-top: 80px;
-			background-color: white;
-			// border-radius: 5px;
-			width: 1199px;
-			// border: 1px solid #345581;
-			box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-			overflow: hidden;
-			transition: 0.5s;
-			.form-inline{
-				width: 100%;
-				justify-content: flex-end;
-				margin: 0 !important;
-				.MuiBadge-root{
-					// width: 100%;
-					width: 100%;
-					float: right;
-					@media(min-width: 1024px) {
-					}
-				}
-				.input-group{
-					width: 100%;
-					.form-control{
-						width: 100%;
-					}
-				}
-			}
-			@media(max-width: 991px) {
-					width: 100%;
-			}
-			@media(max-width: 767px) {
-					width: 100%;
-			}
-			@media(max-width: 360px) {
-					width: 100%;
-			}
+			// font-size: 16px;
+			margin-right: 5px;
+			color: #d65456;
 		}
 	}
+			.searchDropDownClose,.searchDropDownClose2{
+				position: fixed;
+				background-color: white;
+				height: 0;
+				overflow: hidden;
+				margin-top: 40px;
+				// transition: 0.5s;
+				left: 50%;
+				transform: translate(-50%,0);
+				width: 1199px;
+				.form-inline{
+					width: 100%;
+					justify-content: flex-end;
+					margin: 0 !important;
+					.MuiBadge-root{
+						// width: 100%;
+						width: 100%;
+						float: right;
+						@media(min-width: 1024px) {
+						}
+					}
+					.input-group{
+						width: 100%;
+						.form-control{
+							width: 100%;
+						}
+					}
+				}
+				@media(max-width: 991px) {
+						width: 100%;
+				}
+				@media(max-width: 767px) {
+						width: 100%;
+				}
+				@media(max-width: 360px) {
+						width: 100%;
+				}
+			}
+			.searchDropDownOpen,.searchDropDownOpen2{
+				height: auto;
+				padding: 20px;
+				margin-top: 0px;
+				background-color: white;
+				// border-radius: 5px;
+				width: 1199px;
+				// border: 1px solid #345581;
+				box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+				overflow: hidden;
+				// transition: 0.5s;
+				.form-inline{
+					width: 100%;
+					justify-content: flex-end;
+					margin: 0 !important;
+					.MuiBadge-root{
+						// width: 100%;
+						width: 100%;
+						float: right;
+						@media(min-width: 1024px) {
+						}
+					}
+					.input-group{
+						width: 100%;
+						.form-control{
+							width: 100%;
+						}
+					}
+				}
+				@media(max-width: 991px) {
+						width: 100%;
+				}
+				@media(max-width: 767px) {
+						width: 100%;
+				}
+				@media(max-width: 360px) {
+						width: 100%;
+				}
+			}
+			#searchDropDown{
+				.form-inline{
+					.MuiSelect-iconOutlined{
+						top: 50%;
+						transform: translate(0,-50%);
+					}
+					.input-group-append{
+						button{
+							top: 50%;
+							transform: translate(0,-50%);
+						}
+					}
+				}
+			}
 	.dropdown-item.active, .dropdown-item:active {background-color: rgba($color:  #345581, $alpha: 1); color: $white;}
 	.profile-dropdown {
 		.dropdown-toggle {padding-right: 0px;
@@ -541,6 +627,8 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 .navbar-nav{
 	display: flex !important;
 	flex-direction: row !important;
+	justify-content: center !important;
+	width: 100%;
 	
 }
  }
@@ -1238,3 +1326,28 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 	.MuiButton-textPrimary {color: $info !important;}
 }
 .custom-control-input:checked ~ .custom-control-label::before {border-color: gray; background-color: gray;}
+.custom-control-label::before{
+	// border: #345581 solid 0.1em !important;
+	// background-color: transparent
+	top:0.3em !important;
+
+}
+.custom-control-input:checked ~ .custom-control-label::before{
+	// border-color: transparent;
+	// top:0.3em !important;
+
+	border: #345581 solid 0.1em !important;
+
+    background-color: transparent
+}
+.custom-radio .custom-control-input:checked~.custom-control-label::after{
+background-color: #ff5851 !important;
+background-image: none;
+    border-radius: 50% !important;
+}
+.custom-control-label:after{
+	left:-1.5rem !important;
+	width: 1rem !important;
+    height: 1rem !important;
+    top: 0.6rem !important;
+}

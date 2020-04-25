@@ -958,7 +958,7 @@
 
 @media (min-width:768px){
 #basic-navbar-nav{
-    max-width: 300px !important;
+    /* max-width: 350px !important; */
 }
 }
 

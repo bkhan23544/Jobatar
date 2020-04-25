@@ -8,6 +8,43 @@ import { globalService as gs, itemService } from '../../../common/services';
 import { userActions } from '../../../common/redux/actions';
 import { Switch, Route, Link, NavLink, withRouter } from "react-router-dom";
 
+
+const dummy = [
+    {
+        actionBy:{
+            avatar: "https://uploads.jobarter.com/cache/t/r/5/N/J/v/2/a/tr5NJv2aIIjxRVStjCWycjXKxgrq9SrL-300x300.jpg"
+        },
+        proposalRecipient:{
+            name: "muhammad sadiq hanif"
+        },
+        item:{
+            title: "i will translate japanenese to english vise versa my file is too long"
+        }
+    },
+    {
+        actionBy:{
+            avatar: "https://uploads.jobarter.com/cache/t/r/5/N/J/v/2/a/tr5NJv2aIIjxRVStjCWycjXKxgrq9SrL-300x300.jpg"
+        },
+        proposalRecipient:{
+            name: "muhammad sadiq hanif"
+        },
+        item:{
+            title: "i will translate japanenese to english vise versa my file is too long"
+        }
+    },
+    {
+        actionBy:{
+            avatar: "https://uploads.jobarter.com/cache/t/r/5/N/J/v/2/a/tr5NJv2aIIjxRVStjCWycjXKxgrq9SrL-300x300.jpg"
+        },
+        proposalRecipient:{
+            name: "muhammad sadiq hanif"
+        },
+        item:{
+            title: "i will translate japanenese to english vise versa my file is too long"
+        }
+    }
+]
+
 class DashboardTab extends React.Component {
 
 constructor(props){

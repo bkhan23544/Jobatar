@@ -352,7 +352,7 @@ class ServiceSearch extends PureComponent {
                     <div className="section-title">
                         <h1>Services</h1>
                     </div>
-                    <div className="row">
+                    <div className="row reverseDirection">
 
                         <div className="col-lg-9 MarginTop">
                             {/* <div className="work"> */}

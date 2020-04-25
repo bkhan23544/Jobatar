@@ -16,9 +16,9 @@ class LoggedUser extends Component {
         super(props);
         this.state = {
             authentication: props.authentication,
-            renderNotification:true,
+            renderNotification: true,
             item: null,
-            unread:0,
+            unread: 0,
         };
         this.unread = 0;
     }
@@ -28,7 +28,7 @@ class LoggedUser extends Component {
         this.recipientCounter()
     };
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.setState({ renderNotification: false });
     }
 
@@ -71,9 +71,6 @@ class LoggedUser extends Component {
         this.setState({ unread });
     };
 
-    toggleSearch=(id)=>{
-        document.getElementById(id).classList.toggle("searchDropDownOpen")
-    }
 
     render() {
         const { authentication, item, renderNotification } = this.state;
@@ -81,42 +78,39 @@ class LoggedUser extends Component {
 
         return (<Fragment>
             <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
-            <div className="searchDropDownIcon">
-                    {/* <SearchIcon
-                        style={{ color: "#454be9" }}
-                        fontSize="large"
-                        onClick={() => this.toggleSearch("searchDropDown")}
-                    /> */}
-                    <i class="fas fa-search"
-                        onClick={() => this.toggleSearch("searchDropDown")}
-                    ></i>
-                    <div
-                        id="searchDropDown"
-                        className="searchDropDownClose"
-                    >
-                        <Search history={this.props.history} />
-                    </div>
-                </div>
+                
                 {(renderNotification === true) && <Notification />}
                 <a className="nav-link" href="/messages">
                     <img src="/images/Message.png" alt="" className="img-fluid" width="25" />
-                    <span className="badge badge-info">{this.state.unread ? this.state.unread : '' }</span>
+                    <span className="badge badge-info">{this.state.unread ? this.state.unread : ''}</span>
                 </a>
                 <NavDropdown title={
                     <span>
                         <img src={user && user.avatar} alt="" className="img-fluid border rounded-circle" width="40" height="40" />
                     </span>
                 } className="profile-dropdown">
-                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/update">My Profile</NavLink>
-                    <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/experience-and-education">Experience & Education</NavLink>
-                    <NavLink className="dropdown-item border-bottom-0" to="/dashhBoard/user/co-founder">Co-Founder</NavLink>
+                    <Dropdown>
+                        <Dropdown.Toggle as="a" className="dropdown-item pr-2 border-bottom-0" to="/profile">
+                            Profile <i className="fas fa-angle-up float-right"></i>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {/* <NavLink className="dropdown-item" to={"/dashBoard/services"}>My Services</NavLink> */}
+                            <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/update">My Profile</NavLink>
+                            <NavLink className="dropdown-item border-bottom-0" to="/dashBoard/user/experience-and-education">Experience & Education</NavLink>
+                            <NavLink className="dropdown-item border-bottom-0" to="/dashhBoard/user/co-founder">Co-Founder</NavLink>
+                            {/* <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink> */}
+                            {/* <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink> */}
+                            {/* <NavLink className="dropdown-item" to={"/dashBoard/contracts/services/cash"}>Accepted Offers</NavLink> */}
+                            {/* <NavLink className="dropdown-item" to={"/dashBoard/completed/services/cash"}>Completed Offers</NavLink> */}
+                        </Dropdown.Menu>
+                    </Dropdown>
                     <Dropdown>
                         <Dropdown.Toggle as="a" className="dropdown-item pr-2 border-bottom-0" to="/services">
                             Services <i className="fas fa-angle-up float-right"></i>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <NavLink className="dropdown-item" to={"/dashBoard/services"}>My Services</NavLink>
-                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService &&  item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/contracts/services/cash"}>Accepted Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/completed/services/cash"}>Completed Offers</NavLink>

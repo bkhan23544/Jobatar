@@ -103,12 +103,12 @@ class ConnectionsRequest extends Component {
             // <Main>
             <>
                 <DocumentTitle title="Received Request" />
-                <div className="bg-body my-favorites col-lg-9 col-sm-12">
+                <div className="bg-body my-favorites col-lg-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
-                            <div className="col-12">
+                            {/* <div className="col-12">
                                 <h1 className="pb-2 d-flex align-items-center flex-wrap heading">Received Request</h1>
-                            </div>
+                            </div> */}
                             <div className="col-12">
                                 <CoFounderNavbar />
                             </div>

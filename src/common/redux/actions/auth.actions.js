@@ -15,7 +15,7 @@ const login = (params) => {
                     dispatch(authSelectors.success(authentication));
                     dispatch(alertSelectors.success(authentication.message));
                     dispatch(processSelectors.stop());
-                    gs.navigation('dashBoard', true);
+                    gs.navigation('dashBoard/dashBoardTab', true);
                     gs.firebaseLogin(params.username,params.password)
                     .then((user) => {
                         if (user)  {
