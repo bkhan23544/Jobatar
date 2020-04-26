@@ -186,9 +186,9 @@ class CoFounder extends Component {
                         ((parseInt(userProfile.is_co_founder) === 0) || (userProfile.is_co_founder === null)) &&
                         <div className="fadedDiv">
                             <div className='custom-ui bg-white border coFounder mt-3 AlertCofounder'>
-                                <h5>Are you interested in finding to co-founder for your business
+                                <h5>Are you interested in finding a co-founder for your business
                                                 idea? </h5>
-                                <button type="button" onClick={this.removeCoFounder} className="btn btn-info" style={{
+                                <button type="button" className="btn btn-info" style={{
                                     width: '50px',
                                     padding: '7px'
                                 }}>No

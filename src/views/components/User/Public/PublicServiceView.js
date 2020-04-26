@@ -372,7 +372,7 @@ class PublicServiceView extends Component {
                                         <h5 className="card-title">Skills</h5>
                                         <div className="card-text">
                                             {item && item.skills.map((skill) =>
-                                                <div className="badge badge-pill badge-secondary" key={skill.id}>{skill.title}</div>
+                                                <span className="badge" key={skill.id}>{skill.title}</span>
                                             )}
                                         </div>
                                     </div>

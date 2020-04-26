@@ -4,6 +4,7 @@ import {createSelector} from "reselect";
 import {connect} from "react-redux";
 import JobForm from './partials/JobForm';
 import StripeConnection from '../common/StripeConnection';
+import ImageCropper from './imageCropper';
 
 
 class JobCreate extends Component {

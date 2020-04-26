@@ -117,7 +117,7 @@ class Notification extends Component {
                                                 }
                                 >
                                     {this.state.items.map((item, index) => (
-                                        <Link to={urlHelper.notifyUrl(item)} className={`list-group-item list-group-item-action`} key={item && item.message_id} onClick={() => this.read(item)}>
+                                        <Link to={urlHelper.notifyUrl(item)} className={`list-group-item list-group-item-action borderBottomNoti`} key={item && item.message_id} onClick={() => this.read(item)}>
                                             {item.avatar &&
                                             <div className="image">
                                                 <img src={item.avatar.thumb} alt="" className="img-fluid border rounded-circle" width="40" height="40" />

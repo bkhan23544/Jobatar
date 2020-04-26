@@ -1522,7 +1522,7 @@ ul li {
 		tr th{	
 			font-family: 'Varela Round', sans-serif;
 			font-size: 16px; 
-			text-align: center;
+			// text-align: center;
 			border-left: 0;
 			border-right: 0;
 		}
@@ -1786,16 +1786,33 @@ ul li {
 						margin-bottom: 10px;
 						// background-color: #345581;
 					}
+					.SkillsDiv{
+						margin-bottom: 10px;
+					}
 					.badge{
-						background-color: #535F80 !important;
-						margin-right: 3px;
-						padding: 5px;
-						padding-left: 10px;
-						padding-right: 10px;
-						border-radius: 3px;
-						color: white;
-						font-family: 'HKGrotesk';
+						font-family: 'Varela Round', sans-serif;
+						background: rgb(219, 218, 218) !important;
+						margin-bottom: 5px;
+						font-size: 10px;
+						color: #000 !important;
 						letter-spacing: 1px;
+						width: auto;
+						height: auto;
+						padding: 8px 20px;
+						margin-top: 5px;
+						margin-right: 8px;
+						display: inline;
+						font-weight: 700;
+						line-height: 1;
+						text-align: center;
+						white-space: nowrap;
+						vertical-align: baseline;
+						border-radius: .25em;
+						&:hover{
+							color: white !important;
+							background-color: #345581 !important;
+							cursor: pointer;
+						}
 					}
 				}
 			}
@@ -2774,18 +2791,11 @@ ul li {
 
 			}
 		}
-		.Nestedlink.activei{
+		.Nestedlink.active{
 			color: #345581;
 			font-weight: 700;
 			i{
 				span{
-					// height: 8px;
-					// width: 8px;
-					// background-color: #ff5851;
-					// border-radius: 50%;
-					// position: absolute;
-					// top: 4px;
-					// left: 4px;
 					height: 0.6em;
 					width: 0.6em;
 					background-color: #ff5851;
@@ -2793,16 +2803,26 @@ ul li {
 					position: absolute;
 					top: 4px;
 					left: 3px;
-				
 				}
-				// color: rgb(52, 85, 129);
-				// margin-right: 5px;
-				// background-image: url(https://www.iconsdb.com/icons/preview/red/circle-xxl.png);
-				// background-repeat: no-repeat;
-				// background-size: 8px 8px;
-				// background-position: center;
+				
 			}
 		}
+		// .Nestedlink.activei{
+		// 	color: #345581;
+		// 	font-weight: 700;
+		// 	i{
+		// 		span{
+		// 			height: 0.6em;
+		// 			width: 0.6em;
+		// 			background-color: #ff5851;
+		// 			border-radius: 50%;
+		// 			position: absolute;
+		// 			top: 4px;
+		// 			left: 3px;
+		// 		}
+				
+		// 	}
+		// }
 		ul{
 			 li {
 				position: relative;
@@ -3135,3 +3155,47 @@ img{
 	position: absolute;
 	right: 15px;
 }
+
+.borderBottomNoti{
+	border-bottom: 2px solid lightgray !important;
+}
+
+.mainnn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	.crop-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+	}
+	
+	.controls {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 50%;
+		transform: translateX(-50%);
+		height: 80px;
+		display: flex;
+		align-items: center;
+	}
+	
+	.slider {
+		padding: 22px 0px;
+	}
+}
+.freelanceBox{
+	justify-content: space-evenly;
+}
+.MuiSnackbarContent-message{
+	font-size: 14px !important;
+}
+  
+  
+  

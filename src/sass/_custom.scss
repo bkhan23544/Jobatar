@@ -294,7 +294,17 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			background: #d65456;
 		}
 		.btn {color: $white; text-transform: uppercase; font-size: 13px; font-weight: 600;}
-		.dropdown-item .badge {right: 3px; font-size: 12px; width: 25px; height: 25px; top: 3px; background-color: transparent; color: $warning; font-weight: 800;}
+		.dropdown-item .badge {
+			// right: 3px; font-size: 12px; width: 25px; height: 25px; top: 3px; background-color: transparent; color: $warning; font-weight: 800;
+			right: 3px;
+			font-size: 12px;
+			width: 25px;
+			height: 25px;
+			top: -8px;
+			background-color: transparent;
+			color: #FBBB00;
+			font-weight: 300;
+		}
 	}
 
 	@media (min-width: 768px) and (max-width: 1200px) {
@@ -413,9 +423,10 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
     text-transform: uppercase;
     font-family: "Roboto", Helvetica, sans-serif;
     transition: 0.3s;
-    background-color: white;
-    color: #d65456;
-    border: 1px solid #d65456;
+    background-color: #345581;
+    color: #345581;
+	border: 1px solid #345581;
+	background-color: white;
     height: 32px;
     width: 110px;
 	font-weight: 500;
@@ -427,9 +438,9 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
     cursor: pointer;
 
 		&:hover{
-			background-color: #d65456;
+			background-color: #345581;
 			color: white;
-			border: 1px solid #d65456;
+			border: 1px solid #345581;
 			i{
 				color: white;
 			}
@@ -439,7 +450,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 			// width: 25px;
 			// font-size: 16px;
 			margin-right: 5px;
-			color: #d65456;
+			color: #345581;
 		}
 	}
 			.searchDropDownClose,.searchDropDownClose2{
