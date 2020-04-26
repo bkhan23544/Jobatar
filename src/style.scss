@@ -1181,6 +1181,15 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 .messenger {
 	.sidebar {padding-bottom: 8px;
 		.search-toolbar .toolbar-title {font-size: 18px; font-weight: 600;}
+		.search-toolbar{
+			.select-type{
+				.MuiInput-formControl{
+					.MuiInput-input{
+						padding: 10px;
+					}
+				}
+			}
+		}
         .unreadCircle {width: 20px; height: 20px; border-radius: 50px; display: flex; align-items: center; justify-content: center; border: 1px solid $info; margin-left: 4px; background-color: $white;}
 	}
 	.content {
@@ -1208,14 +1217,14 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 		// margin: auto;
 		font-size: 16px;
 		line-height: 24px;
-		font-weight: 600;
+		font-weight: 300;
 		font-family: 'Roboto', sans-serif;
 	}
 	h6{
 		// margin: auto;
 		font-size: 14px;
 		// line-height: 22px;
-		font-weight: 600;
+		font-weight: 400;
 		font-family: 'Roboto', sans-serif;
 	}
 }

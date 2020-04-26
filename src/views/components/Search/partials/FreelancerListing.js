@@ -145,7 +145,7 @@ class FreelancerListing extends Component {
             //     </div>
             // </div>
 
-            <div class="row">
+            <div class="row freelanceBox">
                 {
                     process.loading ? "Loading.." :
                         results && results.items && results.items.map((item) =>

@@ -54,7 +54,7 @@ class Banner extends Component {
                    <i className="fa fa-circle fa-stack-2x"></i>
                    <i className="fa fa-clone fa-stack-1x fa-inverse"></i>
                   </span>
-                <p>Post your job for Free</p>
+                <p>Post your job for free</p>
                 </div>
                </div>
                        

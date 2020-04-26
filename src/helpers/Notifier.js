@@ -11,8 +11,8 @@ class Notifier extends React.Component {
         const {alert, enqueueSnackbar, closeSnackbar} = this.props;
         if (alert) {
             const action = (key) => (
-                <Fragment>
-                    <Button className="text-white" style={{fontSize: '10px'}} onClick={() => {
+                <Fragment >
+                    <Button className="text-white" style={{fontSize: '10px'}}  onClick={() => {
                         closeSnackbar(key)
                     }}>
                         {'Dismiss'}

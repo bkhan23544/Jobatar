@@ -3,6 +3,7 @@ import { globalService as gs, defaultService } from '../../services';
 import {userActions} from "./user.actions";
 
 const upload = (files, upload) => {
+    console.log(files)
     return dispatch => {
         dispatch(processSelectors.start());
         let uploadedFiles = upload.files;

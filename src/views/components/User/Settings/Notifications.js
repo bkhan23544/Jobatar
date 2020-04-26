@@ -105,7 +105,7 @@ class Notifications extends Component {
                                             </div>
                                         </div>}
                                         <div className="notification-list list-group mb-4">
-                                            {notification && notification.map(item => <div className={`list-group-item list-group-item-action d-flex align-items-center ${(item && item.status === 'Read') ? 'bg-white' : 'bg-light'}`} key={item && item.message_id}>
+                                            {notification && notification.map(item => <div className={`list-group-item borderBottomNoti list-group-item-action d-flex align-items-center ${(item && item.status === 'Read') ? 'bg-white' : 'bg-light'}`} key={item && item.message_id}>
                                                 <span className={'w-100'} onClick={() => this.read(item,urlHelper.notifyUrl(item))}>
                                                     <Link 
                                                     to={urlHelper.notifyUrl(item)}
