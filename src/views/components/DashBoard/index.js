@@ -164,14 +164,14 @@ class DashBoard extends React.Component {
 		  <NavLink to={`/dashBoard/dashBoardTab`} className="link" id="active1">
 		  
 			
-				<i className="fa fa-life-ring" style={{color:"#345581",marginRight:5}}></i><span>Dashboard</span>
+				<i className="fa fa-life-ring" style={{color:"#345581",marginRight:"3px",fontSize:"15px"}}></i><span>Dashboard</span>
 		
 		  </NavLink>
 			</li>
 			
 			<li className="treeview">
 			
-			  <NavLink id="active2" to={`/dashBoard/jobs`} onClick={()=>this.toggleActive(2,"active")} className="link"><i className="fa fa-files-o" style={{color:"#345581",marginRight:5}}></i> 
+			  <NavLink id="active2" to={`/dashBoard/jobs`} onClick={()=>this.toggleActive(2,"active")} className="link"><i className="fa fa-files-o" style={{color:"#345581",marginRight:"5px"}}></i> 
 			  <span>Jobs</span>
 			  <span className="pull-right-container">
 				  <i id="active2Icon" className="fa fa-angle-left pull-right "></i> 
@@ -192,7 +192,7 @@ class DashBoard extends React.Component {
 				  <i className="fa fa-angle-left pull-right"></i> 
 				</span>
 			  </a> */}
-			  <NavLink id="active3"  to={`/dashBoard/services`} onClick={()=>this.toggleActive(3,"active")}  className="link"><i className="fa fa-scroll" style={{color:"#345581",marginRight:5}}></i> 
+			  <NavLink id="active3"  to={`/dashBoard/services`} onClick={()=>this.toggleActive(3,"active")}  className="link"><i className="fa fa-scroll" style={{color:"#345581",marginRight:"3px",fontSize:"12px"}}></i> 
 			  Services <span className="pull-right-container">
 				  <i id="active3Icon" className="fa fa-angle-left pull-right"></i> 
 				</span>
@@ -205,20 +205,20 @@ class DashBoard extends React.Component {
 				<li><Link id="activei10" onClick={()=>this.toggleActiveNested(10,"activei")} to={`/dashBoard/completed/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Complete Offers</Link></li>
 			  </ul>
 			</li>
-			<li><NavLink id="active4"  to={`/dashBoard/user/connection/my-cofounder`} className="link"><i className="fas fa-handshake" style={{color:"#345581",marginRight:5}}></i><span>Co-founder</span></NavLink></li>
+			<li><NavLink id="active4"  to={`/dashBoard/user/connection/my-cofounder`} className="link"><i className="fas fa-handshake" style={{color:"#345581",marginRight:"3px",fontSize:"12px"}}></i><span>Co-founder</span></NavLink></li>
 
-			<li><NavLink id="active5"  to={`/dashBoard/user/favorite/services`} className="link"><i className="fas fa-bookmark" style={{color:"#345581",marginRight:5}}></i>Favorite</NavLink></li>
+			<li><NavLink id="active5"  to={`/dashBoard/user/favorite/services`} className="link"><i className="fas fa-bookmark" style={{color:"#345581",marginRight:"5px"}}></i>Favorite</NavLink></li>
 
 		 </ul>		
 		
 		  <ul className="sidebar-menu" data-widget="tree">
-		  	<li><NavLink id="active6"  to={`/dashBoard/setting/transactions`} className="link"><i className="fas fa-exchange-alt" style={{color:"#345581",marginRight:5}}></i>Transactions</NavLink></li>
+		  	<li><NavLink id="active6"  to={`/dashBoard/setting/transactions`} className="link"><i className="fas fa-exchange-alt" style={{color:"#345581",marginRight:"5px"}}></i>Transactions</NavLink></li>
 			
-			<li><NavLink id="active7"  to={`/dashBoard/stripe-connect`} className="link"><i className="fas fa-money-check-alt" style={{color:"#345581",marginRight:5}}></i>Payment method</NavLink></li>
+			<li><NavLink id="active7"  to={`/dashBoard/stripe-connect`} className="link"><i className="fas fa-money-check-alt" style={{color:"#345581",marginRight:"3px",fontSize:"15px"}}></i>Payment method</NavLink></li>
 
-			<li><NavLink id="active8"  to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:5}}></i>Manage Membership</NavLink></li>
+			<li><NavLink id="active8"  to={`/dashBoard/user/membership`} className="link"><i className="fas fa-credit-card" style={{color:"#345581",marginRight:"5px",fontSize:"15px"}}></i>Manage Membership</NavLink></li>
 
-			<li><NavLink id="active9"  to={`/dashBoard/setting/notifications`} className="link"><i className="fas fa-bell" style={{color:"#345581",marginRight:5}}></i>Notifications</NavLink></li>
+			<li><NavLink id="active9"  to={`/dashBoard/setting/notifications`} className="link"><i className="fas fa-bell" style={{color:"#345581",marginRight:"8px"}}></i>Notifications</NavLink></li>
 
 		 </ul>	
 		 
@@ -227,17 +227,17 @@ class DashBoard extends React.Component {
 		  <ul className="sidebar-menu" data-widget="tree">
 			<li>
 			<NavLink id="active10"  to={`/dashBoard/user/update`} className="link">
-				<i className="fas fa-user" style={{color:"#345581",marginRight:5}}></i><span>Edit Profile</span>
+				<i className="fas fa-user" style={{color:"#345581",marginRight:"5px"}}></i><span>My Profile</span>
 			</NavLink>
 			</li>
 			<li>
 				<NavLink id="active11"  to={`/dashBoard/user/experience-and-education`} className="link">
-					<i className="fas fa-book-reader" style={{color:"#345581",marginRight:5}}></i>Experience & Education
+					<i className="fas fa-book-reader" style={{color:"#345581",marginRight:"5px"}}></i>Experience & Education
 				</NavLink>
 			</li>
 			<li>
 				<NavLink id="active12"  to={`/dashhBoard/user/co-founder`} className="link">
-				<i className="fas fa-handshake" style={{color:"#345581",marginRight:5}}></i>Co-Founder
+				<i className="fas fa-handshake" style={{color:"#345581",marginRight:"4px",fontSize:"14px"}}></i>Co-Founder
 				</NavLink>
 			</li>
 			{/* <li>
@@ -247,7 +247,7 @@ class DashBoard extends React.Component {
 			</li> */}
 			<li>
 			<NavLink id="active13"  to={`/dashBoard/setting/change-password`} className="link">
-				<i className="fas fa-lock" style={{color:"#345581",marginRight:5}}></i><span>Change Password</span>
+				<i className="fas fa-lock" style={{color:"#345581",marginRight:"5px"}}></i><span>Change Password</span>
 			</NavLink>
 			</li>
 		 </ul>			 

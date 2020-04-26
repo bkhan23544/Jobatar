@@ -302,7 +302,7 @@ const navigation = (location, is_reload = false, params=null) => {
         case 'service-search':
             navigationHelper.serviceSearch(is_reload);
             break;
-        case 'dashBoard':
+        case 'dashBoard/dashBoardTab':
             navigationHelper.dashBoard(is_reload);
             break;    
         case 'message':

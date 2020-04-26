@@ -100,7 +100,7 @@ componentDidMount=()=>{
                     <div className="row">
 
                         <div className="col-sm-3">
-                            <div className="fun-fact">
+                           <div className="fun-fact">
                                 <div className="media-body">
                                     <h1>$0.00</h1>
                                     <span>Total Amount</span>
@@ -109,30 +109,30 @@ componentDidMount=()=>{
                         </div>
 
                         <div className="col-sm-3">
-                            <div className="fun-fact">
+                        <Link to={`/dashBoard/contracts/jobs/cash`}><div className="fun-fact">
                                 <div className="media-body">
                                     <h1>{jobs.length}</h1>
                                     <span>Active Proposals</span>
                                 </div>
-                            </div>
+                            </div></Link>
                         </div>
 
                         <div className="col-sm-3">
-                            <div className="fun-fact">
+                        <Link to={`/dashBoard/contracts/services/cash`}><div className="fun-fact">
                                 <div className="media-body">
                                     <h1>{services.length}</h1>
                                     <span>Active Offers</span>
                                 </div>
-                            </div>
+                            </div></Link>
                         </div>
 
-                        <div className="col-sm-3">
-                            <div className="fun-fact">
+          <div className="col-sm-3">
+          <Link to={`/user/public/ratings/${user && user.user.id}`}><div className="fun-fact">
                                 <div className="media-body">
                                     {user && <h1>{parseInt(user.user.userProfile.avg_rating)}</h1>}
                                     <span>Average Rating</span>
                                 </div>
-                            </div>
+                            </div></Link>
                         </div>
 
                     </div>
@@ -148,66 +148,6 @@ componentDidMount=()=>{
                     </div>
             
                 }
-{/* 
-                <div className="box">
-                    <div className="box-header">
-                        <h3 className="box-title">Active Proposals</h3>
-                    </div>
-                    <div className="box-body">
-                        <div className="table-responsive">
-                            <table id="example1" className="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Freelancer</th>
-                                        <th>Job Title</th>
-                                        <th>Workroom</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/img/users/1.jpg" className="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
-                                            <a href="company.html">Anna Morgan</a>
-                                        </td>
-                                        <td><a href="#">I need a designer to design a logo & questionnaire for a Nutrition Company</a></td>
-                                        <td><a href="#" className="kafe-btn kafe-btn-mint-small">Chat</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/img/users/3.jpg" className="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
-                                            <a href="company.html">Benjamin Robinson</a>
-                                        </td>
-                                        <td><a href="#">Professional writer required</a></td>
-                                        <td><a href="#" className="kafe-btn kafe-btn-mint-small">Chat</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/img/users/4.jpg" className="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
-                                            <a href="company.html">Sean Coleman</a>
-                                        </td>
-                                        <td><a href="#">Content Writers Needed</a></td>
-                                        <td><a href="#" className="kafe-btn kafe-btn-mint-small">Chat</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/img/users/5.jpg" className="img-responsive img-circle pull-left" width="50" height="50" alt="Image" />
-                                            <a href="company.html">Vanessa Wells</a>
-                                        </td>
-                                        <td><a href="#">Website Design</a></td>
-                                        <td><a href="#" className="kafe-btn kafe-btn-mint-small">Chat</a></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Client</th>
-                                        <th>Job Title</th>
-                                        <th>Freelancer</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                </div> */}
 
 { jobs.length>0 && 
             <ContractItems dashboard={jobTitle} results={jobs} pagination={1} status={status} settlement={"cash"} title={jobTitle}  />}
