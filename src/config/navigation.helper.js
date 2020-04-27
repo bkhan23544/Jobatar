@@ -25,7 +25,7 @@ const serviceSearch = (is_redirect) => {
 };
 
 const dashBoard = (is_redirect) => {
-    is_redirect ? (window.location.href = '/dashBoard') :  history.push('/dashBoard');
+    is_redirect ? (window.location.href = '/dashBoard/dashBoardTab') :  history.push('/dashBoard/dashBoardTab');
 }
 
 const offersLocation = (location) => {

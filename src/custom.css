@@ -765,6 +765,10 @@
     font-size: 15px !important;
 }
 
+.table-content{
+    font-size: 13px !important;
+}
+
 .input-group-prepend{
     margin-left: 10px;
 }

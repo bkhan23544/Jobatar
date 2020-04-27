@@ -85,7 +85,7 @@ class ContractItems extends Component {
                             <table id="example1" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Freelancer</th>
+                                        <th className="table-head">Freelancer</th>
                                         <th>Job Title</th>
                                         <th>Assigned</th>
                                         <th>Proposal</th>
@@ -94,44 +94,6 @@ class ContractItems extends Component {
                                 </thead>
                                 <tbody>
                                     {results && results.map((item) =>
-                                        //    <div className="card service-box" key={`e#${item.id}`}>
-
-                                        //             <div className="card-body">
-                                        //                 <h5 className="card-title">
-                                        //                     <Link to={`/${status.toLowerCase()}/view/${item.id}`}>{item.item && item.item.title}</Link>
-                                        //                 </h5>
-                                        //                 <div className="d-flex align-items-center">
-                                        //                     <div className="col pl-0 d-flex align-items-center">
-                                        //                         <div className="category text-truncate w-20 pr-2">
-                                        //                             <span> {item.proposalRecipient && item.proposalRecipient.name }</span>
-                                        //                         </div>
-                                        //                         <div className="date pr-3 w-25">
-                                        //                             { moment(item.updated_at * 1000).format('LLL') }
-                                        //                         </div>
-                                        //                         <div className="ratings d-flex align-items-center w-50">
-                                        //                             {settlement === 'cash' &&
-                                        //                                 <div className="price d-flex align-items-center"> {(item.budget === null) ? <small>Not Set</small> : `$${item.budget}`} {((item.status !== status_pending) && (item.status !== status_declined) && (item.status !== status_payment_confirm) && (item.status !== status_completed) && (item.status !== status_accepted_and_closed)) && < small className="text-info pt-2 pl-2" title="Active Service"></small>}</div>
-                                        //                             }
-                                        //                             {settlement === 'exchange' && <Fragment>
-                                        //                                 <div className="title pr-2">Service Exchange</div>
-                                        //                                 {item.item && item.item.skills && item.item.skills.slice(0, 4).map((skill) => <div key={`${skill.id}`} className="badge badge-pill badge-secondary px-3">{skill.title}</div>) }
-                                        //                             </Fragment>}
-                                        //                         </div>
-
-                                        //                         <div className="status w-15 text-left">
-                                        //                             {item.isDispute && <span className={`badge mr-2 badge-info`}>Disputed</span> }
-                                        //                             <span className={`badge badge-${this.proposalStatus(item).cls}`}>{this.proposalStatus(item).title}</span>
-                                        //                         </div>
-                                        //                     </div>
-                                        //                     {<div className="auction d-flex align-items-center">
-                                        //                         <div className="button d-flex">
-                                        //                             <Link className="btn btn-sm" to={`/${status.toLowerCase()}/view/${item.id}`}><i className="fas fa-eye"></i></Link>
-                                        //                         </div>
-                                        //                     </div>}
-                                        //                 </div>
-                                        //                     {(status_declined === item.status) && <div><b>Decline Reason: </b> {item.comment}</div>}
-                                        //             </div>
-                                        //         </div>
                                         <tr>
                                             <td className="first">
                                                 <div className="insideFirst">

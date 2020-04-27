@@ -175,12 +175,12 @@ class Transactions extends Component {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right" className="table-text">Transaction ID</TableCell>
-            <TableCell align="right" className="table-text">Transaction Date</TableCell>
-            <TableCell align="right" className="table-text">Contract Name</TableCell>
-            <TableCell align="right" className="table-text">Admin Fee</TableCell>
-            <TableCell align="right" className="table-text">Amount</TableCell>
-            <TableCell align="right" className="table-text">Transfer</TableCell>
+            <TableCell align="left" className="table-text">Transaction ID</TableCell>
+            <TableCell align="left" className="table-text">Transaction Date</TableCell>
+            {/* <TableCell align="right" className="table-text">Contract Name</TableCell> */}
+            <TableCell align="left" className="table-text">Admin Fee</TableCell>
+            <TableCell align="left" className="table-text">Amount</TableCell>
+            <TableCell align="left" className="table-text">Transfer</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -201,18 +201,21 @@ class Transactions extends Component {
               </TableCell>
             </TableRow>}
 
-{results && results.map(item => (
+{results && results.map((item)=>{
+    console.log(item,"items")
+    return(
     <TableRow key={item.id}>
-        <TableCell component="th" scope="row">
+        <TableCell className="table-content" component="th" scope="row">
             {item.transactionID}
         </TableCell>
-        <TableCell>{moment(item.created_at * 1000).format('LLL')}</TableCell>
-        <TableCell>{item.proposal.item.title}</TableCell>
-        <TableCell>${item.admin_fee}</TableCell>
-        <TableCell>${item.total_amount}</TableCell>
-        <TableCell>${item.transfer_amount}</TableCell>
+        <TableCell className="table-content">{moment(item.created_at * 1000).format('LLL')}</TableCell>
+        {/* <TableCell>{item.proposal.item.title}</TableCell> */}
+        <TableCell className="table-content">${item.admin_fee}</TableCell>
+        <TableCell className="table-content">${item.total_amount}</TableCell>
+        <TableCell className="table-content">${item.transfer_amount}</TableCell>
     </TableRow>
-))}
+    )
+})}
           
         </TableBody>
       </Table>

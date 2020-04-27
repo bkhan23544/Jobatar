@@ -24,7 +24,7 @@
 @import "./sass/custom";
 
 
-body {font-family: 'HKGrotesk', sans-serif; line-height: 26px; background-color: $white;}
+// body {font-family: 'HKGrotesk', sans-serif; line-height: 26px; background-color: $white;}
 body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $white; font-size: 14px;}
 
 .all-content {@include full-width(); min-height: calc(73vh - 18px); padding-top: 65px;}
@@ -411,6 +411,65 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	}
 } // Blog page css end
 
+.hTestimonial {padding: 40px 0px;
+    h2 {font-size: calc(1.1rem + 0.8vw); font-weight: bold; text-align: center; margin-bottom: 20px;}
+    .alice-carousel__stage-item {background-color: transparent; min-height: auto; max-height: none; }
+    .alice-carousel {width: 520px; margin: 220px auto;}
+    .slider {position: relative; float: left; width: 100%;}
+    .items {padding: 40px 0px 0px 0px;
+        .image {text-align: center; margin-bottom: 15px; display: none;
+            img {border-radius: 50%;}
+        }
+        .caption {
+            .icon {margin-right: 20px; margin-top: -36px;}
+            .desc {font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #343434;}
+            h5 {color: $black; font-weight: bold;}
+        }
+    }
+    .alice-carousel__prev-btn, .alice-carousel__next-btn {display: none;}
+    ul.tubmb-slide {margin: 0px; padding: 0px; list-style: none;
+        li {position: absolute;
+            img {border-radius: 50%; cursor: pointer; transition: all 0.3s ease-in-out;
+                &:hover {transform: scale(1.1);}
+            }
+            &:nth-child(1) {top: 40px; left: 50%; margin-left: -78px;}
+            &:nth-child(2) {top: 5px; left: 0%;}
+            &:nth-child(3) {top: 5px; right: 0%;}
+            &:nth-child(4) {top: 50%; left: 0%; margin-left: -128px; margin-top: -78px;}
+            &:nth-child(5) {top: 50%; left: 140px; margin-top: -78px;}
+            &:nth-child(6) {top: 50%; right: 140px; margin-top: -78px;}
+            &:nth-child(7) {bottom: 20px; left: 0%;}
+            &:nth-child(8) {bottom: 20px; right: 0%;}
+        }
+    }
+    @media(max-width: 1160px) {
+        ul.tubmb-slide {
+            li {
+                &:nth-child(4) {margin-left: -28px; margin-top: -128px;}
+                &:nth-child(5) {left: 80px; margin-top: 2px;}
+                &:nth-child(6) {right: 30px;}
+            }
+        }
+    }
+    @media(max-width: 991px) {
+        .alice-carousel {width: 360px; margin: 180px auto;}
+        ul.tubmb-slide {
+            li {
+                &:nth-child(5) {left: 70px; margin-top: -18px;}
+                &:nth-child(6) {right: 0px;}
+            }
+        }
+    }
+    @media(max-width: 767px) {padding: 20px 0px;
+        .alice-carousel {width: 100%; margin: 0px;}
+        ul.tubmb-slide {display: none;}
+        .alice-carousel__prev-btn, .alice-carousel__next-btn {display: inline-block;}
+        .items {padding-top: 0px;
+            .image {display: block; }
+        }
+    }
+}
+
 .bIndividual {padding-bottom: 40px; padding-top: 30px; background-color: #F1F2F8; min-height: calc(100vh - 342px);
 	h2 {font-size: calc(0.8rem + 0.5vw); font-weight: bold;}
 	.updated {list-style: none; font-weight: 600; padding-left: 20px;
@@ -455,31 +514,59 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 	}
 } // Blog Individual page css end
 
-.howWork-page {margin-bottom: 40px;
-	h1 {font-size: calc(0.8rem + 0.5vw); font-weight: bold; margin-bottom: 0px;}
-	.boxs {margin: 25px 0px; text-align: center; position: relative; width: 100%;
-		&:before {content: ""; height: 100%; width: 1px; position: absolute; top: 0px; right: -16px; background-color: $gray-400;}
-		&:after {content: ""; height: 1px; width: 100%; position: absolute; left: 0px; bottom: -20px; background-color: $gray-400;;}
-		img {margin-bottom: 15px;}
-		h3 {font-size: 24px; font-weight: 600; color: darken($dark, 14%); margin-bottom: 0px;}
-		p {font-size: 14px; line-height: 28px; color: darken($dark, 4%);}
-		&.none-right {
-			&:before {content: none;}
-		}
-		&.none-bottom {
-			&:after {content: none;}
-		}
-	}
-	@media(max-width: 991px) {
-		.boxs {height: 170px;}
-	}
-	@media(max-width: 574px) {
-		h1 {margin-top: 15px !important;}
-		.boxs {height: 150px;
-			&:before {background-color: transparent;}
-		}
-	}
-} // How it work page css end
+.howWork-page {margin-bottom: 00px;
+	.banner-text{text-align: left;}
+    .banner {position: relative;
+        .caption {position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; color: $white; z-index: 3;
+            h2 {font-size: 38px; font-weight: 800; margin-bottom: 25px;}
+            h6 {font-size: 24px; font-weight: 400; margin-bottom: 30px;}
+        }
+    }
+	.btn-info {font-size: 16px; text-transform: uppercase; font-weight: 600; padding: 14px 25px; margin-right: 15px;background-color: #ff5851 !important; border-color: #ff5851 !important;}
+    .inner-content {position: relative; background: url('/images/new/how-bg.png') no-repeat center 150px;}
+    .fourlist {margin-bottom: 60px;margin-top: 60px;
+        ul {padding: 0px; list-style: none; margin-bottom: 50px;
+            li {display: flex; align-items: center; justify-content: center; width: 25%; text-align: center;
+                img {border-radius: 50%; border: 2px solid $primary; margin-bottom: 15px; padding: 3px}
+                .title {font-size: 24px; font-weight: bold; }
+            }
+        }
+    }
+    .center-text {text-align: center; margin-bottom: 30px;
+        h2 {font-size: 48px; font-weight: 900; margin-bottom: 20px;font-family: "Roboto";}
+        h6 {font-size: 18px; line-height: 28px;}
+    }
+    .list-box {padding: 30px 0px;
+        h3 {color: $info; font-size: 35px; font-weight: 900;font-family: "Roboto";}
+        .text {font-size: 16px; font-weight: 600; margin-bottom: 25px;}
+        .action {margin-bottom: 15px;}
+    }
+    @media(max-width: 767px) {
+        .banner .caption {
+            h2 {font-size: 28px;}
+            h6 {font-size: 20px;}
+        }
+        .fourlist {margin-bottom: 20px;}
+        .fourlist ul {align-items: start !important; margin-bottom: 0px;
+            li {
+                img {width: 75px;}
+                .title {font-size: 15px;}
+            }
+        }
+        .btn-info {font-size: 14px; padding: 10px 20px;}
+        .center-text  {margin-bottom: 0px;
+            h2 {font-size: 28px; margin-bottom: 10px;}
+            h6 {font-size: 16px;}
+        }
+        .list-box {padding: 10px 0px;
+            h3 {font-size: 26px;}
+            .text {font-size: 14px; margin-bottom: 5px;}
+        }
+    }
+    @media(max-width: 574px) {
+        
+    }
+}// How it work page css end
 
 .about-page {padding: 50px 0px; font-size: 15px; color: #242424;
 	h3 {font-size: calc(16px + 0.4vw); font-weight: bold; margin-bottom: 30px;

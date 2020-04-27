@@ -1109,7 +1109,7 @@ ul li {
 			padding: 10px;
 			border-radius: 2px;
 			text-decoration: none;
-			font-family: 'HKGrotesk';
+			font-family: 'Roboto';
 			letter-spacing: 1px;
 			// padding-left: 15px;
 			// padding-right: 15px;
@@ -1519,9 +1519,11 @@ ul li {
 		border-bottom-right-radius: 3px;
 		border-bottom-left-radius: 3px;
 		padding: 10px;
+
 		tr th{	
 			font-family: 'Varela Round', sans-serif;
 			font-size: 16px; 
+			text-align: left;
 			// text-align: center;
 			border-left: 0;
 			border-right: 0;
@@ -1559,8 +1561,9 @@ ul li {
 			text-align: left;
 			font-family: 'Varela Round', sans-serif;
 			font-size: 14px;
-			padding-top: 5px;
-			padding-bottom: 5px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			overflow: hidden;
 
 			i{
 				color: #345581;
@@ -2670,7 +2673,7 @@ ul li {
     color: #272727;
 	line-height: 22px;
 	.dashboard-info .fun-fact {
-		
+		cursor: pointer;
 		padding: 40px 20px;
 		background-color: #fff;
 		border-radius: 4px;

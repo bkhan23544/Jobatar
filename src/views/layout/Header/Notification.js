@@ -91,58 +91,58 @@ class Notification extends Component {
         const { count } = this.state;
         return(
             <Fragment>
-                <Dropdown className="dropdown-notification">
-                    <Dropdown.Toggle as="a" className="nav-link" to="/setting/notifications">
-                        <img src="/images/Bell.png" alt="" className="img-fluid" width="25" />
-                        <span className="badge badge-info">{(count > 0) ? count : ''}</span>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className="dropdown-menu-right dropdown-menu-media">
-                        <div className="dropdown-arrow"></div>
-                        <div className="dropdown-header text-center">
-                            <div>
-                                <span className="font-18"><strong>{count} New</strong> Notifications</span>
+            <Dropdown className="dropdown-notification">
+                <Dropdown.Toggle as="a" className="nav-link" to="/setting/notifications">
+                    <img src="/images/Bell.png" alt="" className="img-fluid" width="25" />
+                    <span className="badge badge-info">{(count > 0) ? count : ''}</span>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="dropdown-menu-right dropdown-menu-media">
+                    <div className="dropdown-arrow"></div>
+                    <div className="dropdown-header text-center">
+                        <div>
+                            <span className="font-18"><strong>{count} New</strong> Notifications</span>
+                        </div>
+                        <NavLink className="text-muted font-13" to="/setting/notifications">view all</NavLink>
+                    </div>
+                    <div className="w-100 timeline">
+                        {(this.state.items.length > 0) &&
+                            <InfiniteScroll className="scroll css-scroll list-group"
+                                            dataLength={this.state.items.length}
+                                            next={this.fetchMoreData}
+                                            hasMore={this.state.hasMore}
+                                            loader={<p className="text-center mb-0">Loading...</p>}
+                                            height={300}
+                                            endMessage={
+                                                <p className="text-center mb-0"> <b>Yay! You have seen it all</b> </p>
+                                            }
+                            >
+                                {this.state.items.map((item, index) => (
+                                    <Link to={urlHelper.notifyUrl(item)} className={`list-group-item list-group-item-action`} key={item && item.message_id} onClick={() => this.read(item)}>
+                                        {item.avatar &&
+                                        <div className="image">
+                                            <img src={item.avatar.thumb} alt="" className="img-fluid border rounded-circle" width="40" height="40" />
+                                        </div>}
+                                        <div className={`caption ${item.avatar ? '' : 'w-100'}`}>
+                                            <span className="text">{item && item.notification}</span>
+                                            <small className="float-right text-muted ml-2 nowrap">{moment(item && item.created_at * 1000).format('LL')}</small>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </InfiniteScroll>
+                        }
+                        {(this.state.items.length === 0) && <div className={'common-not-found p-3 text-center'} style={{minHeight: '240px'}}>
+                            <div className="inner">
+                                <figure>
+                                    <img src="/images/not-found/No-notification.png" alt="Not found" width="100" />
+                                </figure>
+                                <h5>NO NOTIFICATIONS YET</h5>
+                                <p className="title">This is where you’ll see all your notifications</p>
                             </div>
-                            <NavLink className="text-muted font-13" to="/dashBoard/setting/notifications">view all</NavLink>
-                        </div>
-                        <div className="w-100 timeline">
-                            {(this.state.items.length > 0) &&
-                                <InfiniteScroll className="scroll css-scroll list-group"
-                                                dataLength={this.state.items.length}
-                                                next={this.fetchMoreData}
-                                                hasMore={this.state.hasMore}
-                                                loader={<p className="text-center mb-0">Loading...</p>}
-                                                height={300}
-                                                endMessage={
-                                                    <p className="text-center mb-0"> <b>Yay! You have seen it all</b> </p>
-                                                }
-                                >
-                                    {this.state.items.map((item, index) => (
-                                        <Link to={urlHelper.notifyUrl(item)} className={`list-group-item list-group-item-action borderBottomNoti`} key={item && item.message_id} onClick={() => this.read(item)}>
-                                            {item.avatar &&
-                                            <div className="image">
-                                                <img src={item.avatar.thumb} alt="" className="img-fluid border rounded-circle" width="40" height="40" />
-                                            </div>}
-                                            <div className={`caption ${item.avatar ? '' : 'w-100'}`}>
-                                                <span className="text">{item && item.notification}</span>
-                                                <small className="float-right text-muted ml-2 nowrap">{moment(item && item.created_at * 1000).format('LL')}</small>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </InfiniteScroll>
-                            }
-                            {(this.state.items.length === 0) && <div className={'common-not-found p-3 text-center'} style={{minHeight: '240px'}}>
-                                <div className="inner">
-                                    <figure>
-                                        <img src="/images/not-found/No-notification.png" alt="Not found" width="100" />
-                                    </figure>
-                                    <h5>NO NOTIFICATIONS YET</h5>
-                                    <p className="title">This is where you’ll see all your notifications</p>
-                                </div>
-                            </div>}
-                        </div>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </Fragment>
+                        </div>}
+                    </div>
+                </Dropdown.Menu>
+            </Dropdown>
+        </Fragment>
         )
     }
 }
