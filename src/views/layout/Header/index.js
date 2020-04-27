@@ -59,6 +59,15 @@ class Header extends Component {
         document.getElementById("browse2").classList.remove("navDropDownOpen2")
     }
 
+    toggleSearch = (id) => {
+        console.log(document.getElementById(id))
+        document.getElementById(id).classList.toggle("searchDropDownOpen")  
+    }
+
+    toggleSearch2 = (id) => {
+        console.log(document.getElementById(id))
+        document.getElementById(id).classList.toggle("searchDropDownOpen2")  
+    }
 
     render() {
         const { history } = this.props;
@@ -77,18 +86,59 @@ class Header extends Component {
                         <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
                             <Nav></Nav>
                             <Nav className="navbar-nav ml-auto navbar-main mt-2">
+                            {loggedIn &&
+                                    <div className="searchDropDownIcon2">
+
+                                        <div className="searchDropDownIcon" onClick={() => this.toggleSearch("searchDropDown")}>
+                                            <i class="fas fa-search"></i> FIND
+                                            </div>
+                                        <div
+                                            id="searchDropDown"
+                                            className="searchDropDownClose"
+                                        >
+                                            <Search history={this.props.history} />
+                                        </div>
+                                    </div>
+                                }
                                 {!loggedIn && <NavLink activeClassName="active" className="nav-link" to="/how-it-works"><b>HOW IT WORKS</b></NavLink>}
-                    <NavDropdown title="BROWSE">
+                                {/* <NavDropdown title="BROWSE">
                                     <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br/><small>To Apply For</small></NavLink>
                                     <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br/> <small>To Buy or Exchange</small></NavLink>
                                     <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br/> <small>To Hire</small></NavLink>
                                     <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br/> <small>To Partner With</small></NavLink>
-                                </NavDropdown>
+                                </NavDropdown> */}
+                                {loggedIn && <NavDropdown title="BROWSE">
+                                    <NavLink to="/job-search" className="dropdown-item"><b>Browse for Jobs</b><br /><small>To Apply For</small></NavLink>
+                                    <NavLink to="/service-search" className="dropdown-item"><b>Browse for Services</b><br /> <small>To Buy or Exchange</small></NavLink>
+                                    <NavLink to="/freelancer-search" className="dropdown-item"><b>Browse for Freelancers</b><br /> <small>To Hire</small></NavLink>
+                                    <NavLink to="/cofounders-search" className="dropdown-item"><b>Browse for Co-founders</b><br /> <small>To Partner With</small></NavLink>
+                                </NavDropdown>}
+
                                 {loggedIn && <NavLink activeClassName="active" className="nav-link" to="/dashBoard/dashBoardTab"><b>DASHBOARD</b></NavLink>}
-                              <div><button className="post-btn ml-3"><NavDropdown title={<span className="text-white">POST</span>}>
+                              {/* <div><button className="post-btn ml-3"><NavDropdown title={<span className="text-white">POST</span>}>
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br/><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br/><small>To Sell or Exchange</small></NavLink>
-                                </NavDropdown></button></div>
+                                </NavDropdown></button></div> */}
+
+{loggedIn && <div className="FlexDivSearch"><button className="post-btn ml-3"><NavDropdown title={<span className="text-white">POST</span>}>
+                                    <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br /><small>To Receive Offers</small></NavLink>
+                                    <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br /><small>To Sell or Exchange</small></NavLink>
+                                </NavDropdown></button>
+                                {loggedIn &&
+                                    <div className="searchDropDownIcon22">
+
+                                        <div className="searchDropDownIcon" onClick={() => this.toggleSearch2("searchDropDown2")}>
+                                            <i class="fas fa-search"></i> FIND
+                                            </div>
+                                        <div
+                                            id="searchDropDown2"
+                                            className="searchDropDownClose2"
+                                        >
+                                            <Search history={this.props.history} />
+                                        </div>
+                                    </div>
+                                }
+                                </div>}
                              
 
                             </Nav>

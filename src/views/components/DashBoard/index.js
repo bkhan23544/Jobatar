@@ -198,11 +198,11 @@ class DashBoard extends React.Component {
 				</span>
 			  </NavLink>
 			  <ul className="treeview-menu">
-			  <li><Link id="activei6" onClick={()=>this.toggleActiveNested(6,"activei")} to={`/dashBoard/services`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> My Service</Link></li>
-				<li><Link id="activei7" onClick={()=>this.toggleActiveNested(7,"activei")} to={`/dashBoard/offers/received/services/cash`} className="Nestedlink activei"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Received Offers</Link></li>
-				<li><Link id="activei8" onClick={()=>this.toggleActiveNested(8,"activei")} to={`/dashBoard/offers/sent/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Send Offers</Link></li>
-				<li><Link id="activei9" onClick={()=>this.toggleActiveNested(9,"activei")} to={`/dashBoard/contracts/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Accepted Offers</Link></li>
-				<li><Link id="activei10" onClick={()=>this.toggleActiveNested(10,"activei")} to={`/dashBoard/completed/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Complete Offers</Link></li>
+			  <li><NavLink id="activei6" onClick={()=>this.toggleActiveNested(6,"activei")} to={`/dashBoard/services`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> My Service</NavLink></li>
+				<li><NavLink id="activei7" onClick={()=>this.toggleActiveNested(7,"activei")} to={`/dashBoard/offers/received/services/cash`} className="Nestedlink activei"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Received Offers</NavLink></li>
+				<li><NavLink id="activei8" onClick={()=>this.toggleActiveNested(8,"activei")} to={`/dashBoard/offers/sent/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Send Offers</NavLink></li>
+				<li><NavLink id="activei9" onClick={()=>this.toggleActiveNested(9,"activei")} to={`/dashBoard/contracts/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Accepted Offers</NavLink></li>
+				<li><NavLink id="activei10" onClick={()=>this.toggleActiveNested(10,"activei")} to={`/dashBoard/completed/services/cash`} className="Nestedlink"><i className="far fa-circle" style={{color:"#345581",marginRight:5}}><span id="orangeDot" ></span></i> Complete Offers</NavLink></li>
 			  </ul>
 			</li>
 			<li><NavLink id="active4"  to={`/dashBoard/user/connection/my-cofounder`} className="link"><i className="fas fa-handshake" style={{color:"#345581",marginRight:"3px",fontSize:"12px"}}></i><span>Co-founder</span></NavLink></li>
