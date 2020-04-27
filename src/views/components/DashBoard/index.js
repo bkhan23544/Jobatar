@@ -45,27 +45,27 @@ class DashBoard extends React.Component {
 		// 	}
 		// }
 		if(id+index === "active2"){
-			document.getElementById("active2").nextElementSibling.classList.add("showNested")
-			document.getElementById("active3").nextElementSibling.classList.remove("showNested")
-			document.getElementById("active2Icon").classList.add("rotateDown")
-			document.getElementById("active3Icon").classList.remove("rotateDown")
+			document.getElementById("active2").nextElementSibling.classList.toggle("showNested")
+			// document.getElementById("active3").nextElementSibling.classList.remove("showNested")
+			document.getElementById("active2Icon").classList.toggle("rotateDown")
+			// document.getElementById("active3Icon").classList.remove("rotateDown")
 			this.toggleActiveNested(1,"activei")
 
 			
 
 
 		}else if( id+index === "active3" ){
-			document.getElementById("active3").nextElementSibling.classList.add("showNested")
-			document.getElementById("active2").nextElementSibling.classList.remove("showNested")
-			document.getElementById("active3Icon").classList.add("rotateDown")
-			document.getElementById("active2Icon").classList.remove("rotateDown")
+			document.getElementById("active3").nextElementSibling.classList.toggle("showNested")
+			// document.getElementById("active2").nextElementSibling.classList.remove("showNested")
+			document.getElementById("active3Icon").classList.toggle("rotateDown")
+			// document.getElementById("active2Icon").classList.remove("rotateDown")
 			this.toggleActiveNested(6,"activei")
 
 		}
 		else{
 			// console.log(id)
-			document.getElementById("active3").nextElementSibling.classList.remove("showNested")
-			document.getElementById("active2").nextElementSibling.classList.remove("showNested")
+			// document.getElementById("active3").nextElementSibling.classList.remove("showNested")
+			// document.getElementById("active2").nextElementSibling.classList.remove("showNested")
 			document.getElementById("active3Icon").classList.remove("rotateDown")
 			document.getElementById("active2Icon").classList.remove("rotateDown")
 

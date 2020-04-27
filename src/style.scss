@@ -873,9 +873,15 @@ body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $w
 			big {font-size: 54px; font-weight: 600; color: darken($dark, 15%); margin-bottom: 15px; width: 100%; float: left;}
 		}
 		.overall-list {
-			.list {margin-bottom: 6px;}
+			.list {margin-bottom: 16px;}
 			.progress {width: 300px; background-color: #F1F2F8; border-radius: 0px; height: 9px;
+				margin-bottom: 0;
 				.progress-bar {background-color: #AEB9C5;}
+			}
+			.align-items-center{
+				.MuiBox-root{
+					display: flex;
+				}
 			}
 		}
 	}

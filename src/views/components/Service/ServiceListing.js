@@ -119,9 +119,11 @@ class ServiceListing extends Component {
                                             <div className="col-md-4" key={item.id}>
                                                 <div className="svcsLBox w-100 float-left">
                                                     <div className="image">
-                                                        <div className="serviceOverlayer">
+                                                        <Link to={`/service/view/${item.id}`}>
+                                                            <div className="serviceOverlayer">
 
-                                                        </div>
+                                                            </div>
+                                                        </Link>
                                                         <Link to={`/service/view/${item.id}`} className="bg-image">
                                                             <LazyLoadImage alt="image" className="img-fluid" src={item.cover} effect="blur" />
                                                         </Link>
@@ -143,8 +145,9 @@ class ServiceListing extends Component {
                                                         </Dropdown>
                                                     </div>
                                                     <div className="caption w-100 float-left">
+                                                    <p className={`status badge badge-${(item.status === 0) ? 'info' : `primary`} ml-3`}>{(item.status === 0) ? 'Deactivated' : `Activated`} </p>
+
                                                         <h3 className="text-truncate" title={item.title}><Link to={`/service/view/${item.id}`}>{item.title}</Link>
-                                                            <p className={`status badge badge-${(item.status === 0) ? 'info' : `primary`} ml-3`}>{(item.status === 0) ? 'Deactivated' : `Activated`} </p>
                                                         </h3>
                                                         {item.sold_count ? <div className="service">{item.sold_count} Service Sold</div> : ''}
                                                         <div className="ratings d-flex align-items-center">

@@ -212,8 +212,8 @@ class Register extends React.Component {
                                         </ul> */}
                                         <h5>Already have an account? <Link to="/login">Sign In</Link></h5>
                                         <div className="privacy">
-                                            <span className="text-light">By clicking “Create an account”</span> I <Link to="/privacy-policy">agree to
-                                            JoBarter’s</Link> Terms of Service <span className="text-light">and</span> Privacy Policy.
+                                            <span className="text-light">By clicking “Create an account”</span> I agree to
+                                            JoBarter’s<Link to="/terms-of-service"> Terms of Service</Link> <span className="text-light">and</span> <Link to="/privacy-policy"> Privacy Policy.</Link>
                                         </div>
                                     </div>
                                 </div>
