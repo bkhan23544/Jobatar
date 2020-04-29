@@ -61,7 +61,7 @@ class ServiceListing extends Component {
             // <Main>
             <>
                 <DocumentTitle title={'My Services'} />
-                <div className="my-services bg-body col-lg-9 col-sm-12 paddingTop0">
+                <div className="my-services bg-body col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
                             <div className="col-12 mb-3 MarginTop472">
@@ -70,7 +70,7 @@ class ServiceListing extends Component {
                                     <Link to="/service/create" className="btn btn-info headingButton">Post a Service</Link>
                                 </h1>
                             </div>
-                            <div className="col-12 paddingRL0">
+                            <div className="col-12 paddingRL0 flexRes">
                                 {process.loading ? <div className="card service-box"><div className="card-body"><div className="d-flex justify-content-center"><div className="spinner-border text-info"><span className="sr-only">Loading...</span></div></div></div></div> :
                                     <Fragment>
                                         {results.items && results.items.map((item) =>
@@ -116,7 +116,7 @@ class ServiceListing extends Component {
                                             //     </div>
                                             // </div>
 
-                                            <div className="col-md-4" key={item.id}>
+                                            <div className="col-md-6 col-lg-4" key={item.id}>
                                                 <div className="svcsLBox w-100 float-left">
                                                     <div className="image">
                                                         <Link to={`/service/view/${item.id}`}>

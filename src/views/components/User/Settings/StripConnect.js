@@ -126,13 +126,13 @@ class StripConnect extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`Bank Information`} />
-                <div className="update-profile bg-body col-lg-9 col-sm-12" style={{padding: 0}}>
+                <div className="update-profile bg-body col-xl-9 col-sm-12" style={{padding: 0}}>
                     <div className="">
                         <Card className="mb-4 mb-lg-5">
                             {isStripeConnect && <Card.Header>Add Bank Information to Receive Cash Payments <br /> <small style={{ fontSize: '14px', marginTop: '6px', float: 'left' }}>Please enter the bank account information where you would like to receive cash payments made to you.</small></Card.Header>}
                             {!isStripeConnect && <Card.Header>Bank Details <br /> <small style={{ fontSize: '14px', marginTop: '6px', float: 'left' }}><b>Disclaimer:</b> The information is confidential and payment are powered by Stripe.</small></Card.Header>}
                             <Card.Body>
-                                <Row>
+                                <div>
                                     {/* <Col xs="12" md="3" xl="4">
                                         <NavBar instruction="bank-details" />
                                     </Col> */}
@@ -325,7 +325,7 @@ class StripConnect extends Component {
                                             {/*</div>*/}
                                             {/*</div>}*/}
 
-                                            <div className=" d-flex align-items-center">
+                                            <div className=" d-flex align-items-center flexDirectionColumn2">
                                                 {!isStripeConnect && <button type="button" onClick={() => this.stripeDisconnect()} className="btn btn-info mr-3"> Disconnect Account </button>}
                                                 {!isStripeConnect && <button type="button" onClick={() => this.stripeRetrieve()} className="btn btn-primary mr-3"> Check Account Status </button>}
                                                 {/*!isStripeConnect && <button type="button" onClick={() => this.stripeViewDetails()} className="btn btn-dark"> Details Preview </button>*/}
@@ -333,7 +333,7 @@ class StripConnect extends Component {
 
                                         </Card>
                                     </Col>
-                                </Row>
+                                </div>
 
                             </Card.Body>
                         </Card>

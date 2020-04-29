@@ -6,7 +6,7 @@ class Membership extends Component {
         return (
             // <Main>
             <>
-                <div className="subscribe-page col-lg-9 col-sm-12 paddingTop0">
+                <div className="subscribe-page col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
                             <div className="col-12 MarginTop47">

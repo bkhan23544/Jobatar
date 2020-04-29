@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Main} from '../../../layout';
-import {Card, Row, Col, Accordion } from 'react-bootstrap';
-import {createSelector} from "reselect";
-import {connect} from "react-redux";
-import {NavBar, ExperienceForm, ExperienceList, EducationForm, EducationList} from './partials';
-import {userActions} from "../../../../common/redux/actions";
+import React, { Component } from 'react';
+import { Main } from '../../../layout';
+import { Card, Row, Col, Accordion } from 'react-bootstrap';
+import { createSelector } from "reselect";
+import { connect } from "react-redux";
+import { NavBar, ExperienceForm, ExperienceList, EducationForm, EducationList } from './partials';
+import { userActions } from "../../../../common/redux/actions";
 import { DocumentTitle } from '../../../../helpers/DocumentTitle';
 import { globalService as gs } from '../../../../common/services';
 
@@ -27,10 +27,10 @@ class ExperienceAndEducation extends Component {
     }
 
     componentWillMount() {
-        const {dispatch, experiences, educations} = this.props;
+        const { dispatch, experiences, educations } = this.props;
         let userId = gs.parseItem('authentication');
-        Object.getOwnPropertyNames(experiences).length === 0 && dispatch(userActions.experience("GET", null, {user_id: userId.user.id}));
-        Object.getOwnPropertyNames(educations).length === 0 && dispatch(userActions.education("GET", null, {user_id: userId.user.id}));
+        Object.getOwnPropertyNames(experiences).length === 0 && dispatch(userActions.experience("GET", null, { user_id: userId.user.id }));
+        Object.getOwnPropertyNames(educations).length === 0 && dispatch(userActions.education("GET", null, { user_id: userId.user.id }));
     }
 
     componentDidMount() {
@@ -38,21 +38,21 @@ class ExperienceAndEducation extends Component {
     }
 
     onSelectItem = (type, item, toggle) => {
-        if(type === 'experience') {
-            this.setState({itemType: type, experienceItem: item});
+        if (type === 'experience') {
+            this.setState({ itemType: type, experienceItem: item });
             this.setState({ toggleExperience: toggle });
         } else {
-            this.setState({itemType: type, educationItem: item});
+            this.setState({ itemType: type, educationItem: item });
             this.setState({ toggleEducation: toggle });
         }
     };
 
     onDeleteItem = (type, itemId) => {
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
         if (itemId !== '' || itemId !== null) {
             type === 'experience' ?
-                dispatch(userActions.experience('DELETE', {},  {item_id: itemId})) :
-                dispatch(userActions.education('DELETE', {}, {item_id: itemId}));
+                dispatch(userActions.experience('DELETE', {}, { item_id: itemId })) :
+                dispatch(userActions.education('DELETE', {}, { item_id: itemId }));
             type === 'experience' ?
                 dispatch(userActions.experience()) :
                 dispatch(userActions.education());
@@ -65,67 +65,67 @@ class ExperienceAndEducation extends Component {
     };
 
     addNew = (type) => {
-        if(type === 'experience') {
-            this.setState({ toggleExperience: true, experienceItem:null});
+        if (type === 'experience') {
+            this.setState({ toggleExperience: true, experienceItem: null });
         } else {
-            this.setState({ toggleEducation: true, educationItem:null});
+            this.setState({ toggleEducation: true, educationItem: null });
         }
     };
 
     render() {
-        const {experiences, educations} = this.props;
+        const { experiences, educations } = this.props;
         const experienceItems = experiences.data ? experiences.data : [];
         const educationsItems = educations.data ? educations.data : [];
-        const {experienceItem, educationItem } = this.state;
+        const { experienceItem, educationItem } = this.state;
 
         return (
-        // <Main>
-        <>
-            <DocumentTitle title={`Experience and Education`}/>
-            <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
-                <div className="">
-                    <Card className="mb-4 mb-lg-5">
-                    {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
-                        <Card.Body>
-                            <Row>
-                                {/* <Col xs="12" md="3" xl="4">
+            // <Main>
+            <>
+                <DocumentTitle title={`Experience and Education`} />
+                <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
+                    <div className="">
+                        <Card className="mb-4 mb-lg-5">
+                            {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
+                            <Card.Body>
+                                <Row>
+                                    {/* <Col xs="12" md="3" xl="4">
                                     <NavBar instruction="experience" />
                                 </Col> */}
-                                <Col xs="12" md="12" xl="12">
-                                    <div className="py-3 w-100 float-left mb-3">
-                                       <div className="h-5 set-h-5">
-                                        <span className="col-10 section-titles">Experience</span>
-                                            <button onClick={this.addNew.bind(this, 'experience')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
+                                    <Col xs="12" md="12" xl="12">
+                                        <div className="py-3 w-100 float-left mb-3">
+                                            <div className="h-5 set-h-5">
+                                                <span className="col-8 section-titles">Experience</span>
+                                                <button onClick={this.addNew.bind(this, 'experience')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
                                             </div>
-                                        <Accordion.Collapse in={this.state.toggleExperience} className="w-100">
-                                            <ExperienceForm formField={experienceItem} hideToggle={this.onSubmitData}/>
-                                        </Accordion.Collapse>
+                                            <Accordion.Collapse in={this.state.toggleExperience} className="w-100">
+                                                <ExperienceForm formField={experienceItem} hideToggle={this.onSubmitData} />
+                                            </Accordion.Collapse>
 
-                                        {experienceItems &&
-                                        <ExperienceList items={experienceItems.items} onEdit={this.onSelectItem} onDelete={this.onDeleteItem}/>}
-                                    </div>
+                                            {experienceItems &&
+                                                <ExperienceList items={experienceItems.items} onEdit={this.onSelectItem} onDelete={this.onDeleteItem} />}
+                                        </div>
 
-                                    <div className="py-3 w-100 float-left">
-                                    <div className="h-5 set-h-5">
-                                        <span className="col-10 section-titles">Education</span>
-                                            <button onClick={this.addNew.bind(this, 'education')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
+                                        <div className="py-3 w-100 float-left">
+                                            <div className="h-5 set-h-5">
+                                                <span className="col-8 section-titles">Education</span>
+                                                <button onClick={this.addNew.bind(this, 'education')} className="col-1.5 btn float-right btn-sm add-new-btn">Add New</button>
                                             </div>
 
-                                        <Accordion.Collapse in={this.state.toggleEducation} className="w-100">
-                                            <EducationForm formField={educationItem} hideToggle={this.onSubmitData} />
-                                        </Accordion.Collapse>
-                                        {educationsItems &&
-                                        <EducationList items={educationsItems.items} onEdit={this.onSelectItem} onDelete={this.onDeleteItem}/>}
-                                    </div>
+                                            <Accordion.Collapse in={this.state.toggleEducation} className="w-100">
+                                                <EducationForm formField={educationItem} hideToggle={this.onSubmitData} />
+                                            </Accordion.Collapse>
+                                            {educationsItems &&
+                                                <EducationList items={educationsItems.items} onEdit={this.onSelectItem} onDelete={this.onDeleteItem} />}
+                                        </div>
 
-                                </Col>
-                            </Row>
-                        </Card.Body>
-                    </Card>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
+                    </div>
                 </div>
-            </div>
             </>
-        // </Main>
+            // </Main>
         );
     }
 }

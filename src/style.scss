@@ -27,7 +27,7 @@
 // body {font-family: 'HKGrotesk', sans-serif; line-height: 26px; background-color: $white;}
 body {font-family: 'Roboto', sans-serif; line-height: 26px; background-color: $white; font-size: 14px;}
 
-.all-content {@include full-width(); min-height: calc(73vh - 18px); padding-top: 65px;}
+.all-content {@include full-width(); min-height: calc(73vh - 18px); padding-top: 60px;}
 /// Css apply only mizilla firefox
 @-moz-document url-prefix() {
 	.all-content {@include full-width(); min-height: calc(75vh - 15px);}

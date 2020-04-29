@@ -221,7 +221,7 @@ class PublicServiceView extends Component {
                 <div className="bottom-shadow w-100 float-left">
                     <div className="container">
 
-                        <div className="row">
+                        <div className="">
                             <div className="col-12">
                                 <h1 className="head">{item && item.title}
                                     {this.props.private && item.received_offers && <div className="auction d-flex align-items-center">
@@ -257,7 +257,7 @@ class PublicServiceView extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12">
+                            <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 marginBottom20">
                                 {/* {(item && item.media.image) &&
                                     <Fragment>
                                         <AliceCarousel className="mb-3"

@@ -79,7 +79,7 @@ class FavoriteJobs extends Component {
         let results = (favorite && favorite.jobs) ? favorite.jobs.items : null;
         return (<FavoriteLayout>
             <DocumentTitle title="My Favorites Jobs" />
-            <div className="row">
+            <div className="">
                 <div className="col-12">
                     {process.loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={2} width={700} /> : <Fragment>
 

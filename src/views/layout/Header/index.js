@@ -83,7 +83,7 @@ class Header extends Component {
                             <img src="/images/logo.svg" alt="" className="img-fluid" width="140" />
                         </NavLink>
                        
-                        <Navbar.Collapse id="basic-navbar-nav" className="order-4 order-xl-3 mr-lg-5">
+                        <Navbar.Collapse id="basic-navbar-nav" className="order-2 order-sm-2 order-xl-2 mr-lg-5 col-lg-8 col-md-7">
                             <Nav></Nav>
                             <Nav className="navbar-nav ml-auto navbar-main mt-2">
                             {loggedIn &&

@@ -74,7 +74,7 @@ class Transactions extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`My Transactions`} />
-                <div className="update-profile bg-body pt-5 col-lg-9 col-sm-12 paddingTop0">
+                <div className="update-profile bg-body pt-5 col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         {/*<div className="print text-right">*/}
                         {/*<Link className="btn btn-info mr-2" to={`/setting/account-info`}>Back</Link>*/}

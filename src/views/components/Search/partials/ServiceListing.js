@@ -87,7 +87,7 @@ class ServiceListing extends Component {
             </Fragment> :
                 <Fragment>
                     {results && results.map((item) =>
-                        <div className="col-md-4" key={item.id}>
+                        <div className="col-md-6 col-lg-6 col-xl-4" key={item.id}>
                             <div className="svcsLBox w-100 float-left">
                                 <div className="image">
                                     <Link to={`/user/public/service/view/${item.id}`} className="bg-image">

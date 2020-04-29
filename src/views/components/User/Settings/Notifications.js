@@ -84,7 +84,7 @@ class Notifications extends Component {
             <>
                 <DocumentTitle title={`Notifications`} />
 
-                <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
+                <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         <Card className="mb-4 mb-lg-5">
                             <Card.Header>Notifications</Card.Header>
