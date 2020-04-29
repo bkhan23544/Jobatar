@@ -110,7 +110,7 @@ class LoggedUser extends Component {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <NavLink className="dropdown-item" to={"/dashBoard/services"}>My Services</NavLink>
-                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/services/cash"}><span className="badge badge-danger mt-3">{(item && item.UserService && item.UserService.offers > 0 ? `new` : '')}</span> Received Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/services/cash"}><span className="badge badge-danger">{(item && item.UserService && item.UserService.counter > 0 ? `new` : '')}</span> Sent Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/contracts/services/cash"}>Accepted Offers</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/completed/services/cash"}>Completed Offers</NavLink>
@@ -122,7 +122,7 @@ class LoggedUser extends Component {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             <NavLink className="dropdown-item" to={"/dashBoard/jobs"}>My Jobs</NavLink>
-                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.offers > 0 ? `new` : '')}</span> Received Proposals</NavLink>
+                            <NavLink className="dropdown-item" to={"/dashBoard/offers/received/jobs/cash"}><span className="badge badge-danger ml-3 mt-3">{(item && item.UserItem && item.UserItem.offers > 0 ? `new` : '')}</span> Received Proposals</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/offers/sent/jobs/cash"}><span className="badge badge-danger">{(item && item.UserItem && item.UserItem.counter > 0 ? `new` : '')}</span> Sent Proposals</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/contracts/jobs/cash"}>Accepted Proposals</NavLink>
                             <NavLink className="dropdown-item" to={"/dashBoard/completed/jobs/cash"}>Completed Proposals</NavLink>

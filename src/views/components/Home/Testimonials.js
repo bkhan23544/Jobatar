@@ -31,7 +31,7 @@ class Testimonials extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
-                            <h2>TESTIMONIALS</h2>
+                            <h1 className="explore">TESTIMONIALS</h1>
                         </div>
                         <div className="col-12">
                             <div className="slider">
