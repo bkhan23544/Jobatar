@@ -231,7 +231,7 @@ class ProfileUpdate extends Component {
             <>
                 <DocumentTitle title={`Update Profile`} />
 
-                <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
+                <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">
@@ -239,7 +239,7 @@ class ProfileUpdate extends Component {
                                 {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
 
                                 <Card.Body>
-                                    <Row>
+                                    <div>
                                         {/* <Col xs="12" md="3" xl="4">
                                         <NavBar instruction="profile" />
                                         {removeCoFounder &&<Fragment>
@@ -518,15 +518,15 @@ class ProfileUpdate extends Component {
                                                 </Row>
                                             </div>
                                         </Col>
-                                    </Row>
+                                    </div>
 
 
 
                                 </Card.Body>
                             </Card>
-                            <Card className="button bg-white">
-                                <div className=" d-flex align-items-center">
-                                    <div className="col pl-0">Update all your latest changes by clicking on “Save Changes ”</div>
+                            <Card className="button bg-white padding20">
+                                <div className=" d-flex align-items-center flexDirectionColumn">
+                                    <div className="pl-0 col-sm-12 col-md-9 col-lg-9">Update all your latest changes by clicking on “Save Changes ”</div>
                                     <LaddaButton className="btn ladda-btn" loading={loading} data-style={EXPAND_RIGHT}>Save Changes</LaddaButton>
                                 </div>
                             </Card>

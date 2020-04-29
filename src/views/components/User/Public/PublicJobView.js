@@ -376,10 +376,10 @@ class PublicJobView extends Component {
                     <div class="row">
 
                         <div class="card-box-profile">
-                            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                 <div class="row bottom-sec">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 col-sm-12">
                                         <h3>{item && item.title}</h3>
                                         <h4>{item && item.category && item.category.parent && item.category.parent.title && item.category.parent.title} - {item && item.category && item.category.title}</h4>
 
@@ -387,7 +387,7 @@ class PublicJobView extends Component {
                                             <hr class="small-hr" />
                                         </div>
 
-                                        <div class="col-lg-2">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4">
                                             <h5> Posted </h5>
                                             <p>{(new Date(item && item.created_at * 1000)).toLocaleDateString('en-GB', {
                                                 year: 'numeric',
@@ -396,26 +396,26 @@ class PublicJobView extends Component {
                                             })}
                                             </p>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4">
                                             <h5> Location </h5>
                                             <p><i class="fas fa-map-marker-alt"></i>{item && item.user.countryCode && item.user.countryCode.name}</p>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4">
                                             <h5> Budget </h5>
-                                            <p>{item && item.budget}</p>
+                                            <p>{item && item.budget ? item.budget : "Nill"}</p>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4">
                                             <h5> Duration </h5>
                                             <p>{item && item.deadline && deadlineList.map((el) => <Fragment key={`deadline${el.id}`}>
                                                 {(parseInt(el.id) === parseInt(item.deadline)) ? el.value : ''}
                                             </Fragment>)}
                                             </p>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4">
                                             <h5> Proposals </h5>
                                             <p>{item && item.proposal_count}</p>
                                         </div>
-                                        <div class="col-lg-2 buttton">
+                                        <div class="col-xl-2 col-lg-4 col-sm-4 buttton">
                                             {(item && !gs.isOwner(item.user_id) && (proposalStatus === false) && (item.is_closed === 0) && !(proposal && proposal.status === status_declined)) &&
                                                 <a href="#" onClick={this.offerOpen} class="kafe-btn kafe-btn-mint-small"><i class="fa fa-align-left"></i> Send Proposal</a>
                                             }
@@ -496,11 +496,11 @@ class PublicJobView extends Component {
                         <div class="col-lg-5 col-md-5 col-sm-8 col-xs-12">
 
                             <div class="stats">
-                                <div class="row">
+                                <div class="">
                                     <h5>Service that I can exchange </h5>
-                                    <div style={{ width: "100%" }} className="row">
+                                    <div style={{ width: "100%" }} className="">
                                         {item && item.services.map((service) =>
-                                            <div className="col-lg-12" key={service.id}>
+                                            <div className="col-lg-12 padding0" key={service.id}>
                                                 <div className="jobBox">
                                                     <div className="priview d-flex flex-wrap pb-0 border-bottom-0">
                                                         {(service.cover) && <div className="image">
@@ -510,14 +510,14 @@ class PublicJobView extends Component {
                                                             <h4>
                                                                 {service.title}
                                                             </h4>
+                                                            <div className="price">
+                                                                <span className="">{service.budget}</span>
+                                                            </div>
                                                             <div className="ratings d-flex align-items-center">
                                                                 <small>({service.avg_rating})</small>
                                                                 <Box component="fieldset" mx={1} borderColor="transparent">
                                                                     <Rating value={Math.floor(service.avg_rating)} readOnly />
                                                                 </Box>
-                                                            </div>
-                                                            <div className="price">
-                                                                <span className="">{service.budget}</span>
                                                             </div>
                                                         </div>
 

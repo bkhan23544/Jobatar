@@ -93,7 +93,7 @@ componentDidMount=()=>{
          let services = service && service.items ? service.items : [];
         return (
 
-            <div className="col-sm-8 col-md-9">
+            <div className="col-sm-8 col-md-12 col-lg-12 col-xl-9">
 
                 <div className="dashboard-info">
 

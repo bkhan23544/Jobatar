@@ -196,7 +196,7 @@ class Login extends React.Component {
                                         <div className="login">
                                             Don't have an account?<Link to={'/register'}> Sign Up</Link>
                                         </div>
-                                        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                                        <div className="playStoreDiv" style={{ display: "flex", justifyContent: "space-evenly" }}>
                                             <img style={{ height: 44 }} src="https://www.f-cdn.com/assets/main/en/assets/login-signup/app-store-badges/apple-app-store-badge.png" />
                                             <img style={{ height: 44 }} src="https://www.f-cdn.com/assets/main/en/assets/login-signup/app-store-badges/google-play-store-badge.png" />
                                         </div>

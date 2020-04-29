@@ -16,7 +16,7 @@ class ContractLayout extends Component {
             // <Main>
             <>
                 <DocumentTitle title={title} />
-                <div className={`my-services bg-body RecievedProposals col-lg-9 col-sm-12`}>
+                <div className={`my-services bg-body RecievedProposals col-xl-9 col-sm-12`}>
                     <div className="col-12 MarginTop47">
                         <div className="row">
                             <div className="col-12 mb-1" style={{padding: 0}}>

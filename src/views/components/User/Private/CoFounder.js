@@ -181,7 +181,7 @@ class CoFounder extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`Co-Founder`} />
-                <div className="update-profile bg-body col-lg-9 col-sm-12 paddingTop0">
+                <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
                     {removeCoFounder &&
                         ((parseInt(userProfile.is_co_founder) === 0) || (userProfile.is_co_founder === null)) &&
                         <div className="fadedDiv">
@@ -204,7 +204,7 @@ class CoFounder extends Component {
                             <Card className="mb-4 mb-lg-5">
                                 {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
                                 <Card.Body>
-                                    <Row>
+                                    <div>
                                         {/* <Col xs="12" md="3" xl="4">
                                         <NavBar instruction="co-founder" />
                                     </Col> */}
@@ -441,11 +441,11 @@ class CoFounder extends Component {
 
                                             </div>
                                         </Col>
-                                    </Row>
+                                    </div>
                                 </Card.Body>
                             </Card>
-                            <Card className="button bg-white">
-                                <div className=" d-flex align-items-center">
+                            <Card className="button bg-white padding20">
+                                <div className=" d-flex align-items-center flexDirectionColumn">
                                     <div className="col pl-0">Update all your latest changes by clicking on “Save Changes”</div>
                                     <div className="center-align">
                                         {(parseInt(userProfile.is_co_founder) === 1) && <button type="button" className="btn btn-outline-primary mr-4" onClick={this.coFounderDeactivate}>Deactivate Co-Founder</button>}

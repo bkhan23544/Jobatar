@@ -366,7 +366,7 @@ class JobSearch extends Component {
                             </div>
                         </div>
 
-                        <div className="col-sm-4 col-md-3">
+                        <div className="col-md-12 col-xl-3 col-lg-3">
                             <div className="widget">
                                 <div className="filterHead">
                                     <h6 className="col pl-0 mb-0 text-left">

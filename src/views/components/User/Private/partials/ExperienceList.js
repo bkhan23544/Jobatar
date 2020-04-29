@@ -27,8 +27,8 @@ class ExperienceList extends Component {
         const items = this.props.items;
 
         return (<Fragment>
-            <Row>
-                <Col xs>
+            <div>
+                <div>
                     <ul className="list-group">
                         {items && items.map(item =>
                             (<li key={`experience-${item.id}`} className="list-group-item d-flex align-items-center">
@@ -45,8 +45,8 @@ class ExperienceList extends Component {
                             <div className="pl-2">None</div>
                         }
                     </ul>
-                </Col>
-            </Row>
+                </div>
+            </div>
         </Fragment>);
     }
 }

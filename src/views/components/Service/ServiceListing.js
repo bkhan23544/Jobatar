@@ -61,7 +61,7 @@ class ServiceListing extends Component {
             // <Main>
             <>
                 <DocumentTitle title={'My Services'} />
-                <div className="my-services bg-body col-lg-9 col-sm-12 paddingTop0">
+                <div className="my-services bg-body col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
                         <div className="row">
                             <div className="col-12 mb-3 MarginTop472">
@@ -70,7 +70,7 @@ class ServiceListing extends Component {
                                     <Link to="/service/create" className="btn btn-info headingButton">Post a Service</Link>
                                 </h1>
                             </div>
-                            <div className="col-12 paddingRL0">
+                            <div className="col-12 paddingRL0 flexRes">
                                 {process.loading ? <div className="card service-box"><div className="card-body"><div className="d-flex justify-content-center"><div className="spinner-border text-info"><span className="sr-only">Loading...</span></div></div></div></div> :
                                     <Fragment>
                                         {results.items && results.items.map((item) =>
@@ -116,12 +116,14 @@ class ServiceListing extends Component {
                                             //     </div>
                                             // </div>
 
-                                            <div className="col-md-4" key={item.id}>
+                                            <div className="col-md-6 col-lg-4" key={item.id}>
                                                 <div className="svcsLBox w-100 float-left">
                                                     <div className="image">
-                                                        <div className="serviceOverlayer">
+                                                        <Link to={`/service/view/${item.id}`}>
+                                                            <div className="serviceOverlayer">
 
-                                                        </div>
+                                                            </div>
+                                                        </Link>
                                                         <Link to={`/service/view/${item.id}`} className="bg-image">
                                                             <LazyLoadImage alt="image" className="img-fluid" src={item.cover} effect="blur" />
                                                         </Link>
@@ -143,8 +145,9 @@ class ServiceListing extends Component {
                                                         </Dropdown>
                                                     </div>
                                                     <div className="caption w-100 float-left">
+                                                    <p className={`status badge badge-${(item.status === 0) ? 'info' : `primary`} ml-3`}>{(item.status === 0) ? 'Deactivated' : `Activated`} </p>
+
                                                         <h3 className="text-truncate" title={item.title}><Link to={`/service/view/${item.id}`}>{item.title}</Link>
-                                                            <p className={`status badge badge-${(item.status === 0) ? 'info' : `primary`} ml-3`}>{(item.status === 0) ? 'Deactivated' : `Activated`} </p>
                                                         </h3>
                                                         {item.sold_count ? <div className="service">{item.sold_count} Service Sold</div> : ''}
                                                         <div className="ratings d-flex align-items-center">

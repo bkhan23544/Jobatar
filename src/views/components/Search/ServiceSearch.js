@@ -373,7 +373,7 @@ class ServiceSearch extends PureComponent {
                                     onChangePage={this.onChangePage} />
                             </div>
                         </div>
-                        <div className="col-sm-4 col-md-3">
+                        <div className="col-lg-3 col-md-12">
                             <div className="widget">
                                 {/* <div className="text-right">
                                     <button style={{ color: "red !important" }} className="font-weight-bold btn btn-link text-info text-nowrap" type="button" onClick={this.onResetForm}>Reset Filters</button>

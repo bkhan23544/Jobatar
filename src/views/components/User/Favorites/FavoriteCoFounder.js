@@ -76,7 +76,7 @@ class FavoriteCoFounder extends Component {
         return (<FavoriteLayout>
             <DocumentTitle title="My Favorites Freelancer" />
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 flexRes">
                     {process.loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={2} width={700} /> : <Fragment>
                         {results && results.map((freelancer) =>
                             // <div className="freLncrBox card mb-4" key={`item-${freelancer.id}`}>
@@ -110,7 +110,7 @@ class FavoriteCoFounder extends Component {
                             //     </div>
                             // </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6 col-lg-4">
                                 <div class="card-box text-center">
                                     <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(freelancer)}>
                                         <i className="fas fa-heart text-info"></i>

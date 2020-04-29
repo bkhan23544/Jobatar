@@ -11,7 +11,7 @@ class JobLayout extends Component {
         // <Main>
         <>
             <DocumentTitle title={'My Jobs'} />
-            <div className="col-lg-9 col-sm-12 bg-body allJobsPage PostedJobs">
+            <div className="col-xl-9 col-sm-12 bg-body allJobsPage PostedJobs">
                 <div className="">
                     <div className="row">
                         <div className="col-12 MarginTop47">

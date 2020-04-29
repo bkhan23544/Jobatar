@@ -149,7 +149,7 @@ class FreelancerListing extends Component {
                 {
                     process.loading ? "Loading.." :
                         results && results.items && results.items.map((item) =>
-                            <div class="col-md-4">
+                            <div class="col-md-6 col-lg-6 col-xl-4">
                                 <div class="card-box text-center">
                                     <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(item)}>
                                         {(item.is_favorite) ? <i className="fas fa-heart text-info"></i> :

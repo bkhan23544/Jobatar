@@ -77,11 +77,11 @@ class LoggedUser extends Component {
         const user = authentication && authentication.loggedIn && authentication.authentication.user;
 
         return (<Fragment>
-            <Nav className="navbar-nav navbar-profile order-2 order-xl-4">
+            <Nav className="navbar-nav navbar-profile order-sm-2 order-lg-4">
                 
                 {(renderNotification === true) && <Notification />}
                 <a className="nav-link" href="/messages">
-                    <img src="/images/Message.png" alt="" className="img-fluid" width="25" />
+                    <img src="/images/Message.png" alt="" className="img-fluid" width="25" style={{marginTop: 10}} />
                     <span className="badge badge-info">{this.state.unread ? this.state.unread : ''}</span>
                 </a>
                 <NavDropdown title={

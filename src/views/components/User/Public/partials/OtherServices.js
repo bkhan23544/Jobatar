@@ -17,7 +17,7 @@ const OtherServices = (props) => {
         <div className="col-12 same-person">
             <h4>Other Services {item ? `by ${item.user.name}` : ''}</h4>
             {items && items.length < 1 ? 'No Data Yet' : ''}
-            <div className="row">
+            <div className="row margin0">
                 {items && <Fragment>
                     {items && items.slice(0, 4).map((item) =>
                         // <Fragment key={item.id}>
@@ -60,7 +60,7 @@ const OtherServices = (props) => {
                         //     </div>
                         // </Fragment>
 
-                        <div className="col-md-3" key={item.id}>
+                        <div className="col-xl-3 col-lg-4 col-md-6" key={item.id}>
                             <div className="svcsLBox w-100 float-left">
                                 <div className="image">
                                     <Link to={`/user/public/service/view/${item.id}`} className="bg-image">
