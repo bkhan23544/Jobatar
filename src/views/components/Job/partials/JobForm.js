@@ -206,7 +206,8 @@ class JobForm extends Component {
                 formField.category_id.value;
 
             params.title = formField.title;
-            params.description = draftToHtml(convertToRaw(formField.description.getCurrentContent()));
+            // params.description = draftToHtml(convertToRaw(formField.description.getCurrentContent()));
+            params.description = this.state.description;
             params.settlement = formField.settlement ? formField.settlement : 'both';
             params.type = formField.type;
             params.budget = formField.budget;

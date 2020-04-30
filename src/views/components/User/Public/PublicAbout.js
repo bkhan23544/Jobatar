@@ -61,7 +61,7 @@ class PublicAbout extends Component {
     <p className="tr-title"><i className="fa fa-info-circle" aria-hidden="true"></i> About</p>
    </div>  
    <div className="media-body">
-   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : 'No data yet'}
+   {process.loading ? <ContetLIneLoader primaryBg={'#ddd'} secondaryBg={'#eee'} width={900} /> : (about && about.about) ? <div className="AboutDiv" dangerouslySetInnerHTML={{ __html: about && about.about }}></div> : 'No data yet'}
    </div>
    <hr/>
   </li>		

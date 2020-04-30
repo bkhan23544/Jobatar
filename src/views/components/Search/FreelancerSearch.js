@@ -121,6 +121,7 @@ class FreelancerSearch extends PureComponent {
     handleAll = (item, { action, name }) => {
         const formField = { ...this.state.formField };
         formField[name] = item;
+        // console.log(formField)
         this.setState({ formField }, () => this.search());
     };
 
@@ -170,16 +171,19 @@ class FreelancerSearch extends PureComponent {
     search = () => {
         const { formField, pagesize, page } = this.state;
         const { dispatch } = this.props;
+        // console.log(formField)
         let params = {};
         params.category_id = (formField.categories && formField.categories.length > 0) ? formField.categories : null;
         params.rating_id = formField.ratings;
-        params.country_code = formField.countries;
+        params.country_code = formField.countries ? formField.countries.value : "" ;
         params.sort = (formField.sort && formField.sort.value) ? formField.sort.value : "";
         params.name = formField.name;
         params.is_co_founder = (formField.is_co_founder === true) ? 1 : 0;
         params.is_verified = formField.is_verified;
         params.pagesize = pagesize;
         params.page = page;
+
+        console.log(params)
         dispatch(searchActions.freelancers("GET", params));
     };
 

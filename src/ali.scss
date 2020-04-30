@@ -3316,3 +3316,26 @@ img{
 .dropdown-menu.show{
 	position: absolute;
 }
+
+.AboutDiv{
+	font-size: 15px;
+    letter-spacing: 1px;
+    color: #898b8c;
+}
+
+.fixedImage{
+	width: 150px;
+	height: 150px;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+}
+.msgImage{
+	width: 65px;
+	height: 65px;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+}

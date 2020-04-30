@@ -63,6 +63,8 @@ class JobListing extends Component {
     render() {
         const { process, results } = this.props;
         // console.log(results && results.items && gs.html2text(results.items[4].description).slice(-8) === "&nbsp;" && "verified", "description")
+
+
         return (
 
 
@@ -97,7 +99,10 @@ class JobListing extends Component {
                             <div className="col-lg-12">
                                 <div className="col-lg-12">
                                     <hr className="small-hr" />
-                                    <p> <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} /></p>
+                                    <p>
+                                        <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+                                        {/* <div className="media-body" dangerouslySetInnerHTML={{ __html: item && item.description }}></div> */}
+                                    </p>
                                     <div className="flexWrap">
                                         {item.skills.length &&
                                             item.skills.map((a, index) =>

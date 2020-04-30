@@ -414,8 +414,8 @@ class FavoriteJobs extends Component {
                                             {item.item.settlement === 'both' || item.item.settlement === 'exchange' &&
                                                 <div className="col-lg-3 col-sm-4">
                                                     <h5> Exchange With </h5>
-                                                    <p><NavLink to={`/user/public/job/view/${item.item.id}`}>{item.item.services[0].title}</NavLink>
-                                                        {(item.item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.item.id}`}>+{item.item.services.length - 1} more </NavLink>}</p>
+                                                    <p><NavLink to={`/user/public/job/view/${item.item.id}`}>{item.item.services ? item.item.services[0].title : null}</NavLink>
+                                                        {(item.item.services ? item.item.services.length > 1 : null) && <NavLink to={`/user/public/job/view/${item.item.id}`}>+{item.item.services ? item.item.services.length - 1 : null} more </NavLink>}</p>
                                                 </div>
                                             }
                                             <div className="col-lg-3 col-sm-4">

@@ -20,7 +20,7 @@ class UserProfile extends Component {
       current && current.group &&
       <div className="w-100">
         <div className="top-profile border-bottom d-flex align-items-center">
-          <div className="profile">
+          <div className="profile msgImage">
             <img
               src={image}
               alt="Profile"
