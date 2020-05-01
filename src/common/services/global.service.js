@@ -325,7 +325,9 @@ const truncateWord = (string, length) => {
 };
 
 const html2text = (html) => {
-    const text = (html !== null) ? html.replace(/<\/?[^>]+>/ig, " ") : '';
+    let text = (html !== null) ? html.replace(/<\/?[^>]+>/ig, " ") : '';
+    text = text.replace(/&nbsp;/g, "");
+    console.log(text)
     return text;
 };
 const capitalize = (s) => {

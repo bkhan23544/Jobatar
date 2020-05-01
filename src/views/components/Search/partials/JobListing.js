@@ -102,6 +102,7 @@ class JobListing extends Component {
                                     <p>
                                         <ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
                                         {/* <div className="media-body" dangerouslySetInnerHTML={{ __html: item && item.description }}></div> */}
+                                        {/* {console.log(gs.html2text(item && item.description))} */}
                                     </p>
                                     <div className="flexWrap">
                                         {item.skills.length &&
