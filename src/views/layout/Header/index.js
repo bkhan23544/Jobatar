@@ -124,9 +124,9 @@ class Header extends Component {
                                     <NavLink to="/job/create" className="dropdown-item"><b>Post a Job</b><br /><small>To Receive Offers</small></NavLink>
                                     <NavLink to="/service/create" className="dropdown-item"><b>Post a Service</b><br /><small>To Sell or Exchange</small></NavLink>
                                 </NavDropdown></button>
+                                
                                 {loggedIn &&
                                     <div className="searchDropDownIcon22">
-
                                         <div className="searchDropDownIcon" onClick={() => this.toggleSearch2("searchDropDown2")}>
                                             <i class="fas fa-search"></i> FIND
                                             </div>

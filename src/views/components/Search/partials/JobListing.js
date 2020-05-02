@@ -63,6 +63,7 @@ class JobListing extends Component {
     render() {
         const { process, results } = this.props;
         // console.log(results && results.items && gs.html2text(results.items[4].description).slice(-8) === "&nbsp;" && "verified", "description")
+        // console.log(result.items[2])
         return (
 
 
@@ -129,7 +130,7 @@ class JobListing extends Component {
 
                                     }
                                 </div>}
-                                {item.settlement === 'both' || item.settlement === 'exchange' &&
+                                {(item.settlement === 'both' || item.settlement === 'exchange') &&
                                     <div className="col-lg-3 col-sm-4">
                                         <h5> Exchange With </h5>
                                         <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>

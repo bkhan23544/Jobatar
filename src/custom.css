@@ -1,4 +1,9 @@
 @include fontface(Grold, GroldSlim-Bold, 700, normal, bold);
+
+.no-style:hover{
+text-decoration: none !important;
+}
+
 #button-addon2 {
     background-color: white;
     border: none;
@@ -968,6 +973,21 @@
 }
 
 
-/* .navbar-toggler{
-    float: left;
- } */
+.font-black{
+    color: #000 !important;
+}
+
+.labeled-success {
+    /* font-family: "Grold"; */
+    font-family: 'HKGrotesk';
+    background: #D3D3D3!important;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-right: 3px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    font-size: 15px !important;
+    color: #000 !important;
+text-transform: capitalize;
+}

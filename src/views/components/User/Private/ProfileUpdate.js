@@ -230,8 +230,16 @@ class ProfileUpdate extends Component {
             // <Main>
             <>
                 <DocumentTitle title={`Update Profile`} />
-
+{/* <Card>
+    <Card.Title>Instructions</Card.Title>
+    <Card.Body>Big thanks to Saalbach Hinterglemm and Red Bull for making this project happen!
+Such a crazy time filming and producing this video. Can't wait to be riding in the summer in Saalbach. Want some infos? Check them here:</Card.Body>
+</Card> */}
                 <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
+                <Card>
+    <Card.Title>Instructions</Card.Title>
+    <Card.Body>Filling out your profile information thoroughly will help us better meet your freelancing goals. Based on your specific interests, other members will be reviewing your profile before deciding whether to hire you, exchange services with you, or to consider you as a co-founder on their business ideas. It is really important to diligently highlight the breadth of your experience to make your profile standout.</Card.Body>
+</Card>
                     <div className="">
                         <form name="profile" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">
@@ -240,25 +248,7 @@ class ProfileUpdate extends Component {
 
                                 <Card.Body>
                                     <div>
-                                        {/* <Col xs="12" md="3" xl="4">
-                                        <NavBar instruction="profile" />
-                                        {removeCoFounder &&<Fragment>
-                                            {((parseInt(userProfile.is_co_founder) === 0) || (userProfile.is_co_founder === null)) &&
-                                                <div className='custom-ui bg-white border coFounder mt-3'>
-                                                <h5>Are you interested in finding to co-founder for your business
-                                                idea? </h5>
-                                                <button type="button" onClick={this.removeCoFounder} className="btn btn-info" style={{
-                                                width: '50px',
-                                                padding: '7px'
-                                            }}>No
-                                                </button>
-                                                <button type="button" className="btn btn-primary ml-2"
-                                                style={{width: '50px', padding: '7px'}} onClick={this.addCoFounder}>Yes
-                                                </button>
-                                                </div>
-                                            }
-                                        </Fragment>}
-                                    </Col> */}
+                                  
                                         <Col xs="12" md="12" xl="12">
                                             <div className="py-3 w-100 float-left">
 

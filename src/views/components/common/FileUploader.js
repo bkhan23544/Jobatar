@@ -94,7 +94,7 @@ class FileUploader extends Component {
                 <ImageCropper files={this.state.files} upload={upload} dispatch={dispatch} />
                 :
                 <Fragment>
-                    {title ? <label>{title}</label> :
+                    {title ? <label className="font-black">{title}</label> :
                         <label>Document & Other files
                     <OverlayTrigger placement={'top'} overlay={<Tooltip>Document & Other files</Tooltip>}>
                                 <span className="question text-light ml-2"><i className="far fa-question-circle"></i></span>

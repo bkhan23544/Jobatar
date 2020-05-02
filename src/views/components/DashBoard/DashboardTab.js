@@ -109,7 +109,7 @@ componentDidMount=()=>{
                         </div>
 
                         <div className="col-sm-3">
-                        <Link to={`/dashBoard/contracts/jobs/cash`}><div className="fun-fact">
+                        <Link className="no-style" to={`/dashBoard/contracts/jobs/cash`}><div className="fun-fact">
                                 <div className="media-body">
                                     <h1>{jobs.length}</h1>
                                     <span>Active Proposals</span>
@@ -118,7 +118,7 @@ componentDidMount=()=>{
                         </div>
 
                         <div className="col-sm-3">
-                        <Link to={`/dashBoard/contracts/services/cash`}><div className="fun-fact">
+                        <Link className="no-style" to={`/dashBoard/contracts/services/cash`}><div className="fun-fact">
                                 <div className="media-body">
                                     <h1>{services.length}</h1>
                                     <span>Active Offers</span>
@@ -127,7 +127,7 @@ componentDidMount=()=>{
                         </div>
 
           <div className="col-sm-3">
-          <Link to={`/user/public/ratings/${user && user.user.id}`}><div className="fun-fact">
+          <Link className="no-style" to={`/user/public/ratings/${user && user.user.id}`}><div className="fun-fact">
                                 <div className="media-body">
                                     {user && <h1>{parseInt(user.user.userProfile.avg_rating)}</h1>}
                                     <span>Average Rating</span>

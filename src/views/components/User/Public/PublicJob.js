@@ -11,7 +11,7 @@ import { SearchLoader } from '../../../../common/loaders';
 import {globalService as gs, itemService} from '../../../../common/services';
 import { alertSelectors } from '../../../../common/redux/selectors';
 import { confirmAlert } from 'react-confirm-alert';
-import ReadMoreReact from "read-more-react";
+import ReadMoreReact from 'read-more-react/dist/components/ReadMoreReact';
 
 class PublicJob extends Component {
 
@@ -102,27 +102,83 @@ class PublicJob extends Component {
                             </div>
                         </div>
                     </div>}
+                
                     {results && results.map((item) =>
-                        <div className="jobBox card mb-4" key={item.id}>
-                            <div className="card-body">
-                                <div className="caption">
-                                    <IconButton className="favorite" aria-label="Favorite" onClick={() => this.markAsFavorite(item)}>
-                                        {(item.is_favorite !== false) ? <i className="fas fa-heart text-info"></i> :
-                                            <i className="far fa-heart"></i>}
-                                    </IconButton>
-                                    <h3><NavLink className="section-titles" to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h3>
+                    
+                        <div className="job">
+
+                        <div className="row top-sec">
+        
+                            {/* <div className="col-2" style={{border:"1px solid red"}}>
+                     <a href="freelancer.html">
+                      <img className="img-responsive" src="images/team-1.jpg" alt=""/>
+                     </a>
+                    </div> */}
+                            <div className="col-12 row">
+                                <img className="img-responsive ImageA" src={item.user.avatar} alt="" />
+                                <div className="col-lg-8 col-sm-12">
+                                <h4><NavLink to={`/user/public/job/view/${item.id}`}>{item.title}</NavLink></h4>
+                                    {item.category && item.category.parent ?
+                                        <h5>{item.category && item.category.parent && item.category.parent.title} <small>- {item.category.title && item.category.title}</small></h5>
+                                        : <h5>{item.category && item.category.title && item.category.title}<small></small></h5>}
                                 </div>
-                                <div className="prices d-flex align-items-center">
-                                    {item.settlement && item.settlement === 'cash' && <div className="price">${item.budget}</div>}
-                                    <div className="fixed badge badge-secondary text-capitalize">{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement}</div>
-                                    {item.settlement && item.settlement === 'cash' &&
-                                    <div className="cash badge badge-success text-capitalize">{item.type}</div>}
-                                </div>
-                                <div className="priview d-flex flex-wrap pb-0"></div>
-                                <ReadMoreReact className="text" text={gs.html2text(item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
+        
+                              
                             </div>
                         </div>
+        
+                        <div className="row mid-sec">
+                            <div className="col-lg-12">
+                                <div className="col-lg-12">
+                                    <hr className="small-hr" />
+                                    <p><ReadMoreReact className="text" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} /></p>
+                                    <div className="flexWrap">
+                                        {item.skills.length &&
+                                            item.skills.map((a, index) =>
+                                                <span key={index} class="label label-success">{a.title}</span>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div className="row bottom-sec">
+        
+                                <div className="col-lg-12">
+                                    <hr className="small-hr" />
+                                </div>
+                            <div className="col-lg-12 d-flex">
+        
+                                <div className="col-lg-3 col-sm-4">
+                                    <h5> Type </h5>
+                                    <p>{(item.settlement === 'both') ? 'Cash & Exchange' : item.settlement.charAt(0).toUpperCase() + item.settlement.slice(1)}</p>
+                                </div>
+                                {item.budget && <div className="col-lg-3 col-sm-4">
+                                    <h5> Budget </h5>
+                                    {item.type === "hourly" ?
+                                        <p>{item.budget ? "$" + item.budget + "/hr" : ""}</p>
+                                        :
+                                        <p>{item.budget ? "$" + item.budget + " Fixed" : ""}</p>
+        
+                                    }
+                                </div>}
+                                {(item.settlement === 'both' || item.settlement === 'exchange') &&
+                                    <div className="col-lg-3 col-sm-4">
+                                        <h5> Exchange With </h5>
+                                        <p><NavLink to={`/user/public/job/view/${item.id}`}>{item.services[0].title}</NavLink>
+                                            {(item.services.length > 1) && <NavLink to={`/user/public/job/view/${item.id}`}>+{item.services.length - 1} more </NavLink>}</p>
+                                    </div>
+                                }
+        
+                            </div>
+                        </div>
+        
+                    </div>
+        
                     )}
+                    
+
                 </Fragment>}
                 <div className="w-100">
                     <Pagination className="justify-content-end"

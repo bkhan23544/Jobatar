@@ -238,7 +238,7 @@ console.log(userCoFounderExperience)
     <p className="tr-title"><i className="fa fa-cogs" aria-hidden="true"></i> Skills</p>
    </div>  
    <div className="media-body">
-   {about.userProfile && about.userProfile.skills.map((skill) => <span className="label label-success" key={skill.id}>{skill.title }</span>)}
+   {about.userProfile && about.userProfile.skills.map((skill) => <span style={{display:"inline-block"}} className="label label-success" key={skill.id}>{skill.title }</span>)}
    {about.userProfile && about.userProfile.skills.length === 0 && 'No data yet'}
 
    </div>

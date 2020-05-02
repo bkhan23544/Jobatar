@@ -15,12 +15,12 @@ const BuyerView = (props) => {
     return (
           <div className="card mb-4 buyerInfo">
             <div className="card-body text-center">
-                <h5 className="card-title text-primary text-left">{title}</h5>
+                <h2 className="font-black">{title}</h2>
                 <div className="image">
                     <NavLink to={`/user/public/about/${item.id}`}> <img className="rounded-circle" src={item.avatar} alt="Images" width="100" height="100" /></NavLink>
                 </div>
                 <div className="text">
-                    <h4><NavLink to={`/user/public/about/${item.id}`}>{item.name}</NavLink></h4>
+                    <h4 className="font-black"><NavLink to={`/user/public/about/${item.id}`}>{item.name}</NavLink></h4>
                     <div className="sold">{item.sold_count ? item.sold_count : 0} Services Sold</div>
                     <div className="rating d-flex align-items-center justify-content-center">
                         <small>({parseFloat(item.avg_rating)})</small>

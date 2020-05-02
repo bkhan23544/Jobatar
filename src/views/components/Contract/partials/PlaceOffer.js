@@ -9,6 +9,7 @@ import { globalService as gs } from '../../../../common/services';
 import { ModuleHelper } from '../../../../helpers/module.helper';
 import FileUploader from "../../common/FileUploader";
 import { fileManupulate } from "../../../../helpers/file.helper";
+import {Form} from 'react-bootstrap'
 var validSettlement = true;
 var validService = true;
 var validBudget = true;
@@ -163,7 +164,7 @@ class PlaceOffer extends Component {
                 fullWidth={true}
                 maxWidth={'sm'}
                 className="offer-dialog">
-                <DialogTitle><span className="text-primary">{modelTitle}</span>
+                <DialogTitle><h2 className="font-black">{modelTitle}</h2>
                     <Fab color="inherit" onClick={this.handleClose}>
                         <i className="fas fa-times"></i>
                     </Fab>
@@ -171,7 +172,7 @@ class PlaceOffer extends Component {
                 <DialogContent>
                     <form name="proposal" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate style={{ minHeight: "360px", overflow: 'hidden' }}>
                         {item && item.settlement === 'both' && <div className="form-group">
-                            <label>How would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
+                            <label className="font-black">How would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
                             <div className="custom-control custom-radio mb-2">
                                 <input type="radio"
                                     name="settlement"
@@ -179,8 +180,9 @@ class PlaceOffer extends Component {
                                     id="settlement-cash" value={'cash'}
                                     onChange={this.handleChange}
                                     className="custom-control-input" />
-                                <label className="custom-control-label" htmlFor="settlement-cash">Cash</label>
+                                <label className="custom-control-label font-black" htmlFor="settlement-cash">Cash</label>
                             </div>
+                           
                             <div className="custom-control custom-radio">
                                 <input type="radio"
                                     name="settlement"
@@ -188,25 +190,26 @@ class PlaceOffer extends Component {
                                     id="settlement-exchange" value={'exchange'}
                                     onChange={this.handleChange}
                                     className="custom-control-input" />
-                                <label className="custom-control-label" htmlFor="settlement-exchange">Exchange</label>
+                                <label className="custom-control-label font-black" htmlFor="settlement-exchange">Exchange</label>
                             </div>
+                         
                         </div>}
 
                         {(formField.settlement === 'cash') && <div className="form-group">
-                            <label>How much would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}? </label>
+                            <label className="font-black">How much would you like to get paid for this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}? </label>
                             <div className="input-group">
                                 <input type="number" className={'form-control ' + (submitted && isValid.comment.isInvalid ? 'is-invalid' : '')} name="budget" placeholder={`${item.budget ? item.budget : 0} ${(item.type === 'fixed') ? ' /Fixed' : ' / Hourly rate'}`} onChange={this.handleChange} />
                                 <div className="input-group-append ml-0">
-                                    <span className="input-group-text mr-1">$</span>
+                                    <span className="input-group-text mr-1 font-black">$</span>
                                 </div>
                             </div>
                             {submitted && isValid.budget.isInvalid &&
-                                <div className={'invalid-feedback ' + (submitted && isValid.budget.isInvalid ? 'd-block' : '')}> {isValid.budget.message} </div>
+                                <div className={'invalid-feedback font-black' + (submitted && isValid.budget.isInvalid ? 'd-block' : '')}> {isValid.budget.message} </div>
                             }
                         </div>}
 
                         {((servicesList) && (formField.settlement === 'exchange')) && <div className="form-group">
-                            <label>Select a service as a payment in exchange for your work</label>
+                            <label className="font-black">Select a service as a payment in exchange for your work</label>
                             <Select
                                 className={"multiple-select mb-2 " + (submitted && isValid.services.isInvalid ? 'is-invalid' : '')}
                                 classNamePrefix="multi"
@@ -221,7 +224,7 @@ class PlaceOffer extends Component {
                         </div>}
 
                         <div className="form-group">
-                            <label>{(ModuleHelper.UserService === moduleId) ? 'Message' : 'Job proposal description'} </label>
+                            <label className="font-black">{(ModuleHelper.UserService === moduleId) ? 'Message' : 'Job proposal description'} </label>
                             <textarea className={'form-control ' + (submitted && isValid.comment.isInvalid ? 'is-invalid' : '')} placeholder="Message ..." onChange={this.handleChange}
                                 name="comment" rows={3} />
                             {submitted && isValid.comment.isInvalid &&
@@ -230,7 +233,7 @@ class PlaceOffer extends Component {
                         </div>
                         {isJob && <>
                             <div className="form-group">
-                                <label>Enter any inquiries that you have regarding this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
+                                <label className="font-black">Enter any inquiries that you have regarding this {(ModuleHelper.UserService === moduleId) ? 'service' : 'job'}?</label>
                                 <textarea className={'form-control'} placeholder="Any questions ..." onChange={this.handleChange} name="any_questions" rows={3} />
                             </div>
 
@@ -245,7 +248,7 @@ class PlaceOffer extends Component {
                                 <div className="form-group" key={`answers-${question.id}`}>
                                     <div className="border-bottom">
                                         {/*<h5>Question {index + 1}</h5>*/}
-                                        <label>{question.question}</label>
+                                        <label className="font-black">{question.question}</label>
                                         <input type="text" className="form-control" name={question.id} placeholder="Answer ..." onBlur={this.handleAnswer} />
                                     </div>
                                 </div>)}

@@ -21,19 +21,19 @@ class UserProfile extends Component {
       <div className="w-100">
         <div className="top-profile border-bottom d-flex align-items-center">
           <div className="profile">
+         
             <img
               src={image}
               alt="Profile"
-              width="60"
-              height="60"
-              className="img-fluid rounded-circle"
+              className="conversation-photos"
             />
+          
           </div>
           <div className="caption col pr-0 d-flex align-items-center">
             <div className="title col pl-0">
               <h5 className="mb-0 conv-title">{current.group.title}</h5>
               <p className="user-name">{(current.item.module === mh.UserItemProposal) && this._showName()}</p>
-              <p className="mb-0">{current.group.hometown}</p>
+              {/* <p className="mb-0">{current.group.hometown}</p> */}
             </div>
             <div className="action">
               {((current.item.module === mh.UserItemProposal) && (<Link to={`/contracts/view/${current.item.item_id}`} className="btn btn-info view-det-btn">View Details</Link>))}

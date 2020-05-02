@@ -16,7 +16,7 @@ const ItemView = (props) => {
     return (
         <div className="card mb-4 serviceInfo">
             <div className="card-body">
-                <h5 className="card-title text-primary">{`${moduleTitle} Information`}</h5>
+                <h2 className="font-black text-left">{`${moduleTitle} Information`}</h2>
                 <div className="image">
                     {console.log(item)}
                     {item.cover && <Link to={(auth.id === item.user_id) ? pgLinkOwner : pgLink}>
@@ -28,7 +28,7 @@ const ItemView = (props) => {
                     <h5><Link to={(auth.id === item.user_id) ? pgLinkOwner : pgLink}>{item.title}</Link></h5>
 
                     {/* (moduleTitle === 'Job') && <div className="fixed badge badge-primary" style={{padding: '10px 25px', fontSize: '14px', marginBottom: '6px'}}>{settlement}</div> */}
-                    {(moduleTitle === 'Job') && <div className="fixed badge badge-primary text-capitalize" style={{ padding: '10px 25px', fontSize: '14px', marginBottom: '6px' }}>{itemType}</div>}
+                    {(moduleTitle === 'Job') && <div className="label labeled-success text-capitalize" >{itemType}</div>}
 
                     <ReadMoreReact className="custom-description" text={gs.html2text(item && item.description)} min={120} ideal={150} max={200} readMoreText={'Read More'} />
                     {(moduleTitle === 'Service') &&

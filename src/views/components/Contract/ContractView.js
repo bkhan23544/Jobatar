@@ -497,9 +497,9 @@ class ContractView extends Component {
                                             {/* Service cass offer start */}
                                             <div className="row">
                                                 <div className="offer col-12">
-                                                    <h5>Offer Type</h5>
+                                                    <h5 className="font-black">Offer Type</h5>
                                                     <div className="mb-1 d-flex justify-content-between">
-                                                        <div className="fixed badge badge-primary">{settlement}</div>
+                                                        <div className="label labeled-success">{settlement}</div>
                                                         <div>
                                                             {(mh.UserItem === itemModule) && <button className="btn btn-outline-primary scroll" onClick={this.viewCoverLatter}>View Job Proposal </button>}
                                                         </div>
@@ -508,13 +508,13 @@ class ContractView extends Component {
 
                                                 {proposalHistories && proposalHistories.initialize && <div className="offer col-12">
                                                     {settlement === "cash" && <div className="mb-0">
-                                                        <h5 className="mb-1">Initial Offer Price - <big className="font-weight-bold text-primary">${proposalHistories.initialize.budget}</big></h5>
+                                                        <h5 className="mb-1 font-black">Initial Offer Price - <big className="font-weight-bold font-black">${proposalHistories.initialize.budget}</big></h5>
                                                         <small style={{fontSize: '85%'}}>{proposalHistories.initialize.comment}</small>
                                                     </div>}
                                                 </div>}
                                                 {proposalHistories && proposalHistories.counter && <div className="offer col-12">
                                                     {settlement === "cash" && <div className="mb-0">
-                                                        <h5 className="mb-1">Counter Offer Price - <big className="font-weight-bold text-primary">${proposalHistories.counter.budget}</big></h5>
+                                                        <h5 className="mb-1 font-black">Counter Offer Price - <big className="font-weight-bold font-black">${proposalHistories.counter.budget}</big></h5>
                                                         <small style={{fontSize: '85%'}}>{proposalHistories.counter.comment}</small>
                                                     </div>}
                                                 </div>}
@@ -534,7 +534,7 @@ class ContractView extends Component {
                                                 </div>}
 
                                                 {(proposalHistories && proposalHistories.counter) && <div className="initial-offer">
-                                                    <h5>Request a different service to exchange</h5>
+                                                    <h5 className="font-black">Request a different service to exchange</h5>
                                                     <div className="chip-group">
                                                         {proposalServices.map(item => {
                                                             return ((item.action_by === proposalItem.user_id) && (<div className="badge badge-secondary" key={`proposal-service-${item.service_id}`}>{item.title.toUpperCase()}</div>))
@@ -545,22 +545,22 @@ class ContractView extends Component {
                                             </div>}
                                             {/* Service cass exchange end */}
 
-                                            {isDispute && <h5 className="text-center text-info font-weight-bold">Waiting for dispute to be resolved</h5>}
-                                            {isRefunded && <h5 className="text-center text-info font-weight-bold">Refund & Closed</h5>}
+                                            {isDispute && <h5 className="text-center text-info font-weight-bold font-black">Waiting for dispute to be resolved</h5>}
+                                            {isRefunded && <h5 className="text-center text-info font-weight-bold font-black">Refund & Closed</h5>}
 
                                             {(proposal.status === status_declined) && (proposalHistories && proposalHistories.declined) &&
                                                 <div className="offer-declined"><div className="action">
                                                     <span className="badge badge-danger">Declined</span>
                                                 </div>
                                                     <div className="chip-group">
-                                                        <div className="text"><b>Reason:</b> {proposalHistories.declined.comment}</div>
+                                                        <div className="text font-black"><b>Reason:</b> {proposalHistories.declined.comment}</div>
                                                     </div>
                                                 </div>}
 
 
                                             {(!isDispute || !isRefunded) && <div className="action">
 
-                                                {isVisibleConformation && !isBid && <h5>Would you like to accept the offer request?</h5>}
+                                                {isVisibleConformation && !isBid && <h5 className="font-black">Would you like to accept the offer request?</h5>}
                                                 <div className="mb-3">
                                                     {/* {isVisibleMessage && <button className="btn btn-primary" onClick={this.messageOpen}><i className="far fa-comments"></i> Message</button>} */}
 

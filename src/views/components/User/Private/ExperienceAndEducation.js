@@ -84,6 +84,10 @@ class ExperienceAndEducation extends Component {
                 <DocumentTitle title={`Experience and Education`} />
                 <div className="update-profile bg-body col-xl-9 col-sm-12 paddingTop0">
                     <div className="">
+                    <Card>
+    <Card.Title>Instructions</Card.Title>
+    <Card.Body>Provide comprehensive information about your professional experience and education to highlight your expertise.</Card.Body>
+</Card>
                         <Card className="mb-4 mb-lg-5">
                             {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
                             <Card.Body>

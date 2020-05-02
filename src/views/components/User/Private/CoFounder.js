@@ -200,6 +200,10 @@ class CoFounder extends Component {
                         </div>
                     }
                     <div className="">
+                    <Card>
+    <Card.Title>Instructions</Card.Title>
+    <Card.Body>To more effectively match you with ideal co-founders for your business ideas, please ensure that you fill out all of your information, and also include your wish list request.</Card.Body>
+</Card>
                         <form name="co-founder" onSubmit={this.handleSubmit} encType="multipart/form-data" noValidate>
                             <Card className="mb-4 mb-lg-5">
                                 {/* <p className="card-titles ml-2 mt-4"> My Profile</p> */}
