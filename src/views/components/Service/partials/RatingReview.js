@@ -240,6 +240,7 @@ class RatingReview extends Component {
                                 })}
                             </div>
                             <div className="text">{item.review}</div>
+                            {console.log(item)}
                         </div>
                     </div>
                 )}

@@ -188,7 +188,7 @@ h1, .h1 {font-size: 1.7rem;}
 .app-loading {position: fixed; left: 0px; top: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; float: left; z-index: 99;}
 .loading {position: relative; z-index: 2; background: url('/images/loader.svg'); width: 100px; height: 100px;}
 
-.bg-body {background-color: #f4f4f4;}
+.bg-body {background-color: #F2F2F2;}
 .badge:empty {display: none !important;}
 
 .form-control {height: 54px; font-size: 14px;}
@@ -1156,6 +1156,7 @@ h1.heading {font-size: calc(1.6rem + 0.9vw); font-weight: bold; margin-bottom: 4
 	background-color: #ffffff;
 	cursor: pointer;
 	.card-body {padding: 20px;
+		box-shadow: 0 1px 6px rgba(57,73,76,0.35);
 		> .caption {position: relative; margin-bottom: 15px;
 			h3 {padding-right: 20px; font-size: calc(0.7rem + 0.3vw); font-weight: 600; color: $dark;
 				a {color:#343434;

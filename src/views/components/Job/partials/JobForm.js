@@ -186,6 +186,7 @@ class JobForm extends Component {
     onEditorStateChange = (description) => {
         let formField = { ...this.state.formField };
         formField['description'] = description;
+        // console.log(description)
         this.setState({ formField });
     };
 
@@ -194,7 +195,7 @@ class JobForm extends Component {
         if (e !== null) e.preventDefault();
         const { formField } = this.state;
         const validation = this.validator().validate(formField);
-
+        console.log(this.state.description)
         this.setState({ validation, submitted: true });
         if (validation.isValid) {
             const { dispatch, upload } = this.props;
@@ -207,6 +208,7 @@ class JobForm extends Component {
 
             params.title = formField.title;
             params.description = draftToHtml(convertToRaw(formField.description.getCurrentContent()));
+            // params.description = this.sstate.description;
             params.settlement = formField.settlement ? formField.settlement : 'both';
             params.type = formField.type;
             params.budget = formField.budget;

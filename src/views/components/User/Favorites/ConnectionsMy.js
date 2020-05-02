@@ -158,6 +158,7 @@ class ConnectionsMy extends Component {
     render() {
         const { favorite, process } = this.props;
         let results = (favorite && favorite.connections) ? favorite.connections.items : null;
+        console.log(results)
         // if (results) {
         //     for (let i = 0; i < 10; i++) {
         //         results.push(results[0])

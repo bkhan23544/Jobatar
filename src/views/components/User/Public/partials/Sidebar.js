@@ -28,7 +28,7 @@ const Sidebar = (props) => {
             <div className="card-body px-0">
                 {((item && item.is_verified === 2) && (item && item.userProfilePlatforms.length > 0)) && <div className="verified text-right px-3"><i className="fas fa-shield-alt text-success"></i> Verified</div>}
                 <figure className="text-center px-3 d-flex align-items-center justify-content-center">
-                    <div className="pic rounded-circle">
+                    <div className="pic rounded-circle fixedImage">
                         <img className="img-fluid rounded-circle border" alt="profile" width="145" height="145" src={((user && user.user.id) === (auth && auth.id)) ? auth.avatar : user && user.user.avatar} />
                         {((user && user.user.id) === (auth && auth.id)) &&
                             <label className="btn btn-upload">

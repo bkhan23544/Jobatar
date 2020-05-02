@@ -817,10 +817,11 @@ text-decoration: none !important;
     padding: 10px 0 0px 0;
     background-color: white;
     margin-top: 20px;
+    box-shadow: 0 1px 6px rgba(57,73,76,0.35);
 }
 
 .job:hover{
-    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    /* box-shadow: 0 5px 5px rgba(0,0,0,0.1); */
     transition: 0.5s;
 }
 
