@@ -62,14 +62,7 @@ class JobListing extends Component {
 
     render() {
         const { process, results } = this.props;
-        // console.log(results && results.items && gs.html2text(results.items[4].description).slice(-8) === "&nbsp;" && "verified", "description")
-<<<<<<< HEAD
-        // console.log(result.items[2])
-=======
-
-
->>>>>>> 0f2850c1664aedde0e1017e3366cc08ba82c2a6e
-        return (
+return (
 
 
             process.loading ? <SearchLoader primaryBg={"#ddd"} secondaryBg={"#999"} listCount={4} /> :

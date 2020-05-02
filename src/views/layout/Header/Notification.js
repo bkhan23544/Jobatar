@@ -102,7 +102,7 @@ class Notification extends Component {
                         <div>
                             <span className="font-18"><strong>{count} New</strong> Notifications</span>
                         </div>
-                        <NavLink className="text-muted font-13" to="/setting/notifications">view all</NavLink>
+                        <NavLink className="text-muted font-13" to="/dashBoard/setting/notifications">view all</NavLink>
                     </div>
                     <div className="w-100 timeline">
                         {(this.state.items.length > 0) &&
