@@ -713,6 +713,7 @@ class JobView extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div style={{paddingRight: 15, paddingLeft: 15, width: "100%"}}>
                         <div className="col-lg-12 col-md-12 col-sm-6 col-xs-12 stats">
                             {item && item.userItemProposals && <div className="card-body px-0 pt-0">
                                 <h5 className="card-title" style={{ fontSize: '18px' }}>Received Proposals ({item && item.userItemProposals.length})</h5>
@@ -720,6 +721,7 @@ class JobView extends Component {
                                 {<ProposalReceived results={item.userItemProposals} module={ModuleHelper.UserItem} />}
                             </div>}
 
+                        </div>
                         </div>
                     </div>
                 </div>
