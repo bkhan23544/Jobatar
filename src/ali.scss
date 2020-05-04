@@ -59,6 +59,7 @@ body{
 		// background-color: #fff;
 		margin-bottom: 30px;
 		.categoryDiv{
+			box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35) !important;
 			.MuiPaper-root{
 				box-shadow: none;
 				.MuiButtonBase-root{
@@ -95,6 +96,7 @@ body{
 		}
 
 		.countryDiv{
+			box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35) !important;
 			.MuiPaper-root{
 				box-shadow: none;
 				.MuiButtonBase-root{
@@ -134,6 +136,7 @@ body{
 		}
 
 		.paymentDiv{
+			box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35) !important;
 			.MuiPaper-root{
 				box-shadow: none;
 				.top{
@@ -173,6 +176,7 @@ body{
 		}
 
 		.budgetDiv{
+			box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35) !important;
 			.MuiPaper-root{
 				box-shadow: none;
 				.top{
@@ -264,7 +268,8 @@ body{
 	transition: 0.5s;
 	box-shadow: 0 1px 6px rgba(57,73,76,0.35);
 	&:hover{
-		border-bottom: 3px solid #345581;
+		// border-bottom: 3px solid #345581;
+		cursor: pointer;
 	}
 	.img-circle {
 		border-radius: 50%;
@@ -1064,7 +1069,7 @@ ul li {
 		margin-bottom: 30px;
 		position: relative;
 		overflow: hidden;
-		border-bottom: 3px solid #345581;
+		// border-bottom: 3px solid #345581;
 		.buttton{
 			margin-top: 10px;
 			@media only screen and (max-width: 1024px){
@@ -1318,7 +1323,7 @@ ul li {
 		margin-bottom: 30px;
 		position: relative;
 		overflow: hidden;
-		border-bottom: 3px solid #345581;
+		// border-bottom: 3px solid #345581;
 		.row{
 			padding: 0px 5px!important;
 			margin: 0px !important;
@@ -1509,7 +1514,7 @@ ul li {
     position: relative;
     border-radius: 3px;
     background: #ffffff;
-    border-top: 3px solid #345581;
+    // border-top: 3px solid #345581;
     margin-bottom: 20px;
     width: 100%;
 	box-shadow: 0 1px 6px rgba(57,73,76,0.35) !important;
@@ -1693,7 +1698,7 @@ ul li {
 		}
 	}
 	.card-box{
-		border-bottom: 3px solid #345581;
+		// border-bottom: 3px solid #345581;
 		.img-circle{
 			border-color: #345581 !important;
 			border-width: 3px !important;
@@ -1783,7 +1788,7 @@ ul li {
 					margin-bottom: 30px;
 					position: relative;
 					overflow: hidden;
-					border-bottom: 3px solid #345581;
+					// border-bottom: 3px solid #345581;
 				}
 			}
 			.description{
@@ -2919,7 +2924,7 @@ ul li {
 		position: relative;
 		border-radius: 3px;
 		background: #ffffff;
-		border-top: 3px solid #345581;
+		// border-top: 3px solid #345581;
 		margin-bottom: 20px;
 		width: 100%;
 		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
@@ -2958,6 +2963,7 @@ ul li {
 .headerInput{
 	margin: 0 !important;
 	width: 100% !important;
+
 	.input-group-prepend{
 		margin: 0 !important;
 		button{
@@ -3358,7 +3364,7 @@ img{
 		}
 	}
 }
-.card-body,.svcsLBox,.button,.card-box-profile-details{
+.card-body,.svcsLBox,.button,.card-box-profile-details,.headerInput,.card-box-profile,.headerInput2{
 	box-shadow: 0 1px 6px rgba(57,73,76,0.35) !important;
 }
 .card,.stats{
