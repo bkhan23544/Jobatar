@@ -15,10 +15,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const ratingList = [
-    { id: -1, value: 'Any' },
-    { id: 5, value: '5 Stars' },
-    { id: 4, value: '4+ Stars' },
-    { id: 3, value: '3+ Stars' }
+    { id: "-1", value: 'Any' },
+    { id: "5", value: '5 Stars' },
+    { id: "4", value: '4+ Stars' },
+    { id: "3", value: '3+ Stars' }
 ];
 
 class FreelancerSearch extends PureComponent {
@@ -36,7 +36,7 @@ class FreelancerSearch extends PureComponent {
                 sort: null,
             },
             page: 1,
-            pagesize: 12,
+            pagesize: 15,
         };
         this.initializeState = this.state;
         this.props.history.listen((location, action) => {
@@ -397,7 +397,7 @@ class FreelancerSearch extends PureComponent {
                             <FreelancerListing results={results} is_co_founder={formField.is_co_founder} />
                             <div className="paginationCommon blogPagination text-center">
                                 <Pagination className=""
-                                    pageSize={12}
+                                    pageSize={15}
                                     totalPages={3}
                                     totalCount={(results && results.pagination && results.pagination.totalCount) ? results.pagination.totalCount : 10}
                                     onChangePage={this.onChangePage} />

@@ -31,7 +31,7 @@ class JobSearch extends Component {
                 proposal_count: "0",
                 sort: null,
             },
-            pagesize: 5,
+            pagesize: 10,
             page: 1,
         };
         this.initializeState = this.state;
